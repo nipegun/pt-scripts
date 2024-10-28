@@ -135,6 +135,7 @@
                   VBoxManage modifyvm "openwrtlab" --audio none
                 # Red
                   VBoxManage modifyvm "openwrtlab" --nictype1 virtio
+                    VBoxManage modifyvm "openwrtlab" --nic1 "NAT"
                   VBoxManage modifyvm "openwrtlab" --nictype2 virtio
                     VBoxManage modifyvm "openwrtlab" --nic2 intnet --intnet2 "redintlan"
                   VBoxManage modifyvm "openwrtlab" --nictype3 virtio
@@ -144,8 +145,10 @@
                     VBoxManage storagectl "openwrtlab" --name "SATA Controller" --add sata --controller IntelAhci --portcount 1
                     VBoxManage storageattach "openwrtlab" --storagectl "SATA Controller" --port 0 --device 0 --type dvddrive --medium emptydrive
                   # Disco duro
-                    VBoxManage createhd --filename "/ruta_a_tu_dispositivo/NombreVM.vdi" --size 20000
-                    VBoxManage storageattach "NombreVM" --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium "/ruta_a_tu_dispositivo/NombreVM.vdi"
+                    VBoxManage storagectl "openwrtlab" --name "VirtIO" --add scsi
+                    cd "~/VirtualBox VMs/openwrtlab/"
+                    wget http://hacks4geeks.com/_/decargas/packs/openwrtlab.vmdk
+                    VBoxManage storageattach "openwrtlab" --storagectl "VirtIO" --port 0 --device 0 --type hdd --medium "~/VirtualBox VMs/openwrtlab/"
 
 
 
