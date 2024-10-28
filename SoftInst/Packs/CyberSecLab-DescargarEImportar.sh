@@ -9,16 +9,10 @@
 # Script de NiPeGun para instalar y el pack de laboratorio de CyberSeguridad
 #
 # Ejecución remota:
-#   curl -sL x | bash
-#
-# Ejecución remota sin caché:
-#   curl -sL -H 'Cache-Control: no-cache, no-store' x | bash
-#
-# Ejecución remota con parámetros:
-#   curl -sL x | bash -s Parámetro1 Parámetro2
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/Packs/CyberSecLab-DescargarEImportar.sh | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL x | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/Packs/CyberSecLab-DescargarEImportar.sh | nano -
 # ----------
 
 # Definir constantes de color
@@ -37,15 +31,6 @@
     echo -e "${cColorRojo}  Este script está preparado para ejecutarse con privilegios de administrador (como root o con sudo).${cFinColor}"
     echo ""
     exit
-  fi
-
-# Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
-  if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
-    echo ""
-    echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
-    echo ""
-    apt-get -y update && apt-get -y install curl
-    echo ""
   fi
 
 # Determinar la versión de Debian
@@ -86,9 +71,106 @@
     echo -e "${cColorAzulClaro}  Iniciando el script de instalación de xxxxxxxxx para Debian 12 (Bookworm)...${cFinColor}"
     echo ""
 
-    echo ""
-    echo -e "${cColorRojo}    Comandos para Debian 12 todavía no preparados. Prueba ejecutarlo en otra versión de Debian.${cFinColor}"
-    echo ""
+    # Definir fecha de ejecución del script
+      cFechaDeEjec=$(date +a%Ym%md%d@%T)
+
+    # Comprobar si el paquete dialog está instalado. Si no lo está, instalarlo.
+      if [[ $(dpkg-query -s dialog 2>/dev/null | grep installed) == "" ]]; then
+        echo ""
+        echo -e "${cColorRojo}  El paquete dialog no está instalado. Iniciando su instalación...${cFinColor}"
+        echo ""
+        apt-get -y update && apt-get -y install dialog
+        echo ""
+      fi
+
+    # Crear el menú
+      #menu=(dialog --timeout 5 --checklist "Marca las opciones que quieras instalar:" 22 96 16)
+      menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 96 16)
+        opciones=(
+          1 "Instalar VirtualBox" off
+          2 "Instalar laboratorio completo en VirtualBox" on
+        )
+      choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
+      #clear
+
+      for choice in $choices
+        do
+          case $choice in
+
+            1)
+
+              echo ""
+              echo "  Lanzando el script de instalación de VirtualBox..."
+              echo ""
+              # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
+                if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
+                  echo ""
+                  echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
+                  echo ""
+                  apt-get -y update && apt-get -y install curl
+                  echo ""
+                fi
+              curl -sL https://raw.githubusercontent.com/nipegun/d-scripts/refs/heads/master/SoftInst/ParaGUI/VirtualBox-Instalar.sh | bash
+
+            ;;
+
+            2)
+
+              echo ""
+              echo "  Instalando laboratorio completo de ciberseguridad en VirtualBox..."
+              echo ""
+
+              # Crear máquina virtual de OpenWrt
+                echo ""
+                echo "    Creando máquina virtual de OpenWrt..."
+                echo ""
+                VBoxManage createvm --name "openwrtlab" --ostype "Linux_64" --register
+                # Procesador
+                  VBoxManage modifyvm "openwrtlab" --cpus 2
+                # RAM
+                  VBoxManage modifyvm "openwrtlab" --memory 2048
+                # Gráfica
+                  VBoxManage modifyvm "openwrtlab" --graphicscontroller vmsvga --vram 16 
+                # Audio
+                  VBoxManage modifyvm "openwrtlab" --audio none
+                # Red
+                  VBoxManage modifyvm "openwrtlab" --nictype1 virtio
+                  VBoxManage modifyvm "openwrtlab" --nictype2 virtio
+                    VBoxManage modifyvm "openwrtlab" --nic2 intnet --intnet2 "redintlan"
+                  VBoxManage modifyvm "openwrtlab" --nictype3 virtio
+                    VBoxManage modifyvm "openwrtlab" --nic3 intnet --intnet3 "redintlab"
+                # Almacenamiento
+                  # CD
+                    VBoxManage storagectl "openwrtlab" --name "SATA Controller" --add sata --controller IntelAhci --portcount 1
+                    VBoxManage storageattach "openwrtlab" --storagectl "SATA Controller" --port 0 --device 0 --type dvddrive --medium emptydrive
+                  # Disco duro
+                    VBoxManage createhd --filename "/ruta_a_tu_dispositivo/NombreVM.vdi" --size 20000
+                    VBoxManage storageattach "NombreVM" --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium "/ruta_a_tu_dispositivo/NombreVM.vdi"
+
+
+
+              # Crear máquina virtual de Kali
+                echo ""
+                echo "    Creando máquina virtual de Kali..."
+                echo ""
+
+              # Crear máquina virtual de Sift
+                echo ""
+                echo "    Creando máquina virtual de Sift..."
+                echo ""
+
+              # Crear máquina virtual de Pruebas
+                echo ""
+                echo "    Creando máquina virtual de Pruebas..."
+                echo ""
+
+
+
+            ;;
+
+        esac
+
+    done
 
   elif [ $cVerSO == "11" ]; then
 
