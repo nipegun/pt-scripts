@@ -148,7 +148,7 @@
                     VBoxManage storagectl "openwrtlab" --name "VirtIO" --add scsi
                     cd "~/VirtualBox VMs/openwrtlab/"
                     wget http://hacks4geeks.com/_/decargas/packs/openwrtlab.vmdk
-                    VBoxManage storageattach "openwrtlab" --storagectl "VirtIO" --port 0 --device 0 --type hdd --medium "~/VirtualBox VMs/openwrtlab/"
+                    VBoxManage storageattach "openwrtlab" --storagectl "VirtIO" --port 0 --device 0 --type hdd --medium ~/"VirtualBox VMs/openwrtlab/openwrtlab.vmdk"
 
 
 
