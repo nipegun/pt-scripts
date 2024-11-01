@@ -125,6 +125,7 @@
                 echo "    Creando máquina virtual de OpenWrt..."
                 echo ""
                 VBoxManage createvm --name "openwrtlab" --ostype "Linux_64" --register
+                VBoxManage modifyvm "openwrtlab" --firmware efi
                 # Procesador
                   VBoxManage modifyvm "openwrtlab" --cpus 2
                 # RAM
@@ -145,17 +146,35 @@
                     VBoxManage storagectl "openwrtlab" --name "SATA Controller" --add sata --controller IntelAhci --portcount 1
                     VBoxManage storageattach "openwrtlab" --storagectl "SATA Controller" --port 0 --device 0 --type dvddrive --medium emptydrive
                   # Disco duro
-                    VBoxManage storagectl "openwrtlab" --name "VirtIO" --add scsi
+                    VBoxManage.exe storagectl "openwrtlab" --name "VirtIO" --add "VirtIO" --bootable on --portcount 1
                     cd "~/VirtualBox VMs/openwrtlab/"
-                    wget http://hacks4geeks.com/_/decargas/packs/openwrtlab.vmdk
+                    wget http://hacks4geeks.com/_/descargas/MVs/Discos/Packs/CyberSecLab/openwrtlab.vmdk
                     VBoxManage storageattach "openwrtlab" --storagectl "VirtIO" --port 0 --device 0 --type hdd --medium ~/"VirtualBox VMs/openwrtlab/openwrtlab.vmdk"
-
-
 
               # Crear máquina virtual de Kali
                 echo ""
                 echo "    Creando máquina virtual de Kali..."
                 echo ""
+                VBoxManage createvm --name "kali" --ostype "Debian_64" --register
+                VBoxManage modifyvm "kali" --firmware efi
+                # Procesador
+                  VBoxManage modifyvm "kali" --cpus 4
+                # RAM
+                  VBoxManage modifyvm "kali" --memory 4096
+                # Gráfica
+                  VBoxManage modifyvm "kali" --graphicscontroller vmsvga --vram 128 --accelerate3d on
+                # Red
+                  VBoxManage modifyvm "kali" --nictype1 virtio
+                    VBoxManage modifyvm "kali" --nic1 intnet --intnet1 "redintlan"
+                # Almacenamiento
+                  # CD
+                    VBoxManage storagectl "kali" --name "SATA Controller" --add sata --controller IntelAhci --portcount 1
+                    VBoxManage storageattach "kali" --storagectl "SATA Controller" --port 0 --device 0 --type dvddrive --medium emptydrive
+                  # Disco duro
+                    VBoxManage storagectl "kali" --name "VirtIO" --add "VirtIO" --bootable on --portcount 1
+                    cd "~/VirtualBox VMs/kali/"
+                    wget http://hacks4geeks.com/_/descargas/MVs/Discos/Packs/CyberSecLab/kali.vmdk
+                    VBoxManage storageattach "kali" --storagectl "VirtIO" --port 0 --device 0 --type hdd --medium ~/"VirtualBox VMs/kali/kali.vmdk"
 
               # Crear máquina virtual de Sift
                 echo ""
