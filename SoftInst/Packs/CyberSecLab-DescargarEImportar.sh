@@ -188,12 +188,12 @@
 
               # Agrupar las máquinas virtuales
                 echo ""
-                echo "    Agrupando las máquinias virtuales"
+                echo "    Agrupando las máquinas virtuales"
                 echo ""
-                VBoxManage modifyvm "openwrt" --groups "/CyberSecLab"
-                VBoxManage modifyvm "kali"    --groups "/CyberSecLab"
-                VBoxManage modifyvm "sift"    --groups "/CyberSecLab"
-                VBoxManage modifyvm "pruebas" --groups "/CyberSecLab"
+                VBoxManage modifyvm "openwrtlab" --groups "/CyberSecLab"
+                VBoxManage modifyvm "kali"       --groups "/CyberSecLab"
+                VBoxManage modifyvm "sift"       --groups "/CyberSecLab"
+                VBoxManage modifyvm "pruebas"    --groups "/CyberSecLab"
 
             ;;
 
