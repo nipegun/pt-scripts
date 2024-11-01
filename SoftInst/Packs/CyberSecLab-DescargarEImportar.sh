@@ -6,7 +6,7 @@
 # No tienes que aceptar ningún tipo de términos de uso o licencia para utilizarlo o modificarlo porque va sin CopyLeft.
 
 # ----------
-# Script de NiPeGun para instalar y el pack de laboratorio de CyberSeguridad
+# Script de NiPeGun para descargar e importar el pack CyberSecLab para VirtualBox en Debian
 #
 # Ejecución remota:
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/Packs/CyberSecLab-DescargarEImportar.sh | bash
