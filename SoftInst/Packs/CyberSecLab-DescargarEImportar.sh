@@ -180,11 +180,51 @@
                 echo ""
                 echo "    Creando máquina virtual de Sift..."
                 echo ""
+                VBoxManage createvm --name "sift" --ostype "Ubuntu_64" --register
+                VBoxManage modifyvm "sift" --firmware efi
+                # Procesador
+                  VBoxManage modifyvm "sift" --cpus 4
+                # RAM
+                  VBoxManage modifyvm "sift" --memory 4096
+                # Gráfica
+                  VBoxManage modifyvm "sift" --graphicscontroller vmsvga --vram 128 --accelerate3d on
+                # Red
+                  VBoxManage modifyvm "sift" --nictype1 virtio
+                    VBoxManage modifyvm "sift" --nic1 intnet --intnet1 "redintlan"
+                # Almacenamiento
+                  # CD
+                    VBoxManage storagectl "sift" --name "SATA Controller" --add sata --controller IntelAhci --portcount 1
+                    VBoxManage storageattach "sift" --storagectl "SATA Controller" --port 0 --device 0 --type dvddrive --medium emptydrive
+                  # Disco duro
+                    VBoxManage storagectl "sift" --name "VirtIO" --add "VirtIO" --bootable on --portcount 1
+                    cd "~/VirtualBox VMs/sift/"
+                    wget http://hacks4geeks.com/_/descargas/MVs/Discos/Packs/CyberSecLab/sift.vmdk
+                    VBoxManage storageattach "sift" --storagectl "VirtIO" --port 0 --device 0 --type hdd --medium ~/"VirtualBox VMs/sift/sift.vmdk"
 
               # Crear máquina virtual de Pruebas
                 echo ""
                 echo "    Creando máquina virtual de Pruebas..."
                 echo ""
+                VBoxManage createvm --name "pruebas" --ostype "Other_64" --register
+                VBoxManage modifyvm "pruebas" --firmware efi
+                # Procesador
+                  VBoxManage modifyvm "pruebas" --cpus 4
+                # RAM
+                  VBoxManage modifyvm "pruebas" --memory 4096
+                # Gráfica
+                  VBoxManage modifyvm "pruebas" --graphicscontroller vmsvga --vram 128 --accelerate3d on
+                # Red
+                  VBoxManage modifyvm "pruebas" --nictype1 virtio
+                    VBoxManage modifyvm "pruebas" --nic1 intnet --intnet1 "redintlab"
+                # Almacenamiento
+                  # CD
+                    VBoxManage storagectl "pruebas" --name "SATA Controller" --add sata --controller IntelAhci --portcount 1
+                    VBoxManage storageattach "pruebas" --storagectl "SATA Controller" --port 0 --device 0 --type dvddrive --medium emptydrive
+                  # Disco duro
+                    VBoxManage storagectl "pruebas" --name "VirtIO" --add "VirtIO" --bootable on --portcount 1
+                    cd "~/VirtualBox VMs/pruebas/"
+                    #wget http://hacks4geeks.com/_/descargas/MVs/Discos/Packs/CyberSecLab/pruebas.vmdk
+                    #VBoxManage storageattach "pruebas" --storagectl "VirtIO" --port 0 --device 0 --type hdd --medium ~/"VirtualBox VMs/pruebas/pruebas.vmdk"
 
               # Agrupar las máquinas virtuales
                 echo ""
