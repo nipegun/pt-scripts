@@ -226,6 +226,25 @@
                     #wget http://hacks4geeks.com/_/descargas/MVs/Discos/Packs/CyberSecLab/pruebas.vmdk
                     #VBoxManage storageattach "pruebas" --storagectl "VirtIO" --port 0 --device 0 --type hdd --medium ~/"VirtualBox VMs/pruebas/pruebas.vmdk"
 
+              # Discos duros
+                # OpenWrt
+                  VBoxManage.exe storagectl "openwrtlab" --name "VirtIO" --add "VirtIO" --bootable on --portcount 1
+                  cd "~/VirtualBox VMs/openwrtlab/"
+                  wget http://hacks4geeks.com/_/descargas/MVs/Discos/Packs/CyberSecLab/openwrtlab.vmdk
+                  VBoxManage storageattach "openwrtlab" --storagectl "VirtIO" --port 0 --device 0 --type hdd --medium ~/"VirtualBox VMs/openwrtlab/openwrtlab.vmdk"
+
+                # Kali
+                  VBoxManage.exe storagectl "openwrtlab" --name "VirtIO" --add "VirtIO" --bootable on --portcount 1
+                  cd "~/VirtualBox VMs/openwrtlab/"
+                  wget http://hacks4geeks.com/_/descargas/MVs/Discos/Packs/CyberSecLab/openwrtlab.vmdk
+                  VBoxManage storageattach "openwrtlab" --storagectl "VirtIO" --port 0 --device 0 --type hdd --medium ~/"VirtualBox VMs/openwrtlab/openwrtlab.vmdk"
+                
+                # Sift
+                  VBoxManage.exe storagectl "openwrtlab" --name "VirtIO" --add "VirtIO" --bootable on --portcount 1
+                  cd "~/VirtualBox VMs/openwrtlab/"
+                  wget http://hacks4geeks.com/_/descargas/MVs/Discos/Packs/CyberSecLab/openwrtlab.vmdk
+                  VBoxManage storageattach "openwrtlab" --storagectl "VirtIO" --port 0 --device 0 --type hdd --medium ~/"VirtualBox VMs/openwrtlab/openwrtlab.vmdk"
+
               # Agrupar las máquinas virtuales
                 echo ""
                 echo "    Agrupando las máquinas virtuales"
