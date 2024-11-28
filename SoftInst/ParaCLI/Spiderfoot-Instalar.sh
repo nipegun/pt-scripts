@@ -71,22 +71,9 @@
     echo -e "${cColorAzulClaro}  Iniciando el script de instalación de Spiderfoot para Debian 12 (Bookworm)...${cFinColor}"
     echo ""
 
-    # Crear el virtual environment
-      mkdir -p ~/PythonVirtualEnvironments/
-      cd ~/PythonVirtualEnvironments/
-      # Comprobar si el paquete python3-venv está instalado. Si no lo está, instalarlo.
-        if [[ $(dpkg-query -s python3-venv 2>/dev/null | grep installed) == "" ]]; then
-          echo ""
-          echo -e "${cColorRojo}  El paquete python3-venv no está instalado. Iniciando su instalación...${cFinColor}"
-          echo ""
-          sudo apt-get -y update && sudo apt-get -y install python3-venv
-          echo ""
-        fi
-      python3 -m venv Spiderfoot
-      source ~/PythonVirtualEnvironments/Spiderfoot/bin/activate
-
     # Clonar el repo
-      cd ~/PythonVirtualEnvironments/Spiderfoot/
+      mkdir -p ~/repos/python/
+      cd ~/repos/python/
       # Comprobar si el paquete git está instalado. Si no lo está, instalarlo.
         if [[ $(dpkg-query -s git 2>/dev/null | grep installed) == "" ]]; then
           echo ""
@@ -96,8 +83,20 @@
           echo ""
         fi
       git clone https://github.com/smicallef/spiderfoot.git
-      mv spiderfoot code
-      cd code
+
+    # Crear el virtual environment
+      cd ~/repos/python/spiderfoot/
+      # Comprobar si el paquete python3-venv está instalado. Si no lo está, instalarlo.
+        if [[ $(dpkg-query -s python3-venv 2>/dev/null | grep installed) == "" ]]; then
+          echo ""
+          echo -e "${cColorRojo}  El paquete python3-venv no está instalado. Iniciando su instalación...${cFinColor}"
+          echo ""
+          sudo apt-get -y update && sudo apt-get -y install python3-venv
+          echo ""
+        fi
+      python3 -m venv venv
+      source ~/repos/python/spiderfoot/venv/bin/activate
+
       # Comprobar si el paquete python3-pip está instalado. Si no lo está, instalarlo.
         if [[ $(dpkg-query -s python3-pip 2>/dev/null | grep installed) == "" ]]; then
           echo ""
@@ -113,11 +112,11 @@
 
     # Crear el script de ejecución
       mkdir -p ~/scripts/
-      echo '#!/bin/bash'                                                                  > ~/scripts/spiderfoot-iniciar.sh
-      echo "source ~/PythonVirtualEnvironments/Spiderfoot/bin/activate"                  >> ~/scripts/spiderfoot-iniciar.sh
-      echo "python3 ~/PythonVirtualEnvironments/Spiderfoot/code/sf.py -l 127.0.0.1:5001" >> ~/scripts/spiderfoot-iniciar.sh
-      echo "deactivate"                                                                  >> ~/scripts/spiderfoot-iniciar.sh
-      chmod +x                                                                              ~/scripts/spiderfoot-iniciar.sh
+      echo '#!/bin/bash'                                                > ~/scripts/spiderfoot-iniciar.sh
+      echo "source ~/repos/python/spiderfoot/venv/bin/activate"        >> ~/scripts/spiderfoot-iniciar.sh
+      echo "python3 ~/repos/python/spiderfoot/sf.py -l 127.0.0.1:5001" >> ~/scripts/spiderfoot-iniciar.sh
+      echo "deactivate"                                                >> ~/scripts/spiderfoot-iniciar.sh
+      chmod +x                                                            ~/scripts/spiderfoot-iniciar.sh
 
     # Notificar fin de ejecución del script
       echo ""
