@@ -86,6 +86,8 @@
           echo ""
         fi
       python3 -m venv venv
+      # Crear el mensaje para mostrar cuando se entra al entorno virtual
+        echo 'echo -e "\n  Activando el entorno virtual de Spiderfoot... \n"' >> ~/repos/python/spiderfoot/venv/bin/activate
       source ~/repos/python/spiderfoot/venv/bin/activate
 
       # Comprobar si el paquete python3-pip está instalado. Si no lo está, instalarlo.
