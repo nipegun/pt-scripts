@@ -142,6 +142,9 @@ vIP="$1"
           6)
 
             echo ""
+            echo -e "${cColorAzulClaro}  Intentando el ataque Odio a Iñigo 24...${cFinColor}"
+            echo ""
+            echo ""
             echo -e "${cColorRojo}  Has suspendido bastionado, por listo!  Sin embargo...${cFinColor}"
             echo ""
             echo -e "${cColorRojo}  Si borras el idioma fránces del sistema, podrás sacar, al menos, un 5.${cFinColor}"
