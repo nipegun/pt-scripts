@@ -52,7 +52,54 @@
     echo ""
   fi
 
-# Escaneo de archivos y directorios
+# Instalar diccionarios
+  apt-get -y install wbulgarian
+  apt-get -y install wesperanto
+  apt-get -y install wirish
+  apt-get -y install wmanx
+  apt-get -y install wukrainian
+  apt-get -y install wgerman-medical
+  apt-get -y install wamerican-huge
+  apt-get -y install wamerican-insane
+  apt-get -y install wamerican-large
+  apt-get -y install wamerican-small
+  apt-get -y install wbritish-huge
+  apt-get -y install wbritish-insane
+  apt-get -y install wbritish-large
+  apt-get -y install wbritish-small
+  apt-get -y install wcanadian
+  apt-get -y install wcanadian-huge
+  apt-get -y install wcanadian-insane
+  apt-get -y install wcanadian-large
+  apt-get -y install wcanadian-small
+  apt-get -y install wcatalan
+  apt-get -y install wswedish
+  apt-get -y install wfrench
+  apt-get -y install witalian
+  apt-get -y install wspanish
+  apt-get -y install wordlist
+  apt-get -y install scowl
+
+# Escaneo de archivos y directorios basado en los diccionarios instalados
+  
+  dirb http://"$vIP":"$vPuerto" /usr/share/dict/american-english-insane -w
+  dirb http://"$vIP":"$vPuerto" /usr/share/dict/british-english-insane  -w
+  dirb http://"$vIP":"$vPuerto" /usr/share/dict/canadian-english-insane -w
+  dirb http://"$vIP":"$vPuerto" /usr/share/dict/bulgarian               -w
+  dirb http://"$vIP":"$vPuerto" /usr/share/dict/catalan                 -w
+  dirb http://"$vIP":"$vPuerto" /usr/share/dict/esperanto               -w
+  dirb http://"$vIP":"$vPuerto" /usr/share/dict/french                  -w
+  dirb http://"$vIP":"$vPuerto" /usr/share/dict/german-medical          -w
+  dirb http://"$vIP":"$vPuerto" /usr/share/dict/irish                   -w
+  dirb http://"$vIP":"$vPuerto" /usr/share/dict/italian                 -w
+  dirb http://"$vIP":"$vPuerto" /usr/share/dict/manx                    -w
+  dirb http://"$vIP":"$vPuerto" /usr/share/dict/spanish                 -w
+  dirb http://"$vIP":"$vPuerto" /usr/share/dict/swedish                 -w
+  dirb http://"$vIP":"$vPuerto" /usr/share/dict/ukranian                -w
+  find /usr/share/dict/scowl/ -type f -exec dirb http://"$vIP":"$vPuerto" {} -w \;
+
+
+
 
 
 # Alerta: Web.Server.Password.File.Access
