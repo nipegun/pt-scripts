@@ -69,7 +69,7 @@ vIP="$1"
       apt-get -y install dialog
       echo ""
     fi
-  menu=(dialog --checklist "Que tipo de ataque deseas ejecutar:" 22 70 16)
+  menu=(dialog --checklist "Que tipo de ataque deseas ejecutar (marca con espacio y presiona Enter):" 22 80 16)
     opciones=(
       1 "Escalar hasta el archivo /etc/passwd del servidor"          off
       2 "Acceder a las credenciales de autenticación de una carpeta" off
@@ -79,6 +79,7 @@ vIP="$1"
       6 "Odio a Iñigo 24"                                            off
     )
   choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
+  clear
     for choice in $choices
       do
         case $choice in
