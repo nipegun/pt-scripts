@@ -96,7 +96,7 @@
   dirb http://"$vIP":"$vPuerto" /usr/share/dict/spanish                 -w
   dirb http://"$vIP":"$vPuerto" /usr/share/dict/swedish                 -w
   dirb http://"$vIP":"$vPuerto" /usr/share/dict/ukranian                -w
-  find /usr/share/dict/scowl/ -type f -exec dirb http://"$vIP":"$vPuerto" {} -w \;
+  find /usr/share/dict/scowl/ -type f -exec dirb http://"$vIP":"$vPuerto" {} -w \; | grep "CODE:200"
 
 
 
