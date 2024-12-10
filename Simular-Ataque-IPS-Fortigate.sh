@@ -6,22 +6,13 @@
 # No tienes que aceptar ningún tipo de términos de uso o licencia para utilizarlo o modificarlo porque va sin CopyLeft.
 
 # ----------
-# Script de NiPeGun para instalar realizar ataques a una web
+# Script de NiPeGun para instalar realizar ataques IPS a un FortiGate
 #
 # Ejecución remota con sudo:
-#   curl -sL x | sudo bash
-#
-# Ejecución remota como root:
-#   curl -sL x | bash
-#
-# Ejecución remota sin caché:
-#   curl -sL -H 'Cache-Control: no-cache, no-store' x | bash
-#
-# Ejecución remota con parámetros:
-#   curl -sL x | bash -s Parámetro1 Parámetro2
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Simular-Ataque-IPS-Fortigate.sh | sudo bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL x | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Simular-Ataque-IPS-Fortigate.sh | nano -
 # ----------
 
 # Definir constantes de color
@@ -42,13 +33,13 @@
     exit
   fi
 
-# Comprobar si el paquete dirb está instalado. Si no lo está, instalarlo.
-  if [[ $(dpkg-query -s dirb 2>/dev/null | grep installed) == "" ]]; then
+# Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
+  if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
     echo ""
-    echo -e "${cColorRojo}  El paquete dirb no está instalado. Iniciando su instalación...${cFinColor}"
+    echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
     echo ""
     apt-get -y update
-    apt-get -y install dirb
+    apt-get -y install curl
     echo ""
   fi
 
