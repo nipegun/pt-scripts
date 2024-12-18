@@ -9,7 +9,7 @@
 # Script de NiPeGun para instalar realizar ataques PING a una IP determinada
 #
 # Ejecución remota con sudo:
-#   https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Ping.sh | bash -s "172.16.0.209"
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Ping.sh | bash -s "172.16.0.209"
 # ----------
 
 #Este comando genera tráfico SYN masivo hacia el puerto 80 desde IPs aleatorias.
