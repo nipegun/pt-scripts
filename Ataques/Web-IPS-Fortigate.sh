@@ -9,7 +9,7 @@
 # Script de NiPeGun para instalar realizar ataques IPS a un FortiGate
 #
 # Ejecución remota con sudo:
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Simular-Ataque-IPS-Fortigate.sh | bash -s "172.16.0.209"
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web-IPS-Fortigate.sh | bash -s "172.16.0.209"
 # ----------
 
 vIP="$1"
