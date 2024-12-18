@@ -9,19 +9,19 @@
 # Script de NiPeGun para instalar realizar ataques a una web
 #
 # Ejecución remota con sudo:
-#   curl -sL x | sudo bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web-RecorrerCarpetasYArchivos.sh | sudo bash
 #
 # Ejecución remota como root:
-#   curl -sL x | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web-RecorrerCarpetasYArchivos.sh | bash
 #
 # Ejecución remota sin caché:
-#   curl -sL -H 'Cache-Control: no-cache, no-store' x | bash
+#   curl -sL -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web-RecorrerCarpetasYArchivos.sh | bash
 #
 # Ejecución remota con parámetros:
-#   curl -sL x | bash -s Parámetro1 Parámetro2
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web-RecorrerCarpetasYArchivos.sh | bash -s Parámetro1 Parámetro2
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL x | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web-RecorrerCarpetasYArchivos.sh | nano -
 # ----------
 
 # Definir constantes de color
