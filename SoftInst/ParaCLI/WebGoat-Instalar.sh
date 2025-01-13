@@ -72,7 +72,7 @@
       # Comprobar si el paquete dialog está instalado. Si no lo está, instalarlo.
         if [[ $(dpkg-query -s dialog 2>/dev/null | grep installed) == "" ]]; then
           echo ""
-          echo -e "${cColorRojo}  El paquete dialog no está instalado. Iniciando su instalación...${cFinColor}"
+          echo -e "${cColorRojo}    El paquete dialog no está instalado. Iniciando su instalación...${cFinColor}"
           echo ""
           sudo apt-get -y update
           sudo apt-get -y install dialog
@@ -81,7 +81,7 @@
       #menu=(dialog --timeout 5 --checklist "Marca las opciones que quieras instalar:" 22 96 16)
       menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 80 16)
         opciones=(
-          1 "Instalar OpenJDK"                                        on
+          1 "Instalar Java"                                           on
           2 "Instalar a nivel de usuario para ejecutar manualmente"   off
           3 "Instalar a nivel de sistema como un servicio de systemd" off
         )
@@ -98,7 +98,7 @@
               echo "  Instalando OpenJDK..."
               echo ""
               sudo apt-get -y update
-              sudo apt-get -y install openjdk-17-jre
+              sudo apt-get -y install default-jre
       
             ;;
 
