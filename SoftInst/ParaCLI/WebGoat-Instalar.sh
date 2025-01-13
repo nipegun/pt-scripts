@@ -27,15 +27,6 @@
     #echo "$(tput setaf 1)Mensaje en color rojo. $(tput sgr 0)"
   cFinColor='\033[0m'
 
-# Comprobar si el script está corriendo como root
-  #if [ $(id -u) -ne 0 ]; then     # Sólo comprueba si es root
-  if [[ $EUID -ne 0 ]]; then       # Comprueba si es root o sudo
-    echo ""
-    echo -e "${cColorRojo}  Este script está preparado para ejecutarse con privilegios de administrador (como root o con sudo).${cFinColor}"
-    echo ""
-    exit
-  fi
-
 # Determinar la versión de Debian
   if [ -f /etc/os-release ]; then             # Para systemd y freedesktop.org.
     . /etc/os-release
@@ -74,54 +65,137 @@
     echo -e "${cColorAzulClaro}  Iniciando el script de instalación de WebGoat para Debian 12 (Bookworm)...${cFinColor}"
     echo ""
 
-    # Obtener la etiqueta de la última versión
-      # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
-        if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
+  # Definir fecha de ejecución del script
+      cFechaDeEjec=$(date +a%Ym%md%d@%T)
+
+    # Crear el menú
+      # Comprobar si el paquete dialog está instalado. Si no lo está, instalarlo.
+        if [[ $(dpkg-query -s dialog 2>/dev/null | grep installed) == "" ]]; then
           echo ""
-          echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
+          echo -e "${cColorRojo}  El paquete dialog no está instalado. Iniciando su instalación...${cFinColor}"
           echo ""
           apt-get -y update
-          apt-get -y install curl
+          apt-get -y install dialog
           echo ""
         fi
-      vEtiquetaUltVers=$(curl -sL https://github.com/WebGoat/WebGoat/releases/latest | sed 's->->\n-g' | grep 'tag/v' | head -n 1 | sed 's|tag/|\n|g' |  grep ^v | cut -d'"' -f1)
-      echo ""
-      echo "    La última versión es: $vEtiquetaUltVers"
-      echo ""
-      vNumUltVers=$(curl -sL https://github.com/WebGoat/WebGoat/releases/latest | sed 's->->\n-g' | grep 'tag/v' | head -n 1 | sed 's|tag/|\n|g' |  grep ^v | cut -d'"' -f1 | cut -d'v' -f2)
+      #menu=(dialog --timeout 5 --checklist "Marca las opciones que quieras instalar:" 22 96 16)
+      menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 96 16)
+        opciones=(
+          1 "Instalar OpenJDK"                               on
+          2 "Descargar el archivo .jar"                      on
+          3 "  Crear el script para ejecutarlo desde la CLI" on
+          4 "Crear el servicio de systemd"                   on
+          5 "  Activar e iniciar el servicio"                off
+        )
+      choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
+      #clear
 
-    # Descargar el archivo.jar
-      echo ""
-      echo "    Descargando el archivo .jar con al última versión..."
-      echo ""
-      sudo mkdir -p ~/bin/java/
-      sudo curl -sL https://github.com/WebGoat/WebGoat/releases/download/$vEtiquetaUltVers/webgoat-$vNumUltVers.jar -o ~/bin/java/webgoat-$vNumUltVers.jar
+      for choice in $choices
+        do
+          case $choice in
 
-    # Instalar java
-      echo ""
-      echo "    Instalando java..."
-      echo ""
-      sudo apt-get -y install openjdk-17-jre
+            1)
 
-    # Crear el script para ejecutar WebGoat
-      echo ""
-      echo "    Creando el script para ejecutar WebGoat..."
-      echo ""
-      mkdir -p ~/scripts/
-      echo '#!/bin/bash'                                                          > ~/scripts/WebGoat-Ejecutar.sh
-      echo ""                                                                    >> ~/scripts/WebGoat-Ejecutar.sh
-      echo 'export TZ=Europe/Madrid'                                             >> ~/scripts/WebGoat-Ejecutar.sh
-      echo "java -Dfile.encoding=UTF-8 -jar ~/bin/java/webgoat-$vNumUltVers.jar" >> ~/scripts/WebGoat-Ejecutar.sh
-      chmod +x                                                                      ~/scripts/WebGoat-Ejecutar.sh
+              echo ""
+              echo "  Instalando OpenJDK..."
+              echo ""
+              sudo apt-get -y install openjdk-17-jre
+      
+            ;;
 
-    # Notificar fin de ejecución del script
-      echo ""
-      echo "    Ejecución del script de instalación de WebGoat, finalizada. Para lanzarlo, ejecuta:"
-      echo ""
-      echo "      ~/scripts/WebGoat-Ejecutar.sh"
-      echo ""
-      echo "    La primera vez tendrás que registrar un usuario nuevo."
-      echo ""
+            2)
+
+              echo ""
+              echo "  Descargando el archivo .jar..."
+              echo ""
+              # Obtener la etiqueta de la última versión
+                # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
+                  if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
+                    echo ""
+                    echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
+                    echo ""
+                    apt-get -y update
+                    apt-get -y install curl
+                    echo ""
+                  fi
+                vEtiquetaUltVers=$(curl -sL https://github.com/WebGoat/WebGoat/releases/latest | sed 's->->\n-g' | grep 'tag/v' | head -n 1 | sed 's|tag/|\n|g' |  grep ^v | cut -d'"' -f1)
+                echo ""
+                echo "    La última versión es: $vEtiquetaUltVers"
+                echo ""
+                vNumUltVers=$(curl -sL https://github.com/WebGoat/WebGoat/releases/latest | sed 's->->\n-g' | grep 'tag/v' | head -n 1 | sed 's|tag/|\n|g' |  grep ^v | cut -d'"' -f1 | cut -d'v' -f2)
+
+              # Descargar el archivo.jar
+                echo ""
+                echo "    Descargando el archivo .jar con al última versión..."
+                echo ""
+                sudo mkdir -p ~/bin/java/
+                sudo curl -sL https://github.com/WebGoat/WebGoat/releases/download/$vEtiquetaUltVers/webgoat-$vNumUltVers.jar -o ~/bin/java/webgoat-$vNumUltVers.jar
+
+            ;;
+
+            3)
+
+              echo ""
+              echo "  Creando el script para ejecutar desde la CLI..."
+              echo ""
+              # Crear el script para ejecutar WebGoat
+                echo ""
+                echo "    Creando el script para ejecutar WebGoat..."
+                echo ""
+                mkdir -p ~/scripts/
+                echo '#!/bin/bash'                                                          > ~/scripts/WebGoat-Ejecutar.sh
+                echo ""                                                                    >> ~/scripts/WebGoat-Ejecutar.sh
+                echo 'export TZ=Europe/Madrid'                                             >> ~/scripts/WebGoat-Ejecutar.sh
+                echo "java -Dfile.encoding=UTF-8 -jar ~/bin/java/webgoat-$vNumUltVers.jar" >> ~/scripts/WebGoat-Ejecutar.sh
+                chmod +x                                                                      ~/scripts/WebGoat-Ejecutar.sh
+
+                # Notificar fin de ejecución del script
+                  echo ""
+                  echo "    Ejecución del script de instalación de WebGoat, finalizada. Para lanzarlo, ejecuta:"
+                  echo ""
+                  echo "      ~/scripts/WebGoat-Ejecutar.sh"
+                  echo ""
+                  echo "    La primera vez tendrás que registrar un usuario nuevo."
+                  echo ""
+
+            ;;
+
+            4)
+
+              echo ""
+              echo "  Creando el servicio de systemd..."
+              echo ""
+             
+echo '[Unit]' >  /etc/systemd/system/WebGoat.service
+Description=Mi aplicación Java
+After=network.target
+
+[Service]
+User=nombre_usuario
+WorkingDirectory=/ruta/a/tu/aplicacion
+ExecStart=/usr/bin/java -jar /ruta/a/tu/aplicacion/mi_aplicacion.jar
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=mi_aplicacion_java
+
+[Install]
+WantedBy=multi-user.target
+
+            ;;
+
+            5)
+
+              echo ""
+              echo "  Activando e iniciando el servicio..."
+              echo ""
+
+            ;;
+
+        esac
+
+    done
 
   elif [ $cVerSO == "11" ]; then
 
