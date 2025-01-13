@@ -74,8 +74,8 @@
           echo ""
           echo -e "${cColorRojo}  El paquete dialog no está instalado. Iniciando su instalación...${cFinColor}"
           echo ""
-          apt-get -y update
-          apt-get -y install dialog
+          sudo apt-get -y update
+          sudo apt-get -y install dialog
           echo ""
         fi
       #menu=(dialog --timeout 5 --checklist "Marca las opciones que quieras instalar:" 22 96 16)
@@ -114,8 +114,8 @@
                     echo ""
                     echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
                     echo ""
-                    apt-get -y update
-                    apt-get -y install curl
+                    sudo apt-get -y update
+                    sudo apt-get -y install curl
                     echo ""
                   fi
                 vEtiquetaUltVers=$(curl -sL https://github.com/WebGoat/WebGoat/releases/latest | sed 's->->\n-g' | grep 'tag/v' | head -n 1 | sed 's|tag/|\n|g' |  grep ^v | cut -d'"' -f1)
@@ -128,8 +128,8 @@
                 echo ""
                 echo "    Descargando el archivo .jar con al última versión..."
                 echo ""
-                sudo mkdir -p ~/bin/java/
-                sudo curl -sL https://github.com/WebGoat/WebGoat/releases/download/$vEtiquetaUltVers/webgoat-$vNumUltVers.jar -o ~/bin/java/webgoat-$vNumUltVers.jar
+                mkdir -p ~/bin/java/
+                curl -sL https://github.com/WebGoat/WebGoat/releases/download/$vEtiquetaUltVers/webgoat-$vNumUltVers.jar -o ~/bin/java/webgoat-$vNumUltVers.jar
 
             ;;
 
