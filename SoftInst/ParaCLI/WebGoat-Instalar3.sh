@@ -189,12 +189,12 @@
                 echo ""
                 echo "    Descargando el archivo .jar con la última versión..."
                 echo ""
-                mkdir -p /opt/WebGoat/bin/
-                rm -f /opt/WebGoat/bin/webgoat*
-                curl -L https://github.com/WebGoat/WebGoat/releases/download/$vEtiquetaUltVers/webgoat-$vNumUltVers.jar -o /opt/WebGoat/bin/webgoat-$vNumUltVers.jar
+                sudo mkdir -p /opt/WebGoat/bin/
+                sudo rm -f /opt/WebGoat/bin/webgoat*
+                sudo curl -L https://github.com/WebGoat/WebGoat/releases/download/$vEtiquetaUltVers/webgoat-$vNumUltVers.jar -o /opt/WebGoat/bin/webgoat-$vNumUltVers.jar
 
               # Reparar permisos
-                chown $USER:$USER /opt/WebGoat -R
+                sudo chown $USER:$USER /opt/WebGoat -R
 
               # Crear el archivo para el servicio
                 echo ""
