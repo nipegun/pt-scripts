@@ -200,22 +200,22 @@
                 echo ""
                 echo "    Creando el archivo del servicio..."
                 echo ""
-                echo '[Unit]'                                                                                                                 >  /etc/systemd/system/WebGoat.service
-                echo 'Description=WebGoat'                                                                                                   >> /etc/systemd/system/WebGoat.service
-                echo 'After=network.target'                                                                                                  >> /etc/systemd/system/WebGoat.service
-                echo ''                                                                                                                      >> /etc/systemd/system/WebGoat.service
-                echo '[Service]'                                                                                                             >> /etc/systemd/system/WebGoat.service
-                echo "User=$USER"                                                                                                            >> /etc/systemd/system/WebGoat.service
-                echo 'WorkingDirectory=/opt/WebGoat'                                                                                         >> /etc/systemd/system/WebGoat.service
-                echo "ExecStart=/usr/bin/java -Dfile.encoding=UTF-8 -jar /opt/WebGoat/bin/webgoat-$vNumUltVers.jar --server.address=0.0.0.0" >> /etc/systemd/system/WebGoat.service
-                echo 'Restart=always'                                                                                                        >> /etc/systemd/system/WebGoat.service
-                echo 'RestartSec=10'                                                                                                         >> /etc/systemd/system/WebGoat.service
-                echo 'StandardOutput=syslog'                                                                                                 >> /etc/systemd/system/WebGoat.service
-                echo 'StandardError=syslog'                                                                                                  >> /etc/systemd/system/WebGoat.service
-                echo 'SyslogIdentifier=WebGoat'                                                                                              >> /etc/systemd/system/WebGoat.service
-                echo ''                                                                                                                      >> /etc/systemd/system/WebGoat.service
-                echo '[Install]'                                                                                                             >> /etc/systemd/system/WebGoat.service
-                echo 'WantedBy=multi-user.target'                                                                                            >> /etc/systemd/system/WebGoat.service
+                sudo echo '[Unit]'                                                                                                                 >  /etc/systemd/system/WebGoat.service
+                sudo echo 'Description=WebGoat'                                                                                                   >> /etc/systemd/system/WebGoat.service
+                sudo echo 'After=network.target'                                                                                                  >> /etc/systemd/system/WebGoat.service
+                sudo echo ''                                                                                                                      >> /etc/systemd/system/WebGoat.service
+                sudo echo '[Service]'                                                                                                             >> /etc/systemd/system/WebGoat.service
+                sudo echo "User=$USER"                                                                                                            >> /etc/systemd/system/WebGoat.service
+                sudo echo 'WorkingDirectory=/opt/WebGoat'                                                                                         >> /etc/systemd/system/WebGoat.service
+                sudo echo "ExecStart=/usr/bin/java -Dfile.encoding=UTF-8 -jar /opt/WebGoat/bin/webgoat-$vNumUltVers.jar --server.address=0.0.0.0" >> /etc/systemd/system/WebGoat.service
+                sudo echo 'Restart=always'                                                                                                        >> /etc/systemd/system/WebGoat.service
+                sudo echo 'RestartSec=10'                                                                                                         >> /etc/systemd/system/WebGoat.service
+                sudo echo 'StandardOutput=syslog'                                                                                                 >> /etc/systemd/system/WebGoat.service
+                sudo echo 'StandardError=syslog'                                                                                                  >> /etc/systemd/system/WebGoat.service
+                sudo echo 'SyslogIdentifier=WebGoat'                                                                                              >> /etc/systemd/system/WebGoat.service
+                sudo echo ''                                                                                                                      >> /etc/systemd/system/WebGoat.service
+                sudo echo '[Install]'                                                                                                             >> /etc/systemd/system/WebGoat.service
+                sudo echo 'WantedBy=multi-user.target'                                                                                            >> /etc/systemd/system/WebGoat.service
 
             # Activar e iniciar el servicio
               echo ""
