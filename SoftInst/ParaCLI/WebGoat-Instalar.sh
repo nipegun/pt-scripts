@@ -82,7 +82,7 @@
       menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 80 16)
         opciones=(
           1 "Instalar OpenJDK"                                        on
-          2 "Instalar a nivel de usuario para ejecutar manualmente"   on
+          2 "Instalar a nivel de usuario para ejecutar manualmente"   off
           3 "Instalar a nivel de sistema como un servicio de systemd" off
         )
       choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
