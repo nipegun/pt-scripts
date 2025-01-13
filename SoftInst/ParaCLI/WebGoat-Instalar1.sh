@@ -79,13 +79,11 @@
           echo ""
         fi
       #menu=(dialog --timeout 5 --checklist "Marca las opciones que quieras instalar:" 22 96 16)
-      menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 96 16)
+      menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 80 16)
         opciones=(
-          1 "Instalar OpenJDK"                               on
-          2 "Descargar el archivo .jar"                      on
-          3 "  Crear el script para ejecutarlo desde la CLI" on
-          4 "Crear el servicio de systemd"                   on
-          5 "  Activar e iniciar el servicio"                off
+          1 "Instalar OpenJDK"                                        on
+          2 "Instalar a nivel de usuario para ejecutar manualmente"   on
+          3 "Instalar a nivel de sistema como un servicio de systemd" off
         )
       choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
       #clear
@@ -99,6 +97,7 @@
               echo ""
               echo "  Instalando OpenJDK..."
               echo ""
+              sudo apt-get -y update
               sudo apt-get -y install openjdk-17-jre
       
             ;;
@@ -106,90 +105,121 @@
             2)
 
               echo ""
-              echo "  Descargando el archivo .jar..."
+              echo "  Instalando a nivel de usuario para ejecutar manualmente..."
               echo ""
-              # Obtener la etiqueta de la última versión
-                # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
-                  if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
-                    echo ""
-                    echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
-                    echo ""
-                    sudo apt-get -y update
-                    sudo apt-get -y install curl
-                    echo ""
-                  fi
-                vEtiquetaUltVers=$(curl -sL https://github.com/WebGoat/WebGoat/releases/latest | sed 's->->\n-g' | grep 'tag/v' | head -n 1 | sed 's|tag/|\n|g' |  grep ^v | cut -d'"' -f1)
+              # Descargar el archivo .jar
                 echo ""
-                echo "    La última versión es: $vEtiquetaUltVers"
+                echo "    Obteniendo la etiqueta de la última versión..."
+                echo ""
+                # Obtener la etiqueta de la última versión
+                  # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
+                    if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
+                      echo ""
+                      echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
+                      echo ""
+                      sudo apt-get -y update
+                      sudo apt-get -y install curl
+                      echo ""
+                    fi
+                  vEtiquetaUltVers=$(curl -sL https://github.com/WebGoat/WebGoat/releases/latest | sed 's->->\n-g' | grep 'tag/v' | head -n 1 | sed 's|tag/|\n|g' |  grep ^v | cut -d'"' -f1)
+              # Notificar etiqueta
+                echo ""
+                echo "      La última versión es: $vEtiquetaUltVers"
                 echo ""
                 vNumUltVers=$(curl -sL https://github.com/WebGoat/WebGoat/releases/latest | sed 's->->\n-g' | grep 'tag/v' | head -n 1 | sed 's|tag/|\n|g' |  grep ^v | cut -d'"' -f1 | cut -d'v' -f2)
 
               # Descargar el archivo.jar
                 echo ""
-                echo "    Descargando el archivo .jar con al última versión..."
+                echo "    Descargando el archivo .jar con la última versión..."
                 echo ""
                 mkdir -p ~/bin/java/
-                curl -sL https://github.com/WebGoat/WebGoat/releases/download/$vEtiquetaUltVers/webgoat-$vNumUltVers.jar -o ~/bin/java/webgoat-$vNumUltVers.jar
+                curl -L https://github.com/WebGoat/WebGoat/releases/download/$vEtiquetaUltVers/webgoat-$vNumUltVers.jar -o ~/bin/java/webgoat-$vNumUltVers.jar
+
+              # Crear el script de ejecución
+                echo ""
+                echo "  Creando el script para ejecutar desde la CLI..."
+                echo ""
+                mkdir -p ~/scripts/
+                echo '#!/bin/bash'                                                                                   > ~/scripts/WebGoat-Ejecutar.sh
+                echo ""                                                                                             >> ~/scripts/WebGoat-Ejecutar.sh
+                echo 'export TZ=Europe/Madrid'                                                                      >> ~/scripts/WebGoat-Ejecutar.sh
+                echo "java -Dfile.encoding=UTF-8 -jar ~/bin/java/webgoat-$vNumUltVers.jar --server.address=0.0.0.0" >> ~/scripts/WebGoat-Ejecutar.sh
+                chmod +x                                                                                               ~/scripts/WebGoat-Ejecutar.sh
+
+              # Notificar fin de ejecución del script
+                echo ""
+                echo "    Instalación a nivel de usuario, finalizada. Para lanzarlo, ejecuta:"
+                echo ""
+                echo "      ~/scripts/WebGoat-Ejecutar.sh"
+                echo ""
+                echo "    La primera vez tendrás que registrar un usuario nuevo."
+                echo ""
 
             ;;
 
             3)
 
               echo ""
-              echo "  Creando el script para ejecutar desde la CLI..."
+              echo "  Instalando a nivel de sistema como servicio de systemd..."
               echo ""
-              # Crear el script para ejecutar WebGoat
+
+              # Descargar el archivo .jar
                 echo ""
-                echo "    Creando el script para ejecutar WebGoat..."
+                echo "    Obteniendo la etiqueta de la última versión..."
                 echo ""
-                mkdir -p ~/scripts/
-                echo '#!/bin/bash'                                                          > ~/scripts/WebGoat-Ejecutar.sh
-                echo ""                                                                    >> ~/scripts/WebGoat-Ejecutar.sh
-                echo 'export TZ=Europe/Madrid'                                             >> ~/scripts/WebGoat-Ejecutar.sh
-                echo "java -Dfile.encoding=UTF-8 -jar ~/bin/java/webgoat-$vNumUltVers.jar" >> ~/scripts/WebGoat-Ejecutar.sh
-                chmod +x                                                                      ~/scripts/WebGoat-Ejecutar.sh
+                # Obtener la etiqueta de la última versión
+                  # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
+                    if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
+                      echo ""
+                      echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
+                      echo ""
+                      sudo apt-get -y update
+                      sudo apt-get -y install curl
+                      echo ""
+                    fi
+                  vEtiquetaUltVers=$(curl -sL https://github.com/WebGoat/WebGoat/releases/latest | sed 's->->\n-g' | grep 'tag/v' | head -n 1 | sed 's|tag/|\n|g' |  grep ^v | cut -d'"' -f1)
+              # Notificar etiqueta
+                echo ""
+                echo "      La última versión es: $vEtiquetaUltVers"
+                echo ""
+                vNumUltVers=$(curl -sL https://github.com/WebGoat/WebGoat/releases/latest | sed 's->->\n-g' | grep 'tag/v' | head -n 1 | sed 's|tag/|\n|g' |  grep ^v | cut -d'"' -f1 | cut -d'v' -f2)
 
-                # Notificar fin de ejecución del script
-                  echo ""
-                  echo "    Ejecución del script de instalación de WebGoat, finalizada. Para lanzarlo, ejecuta:"
-                  echo ""
-                  echo "      ~/scripts/WebGoat-Ejecutar.sh"
-                  echo ""
-                  echo "    La primera vez tendrás que registrar un usuario nuevo."
-                  echo ""
+              # Descargar el archivo.jar
+                echo ""
+                echo "    Descargando el archivo .jar con la última versión..."
+                echo ""
+                mkdir -p /opt/WebGoat/bin/
+                curl -L https://github.com/WebGoat/WebGoat/releases/download/$vEtiquetaUltVers/webgoat-$vNumUltVers.jar -o /opt/WebGoat/bin/webgoat-$vNumUltVers.jar
 
-            ;;
+              # Reparar permisos
+                chown $USER:$USER /opt/WebGoat -R
 
-            4)
+              # Crear el archivo para el servicio
+                echo ""
+                echo "    Creando el archivo del servicio..."
+                echo ""
+                echo '[Unit]'                                                                                                                 >  /etc/systemd/system/WebGoat.service
+                echo 'Description=WebGoat'                                                                                                   >> /etc/systemd/system/WebGoat.service
+                echo 'After=network.target'                                                                                                  >> /etc/systemd/system/WebGoat.service
+                echo ''                                                                                                                      >> /etc/systemd/system/WebGoat.service
+                echo '[Service]'                                                                                                             >> /etc/systemd/system/WebGoat.service
+                echo "User=$USER"                                                                                                            >> /etc/systemd/system/WebGoat.service
+                echo 'WorkingDirectory=/opt/WebGoat'                                                                                         >> /etc/systemd/system/WebGoat.service
+                echo "ExecStart=/usr/bin/java -Dfile.encoding=UTF-8 -jar /opt/WebGoat/bin/webgoat-$vNumUltVers.jar --server.address=0.0.0.0" >> /etc/systemd/system/WebGoat.service
+                echo 'Restart=always'                                                                                                        >> /etc/systemd/system/WebGoat.service
+                echo 'RestartSec=10'                                                                                                         >> /etc/systemd/system/WebGoat.service
+                echo 'StandardOutput=syslog'                                                                                                 >> /etc/systemd/system/WebGoat.service
+                echo 'StandardError=syslog'                                                                                                  >> /etc/systemd/system/WebGoat.service
+                echo 'SyslogIdentifier=WebGoat'                                                                                              >> /etc/systemd/system/WebGoat.service
+                echo ''                                                                                                                      >> /etc/systemd/system/WebGoat.service
+                echo '[Install]'                                                                                                             >> /etc/systemd/system/WebGoat.service
+                echo 'WantedBy=multi-user.target'                                                                                            >> /etc/systemd/system/WebGoat.service
 
-              echo ""
-              echo "  Creando el servicio de systemd..."
-              echo ""
-             
-              echo '[Unit]'                                                                >  /etc/systemd/system/WebGoat.service
-              echo 'Description=Mi aplicación Java'                                       >> /etc/systemd/system/WebGoat.service
-              echo 'After=network.target'                                                 >> /etc/systemd/system/WebGoat.service
-              echo ''                                                                     >> /etc/systemd/system/WebGoat.service
-              echo '[Service]'                                                            >> /etc/systemd/system/WebGoat.service
-              echo 'User=nombre_usuario'                                                  >> /etc/systemd/system/WebGoat.service
-              echo 'WorkingDirectory=/ruta/a/tu/aplicacion'                               >> /etc/systemd/system/WebGoat.service
-              echo 'ExecStart=/usr/bin/java -jar /ruta/a/tu/aplicacion/mi_aplicacion.jar' >> /etc/systemd/system/WebGoat.service
-              echo 'Restart=always'                                                       >> /etc/systemd/system/WebGoat.service
-              echo 'RestartSec=10'                                                        >> /etc/systemd/system/WebGoat.service
-              echo 'StandardOutput=syslog'                                                >> /etc/systemd/system/WebGoat.service
-              echo 'StandardError=syslog'                                                 >> /etc/systemd/system/WebGoat.service
-              echo 'SyslogIdentifier=WebGoat'                                             >> /etc/systemd/system/WebGoat.service
-              echo ''                                                                     >> /etc/systemd/system/WebGoat.service
-              echo '[Install]'                                                            >> /etc/systemd/system/WebGoat.service
-              echo 'WantedBy=multi-user.target'                                           >> /etc/systemd/system/WebGoat.service
-
-            ;;
-
-            5)
-
+            # Activar e iniciar el servicio
               echo ""
               echo "  Activando e iniciando el servicio..."
               echo ""
+              sudo systemctl enable WebGoat --now
 
             ;;
 
@@ -248,3 +278,4 @@
     echo ""
 
   fi
+
