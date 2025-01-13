@@ -138,7 +138,7 @@
 
               # Crear el script de ejecución
                 echo ""
-                echo "  Creando el script para ejecutar desde la CLI..."
+                echo "    Creando el script para ejecutar desde la CLI..."
                 echo ""
                 mkdir -p ~/scripts/
                 echo '#!/bin/bash'                                                                                   > ~/scripts/WebGoat-Ejecutar.sh
@@ -179,19 +179,18 @@
                       echo ""
                     fi
                   vEtiquetaUltVers=$(curl -sL https://github.com/WebGoat/WebGoat/releases/latest | sed 's->->\n-g' | grep 'tag/v' | head -n 1 | sed 's|tag/|\n|g' |  grep ^v | cut -d'"' -f1)
-              # Notificar etiqueta
-                echo ""
-                echo "      La última versión es: $vEtiquetaUltVers"
-                echo ""
-                vNumUltVers=$(curl -sL https://github.com/WebGoat/WebGoat/releases/latest | sed 's->->\n-g' | grep 'tag/v' | head -n 1 | sed 's|tag/|\n|g' |  grep ^v | cut -d'"' -f1 | cut -d'v' -f2)
-
-              # Descargar el archivo.jar
-                echo ""
-                echo "    Descargando el archivo .jar con la última versión..."
-                echo ""
-                sudo mkdir -p /opt/WebGoat/bin/
-                sudo rm -f /opt/WebGoat/bin/webgoat*
-                sudo curl -L https://github.com/WebGoat/WebGoat/releases/download/$vEtiquetaUltVers/webgoat-$vNumUltVers.jar -o /opt/WebGoat/bin/webgoat-$vNumUltVers.jar
+                  # Notificar etiqueta
+                    echo ""
+                    echo "      La última versión es: $vEtiquetaUltVers"
+                    echo ""
+                    vNumUltVers=$(curl -sL https://github.com/WebGoat/WebGoat/releases/latest | sed 's->->\n-g' | grep 'tag/v' | head -n 1 | sed 's|tag/|\n|g' |  grep ^v | cut -d'"' -f1 | cut -d'v' -f2)
+                # Descargar el archivo.jar
+                  echo ""
+                  echo "    Descargando el archivo .jar con la última versión..."
+                  echo ""
+                  sudo mkdir -p /opt/WebGoat/bin/
+                  sudo rm -f /opt/WebGoat/bin/webgoat*
+                  sudo curl -L https://github.com/WebGoat/WebGoat/releases/download/$vEtiquetaUltVers/webgoat-$vNumUltVers.jar -o /opt/WebGoat/bin/webgoat-$vNumUltVers.jar
 
               # Reparar permisos
                 sudo chown $USER:$USER /opt/WebGoat -R
@@ -217,11 +216,11 @@
                 sudo echo '[Install]'                                                                                                             >> /etc/systemd/system/WebGoat.service
                 sudo echo 'WantedBy=multi-user.target'                                                                                            >> /etc/systemd/system/WebGoat.service
 
-            # Activar e iniciar el servicio
-              echo ""
-              echo "  Activando e iniciando el servicio..."
-              echo ""
-              sudo systemctl enable WebGoat --now
+              # Activar e iniciar el servicio
+                echo ""
+                echo "    Activando e iniciando el servicio..."
+                echo ""
+                sudo systemctl enable WebGoat --now
 
               # Notificar fin de ejecución del script
                 echo ""
