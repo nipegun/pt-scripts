@@ -222,11 +222,17 @@
                 echo ""
                 sudo systemctl enable WebGoat --now
 
+              # Mostrar estado del servicio
+                echo ""
+                echo "    Mostrando estado del servicio..."
+                echo ""
+                systemctl status WebGoat.service --no-pager
+
               # Notificar fin de ejecución del script
                 echo ""
                 echo "    Instalación a nivel de sistema, finalizada. El servicio debería estar corriendo. Para conectarte:"
                 echo ""
-                vIPLocal=$(hostname -I)
+                vIPLocal=$(hostname -I | sed 's- --g')
                 echo "      http://$vIPLocal:8080/WebGoat"
                 echo ""
                 echo "    La primera vez que accedas tendrás que registrar un usuario nuevo."
