@@ -195,6 +195,12 @@
               # Reparar permisos
                 sudo chown $USER:$USER /opt/WebGoat -R
 
+              # Crear el usuario admin
+              #  echo ""
+              #  echo "    Creando el usuario admin..."
+              #  echo ""
+              #  /usr/bin/java -Dwebgoat.user=admin -Dwebgoat.password=admin -Dwebgoat.role=ROLE_ADMIN -jar /opt/WebGoat/bin/webgoat-$vNumUltVers.jar --server.address=0.0.0.0
+
               # Crear el archivo para el servicio
                 echo ""
                 echo "    Creando el archivo del servicio..."
