@@ -166,22 +166,22 @@
               echo "  Creando el servicio de systemd..."
               echo ""
              
-echo '[Unit]' >  /etc/systemd/system/WebGoat.service
-Description=Mi aplicación Java
-After=network.target
-
-[Service]
-User=nombre_usuario
-WorkingDirectory=/ruta/a/tu/aplicacion
-ExecStart=/usr/bin/java -jar /ruta/a/tu/aplicacion/mi_aplicacion.jar
-Restart=always
-RestartSec=10
-StandardOutput=syslog
-StandardError=syslog
-SyslogIdentifier=mi_aplicacion_java
-
-[Install]
-WantedBy=multi-user.target
+              echo '[Unit]'                                                                >  /etc/systemd/system/WebGoat.service
+              echo 'Description=Mi aplicación Java'                                       >> /etc/systemd/system/WebGoat.service
+              echo 'After=network.target'                                                 >> /etc/systemd/system/WebGoat.service
+              echo ''                                                                     >> /etc/systemd/system/WebGoat.service
+              echo '[Service]'                                                            >> /etc/systemd/system/WebGoat.service
+              echo 'User=nombre_usuario'                                                  >> /etc/systemd/system/WebGoat.service
+              echo 'WorkingDirectory=/ruta/a/tu/aplicacion'                               >> /etc/systemd/system/WebGoat.service
+              echo 'ExecStart=/usr/bin/java -jar /ruta/a/tu/aplicacion/mi_aplicacion.jar' >> /etc/systemd/system/WebGoat.service
+              echo 'Restart=always'                                                       >> /etc/systemd/system/WebGoat.service
+              echo 'RestartSec=10'                                                        >> /etc/systemd/system/WebGoat.service
+              echo 'StandardOutput=syslog'                                                >> /etc/systemd/system/WebGoat.service
+              echo 'StandardError=syslog'                                                 >> /etc/systemd/system/WebGoat.service
+              echo 'SyslogIdentifier=WebGoat'                                             >> /etc/systemd/system/WebGoat.service
+              echo ''                                                                     >> /etc/systemd/system/WebGoat.service
+              echo '[Install]'                                                            >> /etc/systemd/system/WebGoat.service
+              echo 'WantedBy=multi-user.target'                                           >> /etc/systemd/system/WebGoat.service
 
             ;;
 
