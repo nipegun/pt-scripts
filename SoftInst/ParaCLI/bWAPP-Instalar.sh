@@ -65,9 +65,22 @@
     echo -e "${cColorAzulClaro}  Iniciando el script de instalación de bWAPP para Debian 12 (Bookworm)...${cFinColor}"
     echo ""
 
+    # Instalar lighttpd
+      echo ""
+      echo "    Instalando el servidor web..."
+      echo ""
+      sudo apt-get -y update
+      sudo apt-get -y install apache2
+
+    # Instalar php
+      echo ""
+      echo "    Instalando PHP..."
+      echo ""
+      sudo apt-get -y install libapache2-mod-php
+
     # Obtener el número de la última versión disponible
       echo ""
-      echo "    Obteniendo el número de la última vesión disponible..."
+      echo "    Obteniendo el número de la última vesión de bWAPP disponible..."
       echo ""
       # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
         if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
@@ -80,7 +93,7 @@
         fi
       vNumVers=$(curl -sL https://sourceforge.net/projects/bwapp/files/bWAPP/ | sed 's->->\n-g' | grep bWAPPv | grep title | grep v[0-9] | grep folder | cut -d'"' -f2 | cut -d'"' -f1 | head -n1 | cut -d'v' -f2)
       echo ""
-      echo "    El número de la última versión es $vNumVers"
+      echo "     El número de la última versión es $vNumVers"
       echo ""
       
     # Descargar el archivo comprimido de la última versión
@@ -102,7 +115,23 @@
           sudo apt-get -y install unzip
           echo ""
         fi
-      unzip /tmp/bWAPP.zip
+      unzip /tmp/bWAPP.zip -d /tmp/bWAPPv"$vNumVers"
+
+    # Mover carpeta a la raíz del servidor web
+      echo ""
+      echo "    Moviendo archivos a la raiz del servidor web..."
+      echo ""
+      sudo mkdir -p /var/www/bWAPP/
+      sudo mv /tmp/bWAPPv"$vNumVers"/bWAPP/ /var/www/
+      sudo mkdir /var/www/bWAPP/logs/
+      sudo chown www-data:www-data /var/www/ -R
+
+    # Dar permisos absolutos a las carpetas 'passwords', 'images', 'documents' and 'logs'.
+    # Es opcional, pero permite jugar con sqlmap and Metasploit.
+      sudo chmod 777 /var/www/bWAPP/passwords/
+      sudo chmod 777 /var/www/bWAPP/images/
+      sudo chmod 777 /var/www/bWAPP/documents/
+      sudo chmod 777 /var/www/bWAPP/logs/
 
   elif [ $cVerSO == "11" ]; then
 
