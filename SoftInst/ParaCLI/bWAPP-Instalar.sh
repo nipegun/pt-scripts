@@ -9,19 +9,13 @@
 # Script de NiPeGun para instalar y configurar bWAPP en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL x | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/bWAPP-Instalar.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL x | sed 's-sudo--g' | bash
-#
-# Ejecución remota sin caché:
-#   curl -sL -H 'Cache-Control: no-cache, no-store' x | bash
-#
-# Ejecución remota con parámetros:
-#   curl -sL x | bash -s Parámetro1 Parámetro2
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/bWAPP-Instalar.sh | sed 's-sudo--g' | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL x | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/bWAPP-Instalar.sh | nano -
 # ----------
 
 # Definir constantes de color
@@ -32,25 +26,6 @@
   # Para el color rojo también:
     #echo "$(tput setaf 1)Mensaje en color rojo. $(tput sgr 0)"
   cFinColor='\033[0m'
-
-# Comprobar si el script está corriendo como root
-  #if [ $(id -u) -ne 0 ]; then     # Sólo comprueba si es root
-  if [[ $EUID -ne 0 ]]; then       # Comprueba si es root o sudo
-    echo ""
-    echo -e "${cColorRojo}  Este script está preparado para ejecutarse con privilegios de administrador (como root o con sudo).${cFinColor}"
-    echo ""
-    exit
-  fi
-
-# Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
-  if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
-    echo ""
-    echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
-    echo ""
-    sudo apt-get -y update
-    sudo apt-get -y install curl
-    echo ""
-  fi
 
 # Determinar la versión de Debian
   if [ -f /etc/os-release ]; then             # Para systemd y freedesktop.org.
@@ -90,7 +65,44 @@
     echo -e "${cColorAzulClaro}  Iniciando el script de instalación de bWAPP para Debian 12 (Bookworm)...${cFinColor}"
     echo ""
 
-curl -L https://downloads.sourceforge.net/project/bwapp/bWAPP/bWAPPv2.2/bWAPPv2.2.zip -o /tmp/bWAPP.zip
+    # Obtener el número de la última versión disponible
+      echo ""
+      echo "    Obteniendo el número de la última vesión disponible..."
+      echo ""
+      # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
+        if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
+          echo ""
+          echo -e "${cColorRojo}      El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
+          echo ""
+          sudo apt-get -y update
+          sudo apt-get -y install curl
+          echo ""
+        fi
+      vNumVers=$(curl -sL https://sourceforge.net/projects/bwapp/files/bWAPP/ | sed 's->->\n-g' | grep bWAPPv | grep title | grep v[0-9] | grep folder | cut -d'"' -f2 | cut -d'"' -f1 | head -n1 | cut -d'v' -f2)
+      echo ""
+      echo "    El número de la última versión es $vNumVers"
+      echo ""
+      
+    # Descargar el archivo comprimido de la última versión
+      echo ""
+      echo "    Descargando el archivo comprimido de la última versión..."
+      echo ""
+      curl -L https://downloads.sourceforge.net/project/bwapp/bWAPP/bWAPPv"$vNumVers"/bWAPPv"$vNumVers".zip -o /tmp/bWAPP.zip
+
+    # Descomprimir el archivo
+      echo ""
+      echo "    Descomprimiendo el archivo..."
+      echo ""
+      # Comprobar si el paquete unzip está instalado. Si no lo está, instalarlo.
+        if [[ $(dpkg-query -s unzip 2>/dev/null | grep installed) == "" ]]; then
+          echo ""
+          echo -e "${cColorRojo}      El paquete unzip no está instalado. Iniciando su instalación...${cFinColor}"
+          echo ""
+          sudo apt-get -y update
+          sudo apt-get -y install unzip
+          echo ""
+        fi
+      unzip /tmp/bWAPP.zip
 
   elif [ $cVerSO == "11" ]; then
 
