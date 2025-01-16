@@ -133,6 +133,98 @@
       sudo chmod 777 /var/www/bWAPP/documents/
       sudo chmod 777 /var/www/bWAPP/logs/
 
+    # Instalar el servidor de bases de datos
+      echo ""
+      echo "    Instalando el servidor de bases de datos..."
+      echo ""
+      sudo apt-get -y install mariadb-server
+
+    # Editar el archivo de configuración de bWASPP (opcional, en el caso de querer crear una base de datos y un usuario específicos para bWAPP)
+      #echo ""
+      #echo "    Modificando el archivo de configuración de bWAPP"
+      #echo ""
+      #sudo sed -i -e 's|$db_server = "localhost";||g' /var/www/bWAPP/admin/settings.php
+      #sudo sed -i -e 's|$db_username = "root";||g'    /var/www/bWAPP/admin/settings.php
+      #sudo sed -i -e 's|$db_password = "";||g'        /var/www/bWAPP/admin/settings.php
+
+    # Deshabilitar el sistio web por defecto de apache
+      echo ""
+      echo "    Deshabilitando el sitio web por defecto de apache..."
+      echo ""
+      sudo a2dissite 000-default
+      sudo systemctl reload apache2
+
+    # Crear el certificado auto-firmado
+      echo ""
+      echo "    Creando el certificado autofirmado..."
+      echo ""
+      sudo mkdir /etc/apache2/ssl
+      sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+        -keyout /etc/apache2/ssl/autocertssl.key               \
+           -out /etc/apache2/ssl/autocertssl.crt
+
+    # Habilitar la configuración de bWAPP para apache
+      echo ""
+      echo "    Habilitar la configuración de bWAPP para apache..."
+      echo ""
+      echo '<VirtualHost *:80>'                                         | sudo tee    /etc/apache2/sites-available/bWAPP.conf
+      echo '  ServerAdmin webmaster@localhost'                          | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  DocumentRoot /var/www/bWAPP'                              | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  ErrorLog ${APACHE_LOG_DIR}/error.log'                     | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  CustomLog ${APACHE_LOG_DIR}/access.log combined'          | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '</VirtualHost>'                                             | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo ''                                                           | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '<VirtualHost *:443>'                                        | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  ServerAdmin webmaster@localhost'                          | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  DocumentRoot /var/www/bWAPP'                              | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  SSLEngine on'                                             | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  SSLCertificateFile      /etc/apache2/ssl/autocertssl.pem' | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  SSLCertificateKeyFile   /etc/apache2/ssl/autocertssl.key' | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  <FilesMatch "\.(?:cgi|shtml|phtml|php)$">'                | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '    SSLOptions +StdEnvVars'                                 | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  </FilesMatch>'                                            | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  <Directory /usr/lib/cgi-bin>'                             | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '    SSLOptions +StdEnvVars'                                 | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  </Directory>'                                             | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '</VirtualHost>'                                             | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+
+      echo '<VirtualHost *:443>'                                      | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  ServerName yourdomain.com'                              | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  DocumentRoot /var/www/bWAPP'                            | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  SSLEngine on'                                           | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  SSLCertificateFile    /etc/apache2/ssl/autocertssl.crt' | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  SSLCertificateKeyFile /etc/apache2/ssl/autocertssl.key' | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  <Directory /var/www/html>'                              | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '    AllowOverride All'                                    | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  </Directory>'                                           | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  ErrorLog ${APACHE_LOG_DIR}/error.log'                   | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo   'CustomLog ${APACHE_LOG_DIR}/access.log combined'        | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '</VirtualHost>'                                           | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+
+    # Instalar compatibilidad con SSL
+      echo ""
+      echo "    Instalando compatibilidad con SSL..."
+      echo ""
+      sudo apt install openssl
+      sudo a2enmod ssl
+
+    # Activar el sitio
+      echo ""
+      echo "    Activando el sitio..."
+      echo ""
+      sudo a2ensite bWAPP
+      sudo systemctl reload apache2
+      sudo systemctl status apache2 --no-pager
+
+    # Notificar fin de ejecución del script
+      echo ""
+      echo "    Ejecución del script, finalizada. Para ejecutar la instalación, visita en un navegador:"
+      echo ""
+      vIPLocal=$(hostname -I | sed 's- --g')
+      echo "      https://$vIPLocal/install.php"
+      echo ""
+      
+
   elif [ $cVerSO == "11" ]; then
 
     echo ""
