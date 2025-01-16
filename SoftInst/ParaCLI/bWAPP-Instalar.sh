@@ -65,7 +65,7 @@
     echo -e "${cColorAzulClaro}  Iniciando el script de instalación de bWAPP para Debian 12 (Bookworm)...${cFinColor}"
     echo ""
 
-    # Instalar lighttpd
+    # Instalar el servidor web
       echo ""
       echo "    Instalando el servidor web..."
       echo ""
@@ -76,7 +76,22 @@
       echo ""
       echo "    Instalando PHP..."
       echo ""
+      sudo apt-get -y install php
       sudo apt-get -y install libapache2-mod-php
+
+    # Instalar el servidor de bases de datos
+      echo ""
+      echo "    Instalando el servidor de bases de datos..."
+      echo ""
+      sudo apt-get -y install mariadb-server
+      # Agregar o cambiar la contraseña al usuario root de MySQL
+        sudo mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'rootMySQL'; FLUSH PRIVILEGES;"
+      # Crear la base de datos
+        sudo mysql -u root -prootMySQL -e "CREATE DATABASE bWAPP;"
+      # Asegurar el servidor (opcional)
+        #sudo mysql_secure_installation
+      # Instalar compatibilidad de PHO con mysql
+        sudo apt-get -y install php-mysql
 
     # Obtener el número de la última versión disponible
       echo ""
@@ -93,7 +108,7 @@
         fi
       vNumVers=$(curl -sL https://sourceforge.net/projects/bwapp/files/bWAPP/ | sed 's->->\n-g' | grep bWAPPv | grep title | grep v[0-9] | grep folder | cut -d'"' -f2 | cut -d'"' -f1 | head -n1 | cut -d'v' -f2)
       echo ""
-      echo "     El número de la última versión es $vNumVers"
+      echo "      El número de la última versión es $vNumVers"
       echo ""
       
     # Descargar el archivo comprimido de la última versión
@@ -133,26 +148,15 @@
       sudo chmod 777 /var/www/bWAPP/documents/
       sudo chmod 777 /var/www/bWAPP/logs/
 
-    # Instalar el servidor de bases de datos
-      echo ""
-      echo "    Instalando el servidor de bases de datos..."
-      echo ""
-      sudo apt-get -y install mariadb-server
+    # Modificar configuración relativa a la base de datos en algunos archivos .php
+      sudo sed -i -e 's|$db_password = "";|$db_password = "rootMySQL";|g' /var/www/bWAPP/admin/settings.php
+      sudo sed -i -e 's|if(!mysqli_select_db($link,"bWAPP"))|if(mysqli_select_db($link,"bWAPP"))|g' /var/www/bWAPP/install.php
 
-    # Editar el archivo de configuración de bWASPP (opcional, en el caso de querer crear una base de datos y un usuario específicos para bWAPP)
-      #echo ""
-      #echo "    Modificando el archivo de configuración de bWAPP"
-      #echo ""
-      #sudo sed -i -e 's|$db_server = "localhost";||g' /var/www/bWAPP/admin/settings.php
-      #sudo sed -i -e 's|$db_username = "root";||g'    /var/www/bWAPP/admin/settings.php
-      #sudo sed -i -e 's|$db_password = "";||g'        /var/www/bWAPP/admin/settings.php
-
-    # Deshabilitar el sistio web por defecto de apache
+    # Instalar compatibilidad con SSL
       echo ""
-      echo "    Deshabilitando el sitio web por defecto de apache..."
+      echo "    Instalando compatibilidad con SSL..."
       echo ""
-      sudo a2dissite 000-default
-      sudo systemctl reload apache2
+      sudo apt-get -y install openssl
 
     # Crear el certificado auto-firmado
       echo ""
@@ -167,27 +171,13 @@
       echo ""
       echo "    Habilitar la configuración de bWAPP para apache..."
       echo ""
-      echo '<VirtualHost *:80>'                                         | sudo tee    /etc/apache2/sites-available/bWAPP.conf
-      echo '  ServerAdmin webmaster@localhost'                          | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
-      echo '  DocumentRoot /var/www/bWAPP'                              | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
-      echo '  ErrorLog ${APACHE_LOG_DIR}/error.log'                     | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
-      echo '  CustomLog ${APACHE_LOG_DIR}/access.log combined'          | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
-      echo '</VirtualHost>'                                             | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
-      echo ''                                                           | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
-      echo '<VirtualHost *:443>'                                        | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
-      echo '  ServerAdmin webmaster@localhost'                          | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
-      echo '  DocumentRoot /var/www/bWAPP'                              | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
-      echo '  SSLEngine on'                                             | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
-      echo '  SSLCertificateFile      /etc/apache2/ssl/autocertssl.pem' | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
-      echo '  SSLCertificateKeyFile   /etc/apache2/ssl/autocertssl.key' | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
-      echo '  <FilesMatch "\.(?:cgi|shtml|phtml|php)$">'                | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
-      echo '    SSLOptions +StdEnvVars'                                 | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
-      echo '  </FilesMatch>'                                            | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
-      echo '  <Directory /usr/lib/cgi-bin>'                             | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
-      echo '    SSLOptions +StdEnvVars'                                 | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
-      echo '  </Directory>'                                             | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
-      echo '</VirtualHost>'                                             | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
-
+      echo '<VirtualHost *:80>'                                       | sudo tee    /etc/apache2/sites-available/bWAPP.conf
+      echo '  ServerAdmin webmaster@localhost'                        | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  DocumentRoot /var/www/bWAPP'                            | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  ErrorLog ${APACHE_LOG_DIR}/error.log'                   | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  CustomLog ${APACHE_LOG_DIR}/access.log combined'        | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '</VirtualHost>'                                           | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo ''                                                         | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
       echo '<VirtualHost *:443>'                                      | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
       echo '  ServerName yourdomain.com'                              | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
       echo '  DocumentRoot /var/www/bWAPP'                            | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
@@ -198,15 +188,21 @@
       echo '    AllowOverride All'                                    | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
       echo '  </Directory>'                                           | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
       echo '  ErrorLog ${APACHE_LOG_DIR}/error.log'                   | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
-      echo   'CustomLog ${APACHE_LOG_DIR}/access.log combined'        | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
+      echo '  CustomLog ${APACHE_LOG_DIR}/access.log combined'        | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
       echo '</VirtualHost>'                                           | sudo tee -a /etc/apache2/sites-available/bWAPP.conf
 
-    # Instalar compatibilidad con SSL
+    # Activar el módullo SSL de apache
       echo ""
-      echo "    Instalando compatibilidad con SSL..."
+      echo "    Activando el módulo SSL de apache..."
       echo ""
-      sudo apt install openssl
       sudo a2enmod ssl
+
+    # Deshabilitar el sistio web por defecto de apache
+      echo ""
+      echo "    Deshabilitando los sitios por defecto de apache..."
+      echo ""
+      sudo a2dissite 000-default
+      sudo a2dissite default-ssl.conf
 
     # Activar el sitio
       echo ""
@@ -214,6 +210,7 @@
       echo ""
       sudo a2ensite bWAPP
       sudo systemctl reload apache2
+      sudo systemctl restart apache2
       sudo systemctl status apache2 --no-pager
 
     # Notificar fin de ejecución del script
@@ -223,7 +220,12 @@
       vIPLocal=$(hostname -I | sed 's- --g')
       echo "      https://$vIPLocal/install.php"
       echo ""
-      
+      echo "    Luego entra en:"
+      echo ""
+      echo "      example: https://$vIPLocal/login.php"
+      echo ""
+      echo "      Y loguéate con las credenciales bee/bug"
+      echo ""
 
   elif [ $cVerSO == "11" ]; then
 
