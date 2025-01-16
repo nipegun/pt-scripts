@@ -162,10 +162,21 @@
       echo ""
       echo "    Creando el certificado autofirmado..."
       echo ""
+      echo "[req]"                        > /tmp/openssl.cnf
+      echo "default_bits       = 2048"   >> /tmp/openssl.cnf
+      echo "prompt             = no"     >> /tmp/openssl.cnf
+      echo "default_md         = sha256" >> /tmp/openssl.cnf
+      echo "distinguished_name = dn"     >> /tmp/openssl.cnf
+      echo ""                            >> /tmp/openssl.cnf
+      echo "[dn]"                        >> /tmp/openssl.cnf
+      echo "C  = ES"                     >> /tmp/openssl.cnf
+      echo "ST = Madrid"                 >> /tmp/openssl.cnf
+      echo "L  = Madrid"                 >> /tmp/openssl.cnf
+      echo "O  = bWAPP"                  >> /tmp/openssl.cnf
+      echo "OU = bWAPPMiUnidad"          >> /tmp/openssl.cnf
+      echo "CN = bWAPP.com"              >> /tmp/openssl.cnf
       sudo mkdir /etc/apache2/ssl
-      sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-        -keyout /etc/apache2/ssl/autocertssl.key               \
-           -out /etc/apache2/ssl/autocertssl.crt
+      sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/apache2/ssl/autocertssl.key -out /etc/apache2/ssl/autocertssl.crt -config /tmp/openssl.cnf
 
     # Habilitar la configuración de bWAPP para apache
       echo ""
