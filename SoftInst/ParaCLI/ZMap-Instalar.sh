@@ -86,12 +86,11 @@
     sudo apt -y install libunistring-dev
 
     cd ~/
+    rm -rf ~/
     git clone https://github.com/zmap/zmap.git
     cd zmap
     mkdir build
     cd build
-    cd /home/nipegun/zmap/build
-    rm -rf *
     cmake ..
     make
     sudo make install
