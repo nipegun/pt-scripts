@@ -9,19 +9,19 @@
 # Script de NiPeGun para instalar y configurar ZMap en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL x | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/ZMap-Instalar.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL x | sed 's-sudo--g' | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/ZMap-Instalar.sh | sed 's-sudo--g' | bash
 #
 # Ejecución remota sin caché:
-#   curl -sL -H 'Cache-Control: no-cache, no-store' x | bash
+#   curl -sL -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/ZMap-Instalar.sh | bash
 #
 # Ejecución remota con parámetros:
-#   curl -sL x | bash -s Parámetro1 Parámetro2
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/ZMap-Instalar.sh | bash -s Parámetro1 Parámetro2
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL x | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/ZMap-Instalar.sh | nano -
 # ----------
 
 # Definir constantes de color
@@ -90,8 +90,38 @@
     echo -e "${cColorAzulClaro}  Iniciando el script de instalación de ZMap para Debian 12 (Bookworm)...${cFinColor}"
     echo ""
 
+    sudo apt -y update
+    sudo apt -y install git
+    sudo apt -y install build-essential
+    sudo apt -y install cmake
+    sudo apt -y install libgmp-dev
+    sudo apt -y install gengetopt
+    sudo apt -y install libpcap-dev
+    sudo apt -y install flex
+    sudo apt -y install bison
+    sudo apt -y install libjudy-dev
+    sudo apt -y install byacc
+    sudo apt -y install libjson-c-dev
+    sudo apt -y install libunistring-dev
+
+    cd ~/
+    git clone https://github.com/zmap/zmap.git
+    cd zmap
+    mkdir build
+    cd build
+    cd /home/nipegun/zmap/build
+    rm -rf *
+    cmake ..
+    make
+    sudo make install
+
     echo ""
-    echo -e "${cColorRojo}    Comandos para Debian 12 todavía no preparados. Prueba ejecutarlo en otra versión de Debian.${cFinColor}"
+    echo "  Se han instalado los siguientes binarios:"
+    echo ""
+    echo "    /usr/local/sbin/zmap"
+    echo "    /usr/local/sbin/zblocklist"
+    echo "    /usr/local/sbin/ziterate"
+    echo "    /usr/local/sbin/ztee"
     echo ""
 
   elif [ $cVerSO == "11" ]; then
