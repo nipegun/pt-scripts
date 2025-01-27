@@ -124,6 +124,23 @@
     echo "    /usr/local/sbin/ztee"
     echo ""
 
+    echo ""
+    echo "  Para escanear, ejecuta:"
+    echo ""
+    echo "    sudo zmap -p 80 192.168.1.0/24"
+    echo "    sudo zmap -p 80 192.168.1.0/24 -o results.txt"
+    echo "    sudo zmap -p 22,80,443 -r 10000 192.168.1.0/24  # Escanear múltiples puertos y especificar el número de paquetes por segundo:"
+    echo "    sudo zmap -p 80 192.168.1.0/24 -B 10M | sort -u # Filtrar y mostrar solo direcciones IP únicas"
+    echo ""
+
+    echo ""
+    echo "  Quitando las  IPs locales de la blocklist de /etc/zmap/blocklist.conf"
+    echo ""
+    sudo sed -i -e 's-10.0.0.0/8-#10.0.0.0/8-g'         /etc/zmap/blocklist.conf
+    sudo sed -i -e 's-172.16.0.0/12-#172.16.0.0/12-g'   /etc/zmap/blocklist.conf
+    sudo sed -i -e 's-192.168.0.0/16-#192.168.0.0/16-g' /etc/zmap/blocklist.conf
+
+
   elif [ $cVerSO == "11" ]; then
 
     echo ""
