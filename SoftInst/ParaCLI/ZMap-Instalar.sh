@@ -33,25 +33,6 @@
     #echo "$(tput setaf 1)Mensaje en color rojo. $(tput sgr 0)"
   cFinColor='\033[0m'
 
-# Comprobar si el script está corriendo como root
-  #if [ $(id -u) -ne 0 ]; then     # Sólo comprueba si es root
-  if [[ $EUID -ne 0 ]]; then       # Comprueba si es root o sudo
-    echo ""
-    echo -e "${cColorRojo}  Este script está preparado para ejecutarse con privilegios de administrador (como root o con sudo).${cFinColor}"
-    echo ""
-    exit
-  fi
-
-# Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
-  if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
-    echo ""
-    echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
-    echo ""
-    sudo apt-get -y update
-    sudo apt-get -y install curl
-    echo ""
-  fi
-
 # Determinar la versión de Debian
   if [ -f /etc/os-release ]; then             # Para systemd y freedesktop.org.
     . /etc/os-release
@@ -131,6 +112,7 @@
     echo "    sudo zmap -p 80 192.168.1.0/24 -o results.txt"
     echo "    sudo zmap -p 22,80,443 -r 10000 192.168.1.0/24  # Escanear múltiples puertos y especificar el número de paquetes por segundo:"
     echo "    sudo zmap -p 80 192.168.1.0/24 -B 10M | sort -u # Filtrar y mostrar solo direcciones IP únicas"
+    echo "    sudo zmap -p 80 192.168.1.0/24 -v 0             # Verbose 0, mostrar la menor información posible"
     echo ""
 
     echo ""
