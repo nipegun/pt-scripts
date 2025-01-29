@@ -131,11 +131,20 @@
       echo "    Ejecución del script, finalizada."
       echo "      RustScan se ha instalado correctamente."
       echo ""
-      echo "      Para ejecutar un escaneo:"
+      echo "      Para ejecutar escaneos:"
       echo ""
-      echo "        "
+      echo "        rustscan -a 172.16.0.0/24"
+      echo "        rustscan -a 192.168.1.10 -p 22,80,443"
+      echo "        rustscan -a 192.168.1.10 -b 1000             # Permite indicar la cantidad de hilos"
+      echo "        rustscan -a 192.168.1.10 -oG ~/Resultado.txt # Guardar los resultados a un archivo"
       echo ""
-  
+      echo "          Para escanear con RustScan y luego pasar los resultados a Nmap automáticamente:"
+      echo ""
+      echo "            rustscan -a 192.168.1.1 -- -sV # Para escanear y, lo que detecta, pasarlo a nmap para ver las versiones de servicios"
+      echo "            rustscan -a 192.168.1.1 -- -O  # Para escanear y, lo que detecta, pasarlo a nmap para ver cual es el sistema operativo"
+      echo ""
+      echo "             -- indica que los argumentos posteriores se enviarán a Nmap."
+      echo ""
 
   elif [ $cVerSO == "11" ]; then
 
