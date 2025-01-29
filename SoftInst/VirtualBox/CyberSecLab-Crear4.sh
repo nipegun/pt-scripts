@@ -79,10 +79,10 @@
       fi
 
     # Crear el menú
-      menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 70 16)
+      menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 60 16)
         opciones=(
-          1 "Instalar VirtualBox"                         off
-          2 "Instalar laboratorio completo en VirtualBox" on
+          1 "Instalar VirtualBox"         off
+          2 "Importar máquinas virtuales" on
         )
       choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
 
