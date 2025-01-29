@@ -8,8 +8,11 @@
 # ----------
 # Script de NiPeGun para descargar e importar el pack CyberSecLab para VirtualBox en Debian
 #
-# Ejecución remota:
+# Ejecución remota (puede requerir permisos sudo):
 #   https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/VirtualBox/CyberSecLab-Crear.sh | bash
+#
+# Ejecución remota como root:
+#   https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/VirtualBox/CyberSecLab-Crear.sh | sed 's-sudo--g' | bash
 #
 # Bajar y editar directamente el archivo en nano
 #   https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/VirtualBox/CyberSecLab-Crear.sh | nano -
@@ -23,15 +26,6 @@
   # Para el color rojo también:
     #echo "$(tput setaf 1)Mensaje en color rojo. $(tput sgr 0)"
   cFinColor='\033[0m'
-
-# Comprobar si el script está corriendo como root
-  #if [ $(id -u) -ne 0 ]; then     # Sólo comprueba si es root
-  if [[ $EUID -ne 0 ]]; then       # Comprueba si es root o sudo
-    echo ""
-    echo -e "${cColorRojo}  Este script está preparado para ejecutarse con privilegios de administrador (como root o con sudo).${cFinColor}"
-    echo ""
-    exit
-  fi
 
 # Determinar la versión de Debian
   if [ -f /etc/os-release ]; then             # Para systemd y freedesktop.org.
@@ -58,7 +52,7 @@
   if [ $cVerSO == "13" ]; then
 
     echo ""
-    echo -e "${cColorAzulClaro}  Iniciando el script de instalación de xxxxxxxxx para Debian 13 (x)...${cFinColor}"
+    echo -e "${cColorAzulClaro}  Iniciando el script de importación del pack CyberSecLab para el VirtualBox de Debian 13 (x)...${cFinColor}"
     echo ""
 
     echo ""
@@ -68,7 +62,7 @@
   elif [ $cVerSO == "12" ]; then
 
     echo ""
-    echo -e "${cColorAzulClaro}  Iniciando el script de instalación de xxxxxxxxx para Debian 12 (Bookworm)...${cFinColor}"
+    echo -e "${cColorAzulClaro}  Iniciando el script de importación del pack CyberSecLab para el VirtualBox de Debian 12 (Bookworm)...${cFinColor}"
     echo ""
 
     # Definir fecha de ejecución del script
@@ -77,21 +71,20 @@
     # Comprobar si el paquete dialog está instalado. Si no lo está, instalarlo.
       if [[ $(dpkg-query -s dialog 2>/dev/null | grep installed) == "" ]]; then
         echo ""
-        echo -e "${cColorRojo}  El paquete dialog no está instalado. Iniciando su instalación...${cFinColor}"
+        echo -e "${cColorRojo}    El paquete dialog no está instalado. Iniciando su instalación...${cFinColor}"
         echo ""
-        apt-get -y update && apt-get -y install dialog
+        sudo apt-get -y update
+        sudo apt-get -y install dialog
         echo ""
       fi
 
     # Crear el menú
-      #menu=(dialog --timeout 5 --checklist "Marca las opciones que quieras instalar:" 22 96 16)
       menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 96 16)
         opciones=(
-          1 "Instalar VirtualBox" off
+          1 "Instalar VirtualBox"                         off
           2 "Instalar laboratorio completo en VirtualBox" on
         )
       choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
-      #clear
 
       for choice in $choices
         do
@@ -107,10 +100,11 @@
                   echo ""
                   echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
                   echo ""
-                  apt-get -y update && apt-get -y install curl
+                  sudo apt-get -y update
+                  sudo apt-get -y install curl
                   echo ""
                 fi
-              curl -sL https://raw.githubusercontent.com/nipegun/d-scripts/refs/heads/master/SoftInst/ParaGUI/VirtualBox-Instalar.sh | bash
+              curl -sL https://raw.githubusercontent.com/nipegun/d-scripts/refs/heads/master/SoftInst/ParaGUI/VirtualBox-Instalar.sh | sudo bash
 
             ;;
 
@@ -252,7 +246,7 @@
   elif [ $cVerSO == "11" ]; then
 
     echo ""
-    echo -e "${cColorAzulClaro}  Iniciando el script de instalación de xxxxxxxxx para Debian 11 (Bullseye)...${cFinColor}"
+    echo -e "${cColorAzulClaro}  Iniciando el script de importación del pack CyberSecLab para el VirtualBox de ebian 11 (Bullseye)...${cFinColor}"
     echo ""
 
     echo ""
@@ -262,7 +256,7 @@
   elif [ $cVerSO == "10" ]; then
 
     echo ""
-    echo -e "${cColorAzulClaro}  Iniciando el script de instalación de xxxxxxxxx para Debian 10 (Buster)...${cFinColor}"
+    echo -e "${cColorAzulClaro}  Iniciando el script de importación del pack CyberSecLab para el VirtualBox de ebian 10 (Buster)...${cFinColor}"
     echo ""
 
     echo ""
@@ -272,7 +266,7 @@
   elif [ $cVerSO == "9" ]; then
 
     echo ""
-    echo -e "${cColorAzulClaro}  Iniciando el script de instalación de xxxxxxxxx para Debian 9 (Stretch)...${cFinColor}"
+    echo -e "${cColorAzulClaro}  Iniciando el script de importación del pack CyberSecLab para el VirtualBox de ebian 9 (Stretch)...${cFinColor}"
     echo ""
 
     echo ""
@@ -282,7 +276,7 @@
   elif [ $cVerSO == "8" ]; then
 
     echo ""
-    echo -e "${cColorAzulClaro}  Iniciando el script de instalación de xxxxxxxxx para Debian 8 (Jessie)...${cFinColor}"
+    echo -e "${cColorAzulClaro}  Iniciando el script de importación del pack CyberSecLab para el VirtualBox de ebian 8 (Jessie)...${cFinColor}"
     echo ""
 
     echo ""
@@ -292,7 +286,7 @@
   elif [ $cVerSO == "7" ]; then
 
     echo ""
-    echo -e "${cColorAzulClaro}  Iniciando el script de instalación de xxxxxxxxx para Debian 7 (Wheezy)...${cFinColor}"
+    echo -e "${cColorAzulClaro}  Iniciando el script de importación del pack CyberSecLab para el VirtualBox de ebian 7 (Wheezy)...${cFinColor}"
     echo ""
 
     echo ""
