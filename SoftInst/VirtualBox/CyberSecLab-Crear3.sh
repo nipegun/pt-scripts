@@ -127,7 +127,7 @@
                     sudo apt-get -y install dialog
                     echo ""
                   fi
-                menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 96 16)
+                menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 70 16)
                   opciones=(
                     1 "Importar máquina virtual de OpenWrt" on
                     2 "Importar máquina virtual de Kali"    off
@@ -267,10 +267,10 @@
                         echo ""
                         echo "  Agrupando máquinas virtuales..."
                         echo ""
-                        VBoxManage modifyvm "openwrtlab" --groups "/CyberSecLab"
-                        VBoxManage modifyvm "kali"       --groups "/CyberSecLab"
-                        VBoxManage modifyvm "sift"       --groups "/CyberSecLab"
-                        VBoxManage modifyvm "pruebas"    --groups "/CyberSecLab"
+                        VBoxManage modifyvm "openwrtlab" --groups "/CyberSecLab" 2> /dev/null
+                        VBoxManage modifyvm "kali"       --groups "/CyberSecLab" 2> /dev/null
+                        VBoxManage modifyvm "sift"       --groups "/CyberSecLab" 2> /dev/null
+                        VBoxManage modifyvm "pruebas"    --groups "/CyberSecLab" 2> /dev/null
 
                       ;;
 
