@@ -132,8 +132,8 @@
                     1 "Importar máquina virtual de OpenWrt" on
                     2 "Importar máquina virtual de Kali"    off
                     3 "Importar máquina virtual de Sift"    off
-                    4 "Importar máquina virtual de " off
-                    5 "Importar máquina virtual de " off
+                    4 "Importar máquina virtual de Pruebas" off
+                    5 "Agrupar máquinas virtuales"          on
                   )
                 choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
 
@@ -170,6 +170,11 @@
                             # Controladora de disco duro
                               VBoxManage.exe storagectl "openwrtlab" --name "VirtIO" --add "VirtIO" --bootable on --portcount 1
 
+                        # OpenWrt
+                          cd ~/"VirtualBox VMs/openwrtlab/"
+                          wget http://hacks4geeks.com/_/descargas/MVs/Discos/Packs/CyberSecLab/openwrtlab.vmdk
+                          VBoxManage storageattach "openwrtlab" --storagectl "VirtIO" --port 0 --device 0 --type hdd --medium ~/"VirtualBox VMs/openwrtlab/openwrtlab.vmdk"
+
                       ;;
 
                       2)
@@ -195,6 +200,11 @@
                             # Controladora de disco duro
                               VBoxManage storagectl "kali" --name "VirtIO" --add "VirtIO" --bootable on --portcount 1
 
+                        # Disco duro
+                          cd ~/"VirtualBox VMs/kali/"
+                          wget http://hacks4geeks.com/_/descargas/MVs/Discos/Packs/CyberSecLab/kali.vmdk
+                          VBoxManage storageattach "kali" --storagectl "VirtIO" --port 0 --device 0 --type hdd --medium ~/"VirtualBox VMs/kali/kali.vmdk"
+
                       ;;
 
                       3)
@@ -219,6 +229,11 @@
                               VBoxManage storageattach "sift" --storagectl "SATA Controller" --port 0 --device 0 --type dvddrive --medium emptydrive
                             # Controladora de disco duro
                               VBoxManage storagectl "sift" --name "VirtIO" --add "VirtIO" --bootable on --portcount 1
+
+                        # Disco duro
+                          cd ~/"VirtualBox VMs/sift/"
+                          wget http://hacks4geeks.com/_/descargas/MVs/Discos/Packs/CyberSecLab/sift.vmdk
+                          VBoxManage storageattach "sift" --storagectl "VirtIO" --port 0 --device 0 --type hdd --medium ~/"VirtualBox VMs/sift/sift.vmdk"
 
                       ;;
 
@@ -248,29 +263,6 @@
                       ;;
 
                       5)
-
-                        echo ""
-                        echo "  Importando discos duros..."
-                        echo ""
-              
-                        # OpenWrt
-                          cd ~/"VirtualBox VMs/openwrtlab/"
-                          wget http://hacks4geeks.com/_/descargas/MVs/Discos/Packs/CyberSecLab/openwrtlab.vmdk
-                          VBoxManage storageattach "openwrtlab" --storagectl "VirtIO" --port 0 --device 0 --type hdd --medium ~/"VirtualBox VMs/openwrtlab/openwrtlab.vmdk"
-
-                        # Kali
-                          cd ~/"VirtualBox VMs/kali/"
-                          wget http://hacks4geeks.com/_/descargas/MVs/Discos/Packs/CyberSecLab/kali.vmdk
-                          VBoxManage storageattach "kali" --storagectl "VirtIO" --port 0 --device 0 --type hdd --medium ~/"VirtualBox VMs/kali/kali.vmdk"
-
-                        # Sift
-                          cd ~/"VirtualBox VMs/sift/"
-                          wget http://hacks4geeks.com/_/descargas/MVs/Discos/Packs/CyberSecLab/sift.vmdk
-                          VBoxManage storageattach "sift" --storagectl "VirtIO" --port 0 --device 0 --type hdd --medium ~/"VirtualBox VMs/sift/sift.vmdk"
-
-                      ;;
-
-                      6)
 
                         echo ""
                         echo "  Agrupando máquinas virtuales..."
