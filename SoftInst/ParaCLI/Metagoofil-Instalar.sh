@@ -170,14 +170,14 @@
               sudo apt-get -y install python3-setuptools
 
               # Entrar al entorno virtual
-                source ~/repos/python/Metagoofil/venv/bin/activate
-                cd ~/repos/python/Metagoofil/
+                source ~/repos/python/metagoofil/venv/bin/activate
+                cd ~/repos/python/metagoofil/
 
               # Instalar el instalador
                 python3 -m pip install pyinstaller
 
               # Compilar
-                pyinstaller --onefile --collect-all=Metagoofil Metagoofil.py
+                pyinstaller --onefile --collect-all=metagoofil metagoofil.py
 
               # Copiar el binario a /usr/bin
                 mkdir ~/bin/
