@@ -1,6 +1,10 @@
 # Preguntar al servidor raíz a.root-servers.net
-  dig @a.root-servers.net openwrt.org NS +norecurse
+  vRespServRaiz=$(dig @a.root-servers.net openwrt.org NS +norecurse | grep -P "IN\tA\t" | sort | head -n1 | sed -e 's-\t- -g' | cut -d' ' -f5)
+
 # Preguntar al servidor del TLD .org a0.org.afilias-nst.info
-  dig @a0.org.afilias-nst.info openwrt.org NS +norecurse
+  vRespServTLD=$(dig @$vIPServRaiz openwrt.org NS +norecurse | grep -P "IN\tA\t" | sort | head -n1 | sed -e 's-\t- -g' | cut -d' ' -f5)
+
 # Preguntar al servidor autoritativo de openwrt.org	ns1.openwrt.org
-  dig @ns1.openwrt.org openwrt.org A +norecurse
+  vRespServAuth=$(dig @$vIPServTLD openwrt.org A +norecurse | grep -P "IN\tA\t" | sort | head -n1 | sed -e 's-\t- -g' | cut -d' ' -f5)
+
+echo $vRespServAuth
