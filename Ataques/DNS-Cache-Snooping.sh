@@ -73,3 +73,4 @@
   # Preguntar al servidor autoritativo obtenido en la consulta anterior
     vRespServAuth=$(dig @$vRespServTLD "$cFQDN" A +norecurse | grep -P "IN\tA\t" | sort | head -n1 | sed -e 's-\t- -g' | cut -d' ' -f6)
     echo "  El servidor autoritativo ha repondido que la IP de dominio es $vRespServAuth"
+    echo ""
