@@ -23,20 +23,33 @@
 # Bajar y editar directamente el archivo en nano
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web-BuscarServiciosEnIP.sh | nano -
 # ----------
+#!/bin/bash
 
+# Definir el objetivo
 vHost="localhost"
 
 # Ejecutar Nmap y extraer los números de puerto
-mapfile -t puertos < <(nmap -p- $vHost | grep -oP '^\d+(?=/)')
+mapfile -t vPuertosConRespuesta < <(nmap -p- "$vHost" | grep -oP '^\d+(?=/)')
 
-# Mostrar los valores del array
-echo "Puertos encontrados: ${puertos[@]}"
+# Array para puertos con respuesta HTML
+vPuertosConRespuestaHTML=()
 
-# Acceder a un puerto específico (por ejemplo, el primero)
-echo "Primer puerto: ${puertos[0]}"
+# Iterar sobre los puertos y probar con curl en HTTP y HTTPS
+  for puerto in "${vPuertosConRespuesta[@]}"; do
+    echo "Probando HTTP en puerto $vPuertosConRespuesta..."
+    if curl -s --max-time 3 "http://$vHost:$vPuertosConRespuesta" | grep -q "<html"; then
+      vPuertosConRespuestaHTML+=("http://$vHost:$vPuertosConRespuesta")
+    fi
 
+    echo "Probando HTTPS en puerto $vPuertosConRespuesta..."
+    if curl -s --max-time 3 -k "https://$vHost:$vPuertosConRespuesta" | grep -q "<html"; then
+      vPuertosConRespuestaHTML+=("https://$vHost:$vPuertosConRespuesta")
+    fi
+  done
 
-
-
-
+# Mostrar los puertos que devolvieron HTML, línea por línea
+  echo "Puertos con respuesta HTML:"
+  for vURL in "${vPuertosConRespuestaHTML[@]}"; do
+    echo "$vURL"
+  done
 
