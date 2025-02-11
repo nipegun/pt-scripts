@@ -6,7 +6,7 @@
 # No tienes que aceptar ningún tipo de términos de uso o licencia para utilizarlo o modificarlo porque va sin CopyLeft.
 
 # ----------
-# Script de NiPeGun para instalar y configurar xxxxxxxxx en Debian
+# Script de NiPeGun para buscar servicios web en una subred o host
 #
 # Ejecución remota (puede requerir permisos sudo):
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web-BuscarServiciosEnIP.sh | bash
@@ -53,18 +53,34 @@
       exit
   fi
 
-
-
 # Definir el objetivo
   vHost="$1"
 
 # Ejecutar Nmap y extraer los números de puerto
+  # Comprobar si el paquete nmap está instalado. Si no lo está, instalarlo.
+    if [[ $(dpkg-query -s nmap 2>/dev/null | grep installed) == "" ]]; then
+      echo ""
+      echo -e "${cColorRojo}  El paquete nmap no está instalado. Iniciando su instalación...${cFinColor}"
+      echo ""
+      sudo apt-get -y update
+      sudo apt-get -y install nmap
+      echo ""
+    fi
   mapfile -t vPuertosConRespuesta < <(nmap -p- "$vHost" | grep -oP '^\d+(?=/)')
 
 # Array para puertos con respuesta HTML
   vPuertosConRespuestaHTML=()
 
 # Iterar sobre los puertos y probar con curl en HTTP y HTTPS
+  # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
+    if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
+      echo ""
+      echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
+      echo ""
+      sudo apt-get -y update
+      sudo apt-get -y install curl
+      echo ""
+    fi
   echo ""
   for puerto in "${vPuertosConRespuesta[@]}"; do
     echo "Probando HTTP en puerto $puerto..."
