@@ -4,10 +4,10 @@
 # Script de NiPeGun para buscar servicios web en una subred o host
 #
 # Ejecución remota con parámetros:
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Servicios-Web-EnIP-ConNmapCurl.sh | bash -s "192.168.1.0/24"
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Servicios-Web-EnSubred.sh | bash -s "192.168.1.0/24"
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Servicios-Web-EnIP-ConNmapCurl.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Servicios-Web-EnSubred.sh | nano -
 # ----------
 
 # Verificar si se pasó un argumento
@@ -17,7 +17,8 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-SUBNET="$1"
+# Guardar el parámetro pasado en una variable
+  SUBNET="$1"
 
 # Declarar un array para almacenar las IPs
   declare -a IPS_ARRAY
