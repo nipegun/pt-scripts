@@ -26,6 +26,8 @@
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Scan-Idle.py | nano -
 # ----------
 
+# Uso: sudo ./idlescan.py 172.16.0.105 172.16.0.109 80
+
 import argparse
 from scapy.all import *
 
