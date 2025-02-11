@@ -26,4 +26,17 @@
 
 vHost="localhost"
 
-nmap "$vHost" -p- | sed "s|^|http://$vHost:|" | sed 's-/tcp--g'
+# Ejecutar Nmap y extraer los números de puerto
+mapfile -t puertos < <(nmap -p- $vHost | grep -oP '^\d+(?=/)')
+
+# Mostrar los valores del array
+echo "Puertos encontrados: ${puertos[@]}"
+
+# Acceder a un puerto específico (por ejemplo, el primero)
+echo "Primer puerto: ${puertos[0]}"
+
+
+
+
+
+
