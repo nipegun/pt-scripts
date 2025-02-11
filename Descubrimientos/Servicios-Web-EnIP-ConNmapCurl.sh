@@ -69,7 +69,7 @@
   if [ ${#vPuertosConRespuestaHTML[@]} -gt 0 ]; then
     echo ""
     echo "  Resultado:"
-    echo -e "\n  IPs y puertos respectivos con respuesta HTML detectada:\n"
+    echo ""
     for vURL in "${vPuertosConRespuestaHTML[@]}"; do
       echo -e "${cColorVerde}    $vURL ${cFinColor}"
     done
