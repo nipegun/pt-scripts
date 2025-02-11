@@ -38,7 +38,10 @@
     exit 1
   fi
 
-echo "  Se encontraron ${#vPuertosConRespuesta[@]} puertos abiertos."
+# Notificar todos los puertos abiertos que se encontraron
+  echo ""
+  echo -e "${cColorRojo}        Se encontraron ${#vPuertosConRespuesta[@]} puertos abiertos. ${cFinColor}"
+  echo ""
 
 # Array para puertos con respuesta HTML
   vPuertosConRespuestaHTML=()
