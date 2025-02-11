@@ -68,12 +68,14 @@
 
 # Mostrar los puertos que devolvieron HTML, línea por línea
   if [ ${#vPuertosConRespuestaHTML[@]} -gt 0 ]; then
+    echo ""
     echo "  Resultado:"
     echo -e "\n  IPs y puertos respectivos con respuesta HTML detectada:\n"
     for vURL in "${vPuertosConRespuestaHTML[@]}"; do
-      echo -e "${cColorRojo}    $vURL ${cFinColor}"
+      echo -e "${cColorVerde}    $vURL ${cFinColor}"
     done
   else
+    echo ""
     echo "  Resultado:"
     echo ""
     echo -e "${cColorRojo}    No se encontraron puertos con respuesta HTML en $vHost. ${cFinColor}"
