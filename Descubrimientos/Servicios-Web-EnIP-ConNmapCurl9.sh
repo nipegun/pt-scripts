@@ -58,8 +58,7 @@
     echo ""
     echo "  Probando HTTPS en puerto $puerto..."
     if curl -s --max-time 3 -k "https://$vHost:$puerto" | grep -q "<html"; then
-      echo -e "${cColorVerde}    Respuesta HTML detectada en https://$vHost:$puerto!${cFinColor}"
-      echo ""
+      echo -e "${cColorVerde}    Respuesta HTML detectada en https://$vHost:$puerto ${cFinColor}"
       vPuertosConRespuestaHTML+=("https://$vHost:$puerto")
     else
       echo -e "${cColorRojo}    No se detectó respuesta HTML en https://$vHost:$puerto ${cFinColor}"
