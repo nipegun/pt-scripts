@@ -46,6 +46,7 @@
 
 # Iterar sobre los puertos y probar con curl en HTTP y HTTPS
   for puerto in "${vPuertosConRespuesta[@]}"; do
+    echo ""
     echo "  Probando HTTP en puerto $puerto..."
     if curl -s --max-time 3 "http://$vHost:$puerto" | grep -q "<html"; then
       echo -e "${cColorVerde}    Respuesta HTML detectada en http://$vHost:$puerto ${cFinColor}"
@@ -54,6 +55,7 @@
       echo -e "${cColorRojo}    No se detectó HTML en http://$vHost:$puerto. ${cFinColor}"
     fi
 
+    echo ""
     echo "  Probando HTTPS en puerto $puerto..."
     if curl -s --max-time 3 -k "https://$vHost:$puerto" | grep -q "<html"; then
       echo ""
