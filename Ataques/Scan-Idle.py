@@ -36,10 +36,10 @@ def idle_scan(zombie_ip, victim_ip, victim_port):
     initial_ipid = response.id if response else None
 
     if initial_ipid is None:
-        print("[!] Failed to get initial IPID from zombie.")
+        print("[!] Fallo al obtener el IPID del zombie.")
         return
 
-    print(f"[*] Initial IPID of zombie: {initial_ipid}")
+    print(f"[*] IPID inicial del zombie: {initial_ipid}")
 
     # Step 2: Send spoofed SYN packet to victim
     spoofed_syn = IP(src=zombie_ip, dst=victim_ip)/TCP(dport=victim_port, flags="S")
@@ -50,10 +50,10 @@ def idle_scan(zombie_ip, victim_ip, victim_port):
     final_ipid = response.id if response else None
 
     if final_ipid is None:
-        print("[!] Failed to get final IPID from zombie.")
+        print("[!] Fallo al obtener el IPID final del zombie.")
         return
 
-    print(f"[*] Final IPID of zombie: {final_ipid}")
+    print(f"[*] IPID final del zombie: {final_ipid}")
 
     # Step 4: Analyze results
     ipid_difference = final_ipid - initial_ipid
@@ -62,7 +62,7 @@ def idle_scan(zombie_ip, victim_ip, victim_port):
     elif ipid_difference == 2:
         print(f"[+] Port {victim_port} on {victim_ip} is OPEN.")
     else:
-        print("[!] Unexpected behavior or bad zombie host.")
+        print("[!] Comportamiento inesperado o error de host en el zombie.")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Idle Scan using a zombie host.")
