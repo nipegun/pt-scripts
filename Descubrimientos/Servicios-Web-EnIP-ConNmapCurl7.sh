@@ -74,6 +74,8 @@
       echo -e "${cColorRojo}    $vURL ${cFinColor}"
     done
   else
-    echo -e "\n  No se encontraron puertos con respuesta HTML en $vHost."
+    echo "  Resultado:"
+    echo ""
+    echo -e "${cColorRojo}    No se encontraron puertos con respuesta HTML en $vHost. ${cFinColor}"
   fi
   echo ""
