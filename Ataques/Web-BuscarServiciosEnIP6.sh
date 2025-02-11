@@ -64,25 +64,28 @@
   vPuertosConRespuestaHTML=()
 
 # Iterar sobre las direcciones IP y puertos detectados
+  echo ""
   for resultado in "${vResultados[@]}"; do
     vHost=$(echo "$resultado" | cut -d':' -f1)
     puerto=$(echo "$resultado" | cut -d':' -f2 | cut -d'/' -f1)
 
     # Probar HTTP
-    echo "Probando http://$vHost:$puerto..."
+    echo "  Probando http://$vHost:$puerto..."
     if curl -s --max-time 3 "http://$vHost:$puerto" | grep -q "<html"; then
         vPuertosConRespuestaHTML+=("http://$vHost:$puerto")
     fi
 
     # Probar HTTPS
-    echo "Probando https://$vHost:$puerto..."
+    echo "  Probando https://$vHost:$puerto..."
     if curl -s --max-time 3 -k "https://$vHost:$puerto" | grep -q "<html"; then
         vPuertosConRespuestaHTML+=("https://$vHost:$puerto")
     fi
   done
 
 # Mostrar los puertos que devolvieron HTML, línea por línea
-  echo "Puertos con respuesta HTML:"
+  echo ""
+  echo "  Puertos con respuesta HTML:"
+  echo ""
   for vURL in "${vPuertosConRespuestaHTML[@]}"; do
     echo "$vURL"
   done
