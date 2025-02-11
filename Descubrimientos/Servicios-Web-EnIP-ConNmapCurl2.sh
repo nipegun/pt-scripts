@@ -32,15 +32,13 @@
 
 # Verificar si se encontraron puertos
   if [ ${#vPuertosConRespuesta[@]} -eq 0 ]; then
-    echo ""
     echo -e "${cColorRojo}    No se encontraron puertos abiertos en $vHost. ${cFinColor}"
     echo ""
     exit 1
   fi
 
 # Notificar todos los puertos abiertos que se encontraron
-  echo ""
-  echo -e "${cColorRojo}    Se encontraron ${#vPuertosConRespuesta[@]} puertos abiertos. ${cFinColor}"
+  echo -e "${cColorVerde}    Se encontraron ${#vPuertosConRespuesta[@]} puertos abiertos. ${cFinColor}"
   echo ""
 
 # Array para puertos con respuesta HTML
