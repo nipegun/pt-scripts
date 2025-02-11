@@ -40,7 +40,7 @@
 
 # Notificar todos los puertos abiertos que se encontraron
   echo ""
-  echo -e "${cColorRojo}        Se encontraron ${#vPuertosConRespuesta[@]} puertos abiertos. ${cFinColor}"
+  echo -e "${cColorRojo}    Se encontraron ${#vPuertosConRespuesta[@]} puertos abiertos. ${cFinColor}"
   echo ""
 
 # Array para puertos con respuesta HTML
@@ -50,10 +50,10 @@
   for puerto in "${vPuertosConRespuesta[@]}"; do
     echo "  Probando HTTP en puerto $puerto..."
     if curl -s --max-time 3 "http://$vHost:$puerto" | grep -q "<html"; then
-      echo "    Respuesta HTML detectada en http://$vHost:$puerto"
+      echo -e "${cColorVerde}    Respuesta HTML detectada en http://$vHost:$puerto ${cFinColor}"
       vPuertosConRespuestaHTML+=("http://$vHost:$puerto")
     else
-      echo "    No se detectó HTML en http://$vHost:$puerto"
+      echo -e "${cColorRojo}    No se detectó HTML en http://$vHost:$puerto. ${cFinColor}"
     fi
 
     echo "  Probando HTTPS en puerto $puerto..."
