@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# ----------
+# Script de NiPeGun para buscar servicios web en una subred o host
+#
+# Ejecución remota con parámetros:
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Descubimiento/Servicios-Web-EnIP-ConNmapCurl.sh | bash -s "localhost"
+#
+# Bajar y editar directamente el archivo en nano
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Descubrimiento/Servicios-Web-EnIP-ConNmapCurl.sh | nano -
+# ----------
+
 # Definir constantes de color
   cColorAzul='\033[0;34m'
   cColorAzulClaro='\033[1;34m'
