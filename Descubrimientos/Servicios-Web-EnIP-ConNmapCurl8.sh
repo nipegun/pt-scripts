@@ -78,6 +78,6 @@
     echo ""
     echo "  Resultado:"
     echo ""
-    echo -e "${cColorRojo}    No se encontraron puertos con respuesta HTML en $vHost. ${cFinColor}"
+    echo -e "${cColorRojo}    No se encontraron puertos con respuesta HTML en $vHost ${cFinColor}"
   fi
   echo ""
