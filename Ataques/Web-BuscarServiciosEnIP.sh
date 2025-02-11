@@ -23,8 +23,27 @@
 # Bajar y editar directamente el archivo en nano
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web-BuscarServiciosEnIP.sh | nano -
 # ----------
+
+# Definir la cantidad de argumentos esperados
+  cCantParamEsperados=3
+  
+# Comprobar que se hayan pasado la cantidad de parámetros correctos y proceder
+  if [ $# -ne $cCantParamEsperados ]
+    then
+      echo ""
+      echo -e "${cColorRojo}  Mal uso del script. El uso correcto sería: ${cFinColor}"
+      echo "    $0 [Host]"
+      echo ""
+      echo "  Ejemplo:"
+      echo "    $0 '192.168.1.3'"
+      echo ""
+      echo "    $0 '192.168.1.0/24'"
+      echo ""
+      exit
+  fi
+
 # Definir el objetivo
-  vHost="localhost"
+  vHost="$1"
 
 # Ejecutar Nmap y extraer los números de puerto
   mapfile -t vPuertosConRespuesta < <(nmap -p- "$vHost" | grep -oP '^\d+(?=/)')
