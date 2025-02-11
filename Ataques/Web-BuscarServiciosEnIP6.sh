@@ -57,28 +57,24 @@
       sudo apt-get -y install nmap
       echo ""
     fi
-  mapfile -t vPuertosConRespuesta < <(nmap -p- "$vHost" | grep -oP '^\d+(?=/)')
+  mapfile -t vResultados < <(nmap -p- --open "$vHost" | awk ' /Nmap scan report for/ {ip=$NF} 
+    /^[0-9]+\/tcp/ {gsub(/[()]/, "", ip); print ip ":" $1}')
 
 # Array para puertos con respuesta HTML
   vPuertosConRespuestaHTML=()
 
-# Iterar sobre los puertos y probar con curl en HTTP y HTTPS
-  # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
-    if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
-      echo ""
-      echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
-      echo ""
-      sudo apt-get -y update
-      sudo apt-get -y install curl
-      echo ""
-    fi
-  echo ""
-  for puerto in "${vPuertosConRespuesta[@]}"; do
+# Iterar sobre las direcciones IP y puertos detectados
+  for resultado in "${vResultados[@]}"; do
+    vHost=$(echo "$resultado" | cut -d':' -f1)
+    puerto=$(echo "$resultado" | cut -d':' -f2 | cut -d'/' -f1)
+
+    # Probar HTTP
     echo "Probando http://$vHost:$puerto..."
     if curl -s --max-time 3 "http://$vHost:$puerto" | grep -q "<html"; then
         vPuertosConRespuestaHTML+=("http://$vHost:$puerto")
     fi
 
+    # Probar HTTPS
     echo "Probando https://$vHost:$puerto..."
     if curl -s --max-time 3 -k "https://$vHost:$puerto" | grep -q "<html"; then
         vPuertosConRespuestaHTML+=("https://$vHost:$puerto")
@@ -86,11 +82,7 @@
   done
 
 # Mostrar los puertos que devolvieron HTML, línea por línea
-  echo ""
-  echo "  Puertos con respuesta HTML:"
-  echo ""
+  echo "Puertos con respuesta HTML:"
   for vURL in "${vPuertosConRespuestaHTML[@]}"; do
     echo "$vURL"
   done
-  echo ""
-
