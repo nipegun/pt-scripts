@@ -34,7 +34,7 @@
   cFinColor='\033[0m'
 
 # Definir la cantidad de argumentos esperados
-  cCantParamEsperados=3
+  cCantParamEsperados=1
   
 # Comprobar que se hayan pasado la cantidad de parámetros correctos y proceder
   if [ $# -ne $cCantParamEsperados ]
