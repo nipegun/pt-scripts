@@ -48,8 +48,7 @@ fi
 # Llamar a la función para calcular IPs
   fCalcularIPs
 
-# Imprimir las IPs con un bucle for
-  echo "Direcciones IP en la subred $SUBNET (sin dirección de red ni broadcast):"
+# Mandar a escanear cada una de las IPs
   for IP in "${IPS_ARRAY[@]}"; do
     curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Servicios-Web-EnIP-ConNmapCurl.sh | bash -s "$IP"
   done
