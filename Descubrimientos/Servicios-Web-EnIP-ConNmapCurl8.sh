@@ -24,7 +24,7 @@
 
 # Notificar inicio de ejecución del script
   echo ""
-  echo -e "${cColorAzulClaro}  Buscando servicios web en $vHost... ${cFinColor}"
+  echo -e "${cColorAzulClaro}  Buscando servicios web en $vHost ... ${cFinColor}"
   echo ""
 
 # Ejecutar Nmap y extraer los números de puerto
@@ -32,7 +32,7 @@
 
 # Verificar si se encontraron puertos
   if [ ${#vPuertosConRespuesta[@]} -eq 0 ]; then
-    echo -e "${cColorRojo}    No se encontraron puertos abiertos en $vHost. ${cFinColor}"
+    echo -e "${cColorRojo}    No se encontraron puertos abiertos en $vHost ${cFinColor}"
     echo ""
     exit 1
   fi
