@@ -63,7 +63,6 @@
       vPuertosConRespuestaHTML+=("https://$vHost:$puerto")
     else
       echo -e "${cColorRojo}    No se detectó HTML en https://$vHost:$puerto ${cFinColor}"
-      echo ""
     fi
   done
 
