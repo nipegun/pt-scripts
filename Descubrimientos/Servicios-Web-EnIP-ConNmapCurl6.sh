@@ -58,16 +58,17 @@
     echo ""
     echo "  Probando HTTPS en puerto $puerto..."
     if curl -s --max-time 3 -k "https://$vHost:$puerto" | grep -q "<html"; then
-      echo -e "${cColorVerde}    Respuesta HTML detectada en https://$vHost:$puerto ${cFinColor}"
+      echo -e "${cColorVerde}    Respuesta HTML detectada en https://$vHost:$puerto!${cFinColor}"
       echo ""
       vPuertosConRespuestaHTML+=("https://$vHost:$puerto")
     else
-      echo -e "${cColorRojo}    No se detectó HTML en https://$vHost:$puerto ${cFinColor}"
+      echo -e "${cColorRojo}    No se detectó respuesta HTML en https://$vHost:$puerto ${cFinColor}"
     fi
   done
 
 # Mostrar los puertos que devolvieron HTML, línea por línea
   if [ ${#vPuertosConRespuestaHTML[@]} -gt 0 ]; then
+    echo "  Resultado:"
     echo -e "\n  IPs y puertos respectivos con respuesta HTML detectada:\n"
     for vURL in "${vPuertosConRespuestaHTML[@]}"; do
         echo "    $vURL"
