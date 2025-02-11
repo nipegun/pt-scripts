@@ -51,5 +51,5 @@ fi
 # Imprimir las IPs con un bucle for
   echo "Direcciones IP en la subred $SUBNET (sin dirección de red ni broadcast):"
   for IP in "${IPS_ARRAY[@]}"; do
-    echo "$IP"
+    curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Servicios-Web-EnIP-ConNmapCurl.sh | bash -s "$IP"
   done
