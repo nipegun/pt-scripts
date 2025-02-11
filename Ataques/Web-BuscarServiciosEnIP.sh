@@ -24,6 +24,15 @@
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web-BuscarServiciosEnIP.sh | nano -
 # ----------
 
+# Definir constantes de color
+  cColorAzul='\033[0;34m'
+  cColorAzulClaro='\033[1;34m'
+  cColorVerde='\033[1;32m'
+  cColorRojo='\033[1;31m'
+  # Para el color rojo también:
+    #echo "$(tput setaf 1)Mensaje en color rojo. $(tput sgr 0)"
+  cFinColor='\033[0m'
+
 # Definir la cantidad de argumentos esperados
   cCantParamEsperados=3
   
@@ -32,15 +41,19 @@
     then
       echo ""
       echo -e "${cColorRojo}  Mal uso del script. El uso correcto sería: ${cFinColor}"
+      echo ""
       echo "    $0 [Host]"
       echo ""
       echo "  Ejemplo:"
+      echo ""
       echo "    $0 '192.168.1.3'"
       echo ""
       echo "    $0 '192.168.1.0/24'"
       echo ""
       exit
   fi
+
+
 
 # Definir el objetivo
   vHost="$1"
