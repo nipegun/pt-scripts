@@ -42,16 +42,6 @@
     exit
   fi
 
-# Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
-  if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
-    echo ""
-    echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
-    echo ""
-    sudo apt-get -y update
-    sudo apt-get -y install curl
-    echo ""
-  fi
-
 # Determinar la versión de Debian
   if [ -f /etc/os-release ]; then             # Para systemd y freedesktop.org.
     . /etc/os-release
@@ -90,14 +80,50 @@
     echo -e "${cColorAzulClaro}  Iniciando el script de instalación de OWASP Juice Shop para Debian 12 (Bookworm)...${cFinColor}"
     echo ""
 
+    # Instalar Node.js
+      echo ""
+      echo "  Instalando Node.js..."
+      echo ""
+      apt-get -y update
+      apt-get -y install nodejs
 
-    Install node.js
-    Run git clone https://github.com/juice-shop/juice-shop.git --depth 1 (or clone your own fork of the repository)
-    Go into the cloned folder with cd juice-shop
-    Run npm install (only has to be done before first start or when you change the source code)
-    Run npm start
-    Browse to http://localhost:3000
+    # Clonar repositorio
+      echo ""
+      echo "  Clonando repositorio..."
+      echo ""
+      mkdir ~/repos
+      cd ~/repos
+      # Comprobar si el paquete git está instalado. Si no lo está, instalarlo.
+        if [[ $(dpkg-query -s git 2>/dev/null | grep installed) == "" ]]; then
+          echo ""
+          echo -e "${cColorRojo}  El paquete git no está instalado. Iniciando su instalación...${cFinColor}"
+          echo ""
+          sudo apt-get -y update
+          sudo apt-get -y install git
+          echo ""
+        fi
+      git clone https://github.com/juice-shop/juice-shop.git --depth 1
 
+    # Instalar
+      echo ""
+      echo "  Instalando aplicación..."
+      echo ""
+      cd juice-shop
+      npm install
+
+    # Lanzar
+      echo ""
+      echo "  Lanzando aplicación..."
+      echo ""
+      npm start &
+
+    # Notificar fin del ejecución del script
+      echo ""
+      echo "  Ejecución del script, finalizada. La web está en:"
+      vIP=$(hostname -I | sed 's- --g')
+      echo ""
+      echo "  http://$vIP:3000"
+      echo ""
 
   elif [ $cVerSO == "11" ]; then
 
