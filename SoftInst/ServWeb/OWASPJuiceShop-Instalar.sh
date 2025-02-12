@@ -73,14 +73,15 @@
 
     # Instalar Node.js
       echo ""
-      echo "  Instalando Node.js..."
+      echo "    Instalando Node.js y npm..."
       echo ""
       apt-get -y update
       apt-get -y install nodejs
+      apt-get -y install npm
 
     # Clonar repositorio
       echo ""
-      echo "  Clonando repositorio..."
+      echo "    Clonando repositorio..."
       echo ""
       mkdir ~/repos
       cd ~/repos
@@ -97,14 +98,14 @@
 
     # Instalar
       echo ""
-      echo "  Instalando aplicación..."
+      echo "    Instalando aplicación..."
       echo ""
       cd juice-shop
       npm install
 
     # Lanzar
       echo ""
-      echo "  Lanzando aplicación..."
+      echo "    Lanzando aplicación..."
       echo ""
       npm start &
 
