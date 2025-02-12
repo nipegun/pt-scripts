@@ -90,9 +90,14 @@
     echo -e "${cColorAzulClaro}  Iniciando el script de instalación de OWASP Juice Shop para Debian 12 (Bookworm)...${cFinColor}"
     echo ""
 
-    echo ""
-    echo -e "${cColorRojo}    Comandos para Debian 12 todavía no preparados. Prueba ejecutarlo en otra versión de Debian.${cFinColor}"
-    echo ""
+
+    Install node.js
+    Run git clone https://github.com/juice-shop/juice-shop.git --depth 1 (or clone your own fork of the repository)
+    Go into the cloned folder with cd juice-shop
+    Run npm install (only has to be done before first start or when you change the source code)
+    Run npm start
+    Browse to http://localhost:3000
+
 
   elif [ $cVerSO == "11" ]; then
 
