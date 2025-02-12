@@ -9,10 +9,10 @@
 # Script de NiPeGun para instalar y configurar Spiderfoot en Debian
 #
 # Ejecución remota :
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/Spiderfoot-Instalar.sh | bash (No debería ejecutarse con sudo. Aunque luego pida permisos sudo)
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ServWeb/Spiderfoot-Instalar.sh | bash (No debería ejecutarse con sudo. Aunque luego pida permisos sudo)
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/Spiderfoot-Instalar.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ServWeb/Spiderfoot-Instalar.sh | nano -
 # ----------
 
 # Definir constantes de color
