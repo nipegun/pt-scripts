@@ -81,9 +81,13 @@
       #menu=(dialog --timeout 5 --checklist "Marca las opciones que quieras instalar:" 22 96 16)
       menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 80 16)
         opciones=(
-          1 "Instalar Java"                                           on
-          2 "Instalar a nivel de usuario para ejecutar manualmente"   off
-          3 "Instalar a nivel de sistema como un servicio de systemd" off
+          1 "Instalar Java JRE"                                       on
+          2 "Instalar la última versión a nivel de usuario para ejecutar manualmente"   off
+          3 "Instalar la última versión a nivel de sistema como un servicio de systemd" off
+          4 "Instalar la versión 8 a nivel de usuario para ejecutar manualmente"   off
+          5 "Instalar la versión 8 a nivel de sistema como un servicio de systemd" off
+          6 "Instalar la versión 7.1 a nivel de usuario para ejecutar manualmente"   off
+          7 "Instalar la versión 7.1 a nivel de sistema como un servicio de systemd" off
         )
       choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
       #clear
@@ -184,6 +188,298 @@
                     echo "      La última versión es: $vEtiquetaUltVers"
                     echo ""
                     vNumUltVers=$(curl -sL https://github.com/WebGoat/WebGoat/releases/latest | sed 's->->\n-g' | grep 'tag/v' | head -n 1 | sed 's|tag/|\n|g' |  grep ^v | cut -d'"' -f1 | cut -d'v' -f2)
+                # Descargar el archivo.jar
+                  echo ""
+                  echo "    Descargando el archivo .jar con la última versión..."
+                  echo ""
+                  sudo mkdir -p /opt/WebGoat/bin/
+                  sudo rm -f /opt/WebGoat/bin/webgoat*
+                  sudo curl -L https://github.com/WebGoat/WebGoat/releases/download/$vEtiquetaUltVers/webgoat-$vNumUltVers.jar -o /opt/WebGoat/bin/webgoat-$vNumUltVers.jar
+
+              # Reparar permisos
+                sudo chown $USER:$USER /opt/WebGoat -R
+
+              # Crear el usuario admin
+              #  echo ""
+              #  echo "    Creando el usuario admin..."
+              #  echo ""
+              #  /usr/bin/java -Dwebgoat.user=admin -Dwebgoat.password=admin -Dwebgoat.role=ROLE_ADMIN -jar /opt/WebGoat/bin/webgoat-$vNumUltVers.jar --server.address=0.0.0.0
+
+              # Crear el archivo para el servicio
+                echo ""
+                echo "    Creando el archivo del servicio..."
+                echo ""
+                echo '[Unit]'                                                                                                                | sudo tee    /etc/systemd/system/WebGoat.service
+                echo 'Description=WebGoat'                                                                                                   | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo 'After=network.target'                                                                                                  | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo ''                                                                                                                      | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo '[Service]'                                                                                                             | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo "User=$USER"                                                                                                            | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo 'WorkingDirectory=/opt/WebGoat'                                                                                         | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo "ExecStart=/usr/bin/java -Dfile.encoding=UTF-8 -jar /opt/WebGoat/bin/webgoat-$vNumUltVers.jar --server.address=0.0.0.0" | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo 'Restart=always'                                                                                                        | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo 'RestartSec=10'                                                                                                         | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo 'StandardOutput=syslog'                                                                                                 | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo 'StandardError=syslog'                                                                                                  | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo 'SyslogIdentifier=WebGoat'                                                                                              | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo ''                                                                                                                      | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo '[Install]'                                                                                                             | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo 'WantedBy=multi-user.target'                                                                                            | sudo tee -a /etc/systemd/system/WebGoat.service
+
+              # Activar e iniciar el servicio
+                echo ""
+                echo "    Activando e iniciando el servicio..."
+                echo ""
+                sudo systemctl enable WebGoat --now
+
+              # Mostrar estado del servicio
+                echo ""
+                echo "    Mostrando estado del servicio..."
+                echo ""
+                sleep 5
+                systemctl status WebGoat.service --no-pager
+
+              # Notificar fin de ejecución del script
+              
+                echo ""
+                echo "    Instalación a nivel de sistema, finalizada. El servicio debería estar corriendo. Para conectarte:"
+                echo ""
+                vIPLocal=$(hostname -I | sed 's- --g')
+                echo "      http://$vIPLocal:8080/WebGoat"
+                echo ""
+                echo "    La primera vez que accedas tendrás que registrar un usuario nuevo."
+                echo ""
+
+            ;;
+
+            4)
+
+              echo ""
+              echo "  Instalando la versión 8 a nivel de usuario para ejecutar manualmente..."
+              echo ""
+              # Descargar el archivo .jar
+                echo ""
+                echo "    Obteniendo la etiqueta de la última versión..."
+                echo ""
+                # Obtener la etiqueta de la última versión
+                  # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
+                    if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
+                      echo ""
+                      echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
+                      echo ""
+                      sudo apt-get -y update
+                      sudo apt-get -y install curl
+                      echo ""
+                    fi
+                  vEtiquetaUltVers="v8.2.2"
+              # Notificar etiqueta
+                echo ""
+                echo "      La última versión es: $vEtiquetaUltVers"
+                echo ""
+                vNumUltVers="8.2.2"
+
+              # Descargar el archivo.jar
+                echo ""
+                echo "    Descargando el archivo .jar con la última versión..."
+                echo ""
+                mkdir -p ~/bin/java/
+                rm -f ~/bin/java/webgoat*
+                curl -L https://github.com/WebGoat/WebGoat/releases/download/$vEtiquetaUltVers/webgoat-$vNumUltVers.jar -o ~/bin/java/webgoat-$vNumUltVers.jar
+
+              # Crear el script de ejecución
+                echo ""
+                echo "    Creando el script para ejecutar desde la CLI..."
+                echo ""
+                mkdir -p ~/scripts/
+                echo '#!/bin/bash'                                                                                   > ~/scripts/WebGoat-Ejecutar.sh
+                echo ""                                                                                             >> ~/scripts/WebGoat-Ejecutar.sh
+                echo 'export TZ=Europe/Madrid'                                                                      >> ~/scripts/WebGoat-Ejecutar.sh
+                echo "java -Dfile.encoding=UTF-8 -jar ~/bin/java/webgoat-$vNumUltVers.jar --server.address=0.0.0.0" >> ~/scripts/WebGoat-Ejecutar.sh
+                chmod +x                                                                                               ~/scripts/WebGoat-Ejecutar.sh
+
+              # Notificar fin de ejecución del script
+                echo ""
+                echo "    Instalación a nivel de usuario, finalizada. Para lanzarlo, ejecuta:"
+                echo ""
+                echo "      ~/scripts/WebGoat-Ejecutar.sh"
+                echo ""
+                echo "    La primera vez que accedas tendrás que registrar un usuario nuevo."
+                echo ""
+
+            ;;
+
+            5)
+
+              echo ""
+              echo "  Instalando la versión 8 a nivel de sistema como servicio de systemd..."
+              echo ""
+
+              # Descargar el archivo .jar
+                echo ""
+                echo "    Obteniendo la etiqueta de la última versión..."
+                echo ""
+                # Obtener la etiqueta de la última versión
+                  # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
+                    if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
+                      echo ""
+                      echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
+                      echo ""
+                      sudo apt-get -y update
+                      sudo apt-get -y install curl
+                      echo ""
+                    fi
+                  vEtiquetaUltVers="v8.2.2"
+                  # Notificar etiqueta
+                    echo ""
+                    echo "      La última versión es: $vEtiquetaUltVers"
+                    echo ""
+                    vNumUltVers="8.2.2"
+                # Descargar el archivo.jar
+                  echo ""
+                  echo "    Descargando el archivo .jar con la última versión..."
+                  echo ""
+                  sudo mkdir -p /opt/WebGoat/bin/
+                  sudo rm -f /opt/WebGoat/bin/webgoat*
+                  sudo curl -L https://github.com/WebGoat/WebGoat/releases/download/$vEtiquetaUltVers/webgoat-$vNumUltVers.jar -o /opt/WebGoat/bin/webgoat-$vNumUltVers.jar
+
+              # Reparar permisos
+                sudo chown $USER:$USER /opt/WebGoat -R
+
+              # Crear el usuario admin
+              #  echo ""
+              #  echo "    Creando el usuario admin..."
+              #  echo ""
+              #  /usr/bin/java -Dwebgoat.user=admin -Dwebgoat.password=admin -Dwebgoat.role=ROLE_ADMIN -jar /opt/WebGoat/bin/webgoat-$vNumUltVers.jar --server.address=0.0.0.0
+
+              # Crear el archivo para el servicio
+                echo ""
+                echo "    Creando el archivo del servicio..."
+                echo ""
+                echo '[Unit]'                                                                                                                | sudo tee    /etc/systemd/system/WebGoat.service
+                echo 'Description=WebGoat'                                                                                                   | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo 'After=network.target'                                                                                                  | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo ''                                                                                                                      | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo '[Service]'                                                                                                             | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo "User=$USER"                                                                                                            | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo 'WorkingDirectory=/opt/WebGoat'                                                                                         | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo "ExecStart=/usr/bin/java -Dfile.encoding=UTF-8 -jar /opt/WebGoat/bin/webgoat-$vNumUltVers.jar --server.address=0.0.0.0" | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo 'Restart=always'                                                                                                        | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo 'RestartSec=10'                                                                                                         | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo 'StandardOutput=syslog'                                                                                                 | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo 'StandardError=syslog'                                                                                                  | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo 'SyslogIdentifier=WebGoat'                                                                                              | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo ''                                                                                                                      | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo '[Install]'                                                                                                             | sudo tee -a /etc/systemd/system/WebGoat.service
+                echo 'WantedBy=multi-user.target'                                                                                            | sudo tee -a /etc/systemd/system/WebGoat.service
+
+              # Activar e iniciar el servicio
+                echo ""
+                echo "    Activando e iniciando el servicio..."
+                echo ""
+                sudo systemctl enable WebGoat --now
+
+              # Mostrar estado del servicio
+                echo ""
+                echo "    Mostrando estado del servicio..."
+                echo ""
+                sleep 5
+                systemctl status WebGoat.service --no-pager
+
+              # Notificar fin de ejecución del script
+              
+                echo ""
+                echo "    Instalación a nivel de sistema, finalizada. El servicio debería estar corriendo. Para conectarte:"
+                echo ""
+                vIPLocal=$(hostname -I | sed 's- --g')
+                echo "      http://$vIPLocal:8080/WebGoat"
+                echo ""
+                echo "    La primera vez que accedas tendrás que registrar un usuario nuevo."
+                echo ""
+
+            ;;
+
+            6)
+
+              echo ""
+              echo "  Instalando la versión 7.1 a nivel de usuario para ejecutar manualmente..."
+              echo ""
+              # Descargar el archivo .jar
+                echo ""
+                echo "    Obteniendo la etiqueta de la última versión..."
+                echo ""
+                # Obtener la etiqueta de la última versión
+                  # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
+                    if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
+                      echo ""
+                      echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
+                      echo ""
+                      sudo apt-get -y update
+                      sudo apt-get -y install curl
+                      echo ""
+                    fi
+                  vEtiquetaUltVers="v7.1"
+              # Notificar etiqueta
+                echo ""
+                echo "      La última versión es: $vEtiquetaUltVers"
+                echo ""
+                vNumUltVers="7.1"
+
+              # Descargar el archivo.jar
+                echo ""
+                echo "    Descargando el archivo .jar con la última versión..."
+                echo ""
+                mkdir -p ~/bin/java/
+                rm -f ~/bin/java/webgoat*
+                curl -L https://github.com/WebGoat/WebGoat/releases/download/$vEtiquetaUltVers/webgoat-$vNumUltVers.jar -o ~/bin/java/webgoat-$vNumUltVers.jar
+
+              # Crear el script de ejecución
+                echo ""
+                echo "    Creando el script para ejecutar desde la CLI..."
+                echo ""
+                mkdir -p ~/scripts/
+                echo '#!/bin/bash'                                                                                   > ~/scripts/WebGoat-Ejecutar.sh
+                echo ""                                                                                             >> ~/scripts/WebGoat-Ejecutar.sh
+                echo 'export TZ=Europe/Madrid'                                                                      >> ~/scripts/WebGoat-Ejecutar.sh
+                echo "java -Dfile.encoding=UTF-8 -jar ~/bin/java/webgoat-$vNumUltVers.jar --server.address=0.0.0.0" >> ~/scripts/WebGoat-Ejecutar.sh
+                chmod +x                                                                                               ~/scripts/WebGoat-Ejecutar.sh
+
+              # Notificar fin de ejecución del script
+                echo ""
+                echo "    Instalación a nivel de usuario, finalizada. Para lanzarlo, ejecuta:"
+                echo ""
+                echo "      ~/scripts/WebGoat-Ejecutar.sh"
+                echo ""
+                echo "    La primera vez que accedas tendrás que registrar un usuario nuevo."
+                echo ""
+
+            ;;
+
+            7)
+
+              echo ""
+              echo "  Instalando la versión 7.1 a nivel de sistema como servicio de systemd..."
+              echo ""
+
+              # Descargar el archivo .jar
+                echo ""
+                echo "    Obteniendo la etiqueta de la última versión..."
+                echo ""
+                # Obtener la etiqueta de la última versión
+                  # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
+                    if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
+                      echo ""
+                      echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
+                      echo ""
+                      sudo apt-get -y update
+                      sudo apt-get -y install curl
+                      echo ""
+                    fi
+                  vEtiquetaUltVers="v7.1"
+                  # Notificar etiqueta
+                    echo ""
+                    echo "      La última versión es: $vEtiquetaUltVers"
+                    echo ""
+                    vNumUltVers="7.1"
                 # Descargar el archivo.jar
                   echo ""
                   echo "    Descargando el archivo .jar con la última versión..."
