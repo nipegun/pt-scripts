@@ -430,7 +430,7 @@
                 echo ""
                 mkdir -p ~/bin/java/
                 rm -f ~/bin/java/webgoat*
-                curl -L https://github.com/WebGoat/WebGoat/releases/download/$vEtiquetaUltVers/webgoat-$vNumUltVers.jar -o ~/bin/java/webgoat-$vNumUltVers.jar
+                curl -L https://github.com/WebGoat/WebGoat/releases/download/$vNumUltVers/webgoat-container-$vNumUltVers-exec.jar -o ~/bin/java/webgoat-$vNumUltVers.jar
 
               # Crear el script de ejecución
                 echo ""
