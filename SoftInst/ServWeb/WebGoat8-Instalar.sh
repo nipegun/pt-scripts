@@ -186,8 +186,8 @@
                   echo "    Descargando el archivo .jar con la última versión..."
                   echo ""
                   sudo mkdir -p /opt/WebGoat/bin/
-                  sudo rm -f /opt/WebGoat/bin/webgoat*
-                  sudo curl -L https://github.com/WebGoat/WebGoat/releases/download/$vEtiquetaUltVers/webgoat-server-$vNumUltVers.jar -o /opt/WebGoat/bin/webgoat-$vNumUltVers.jar
+                  sudo rm -rf /opt/WebGoat/bin/*
+                  sudo curl -L https://github.com/WebGoat/WebGoat/releases/download/"$vEtiquetaUltVers"/webgoat-server-"$vNumUltVers".jar -o /opt/WebGoat/bin/webgoat-"$vNumUltVers".jar
 
               # Reparar permisos
                 sudo chown $USER:$USER /opt/WebGoat -R
