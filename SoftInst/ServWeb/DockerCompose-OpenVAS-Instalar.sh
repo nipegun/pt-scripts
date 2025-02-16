@@ -95,6 +95,7 @@
     echo ""
     echo "  Instalando paquetes necesarios..."
     echo ""
+    sudo apt-get -y update
     sudo apt-get -y install wget
     sudo apt-get -y install apt-transport-https
     sudo apt-get -y install ca-certificates
@@ -134,9 +135,9 @@
     echo ""
     echo "  Descargando el docker compose..."
     echo ""
-    cd  /opt/greenbone
-    curl -f -O -L https://greenbone.github.io/docs/latest/_static/docker-compose.yml --output-dir /opt/greenbone
-    chown openvas:openvas /opt/greenbone -R
+    cd /opt/greenbone
+    sudo curl -f -O -L https://greenbone.github.io/docs/latest/_static/docker-compose.yml --output-dir /opt/greenbone
+    sudo chown openvas:openvas /opt/greenbone -R
 
     echo ""
     echo "  Permitiendo al usuario usar docker..."
@@ -151,7 +152,7 @@
     #echo ""
     #echo "  Cambiando el password del admin..."
     #echo ""
-    #docker compose -f $DOWNLOAD_DIR/docker-compose.yml exec -u gvmd gvmd gvmd --user=admin --new-password='<password>'
+    sudo su openvas -c "docker compose -f /opt/greenbone/docker-compose.yml exec -u gvmd gvmd gvmd --user=admin --new-password='<password>'"
 
   elif [ $cVerSO == "11" ]; then
 
