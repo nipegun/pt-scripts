@@ -526,9 +526,18 @@
           sudo systemctl status gvmd          --no-pager
           sudo systemctl status gsad          --no-pager
 
+      # Ponerle password al admin
+        sudo -u gvm gvmd --user=admin --new-password=admin
+      
       # Notificar fin de ejecución del script
         echo ""
-        echo "  El script de instalación de OpenVAS ha finalizado."
+        echo "  El script de instalación de OpenVAS ha finalizado. Para conectarse a la web:"
+        echo ""
+        vIPGreenBone=$(hostname -I | sed 's- --g')
+        echo "    http://$vIPGreenBone:9392"
+        echo ""
+        echo "    Usuario: admin"
+        echo "    Contraseña: admin"
         echo ""
 
   elif [ $cVerSO == "11" ]; then
