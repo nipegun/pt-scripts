@@ -16,6 +16,8 @@
 #
 # Bajar y editar directamente el archivo en nano
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ServWeb/DockerCompose-OpenVAS-Instalar.sh | nano -
+#
+# Más info: https://greenbone.github.io/docs/latest/
 # ----------
 
 # Definir constantes de color
