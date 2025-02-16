@@ -191,47 +191,50 @@
       export GNUPGHOME=/tmp/openvas-gnupg
       export OPENVAS_GNUPG_HOME=/etc/openvas/gnupg
 
-    # Create user
+    # Crear el usuario
+      echo ""
+      echo "  Creando el usuario..."
+      echo ""
       getent passwd gvm > /dev/null 2&>1
       if [ $? -eq 0 ]; then
-        echo "El usuario ya existe..."
+        echo "    El usuario ya existe..."
       else
-        useradd -r -M -U -G sudo -s /usr/sbin/nologin gvm
-        usermod -aG gvm $USER
+        sudo useradd -r -M -U -G sudo -s /usr/sbin/nologin gvm
+        sudo usermod -aG gvm $USER
       fi
 
     # Creating a Source, Build and Install Directory
-      mkdir -p $SOURCE_DIR
-      mkdir -p $BUILD_DIR
-      mkdir -p $INSTALL_DIR
+      sudo mkdir -p $SOURCE_DIR
+      sudo mkdir -p $BUILD_DIR
+      sudo mkdir -p $INSTALL_DIR
 
     # Importing the Greenbone Signing Key
       curl -f -L https://www.greenbone.net/GBCommunitySigningKey.asc -o /tmp/GBCommunitySigningKey.asc
-      gpg --import /tmp/GBCommunitySigningKey.asc
+      sudo gpg --import /tmp/GBCommunitySigningKey.asc
 
     # Building and Installing the Components
 
       # gvm-libs
-        curl -f -L https://github.com/greenbone/gvm-libs/archive/refs/tags/v$GVM_LIBS_VERSION.tar.gz -o $SOURCE_DIR/gvm-libs-$GVM_LIBS_VERSION.tar.gz
-        curl -f -L https://github.com/greenbone/gvm-libs/releases/download/v$GVM_LIBS_VERSION/gvm-libs-v$GVM_LIBS_VERSION.tar.gz.asc -o $SOURCE_DIR/gvm-libs-$GVM_LIBS_VERSION.tar.gz.asc
-        tar -C $SOURCE_DIR -xvzf $SOURCE_DIR/gvm-libs-$GVM_LIBS_VERSION.tar.gz
-        mkdir -p $BUILD_DIR/gvm-libs && cd $BUILD_DIR/gvm-libs
-        cmake $SOURCE_DIR/gvm-libs-$GVM_LIBS_VERSION \
+        sudo curl -f -L https://github.com/greenbone/gvm-libs/archive/refs/tags/v$GVM_LIBS_VERSION.tar.gz -o $SOURCE_DIR/gvm-libs-$GVM_LIBS_VERSION.tar.gz
+        sudo curl -f -L https://github.com/greenbone/gvm-libs/releases/download/v$GVM_LIBS_VERSION/gvm-libs-v$GVM_LIBS_VERSION.tar.gz.asc -o $SOURCE_DIR/gvm-libs-$GVM_LIBS_VERSION.tar.gz.asc
+        sudo tar -C $SOURCE_DIR -xvzf $SOURCE_DIR/gvm-libs-$GVM_LIBS_VERSION.tar.gz
+        sudo mkdir -p $BUILD_DIR/gvm-libs && cd $BUILD_DIR/gvm-libs
+        sudo cmake $SOURCE_DIR/gvm-libs-$GVM_LIBS_VERSION \
           -DCMAKE_INSTALL_PREFIX=$INSTALL_PREFIX \
           -DCMAKE_BUILD_TYPE=Release \
           -DSYSCONFDIR=/etc \
           -DLOCALSTATEDIR=/var
-        make -j$(nproc)
-        mkdir -p $INSTALL_DIR/gvm-libs
-        make DESTDIR=$INSTALL_DIR/gvm-libs install
-        cp -rv $INSTALL_DIR/gvm-libs/* /
+        sudo make -j$(nproc)
+        sudo mkdir -p $INSTALL_DIR/gvm-libs
+        sudo make DESTDIR=$INSTALL_DIR/gvm-libs install
+        sudo cp -rv $INSTALL_DIR/gvm-libs/* /
 
       # gvmd
-        curl -f -L https://github.com/greenbone/gvmd/archive/refs/tags/v$GVMD_VERSION.tar.gz -o $SOURCE_DIR/gvmd-$GVMD_VERSION.tar.gz
-        curl -f -L https://github.com/greenbone/gvmd/releases/download/v$GVMD_VERSION/gvmd-$GVMD_VERSION.tar.gz.asc -o $SOURCE_DIR/gvmd-$GVMD_VERSION.tar.gz.asc
-        tar -C $SOURCE_DIR -xvzf $SOURCE_DIR/gvmd-$GVMD_VERSION.tar.gz
-        mkdir -p $BUILD_DIR/gvmd && cd $BUILD_DIR/gvmd
-        cmake $SOURCE_DIR/gvmd-$GVMD_VERSION \
+        sudo curl -f -L https://github.com/greenbone/gvmd/archive/refs/tags/v$GVMD_VERSION.tar.gz -o $SOURCE_DIR/gvmd-$GVMD_VERSION.tar.gz
+        sudo curl -f -L https://github.com/greenbone/gvmd/releases/download/v$GVMD_VERSION/gvmd-$GVMD_VERSION.tar.gz.asc -o $SOURCE_DIR/gvmd-$GVMD_VERSION.tar.gz.asc
+        sudo tar -C $SOURCE_DIR -xvzf $SOURCE_DIR/gvmd-$GVMD_VERSION.tar.gz
+        sudo mkdir -p $BUILD_DIR/gvmd && cd $BUILD_DIR/gvmd
+        sudo cmake $SOURCE_DIR/gvmd-$GVMD_VERSION \
           -DCMAKE_INSTALL_PREFIX=$INSTALL_PREFIX \
           -DCMAKE_BUILD_TYPE=Release \
           -DLOCALSTATEDIR=/var \
@@ -242,38 +245,38 @@
           -DGVM_FEED_LOCK_PATH=/var/lib/gvm/feed-update.lock \
           -DSYSTEMD_SERVICE_DIR=/lib/systemd/system \
           -DLOGROTATE_DIR=/etc/logrotate.d
-        make -j$(nproc)
-        mkdir -p $INSTALL_DIR/gvmd
-        make DESTDIR=$INSTALL_DIR/gvmd install
-        cp -rv $INSTALL_DIR/gvmd/* /
+        sudo make -j$(nproc)
+        sudo mkdir -p $INSTALL_DIR/gvmd
+        sudo make DESTDIR=$INSTALL_DIR/gvmd install
+        sudo cp -rv $INSTALL_DIR/gvmd/* /
 
       # pg-gvm
-        curl -f -L https://github.com/greenbone/pg-gvm/archive/refs/tags/v$PG_GVM_VERSION.tar.gz -o $SOURCE_DIR/pg-gvm-$PG_GVM_VERSION.tar.gz
-        curl -f -L https://github.com/greenbone/pg-gvm/releases/download/v$PG_GVM_VERSION/pg-gvm-$PG_GVM_VERSION.tar.gz.asc -o $SOURCE_DIR/pg-gvm-$PG_GVM_VERSION.tar.gz.asc
-        tar -C $SOURCE_DIR -xvzf $SOURCE_DIR/pg-gvm-$PG_GVM_VERSION.tar.gz
-        mkdir -p $BUILD_DIR/pg-gvm && cd $BUILD_DIR/pg-gvm
-        cmake $SOURCE_DIR/pg-gvm-$PG_GVM_VERSION -DCMAKE_BUILD_TYPE=Release
-        make -j$(nproc)
-        mkdir -p $INSTALL_DIR/pg-gvm
-        make DESTDIR=$INSTALL_DIR/pg-gvm install
-        cp -rv $INSTALL_DIR/pg-gvm/* /
+        sudo curl -f -L https://github.com/greenbone/pg-gvm/archive/refs/tags/v$PG_GVM_VERSION.tar.gz -o $SOURCE_DIR/pg-gvm-$PG_GVM_VERSION.tar.gz
+        sudo curl -f -L https://github.com/greenbone/pg-gvm/releases/download/v$PG_GVM_VERSION/pg-gvm-$PG_GVM_VERSION.tar.gz.asc -o $SOURCE_DIR/pg-gvm-$PG_GVM_VERSION.tar.gz.asc
+        sudo tar -C $SOURCE_DIR -xvzf $SOURCE_DIR/pg-gvm-$PG_GVM_VERSION.tar.gz
+        sudo mkdir -p $BUILD_DIR/pg-gvm && cd $BUILD_DIR/pg-gvm
+        sudo cmake $SOURCE_DIR/pg-gvm-$PG_GVM_VERSION -DCMAKE_BUILD_TYPE=Release
+        sudo make -j$(nproc)
+        sudo mkdir -p $INSTALL_DIR/pg-gvm
+        sudo make DESTDIR=$INSTALL_DIR/pg-gvm install
+        sudo cp -rv $INSTALL_DIR/pg-gvm/* /
 
     # Greenbone Security Assistant
 
       # GSA
-        curl -f -L https://github.com/greenbone/gsa/releases/download/v$GSA_VERSION/gsa-dist-$GSA_VERSION.tar.gz -o $SOURCE_DIR/gsa-$GSA_VERSION.tar.gz
-        curl -f -L https://github.com/greenbone/gsa/releases/download/v$GSA_VERSION/gsa-dist-$GSA_VERSION.tar.gz.asc -o $SOURCE_DIR/gsa-$GSA_VERSION.tar.gz.asc
-        mkdir -p $SOURCE_DIR/gsa-$GSA_VERSION
-        tar -C $SOURCE_DIR/gsa-$GSA_VERSION -xvzf $SOURCE_DIR/gsa-$GSA_VERSION.tar.gz
-        mkdir -p $INSTALL_PREFIX/share/gvm/gsad/web/
-        cp -rv $SOURCE_DIR/gsa-$GSA_VERSION/* $INSTALL_PREFIX/share/gvm/gsad/web/
+        sudo curl -f -L https://github.com/greenbone/gsa/releases/download/v$GSA_VERSION/gsa-dist-$GSA_VERSION.tar.gz -o $SOURCE_DIR/gsa-$GSA_VERSION.tar.gz
+        sudo curl -f -L https://github.com/greenbone/gsa/releases/download/v$GSA_VERSION/gsa-dist-$GSA_VERSION.tar.gz.asc -o $SOURCE_DIR/gsa-$GSA_VERSION.tar.gz.asc
+        sudo mkdir -p $SOURCE_DIR/gsa-$GSA_VERSION
+        sudo tar -C $SOURCE_DIR/gsa-$GSA_VERSION -xvzf $SOURCE_DIR/gsa-$GSA_VERSION.tar.gz
+        sudo mkdir -p $INSTALL_PREFIX/share/gvm/gsad/web/
+        sudo cp -rv $SOURCE_DIR/gsa-$GSA_VERSION/* $INSTALL_PREFIX/share/gvm/gsad/web/
 
       # gsad
-        curl -f -L https://github.com/greenbone/gsad/archive/refs/tags/v$GSAD_VERSION.tar.gz -o $SOURCE_DIR/gsad-$GSAD_VERSION.tar.gz
-        curl -f -L https://github.com/greenbone/gsad/releases/download/v$GSAD_VERSION/gsad-$GSAD_VERSION.tar.gz.asc -o $SOURCE_DIR/gsad-$GSAD_VERSION.tar.gz.asc
-        tar -C $SOURCE_DIR -xvzf $SOURCE_DIR/gsad-$GSAD_VERSION.tar.gz
-        mkdir -p $BUILD_DIR/gsad && cd $BUILD_DIR/gsad
-        cmake $SOURCE_DIR/gsad-$GSAD_VERSION \
+        sudo curl -f -L https://github.com/greenbone/gsad/archive/refs/tags/v$GSAD_VERSION.tar.gz -o $SOURCE_DIR/gsad-$GSAD_VERSION.tar.gz
+        sudo curl -f -L https://github.com/greenbone/gsad/releases/download/v$GSAD_VERSION/gsad-$GSAD_VERSION.tar.gz.asc -o $SOURCE_DIR/gsad-$GSAD_VERSION.tar.gz.asc
+        sudo tar -C $SOURCE_DIR -xvzf $SOURCE_DIR/gsad-$GSAD_VERSION.tar.gz
+        sudo mkdir -p $BUILD_DIR/gsad && cd $BUILD_DIR/gsad
+        sudo cmake $SOURCE_DIR/gsad-$GSAD_VERSION \
           -DCMAKE_INSTALL_PREFIX=$INSTALL_PREFIX \
           -DCMAKE_BUILD_TYPE=Release \
           -DSYSCONFDIR=/etc \
@@ -281,30 +284,30 @@
           -DGVMD_RUN_DIR=/run/gvmd \
           -DGSAD_RUN_DIR=/run/gsad \
           -DLOGROTATE_DIR=/etc/logrotate.d
-        make -j$(nproc)
-        mkdir -p $INSTALL_DIR/gsad
-        make DESTDIR=$INSTALL_DIR/gsad install
-        cp -rv $INSTALL_DIR/gsad/* /
+        sudo make -j$(nproc)
+        sudo mkdir -p $INSTALL_DIR/gsad
+        sudo make DESTDIR=$INSTALL_DIR/gsad install
+        sudo cp -rv $INSTALL_DIR/gsad/* /
 
       # openvas-smb
-        curl -f -L https://github.com/greenbone/openvas-smb/archive/refs/tags/v$OPENVAS_SMB_VERSION.tar.gz -o $SOURCE_DIR/openvas-smb-$OPENVAS_SMB_VERSION.tar.gz
-        curl -f -L https://github.com/greenbone/openvas-smb/releases/download/v$OPENVAS_SMB_VERSION/openvas-smb-v$OPENVAS_SMB_VERSION.tar.gz.asc -o $SOURCE_DIR/openvas-smb-$OPENVAS_SMB_VERSION.tar.gz.asc
-        tar -C $SOURCE_DIR -xvzf $SOURCE_DIR/openvas-smb-$OPENVAS_SMB_VERSION.tar.gz
-        mkdir -p $BUILD_DIR/openvas-smb && cd $BUILD_DIR/openvas-smb
-        cmake $SOURCE_DIR/openvas-smb-$OPENVAS_SMB_VERSION \
+        sudo curl -f -L https://github.com/greenbone/openvas-smb/archive/refs/tags/v$OPENVAS_SMB_VERSION.tar.gz -o $SOURCE_DIR/openvas-smb-$OPENVAS_SMB_VERSION.tar.gz
+        sudo curl -f -L https://github.com/greenbone/openvas-smb/releases/download/v$OPENVAS_SMB_VERSION/openvas-smb-v$OPENVAS_SMB_VERSION.tar.gz.asc -o $SOURCE_DIR/openvas-smb-$OPENVAS_SMB_VERSION.tar.gz.asc
+        sudo tar -C $SOURCE_DIR -xvzf $SOURCE_DIR/openvas-smb-$OPENVAS_SMB_VERSION.tar.gz
+        sudo mkdir -p $BUILD_DIR/openvas-smb && cd $BUILD_DIR/openvas-smb
+        sudo cmake $SOURCE_DIR/openvas-smb-$OPENVAS_SMB_VERSION \
           -DCMAKE_INSTALL_PREFIX=$INSTALL_PREFIX \
           -DCMAKE_BUILD_TYPE=Release
-        make -j$(nproc)
-        mkdir -p $INSTALL_DIR/openvas-smb
-        make DESTDIR=$INSTALL_DIR/openvas-smb install
-        cp -rv $INSTALL_DIR/openvas-smb/* /
+        sudo make -j$(nproc)
+        sudo mkdir -p $INSTALL_DIR/openvas-smb
+        sudo make DESTDIR=$INSTALL_DIR/openvas-smb install
+        sudo cp -rv $INSTALL_DIR/openvas-smb/* /
 
       # openvas-scanner
-        curl -f -L https://github.com/greenbone/openvas-scanner/archive/refs/tags/v$OPENVAS_SCANNER_VERSION.tar.gz -o $SOURCE_DIR/openvas-scanner-$OPENVAS_SCANNER_VERSION.tar.gz
-        curl -f -L https://github.com/greenbone/openvas-scanner/releases/download/v$OPENVAS_SCANNER_VERSION/openvas-scanner-v$OPENVAS_SCANNER_VERSION.tar.gz.asc -o $SOURCE_DIR/openvas-scanner-$OPENVAS_SCANNER_VERSION.tar.gz.asc
-        tar -C $SOURCE_DIR -xvzf $SOURCE_DIR/openvas-scanner-$OPENVAS_SCANNER_VERSION.tar.gz
-        mkdir -p $BUILD_DIR/openvas-scanner && cd $BUILD_DIR/openvas-scanner
-        cmake $SOURCE_DIR/openvas-scanner-$OPENVAS_SCANNER_VERSION \
+        sudo curl -f -L https://github.com/greenbone/openvas-scanner/archive/refs/tags/v$OPENVAS_SCANNER_VERSION.tar.gz -o $SOURCE_DIR/openvas-scanner-$OPENVAS_SCANNER_VERSION.tar.gz
+        sudo curl -f -L https://github.com/greenbone/openvas-scanner/releases/download/v$OPENVAS_SCANNER_VERSION/openvas-scanner-v$OPENVAS_SCANNER_VERSION.tar.gz.asc -o $SOURCE_DIR/openvas-scanner-$OPENVAS_SCANNER_VERSION.tar.gz.asc
+        sudo tar -C $SOURCE_DIR -xvzf $SOURCE_DIR/openvas-scanner-$OPENVAS_SCANNER_VERSION.tar.gz
+        sudo mkdir -p $BUILD_DIR/openvas-scanner && cd $BUILD_DIR/openvas-scanner
+        sudo cmake $SOURCE_DIR/openvas-scanner-$OPENVAS_SCANNER_VERSION \
           -DCMAKE_INSTALL_PREFIX=$INSTALL_PREFIX \
           -DCMAKE_BUILD_TYPE=Release \
           -DINSTALL_OLD_SYNC_SCRIPT=OFF \
@@ -312,84 +315,83 @@
           -DLOCALSTATEDIR=/var \
           -DOPENVAS_FEED_LOCK_PATH=/var/lib/openvas/feed-update.lock \
           -DOPENVAS_RUN_DIR=/run/ospd
-        make -j$(nproc)
-        mkdir -p $INSTALL_DIR/openvas-scanner
-        make DESTDIR=$INSTALL_DIR/openvas-scanner install
-        cp -rv $INSTALL_DIR/openvas-scanner/* /
+        sudo make -j$(nproc)
+        sudo mkdir -p $INSTALL_DIR/openvas-scanner
+        sudo make DESTDIR=$INSTALL_DIR/openvas-scanner install
+        sudo cp -rv $INSTALL_DIR/openvas-scanner/* /
 
       # ospd-openvas
-        curl -f -L https://github.com/greenbone/ospd-openvas/archive/refs/tags/v$OSPD_OPENVAS_VERSION.tar.gz -o $SOURCE_DIR/ospd-openvas-$OSPD_OPENVAS_VERSION.tar.gz
-        curl -f -L https://github.com/greenbone/ospd-openvas/releases/download/v$OSPD_OPENVAS_VERSION/ospd-openvas-v$OSPD_OPENVAS_VERSION.tar.gz.asc -o $SOURCE_DIR/ospd-openvas-$OSPD_OPENVAS_VERSION.tar.gz.asc
-        tar -C $SOURCE_DIR -xvzf $SOURCE_DIR/ospd-openvas-$OSPD_OPENVAS_VERSION.tar.gz
+        sudo curl -f -L https://github.com/greenbone/ospd-openvas/archive/refs/tags/v$OSPD_OPENVAS_VERSION.tar.gz -o $SOURCE_DIR/ospd-openvas-$OSPD_OPENVAS_VERSION.tar.gz
+        sudo curl -f -L https://github.com/greenbone/ospd-openvas/releases/download/v$OSPD_OPENVAS_VERSION/ospd-openvas-v$OSPD_OPENVAS_VERSION.tar.gz.asc -o $SOURCE_DIR/ospd-openvas-$OSPD_OPENVAS_VERSION.tar.gz.asc
+        sudo tar -C $SOURCE_DIR -xvzf $SOURCE_DIR/ospd-openvas-$OSPD_OPENVAS_VERSION.tar.gz
         cd $SOURCE_DIR/ospd-openvas-$OSPD_OPENVAS_VERSION
-        mkdir -p $INSTALL_DIR/ospd-openvas
-        python3 -m pip install --root=$INSTALL_DIR/ospd-openvas --no-warn-script-location .
-        cp -rv $INSTALL_DIR/ospd-openvas/* /
+        sudo mkdir -p $INSTALL_DIR/ospd-openvas
+        sudo python3 -m pip install --root=$INSTALL_DIR/ospd-openvas --no-warn-script-location .
+        sudo cp -rv $INSTALL_DIR/ospd-openvas/* /
 
       # notus-scanner
-        curl -f -L https://github.com/greenbone/notus-scanner/archive/refs/tags/v$NOTUS_VERSION.tar.gz -o $SOURCE_DIR/notus-scanner-$NOTUS_VERSION.tar.gz
-        curl -f -L https://github.com/greenbone/notus-scanner/releases/download/v$NOTUS_VERSION/notus-scanner-v$NOTUS_VERSION.tar.gz.asc -o $SOURCE_DIR/notus-scanner-$NOTUS_VERSION.tar.gz.asc
-        tar -C $SOURCE_DIR -xvzf $SOURCE_DIR/notus-scanner-$NOTUS_VERSION.tar.gz
+        sudo curl -f -L https://github.com/greenbone/notus-scanner/archive/refs/tags/v$NOTUS_VERSION.tar.gz -o $SOURCE_DIR/notus-scanner-$NOTUS_VERSION.tar.gz
+        sudo curl -f -L https://github.com/greenbone/notus-scanner/releases/download/v$NOTUS_VERSION/notus-scanner-v$NOTUS_VERSION.tar.gz.asc -o $SOURCE_DIR/notus-scanner-$NOTUS_VERSION.tar.gz.asc
+        sudo tar -C $SOURCE_DIR -xvzf $SOURCE_DIR/notus-scanner-$NOTUS_VERSION.tar.gz
         cd $SOURCE_DIR/notus-scanner-$NOTUS_VERSION
-        mkdir -p $INSTALL_DIR/notus-scanner
-        python3 -m pip install --root=$INSTALL_DIR/notus-scanner --no-warn-script-location .
-        cp -rv $INSTALL_DIR/notus-scanner/* /
+        sudo mkdir -p $INSTALL_DIR/notus-scanner
+        sudo python3 -m pip install --root=$INSTALL_DIR/notus-scanner --no-warn-script-location .
+        sudo cp -rv $INSTALL_DIR/notus-scanner/* /
 
       # greenbone-feed-sync
-        mkdir -p $INSTALL_DIR/greenbone-feed-sync
-        python3 -m pip install --root=$INSTALL_DIR/greenbone-feed-sync --no-warn-script-location greenbone-feed-sync
-        cp -rv $INSTALL_DIR/greenbone-feed-sync/* /
+        sudo mkdir -p $INSTALL_DIR/greenbone-feed-sync
+        sudo python3 -m pip install --root=$INSTALL_DIR/greenbone-feed-sync --no-warn-script-location greenbone-feed-sync
+        sudo cp -rv $INSTALL_DIR/greenbone-feed-sync/* /
 
       # gvm-tools
-        mkdir -p $INSTALL_DIR/gvm-tools
-        python3 -m pip install --root=$INSTALL_DIR/gvm-tools --no-warn-script-location gvm-tools
-        cp -rv $INSTALL_DIR/gvm-tools/* /
+        sudo mkdir -p $INSTALL_DIR/gvm-tools
+        sudo python3 -m pip install --root=$INSTALL_DIR/gvm-tools --no-warn-script-location gvm-tools
+        sudo cp -rv $INSTALL_DIR/gvm-tools/* /
 
       # Performing a System Setup
-        cp $SOURCE_DIR/openvas-scanner-$OPENVAS_SCANNER_VERSION/config/redis-openvas.conf /etc/redis/
-        chown redis:redis /etc/redis/redis-openvas.conf
-        echo "db_address = /run/redis-openvas/redis.sock" | tee -a /etc/openvas/openvas.conf
+        sudo cp $SOURCE_DIR/openvas-scanner-$OPENVAS_SCANNER_VERSION/config/redis-openvas.conf /etc/redis/
+        sudo chown redis:redis /etc/redis/redis-openvas.conf
+        sudo echo "db_address = /run/redis-openvas/redis.sock" | sudo tee -a /etc/openvas/openvas.conf
 
-        systemctl start redis-server@openvas.service
-        systemctl enable redis-server@openvas.service
-
-        usermod -aG redis gvm
+        sudo systemctl enable redis-server@openvas.service --now
+        sudo systemctl status redis-server@openvas.service --no-pager
+        sudo usermod -aG redis gvm
 
       # Setting up the Mosquitto MQTT Broker
-        systemctl start mosquitto.service
-        systemctl enable mosquitto.service
-        echo -e "mqtt_server_uri = localhost:1883\ntable_driven_lsc = yes" | tee -a /etc/openvas/openvas.conf
+        sudo systemctl enable mosquitto.service --now
+        sudo systemctl status mosquitto.service --no-pager
+        echo -e "mqtt_server_uri = localhost:1883\ntable_driven_lsc = yes" | sudo tee -a /etc/openvas/openvas.conf
 
       # Adjusting Permissions
-        mkdir -p /var/lib/gvm
-        mkdir -p /var/lib/openvas
-        mkdir -p /var/lib/notus
-        mkdir -p /var/log/gvm
+        sudo mkdir -p /var/lib/gvm
+        sudo mkdir -p /var/lib/openvas
+        sudo mkdir -p /var/lib/notus
+        sudo mkdir -p /var/log/gvm
 
-        chown -R gvm:gvm /var/lib/gvm
-        chown -R gvm:gvm /var/lib/openvas
-        chown -R gvm:gvm /var/lib/notus
-        chown -R gvm:gvm /var/log/gvm
-        chown -R gvm:gvm /run/gvmd     *
+        sudo chown -R gvm:gvm /var/lib/gvm
+        sudo chown -R gvm:gvm /var/lib/openvas
+        sudo chown -R gvm:gvm /var/lib/notus
+        sudo chown -R gvm:gvm /var/log/gvm
+        sudo chown -R gvm:gvm /run/gvmd     ######## Error
 
-        chmod -R g+srw /var/lib/gvm
-        chmod -R g+srw /var/lib/openvas
-        chmod -R g+srw /var/log/gvm
+        sudo chmod -R g+srw /var/lib/gvm
+        sudo chmod -R g+srw /var/lib/openvas
+        sudo chmod -R g+srw /var/log/gvm
 
-        chown gvm:gvm /usr/local/sbin/gvmd
-        chmod 6750 /usr/local/sbin/gvmd
+        sudo chown gvm:gvm /usr/local/sbin/gvmd
+        sudo chmod 6750 /usr/local/sbin/gvmd
 
       # Feed Validation
         curl -f -L https://www.greenbone.net/GBCommunitySigningKey.asc -o /tmp/GBCommunitySigningKey.asc
-        mkdir -p $GNUPGHOME
-        gpg --import /tmp/GBCommunitySigningKey.asc
-        echo "8AE4BE429B60A59B311C2E739823FAA60ED1E580:6:" | gpg --import-ownertrust
-        mkdir -p $OPENVAS_GNUPG_HOME
-        cp -r /tmp/openvas-gnupg/* $OPENVAS_GNUPG_HOME/
-        chown -R gvm:gvm $OPENVAS_GNUPG_HOME
+        sudo mkdir -p $GNUPGHOME
+        sudo gpg --import /tmp/GBCommunitySigningKey.asc
+        echo "8AE4BE429B60A59B311C2E739823FAA60ED1E580:6:" | sudo gpg --import-ownertrust
+        sudo mkdir -p $OPENVAS_GNUPG_HOME
+        sudo cp -r /tmp/openvas-gnupg/* $OPENVAS_GNUPG_HOME/ ########### Error
+        sudo chown -R gvm:gvm $OPENVAS_GNUPG_HOME
 
       # Setting up sudo for Scanning
-        if grep -Fxq "%gvm ALL = NOPASSWD: /usr/local/sbin/openvas" /etc/sudoers; then
+        if sudo grep -Fxq "%gvm ALL = NOPASSWD: /usr/local/sbin/openvas" /etc/sudoers; then
           echo "Los usuarios del grupo gvm ya están configurados para ejecutar la aplicación openvas-scanner como usuario root a través de sudo."
         else
           echo "%gvm ALL = NOPASSWD: /usr/local/sbin/openvas" | sudo tee -a /etc/sudoers
@@ -398,22 +400,22 @@
 
       # Setting up PostgreSQL
         echo "Iniciando PostgreSQL..."
-        systemctl start postgresql
+        sudo systemctl start postgresql
         echo "Configurar el usuario gvm, la base de datos gvmd y asignar permisos en PostgreSQL."
-        runuser -l  postgres -c 'createuser -DRS gvm'
-        runuser -l  postgres -c 'createdb -O gvm gvmd'
-        runuser -l  postgres -c 'psql gvmd -c "create role dba with superuser noinherit; grant dba to gvm;"'
+        sudo runuser -l postgres -c 'createuser -DRS gvm'
+        sudo runuser -l postgres -c 'createdb -O gvm gvmd'
+        sudo runuser -l postgres -c 'psql gvmd -c "create role dba with superuser noinherit; grant dba to gvm;"'
       # Fix errors when starting gvmd: https://github.com/libellux/Libellux-Up-and-Running/issues/50
         echo "Crear los enlaces necesarios y la caché para las bibliotecas compartidas más recientes."
-        ldconfig -v
+        sudo ldconfig -v
 
       # Setting up an Admin User
         echo "Creando el usuario administrador..."
-        /usr/local/sbin/gvmd --create-user=admin
+        sudo /usr/local/sbin/gvmd --create-user=admin
 
       # Setting the Feed Import Owner
         echo "Estableciendo el usuario administrador como el propietario de la importación de feeds."
-        /usr/local/sbin/gvmd --modify-setting 78eceaec-3385-11ea-b237-28d24461215b --value `/usr/local/sbin/gvmd --get-users --verbose | grep admin | awk '{print $2}'`
+        sudo /usr/local/sbin/gvmd --modify-setting 78eceaec-3385-11ea-b237-28d24461215b --value `sudo /usr/local/sbin/gvmd --get-users --verbose | grep admin | awk '{print $2}'`
 
       # Setting up Services for Systemd
         echo "[Unit]"                                                                                 | sudo tee    $BUILD_DIR/ospd-openvas.service
@@ -437,7 +439,7 @@
         echo ""                                                                                       | sudo tee -a $BUILD_DIR/ospd-openvas.service
         echo "[Install]"                                                                              | sudo tee -a $BUILD_DIR/ospd-openvas.service
         echo "WantedBy=multi-user.target"                                                             | sudo tee -a $BUILD_DIR/ospd-openvas.service
-        cp -v $BUILD_DIR/ospd-openvas.service /etc/systemd/system/
+        sudo cp -v $BUILD_DIR/ospd-openvas.service /etc/systemd/system/
 
         echo "[Unit]"                                                                                                                                     | sudo tee    $BUILD_DIR/notus-scanner.service
         echo "Description=Notus Scanner"                                                                                                                  | sudo tee -a $BUILD_DIR/notus-scanner.service
@@ -459,7 +461,7 @@
         echo ""                                                                                                                                           | sudo tee -a $BUILD_DIR/notus-scanner.service
         echo "[Install]"                                                                                                                                  | sudo tee -a $BUILD_DIR/notus-scanner.service
         echo "WantedBy=multi-user.target"                                                                                                                 | sudo tee -a $BUILD_DIR/notus-scanner.service
-        cp -v $BUILD_DIR/notus-scanner.service /etc/systemd/system/
+        sudo cp -v $BUILD_DIR/notus-scanner.service /etc/systemd/system/
 
         echo "[Unit]"                                                                                                     | sudo tee    $BUILD_DIR/gvmd.service
         echo "Description=Greenbone Vulnerability Manager daemon (gvmd)"                                                  | sudo tee -a $BUILD_DIR/gvmd.service
@@ -481,7 +483,7 @@
         echo ""                                                                                                           | sudo tee -a $BUILD_DIR/gvmd.service
         echo "[Install]"                                                                                                  | sudo tee -a $BUILD_DIR/gvmd.service
         echo "WantedBy=multi-user.target"                                                                                 | sudo tee -a $BUILD_DIR/gvmd.service
-        cp -v $BUILD_DIR/gvmd.service /etc/systemd/system/
+        sudo cp -v $BUILD_DIR/gvmd.service /etc/systemd/system/
 
         echo "[Unit]"                                                                               | sudo tee -a $BUILD_DIR/gsad.service
         echo ""                                                                                     | sudo tee -a $BUILD_DIR/gsad.service
@@ -504,38 +506,35 @@
         echo "[Install]"                                                                            | sudo tee -a $BUILD_DIR/gsad.service
         echo "WantedBy=multi-user.target"                                                           | sudo tee -a $BUILD_DIR/gsad.service
         echo "Alias=greenbone-security-assistant.service"                                           | sudo tee -a $BUILD_DIR/gsad.service
-        cp -v $BUILD_DIR/gsad.service /etc/systemd/system/
+        sudo cp -v $BUILD_DIR/gsad.service /etc/systemd/system/
 
-        systemctl daemon-reload
+        sudo systemctl daemon-reload
 
       # Download Openvas feeds.
         echo "Descargar los feeds de OpenVAS. Esto tomará tiempo, no interrumpas este proceso."
-        /usr/local/bin/greenbone-feed-sync
+        sudo /usr/local/bin/greenbone-feed-sync
 
-        # Enable the services
-          systemctl enable notus-scanner
-          systemctl enable ospd-openvas
-          systemctl enable gvmd
-          systemctl enable gsad
-
-        # Start the services
-          systemctl start notus-scanner
-          systemctl start ospd-openvas
-          systemctl start gvmd
-          systemctl start gsad
+        # Activar e iniciar los servicios
+          echo ""
+          echo "  Activando e iniciando los servicios..."
+          echo ""
+          sudo systemctl enable notus-scanner --now
+          sudo systemctl enable ospd-openvas  --now
+          sudo systemctl enable gvmd          --now
+          sudo systemctl enable gsad          --now
 
         # Mostrar el estado de los servicios
           echo ""
           echo "  Mostrando el estado de los servicios..."
           echo ""
-          systemctl status notus-scanner --no-pager
-          systemctl status ospd-openvas  --no-pager
-          systemctl status gvmd          --no-pager
-          systemctl status gsad          --no-pager
+          sudo systemctl status notus-scanner --no-pager
+          sudo systemctl status ospd-openvas  --no-pager
+          sudo systemctl status gvmd          --no-pager
+          sudo systemctl status gsad          --no-pager
 
       # Notificar fin de ejecución del script
         echo ""
-        echo "OpenVAS installation has been completed."
+        echo "  El script de instalación de OpenVAS ha finalizado."
         echo ""
 
   elif [ $cVerSO == "11" ]; then
