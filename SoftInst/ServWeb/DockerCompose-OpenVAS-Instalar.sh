@@ -9,13 +9,13 @@
 # Script de NiPeGun para instalar y configurar OpenVAS en modo Docker en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL x | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ServWeb/DockerCompose-OpenVAS-Instalar.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL x | sed 's-sudo--g' | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ServWeb/DockerCompose-OpenVAS-Instalar.sh | sed 's-sudo--g' | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL x | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ServWeb/DockerCompose-OpenVAS-Instalar.sh | nano -
 # ----------
 
 # Definir constantes de color
@@ -122,25 +122,31 @@
     sudo apt-get -y install docker-compose-plugin
 
     echo ""
-    echo "  Permitiendo al usuario usar docker..."
+    echo "  Creando el usuario OpenVAS..."
     echo ""
-    sudo usermod -aG docker $USER
-    echo "    Ingresa la contraseña del usuario $USER"
-    su $USER
+    echo -e "openvas:openvas" | sudo adduser openvas
 
-    export DOWNLOAD_DIR=$HOME/greenbone-community-container
-    mkdir -p $DOWNLOAD_DIR
+    echo ""
+    echo "  Creando la carpeta..."
+    echo ""
+    sudo mkdir -p /opt/greenbone
 
     echo ""
     echo "  Descargando el docker compose..."
     echo ""
-    cd $DOWNLOAD_DIR
-    curl -f -O -L https://greenbone.github.io/docs/latest/_static/docker-compose.yml --output-dir "$DOWNLOAD_DIR"
+    cd  /opt/greenbone
+    curl -f -O -L https://greenbone.github.io/docs/latest/_static/docker-compose.yml --output-dir /opt/greenbone
+    chown openvas:openvas /opt/greenbone -R
 
     echo ""
-    echo "  Lanzando los contenedores..."
+    echo "  Permitiendo al usuario usar docker..."
     echo ""
-    docker compose -f $DOWNLOAD_DIR/docker-compose.yml up -d
+    sudo usermod -aG docker openvas
+
+    echo ""
+    echo "  Lanzando el stack..."
+    echo ""
+    sudo su openvas -c "docker compose -f /opt/greenbone/docker-compose.yml up -d"
 
     #echo ""
     #echo "  Cambiando el password del admin..."
