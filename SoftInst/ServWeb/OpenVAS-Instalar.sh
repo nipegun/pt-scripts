@@ -524,6 +524,15 @@
           systemctl start gvmd
           systemctl start gsad
 
+        # Mostrar el estado de los servicios
+          echo ""
+          echo "  Mostrando el estado de los servicios..."
+          echo ""
+          systemctl status notus-scanner --no-pager
+          systemctl status ospd-openvas  --no-pager
+          systemctl status gvmd          --no-pager
+          systemctl status gsad          --no-pager
+
       # Notificar fin de ejecución del script
         echo ""
         echo "OpenVAS installation has been completed."
@@ -580,8 +589,4 @@
     echo ""
 
   fi
-
-
-
-
 
