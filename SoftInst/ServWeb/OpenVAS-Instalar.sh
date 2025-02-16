@@ -178,16 +178,16 @@
         sudo usermod -aG gvm $USER
       fi
 
-    # Creating a Source, Build and Install Directory
+    # Creando un directorio de origen, compilación e instalación
       sudo mkdir -p $SOURCE_DIR
       sudo mkdir -p $BUILD_DIR
       sudo mkdir -p $INSTALL_DIR
 
-    # Importing the Greenbone Signing Key
+    # Importando la clave de firma de Greenbone
       curl -f -L https://www.greenbone.net/GBCommunitySigningKey.asc -o /tmp/GBCommunitySigningKey.asc
       sudo gpg --import /tmp/GBCommunitySigningKey.asc
 
-    # Building and Installing the Components
+    # Compilando e instalando los componentes
 
       # gvm-libs
         sudo curl -f -L https://github.com/greenbone/gvm-libs/archive/refs/tags/v$GVM_LIBS_VERSION.tar.gz -o $SOURCE_DIR/gvm-libs-$GVM_LIBS_VERSION.tar.gz
@@ -236,7 +236,7 @@
         sudo make DESTDIR=$INSTALL_DIR/pg-gvm install
         sudo cp -rv $INSTALL_DIR/pg-gvm/* /
 
-    # Greenbone Security Assistant
+    # Asistente de seguridad de Greenbone
 
       # GSA
         sudo curl -f -L https://github.com/greenbone/gsa/releases/download/v$GSA_VERSION/gsa-dist-$GSA_VERSION.tar.gz -o $SOURCE_DIR/gsa-$GSA_VERSION.tar.gz
@@ -323,7 +323,7 @@
         sudo python3 -m pip install --root=$INSTALL_DIR/gvm-tools --no-warn-script-location gvm-tools
         sudo cp -rv $INSTALL_DIR/gvm-tools/* /
 
-      # Performing a System Setup
+      # Realizando la configuración del sistema
         sudo cp $SOURCE_DIR/openvas-scanner-$OPENVAS_SCANNER_VERSION/config/redis-openvas.conf /etc/redis/
         sudo chown redis:redis /etc/redis/redis-openvas.conf
         sudo echo "db_address = /run/redis-openvas/redis.sock" | sudo tee -a /etc/openvas/openvas.conf
@@ -332,12 +332,12 @@
         sudo systemctl status redis-server@openvas.service --no-pager
         sudo usermod -aG redis gvm
 
-      # Setting up the Mosquitto MQTT Broker
+      # Configurando el broker MQTT Mosquitto
         sudo systemctl enable mosquitto.service --now
         sudo systemctl status mosquitto.service --no-pager
         echo -e "mqtt_server_uri = localhost:1883\ntable_driven_lsc = yes" | sudo tee -a /etc/openvas/openvas.conf
 
-      # Adjusting Permissions
+      # Ajustando permisos
         sudo mkdir -p /var/lib/gvm
         sudo mkdir -p /var/lib/openvas
         sudo mkdir -p /var/lib/notus
@@ -356,7 +356,7 @@
         sudo chown gvm:gvm /usr/local/sbin/gvmd
         sudo chmod 6750 /usr/local/sbin/gvmd
 
-      # Feed Validation
+      # Validación de fuentes
         curl -f -L https://www.greenbone.net/GBCommunitySigningKey.asc -o /tmp/GBCommunitySigningKey.asc
         sudo mkdir -p $GNUPGHOME
         sudo gpg --import /tmp/GBCommunitySigningKey.asc
@@ -365,7 +365,7 @@
         sudo cp -r /tmp/openvas-gnupg/* $OPENVAS_GNUPG_HOME/ ########### Error
         sudo chown -R gvm:gvm $OPENVAS_GNUPG_HOME
 
-      # Setting up sudo for Scanning
+      # Configurar sudo para escaneo
         if sudo grep -Fxq "%gvm ALL = NOPASSWD: /usr/local/sbin/openvas" /etc/sudoers; then
           echo "Los usuarios del grupo gvm ya están configurados para ejecutar la aplicación openvas-scanner como usuario root a través de sudo."
         else
@@ -373,26 +373,26 @@
           echo "Se han configurado los usuarios del grupo gvm para ejecutar la aplicación openvas-scanner como usuario root a través de sudo."
         fi
 
-      # Setting up PostgreSQL
+      # Configurando PostgreSQL
         echo "Iniciando PostgreSQL..."
         sudo systemctl start postgresql
         echo "Configurar el usuario gvm, la base de datos gvmd y asignar permisos en PostgreSQL."
         sudo runuser -l postgres -c 'createuser -DRS gvm'
         sudo runuser -l postgres -c 'createdb -O gvm gvmd'
         sudo runuser -l postgres -c 'psql gvmd -c "create role dba with superuser noinherit; grant dba to gvm;"'
-      # Fix errors when starting gvmd: https://github.com/libellux/Libellux-Up-and-Running/issues/50
+      # Corrigir errores al iniciar gvmd: https://github.com/libellux/Libellux-Up-and-Running/issues/50
         echo "Crear los enlaces necesarios y la caché para las bibliotecas compartidas más recientes."
         sudo ldconfig -v
 
-      # Setting up an Admin User
+      # Configurando un usuario administrador
         echo "Creando el usuario administrador..."
         sudo /usr/local/sbin/gvmd --create-user=admin
 
-      # Setting the Feed Import Owner
+      # Estableciendo el propietario de la importación de fuentes
         echo "Estableciendo el usuario administrador como el propietario de la importación de feeds."
         sudo /usr/local/sbin/gvmd --modify-setting 78eceaec-3385-11ea-b237-28d24461215b --value `sudo /usr/local/sbin/gvmd --get-users --verbose | grep admin | awk '{print $2}'`
 
-      # Setting up Services for Systemd
+      # Configurando servicios para Systemd
         echo "[Unit]"                                                                                 | sudo tee    $BUILD_DIR/ospd-openvas.service
         echo "Description=OSPd Wrapper for the OpenVAS Scanner (ospd-openvas)"                        | sudo tee -a $BUILD_DIR/ospd-openvas.service
         echo "Documentation=man:ospd-openvas(8) man:openvas(8)"                                       | sudo tee -a $BUILD_DIR/ospd-openvas.service
@@ -485,7 +485,7 @@
 
         sudo systemctl daemon-reload
 
-      # Download Openvas feeds.
+      # Descargar las fuentes de OpenVAS
         echo "Descargar los feeds de OpenVAS. Esto tomará tiempo, no interrumpas este proceso."
         sudo /usr/local/bin/greenbone-feed-sync
 
