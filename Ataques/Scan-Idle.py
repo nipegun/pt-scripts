@@ -32,7 +32,7 @@ import argparse
 from scapy.all import *
 
 def idle_scan(zombie_ip, victim_ip, victim_port):
-    # Step 1: Probe initial IP ID of the zombie
+    # Paso 1: Sondear el IP ID inicial del zombie
     syn_ack = IP(dst=zombie_ip)/TCP(dport=80, flags="SA")
     response = sr1(syn_ack, timeout=2, verbose=0)
     initial_ipid = response.id if response else None
@@ -43,11 +43,11 @@ def idle_scan(zombie_ip, victim_ip, victim_port):
 
     print(f"[*] IPID inicial del zombie: {initial_ipid}")
 
-    # Step 2: Send spoofed SYN packet to victim
+    # Paso 2: Enviar paquete SYN suplantado al objetivo
     spoofed_syn = IP(src=zombie_ip, dst=victim_ip)/TCP(dport=victim_port, flags="S")
     send(spoofed_syn, verbose=0)
 
-    # Step 3: Probe final IP ID of the zombie
+    # Paso 3: Sondear el IP ID final del zombie
     response = sr1(syn_ack, timeout=2, verbose=0)
     final_ipid = response.id if response else None
 
@@ -57,20 +57,20 @@ def idle_scan(zombie_ip, victim_ip, victim_port):
 
     print(f"[*] IPID final del zombie: {final_ipid}")
 
-    # Step 4: Analyze results
+    # Paso 4: Analizar resultados
     ipid_difference = final_ipid - initial_ipid
     if ipid_difference == 1:
-        print(f"[+] Port {victim_port} on {victim_ip} is CLOSED.")
+        print(f"[+] El puerto {victim_port} en {victim_ip} está CERRADO.")
     elif ipid_difference == 2:
-        print(f"[+] Port {victim_port} on {victim_ip} is OPEN.")
+        print(f"[+] El puerto {victim_port} en {victim_ip} está ABIERTO.")
     else:
-        print("[!] Comportamiento inesperado o error de host en el zombie.")
+        print("[!] Comportamiento inesperado o error en el host zombie.")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Idle Scan using a zombie host.")
-    parser.add_argument("zombie_ip", help="IP address of the zombie host")
-    parser.add_argument("victim_ip", help="IP address of the target")
-    parser.add_argument("victim_port", type=int, help="Port to scan on the target")
+    parser = argparse.ArgumentParser(description="Escaneo idle utilizando un host zombie.")
+    parser.add_argument("zombie_ip", help="Dirección IP del host zombie")
+    parser.add_argument("victim_ip", help="Dirección IP del objetivo")
+    parser.add_argument("victim_port", type=int, help="Puerto a escanear en el objetivo")
     args = parser.parse_args()
 
     idle_scan(args.zombie_ip, args.victim_ip, args.victim_port)
