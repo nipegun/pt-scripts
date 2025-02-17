@@ -144,7 +144,7 @@
     #echo ""
     #echo "  Cambiando el password del admin..."
     #echo ""
-    sudo su openvas -c "docker compose -f /opt/greenbone/docker-compose.yml exec -u gvmd gvmd gvmd --user=admin --new-password='<password>'"
+    #sudo su openvas -c "docker compose -f /opt/greenbone/docker-compose.yml exec -u gvmd gvmd gvmd --user=admin --new-password='<password>'"
 
   elif [ $cVerSO == "11" ]; then
 
