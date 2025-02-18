@@ -9,13 +9,13 @@
 # Script de NiPeGun para instalar y configurar Armitage en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/Armitage-Instalar.sh | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/Armitage-Compilar.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/Armitage-Instalar.sh | sed 's-sudo--g' | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/Armitage-Compilar.sh | sed 's-sudo--g' | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/Armitage-Instalar.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/Armitage-Compilar.sh | nano -
 # ----------
 
 # Definir constantes de color
@@ -177,22 +177,7 @@
       echo ""
       echo "      http://$vHostIP:8000"
       echo ""
-      echo "    Recuerda iniciar el servidor msfrpcd para poder conectar armitage a Metasploit Framework:"
-      echo ""
-      echo "      msfrpcd -U msf -P P@ssw0rd"
-      echo ""
-      echo "        o, con SSL:"
-      echo ""
-      echo "      msfrpcd -U msf -P P@ssw0rd --ssl"
-      echo ""
-      echo "      También puedes iniciarlo desde la propia consola de mft:"
-      echo ""
-      echo "        sudo msfconsole"
-      echo ""
-      echo "          load msgrpc Pass=P@ssw0rd"
-      echo ""
-      sudo pkill -f msf
-      sudo systemctl restart postgresql
+
 
       python3 -m http.server
 
