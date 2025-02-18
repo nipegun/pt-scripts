@@ -85,9 +85,9 @@
       echo ""
       sudo apt-get -y install mariadb-server
       # Agregar o cambiar la contraseña al usuario root de MySQL
-        sudo mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'rootMySQL'; FLUSH PRIVILEGES;"
+        sudo mysql -uroot -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'rootMySQL'; FLUSH PRIVILEGES;"
       # Crear la base de datos
-        sudo mysql -u root -prootMySQL -e "CREATE DATABASE bWAPP;"
+        sudo mysql -uroot -prootMySQL -e "CREATE DATABASE bWAPP;"
       # Asegurar el servidor (opcional)
         #sudo mysql_secure_installation
       # Instalar compatibilidad de PHO con mysql
@@ -264,9 +264,9 @@
       echo ""
       sudo apt-get -y install mariadb-server
       # Agregar o cambiar la contraseña al usuario root de MySQL
-        sudo mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'rootMySQL'; FLUSH PRIVILEGES;"
+        sudo mysql -uroot -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'rootMySQL'; FLUSH PRIVILEGES;"
       # Crear la base de datos
-        sudo mysql -u root -prootMySQL -e "CREATE DATABASE bWAPP;"
+        sudo mysql -uroot -prootMySQL -e "CREATE DATABASE bWAPP;"
       # Asegurar el servidor (opcional)
         #sudo mysql_secure_installation
       # Instalar compatibilidad de PHO con mysql
@@ -443,9 +443,9 @@
       echo ""
       sudo apt-get -y install mariadb-server
       # Agregar o cambiar la contraseña al usuario root de MySQL
-        sudo mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'rootMySQL'; FLUSH PRIVILEGES;"
+        sudo mysql -uroot -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'rootMySQL'; FLUSH PRIVILEGES;"
       # Crear la base de datos
-        sudo mysql -u root -prootMySQL -e "CREATE DATABASE bWAPP;"
+        sudo mysql -uroot -prootMySQL -e "CREATE DATABASE bWAPP;"
       # Asegurar el servidor (opcional)
         #sudo mysql_secure_installation
       # Instalar compatibilidad de PHO con mysql
@@ -627,11 +627,11 @@
       echo ""
       sudo apt-get -y install mariadb-server
       # Agregar o cambiar la contraseña al usuario root de MySQL
-        sudo mysql -u root -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('rootMySQL'); FLUSH PRIVILEGES;"
-        sudo mysql -u root -e "UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE User = 'root' AND Host = 'localhost'; FLUSH PRIVILEGES;"
+        sudo mysql -uroot -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('rootMySQL'); FLUSH PRIVILEGES;"
+        sudo mysql -uroot -e "UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE User = 'root' AND Host = 'localhost'; FLUSH PRIVILEGES;"
 
       # Crear la base de datos
-        sudo mysql -u root -prootMySQL -e "CREATE DATABASE bWAPP;"
+        sudo mysql -uroot -prootMySQL -e "CREATE DATABASE bWAPP;"
       # Asegurar el servidor (opcional)
         #sudo mysql_secure_installation
       # Instalar compatibilidad de PHO con mysql
@@ -813,11 +813,11 @@
       echo ""
       sudo apt-get -y --allow-unauthenticated install mariadb-server
       # Agregar o cambiar la contraseña al usuario root de MySQL
-        sudo mysql -u root -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('rootMySQL'); FLUSH PRIVILEGES;"
-        sudo mysql -u root -prootMySQL -e "UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE User = 'root' AND Host = 'localhost'; FLUSH PRIVILEGES;"
+        sudo mysql -uroot -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('rootMySQL'); FLUSH PRIVILEGES;"
+        sudo mysql -uroot -prootMySQL -e "UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE User = 'root' AND Host = 'localhost'; FLUSH PRIVILEGES;"
 
       # Crear la base de datos
-        sudo mysql -u root -prootMySQL -e "CREATE DATABASE bWAPP;"
+        sudo mysql -uroot -prootMySQL -e "CREATE DATABASE bWAPP;"
       # Asegurar el servidor (opcional)
         #sudo mysql_secure_installation
       # Instalar compatibilidad de PHO con mysql
