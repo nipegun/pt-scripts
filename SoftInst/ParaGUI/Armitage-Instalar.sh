@@ -112,6 +112,19 @@
       sudo apt -y install openjdk-11-jdk
       ./package.sh
 
+    # Borrar archivos inútiles
+      rm -f /opt/armitage/release/unix/build.txt
+      rm -f /opt/armitage/release/unix/license.txt
+      rm -f /opt/armitage/release/unix/whatsnew.txt
+      rm -f /opt/armitage/release/windows/build.txt
+      rm -f /opt/armitage/release/windows/license.txt
+      rm -f /opt/armitage/release/windows/whatsnew.txt
+
+    # Modificar archivos
+      sed -i -e 's|#!/bin/sh|#!/bin/sh\ncd /opt/armitage/|g'                        /opt/armitage/release/unix/armitage
+      sed -i -e 's|#!/bin/bash|#!/bin/bash\n\npkill -f msfrpcd\n|g'                 /opt/armitage/release/unix/teamserver
+      sed -i -e 's|# start everything up|# start everything up\ncd /opt/armitage|g' /opt/armitage/release/unix/teamserver
+
     # Comprimir
       echo ""
       echo "  Comprimiendo las releases..."
@@ -121,9 +134,6 @@
       echo "    Comprimiendo para GNU/Linux..."
       echo ""
       cd /opt/armitage/release/unix
-      rm -f /opt/armitage/release/unix/build.txt
-      rm -f /opt/armitage/release/unix/license.txt
-      rm -f /opt/armitage/release/unix/whatsnew.txt
       # Comprobar si el paquete tar está instalado. Si no lo está, instalarlo.
         if [[ $(dpkg-query -s tar 2>/dev/null | grep installed) == "" ]]; then
           echo ""
@@ -140,9 +150,6 @@
       echo "    Comprimiendo para Windows"
       echo ""
       cd /opt/armitage/release/windows
-      rm -f /opt/armitage/release/windows/build.txt
-      rm -f /opt/armitage/release/windows/license.txt
-      rm -f /opt/armitage/release/windows/whatsnew.txt
       # Comprobar si el paquete zip está instalado. Si no lo está, instalarlo.
         if [[ $(dpkg-query -s zip 2>/dev/null | grep installed) == "" ]]; then
           echo ""
