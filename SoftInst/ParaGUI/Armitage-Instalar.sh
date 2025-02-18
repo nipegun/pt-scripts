@@ -27,15 +27,6 @@
     #echo "$(tput setaf 1)Mensaje en color rojo. $(tput sgr 0)"
   cFinColor='\033[0m'
 
-# Comprobar si el script está corriendo como root
-  #if [ $(id -u) -ne 0 ]; then     # Sólo comprueba si es root
-  if [[ $EUID -ne 0 ]]; then       # Comprueba si es root o sudo
-    echo ""
-    echo -e "${cColorRojo}  Este script está preparado para ejecutarse con privilegios de administrador (como root o con sudo).${cFinColor}"
-    echo ""
-    exit
-  fi
-
 # Determinar la versión de Debian
   if [ -f /etc/os-release ]; then             # Para systemd y freedesktop.org.
     . /etc/os-release
@@ -88,8 +79,7 @@
       echo ""
       echo "  Instalando paquetes necesarios..."
       echo ""
-      sudo apt-get -y update
-      sudo apt -y install openjdk-11-jdk
+
       sudo apt -y install postgresql
       sudo systemctl enable postgresql --now
 
@@ -118,6 +108,8 @@
       sudo rm -rf /opt/armitage
       sudo mv armitage /opt/
       cd /opt/armitage
+      sudo apt-get -y update
+      sudo apt -y install openjdk-11-jdk
       ./package.sh
 
     # Comprimir
@@ -129,6 +121,9 @@
       echo "    Comprimiendo para GNU/Linux..."
       echo ""
       cd /opt/armitage/release/unix
+      rm -f /opt/armitage/release/unix/build.txt
+      rm -f /opt/armitage/release/unix/license.txt
+      rm -f /opt/armitage/release/unix/whatsnew.txt
       # Comprobar si el paquete tar está instalado. Si no lo está, instalarlo.
         if [[ $(dpkg-query -s tar 2>/dev/null | grep installed) == "" ]]; then
           echo ""
@@ -138,13 +133,16 @@
           sudo apt-get -y install tar
           echo ""
         fi
-      rm -f /opt/armitage/release/unix/ArmitageLinux.tar.gz
-      tar -czvf ArmitageLinux.tar.gz ./ 2> /dev/null
+      sudo rm -f /opt/armitage/release/unix/ArmitageLinux.tar.gz 2> /dev/null
+      sudo tar -czvf ArmitageLinux.tar.gz .
 
       echo ""
       echo "    Comprimiendo para Windows"
       echo ""
       cd /opt/armitage/release/windows
+      rm -f /opt/armitage/release/windows/build.txt
+      rm -f /opt/armitage/release/windows/license.txt
+      rm -f /opt/armitage/release/windows/whatsnew.txt
       # Comprobar si el paquete zip está instalado. Si no lo está, instalarlo.
         if [[ $(dpkg-query -s zip 2>/dev/null | grep installed) == "" ]]; then
           echo ""
@@ -154,8 +152,8 @@
           sudo apt-get -y install zip
           echo ""
         fi
-      rm -f /opt/armitage/release/windows/ArmitageWindows.zip
-      zip -r ArmitageWindows.zip *
+      sudo rm -f /opt/armitage/release/windows/ArmitageWindows.zip 2> /dev/null
+      sudo zip -r ArmitageWindows.zip *
 
     # Crear el servidor web
       echo ""
