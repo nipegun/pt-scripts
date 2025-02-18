@@ -13,3 +13,12 @@ https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/d
 https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/lang/spanish_es_MX.dic
 https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/lang/russian_ru_RU.dic
 https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/lang/german_de_DE.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/misc/countries_and_capitals.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/misc/first_names.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/misc/popular_baby_names.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/misc/professions.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/misc/soccer_clubs.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/misc/sports.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/misc/top_songs.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/misc/world_cities.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/misc/NBA_teams.dic
