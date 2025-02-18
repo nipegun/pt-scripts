@@ -75,16 +75,15 @@
       echo ""
       echo "    Instalando Node.js y npm..."
       echo ""
-      apt-get -y update
-      apt-get -y install nodejs
-      apt-get -y install npm
+      sudo apt-get -y update
+      sudo apt-get -y install nodejs
+      sudo apt-get -y install npm
 
     # Clonar repositorio
       echo ""
       echo "    Clonando repositorio..."
       echo ""
-      mkdir ~/repos
-      cd ~/repos
+      cd /opt
       # Comprobar si el paquete git está instalado. Si no lo está, instalarlo.
         if [[ $(dpkg-query -s git 2>/dev/null | grep installed) == "" ]]; then
           echo ""
@@ -94,20 +93,26 @@
           sudo apt-get -y install git
           echo ""
         fi
-      git clone https://github.com/juice-shop/juice-shop.git --depth 1
+      sudo git clone https://github.com/juice-shop/juice-shop.git --depth 1
 
     # Instalar
       echo ""
       echo "    Instalando aplicación..."
       echo ""
       cd juice-shop
-      npm install
+      sudo npm install
+
+    # Agregar juice shop a los comandos post arranque
+      echo ""
+      echo "    Agregando el lanzador a los comandos post arranque..."
+      echo ""
+      echo 'cd /opt/juice-shop && npm start &' | sudo tee -a /root/scripts/ParaEsteDebian/ComandosPostArranque.sh
 
     # Lanzar
       echo ""
       echo "    Lanzando aplicación..."
       echo ""
-      npm start &
+      sudo npm start &
 
     # Notificar fin del ejecución del script
       echo ""
