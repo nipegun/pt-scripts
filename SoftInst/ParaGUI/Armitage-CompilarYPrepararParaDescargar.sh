@@ -6,16 +6,16 @@
 # No tienes que aceptar ningún tipo de términos de uso o licencia para utilizarlo o modificarlo porque va sin CopyLeft.
 
 # ----------
-# Script de NiPeGun para instalar y configurar Armitage en Debian
+# Script de NiPeGun para compilar Armitage en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/Armitage-Compilar.sh | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/Armitage-CompilarYPrepararParaDescargar.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/Armitage-Compilar.sh | sed 's-sudo--g' | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/Armitage-CompilarYPrepararParaDescargar.sh | sed 's-sudo--g' | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/Armitage-Compilar.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/Armitage-CompilarYPrepararParaDescargar.sh | nano -
 # ----------
 
 # Definir constantes de color
@@ -52,7 +52,7 @@
   if [ $cVerSO == "13" ]; then
 
     echo ""
-    echo -e "${cColorAzulClaro}  Iniciando el script de instalación de Armitage para Debian 13 (x)...${cFinColor}"
+    echo -e "${cColorAzulClaro}  Iniciando el script de compilación de Armitage para Debian 13 (x)...${cFinColor}"
     echo ""
 
     echo ""
@@ -62,7 +62,7 @@
   elif [ $cVerSO == "12" ]; then
 
     echo ""
-    echo -e "${cColorAzulClaro}  Iniciando el script de instalación de Armitage para Debian 12 (Bookworm)...${cFinColor}"
+    echo -e "${cColorAzulClaro}  Iniciando el script de compilación de Armitage para Debian 12 (Bookworm)...${cFinColor}"
     echo ""
 
     echo ""
@@ -72,7 +72,7 @@
   elif [ $cVerSO == "11" ]; then
 
     echo ""
-    echo -e "${cColorAzulClaro}  Iniciando el script de instalación de Armitage para Debian 11 (Bullseye)...${cFinColor}"
+    echo -e "${cColorAzulClaro}  Iniciando el script de compilación de Armitage para Debian 11 (Bullseye)...${cFinColor}"
     echo ""
 
     # Instalar paquetes necesarios
@@ -174,11 +174,20 @@
       vHostIP=$(hostname -I | sed 's- --g')
       echo ""
       echo "    Para descargar los archivos comprimidos de armitage, conéctate al servidor web en la URL:"
-      echo ""
       echo "      http://$vHostIP:8000"
       echo ""
-
-
+      echo "      ...y te aparecerán en el navegador."
+      echo ""
+      echo "    Si quieres descargarlos desde la terminal, ejecuta:"
+      echo ""
+      echo "      En la CLI de bash en Linux:"
+      echo "        curl -L http://$vHostIP:8000/ArmitageLinux.tar.gz -o ~/ArmitageLinux.tar.gz"
+      echo ""
+      echo "      En la CLI de Powershell en Windows:"
+      echo "        Invoke-WebRequest -Uri "http://$vHostIP:8000/ArmitageWindows.zip" -OutFile "ArmitageWindows.zip""
+      echo ""
+      echo "    Si quieres instalarlo directamente en Debian, abre tu debian y ejecuta:"
+      echo "      curl -sL "
       python3 -m http.server
 
   elif [ $cVerSO == "10" ]; then
