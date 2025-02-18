@@ -176,9 +176,15 @@
       echo ""
       echo "      msfrpcd -U msf -P P@ssw0rd"
       echo ""
-      echo "      o, con SSL:"
+      echo "        o, con SSL:"
       echo ""
       echo "      msfrpcd -U msf -P P@ssw0rd --ssl"
+      echo ""
+      echo "      También puedes iniciarlo desde la propia consola de mft:"
+      echo ""
+      echo "        sudo mftconsole"
+      echo ""
+      echo "          load msgrpc Pass=P@ssw0rd"
       echo ""
       python3 -m http.server
 
