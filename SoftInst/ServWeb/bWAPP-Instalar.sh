@@ -235,7 +235,7 @@
       echo ""
       echo "      example: https://$vIPLocal/login.php"
       echo ""
-      echo "      Y loguéate con las credenciales bee/bug"
+      echo "    ...y loguéate con las credenciales bee/bug"
       echo ""
 
   elif [ $cVerSO == "11" ]; then
@@ -414,7 +414,7 @@
       echo ""
       echo "      example: https://$vIPLocal/login.php"
       echo ""
-      echo "      Y loguéate con las credenciales bee/bug"
+      echo "    ...y loguéate con las credenciales bee/bug"
       echo ""
 
   elif [ $cVerSO == "10" ]; then
@@ -593,7 +593,7 @@
       echo ""
       echo "      example: https://$vIPLocal/login.php"
       echo ""
-      echo "      Y loguéate con las credenciales bee/bug"
+      echo "    ...y loguéate con las credenciales bee/bug"
       echo ""
 
   elif [ $cVerSO == "9" ]; then
@@ -779,7 +779,7 @@
       echo ""
       echo "      example: https://$vIPLocal/login.php"
       echo ""
-      echo "      Y loguéate con las credenciales bee/bug"
+      echo "    ...y loguéate con las credenciales bee/bug"
       echo ""
 
   elif [ $cVerSO == "8" ]; then
@@ -965,7 +965,7 @@
       echo ""
       echo "      example: https://$vIPLocal/login.php"
       echo ""
-      echo "      Y loguéate con las credenciales bee/bug"
+      echo "    ...y loguéate con las credenciales bee/bug"
       echo ""
 
   elif [ $cVerSO == "7" ]; then
