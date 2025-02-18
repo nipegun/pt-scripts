@@ -236,8 +236,6 @@
                 vIPLocal=$(hostname -I | sed 's- --g')
                 echo "      http://$vIPLocal:8080/WebGoat"
                 echo ""
-                echo "    La primera vez que accedas tendrás que registrar un usuario nuevo."
-                echo ""
 
             ;;
 
