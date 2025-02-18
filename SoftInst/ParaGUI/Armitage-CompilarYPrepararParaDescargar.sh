@@ -187,7 +187,8 @@
       echo "        Invoke-WebRequest -Uri "http://$vHostIP:8000/ArmitageWindows.zip" -OutFile "ArmitageWindows.zip""
       echo ""
       echo "    Si quieres instalarlo directamente en Debian, abre tu debian y ejecuta:"
-      echo "      curl -sL "
+      echo "      curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/Armitage-Instalar.sh | bash -s "'"'http://$vHostIP:8000/ArmitageLinux.tar.gz'"'""
+      echo ""
       python3 -m http.server
 
   elif [ $cVerSO == "10" ]; then
