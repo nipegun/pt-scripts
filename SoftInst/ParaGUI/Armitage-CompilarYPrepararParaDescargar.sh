@@ -174,6 +174,7 @@
       vHostIP=$(hostname -I | sed 's- --g')
       echo ""
       echo "    Para descargar los archivos comprimidos de armitage, conéctate al servidor web en la URL:"
+      echo ""
       echo "      http://$vHostIP:8000"
       echo ""
       echo "      ...y te aparecerán en el navegador."
@@ -181,12 +182,15 @@
       echo "    Si quieres descargarlos desde la terminal, ejecuta:"
       echo ""
       echo "      En la CLI de bash en Linux:"
+      echo ""
       echo "        curl -L http://$vHostIP:8000/ArmitageLinux.tar.gz -o ~/ArmitageLinux.tar.gz"
       echo ""
       echo "      En la CLI de Powershell en Windows:"
+      echo ""
       echo "        Invoke-WebRequest -Uri "http://$vHostIP:8000/ArmitageWindows.zip" -OutFile "ArmitageWindows.zip""
       echo ""
       echo "    Si quieres instalarlo directamente en Debian, abre tu debian y ejecuta:"
+      echo ""
       echo "      curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/Armitage-Instalar.sh | bash -s "'"'http://$vHostIP:8000/ArmitageLinux.tar.gz'"'""
       echo ""
       python3 -m http.server
