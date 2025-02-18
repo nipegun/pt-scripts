@@ -122,7 +122,7 @@
 
     # Modificar archivos
       sed -i -e 's|#!/bin/sh|#!/bin/sh\ncd /opt/armitage/|g'                        /opt/armitage/release/unix/armitage
-      sed -i -e 's|#!/bin/bash|#!/bin/bash\n\npkill -f msfrpcd\n|g'                 /opt/armitage/release/unix/teamserver
+      sed -i -e 's|#!/bin/bash|#!/bin/bash\n\npkill -f msfrpcd\nsleep 5\n|g'        /opt/armitage/release/unix/teamserver
       sed -i -e 's|# start everything up|# start everything up\ncd /opt/armitage|g' /opt/armitage/release/unix/teamserver
 
     # Comprimir
