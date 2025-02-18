@@ -164,7 +164,7 @@
       echo ""
       echo "  El script de instalación de armitage ha finalizado."
       echo ""
-      echo "    Para iniciar el servidor msfrpcd desde bash:"
+      echo "    Para iniciar el servidor msfrpcd desde bash (siempre que metasploit esté instalado):"
       echo ""
       echo "      msfrpcd -U msf -P P@ssw0rd -f -S -a 127.0.0.1"
       echo ""
