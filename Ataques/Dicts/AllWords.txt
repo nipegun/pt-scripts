@@ -1,1 +1,15 @@
-
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/lang/arabic_ar_AR.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/lang/english_en_EN.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/lang/esperanto_eo_EO.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/lang/french_classique_fr_FR.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/lang/french_moderne_fr_FR.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/lang/hebrew_he_IL.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/lang/italian_it_IT.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/lang/korean_ko_KR.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/lang/portuguese_pt_PT.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/lang/spanish_es_AR.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/lang/spanish_es_CO.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/lang/spanish_es_ES.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/lang/spanish_es_MX.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/lang/russian_ru_RU.dic
+https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/lang/german_de_DE.dic
