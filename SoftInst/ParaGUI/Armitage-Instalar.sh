@@ -182,10 +182,13 @@
       echo ""
       echo "      También puedes iniciarlo desde la propia consola de mft:"
       echo ""
-      echo "        sudo mftconsole"
+      echo "        sudo msfconsole"
       echo ""
       echo "          load msgrpc Pass=P@ssw0rd"
       echo ""
+      sudo pkill -f msf
+      sudo systemctl restart postgresql
+
       python3 -m http.server
 
   elif [ $cVerSO == "10" ]; then
