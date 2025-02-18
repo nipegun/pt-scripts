@@ -174,6 +174,10 @@
       echo ""
       echo "    Recuerda iniciar el servidor msfrpcd para poder conectar armitage a Metasploit Framework:"
       echo ""
+      echo "      msfrpcd -U msf -P P@ssw0rd"
+      echo ""
+      echo "      o, con SSL:"
+      echo ""
       echo "      msfrpcd -U msf -P P@ssw0rd --ssl"
       echo ""
       python3 -m http.server
