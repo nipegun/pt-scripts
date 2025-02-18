@@ -9,19 +9,13 @@
 # Script de NiPeGun para instalar y configurar Armitage en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL x | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/Armitage-Instalar.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL x | sed 's-sudo--g' | bash
-#
-# Ejecución remota sin caché:
-#   curl -sL -H 'Cache-Control: no-cache, no-store' x | bash
-#
-# Ejecución remota con parámetros:
-#   curl -sL x | bash -s Parámetro1 Parámetro2
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/Armitage-Instalar.sh | sed 's-sudo--g' | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL x | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/Armitage-Instalar.sh | nano -
 # ----------
 
 # Definir constantes de color
@@ -40,16 +34,6 @@
     echo -e "${cColorRojo}  Este script está preparado para ejecutarse con privilegios de administrador (como root o con sudo).${cFinColor}"
     echo ""
     exit
-  fi
-
-# Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
-  if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
-    echo ""
-    echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
-    echo ""
-    sudo apt-get -y update
-    sudo apt-get -y install curl
-    echo ""
   fi
 
 # Determinar la versión de Debian
@@ -81,7 +65,7 @@
     echo ""
 
     echo ""
-    echo -e "${cColorRojo}    Comandos para Debian 13 todavía no preparados. Prueba ejecutarlo en otra versión de Debian.${cFinColor}"
+    echo -e "${cColorRojo}    Comandos para Debian 13 todavía no preparados. Ejecútalo en Debian 11. Se compilará y podrás descargarlo para otros Debian.${cFinColor}"
     echo ""
 
   elif [ $cVerSO == "12" ]; then
@@ -91,7 +75,7 @@
     echo ""
 
     echo ""
-    echo -e "${cColorRojo}    Comandos para Debian 12 todavía no preparados. Prueba ejecutarlo en otra versión de Debian.${cFinColor}"
+    echo -e "${cColorRojo}    Comandos para Debian 12 todavía no preparados. Ejecútalo en Debian 11. Se compilará y podrás descargarlo para otros Debian.${cFinColor}"
     echo ""
 
   elif [ $cVerSO == "11" ]; then
@@ -100,9 +84,95 @@
     echo -e "${cColorAzulClaro}  Iniciando el script de instalación de Armitage para Debian 11 (Bullseye)...${cFinColor}"
     echo ""
 
-    echo ""
-    echo -e "${cColorRojo}    Comandos para Debian 11 todavía no preparados. Prueba ejecutarlo en otra versión de Debian.${cFinColor}"
-    echo ""
+    # Instalar paquetes necesarios
+      echo ""
+      echo "  Instalando paquetes necesarios..."
+      echo ""
+      sudo apt-get -y update
+      sudo apt -y install openjdk-11-jdk
+      sudo apt -y install postgresql
+      sudo systemctl enable postgresql --now
+
+    # Clonar el repositorio
+      echo ""
+      echo "  Clonando el repositorio..."
+      echo ""
+      mkdir -p ~/repos
+      # Comprobar si el paquete git está instalado. Si no lo está, instalarlo.
+        if [[ $(dpkg-query -s git 2>/dev/null | grep installed) == "" ]]; then
+          echo ""
+          echo -e "${cColorRojo}  El paquete git no está instalado. Iniciando su instalación...${cFinColor}"
+          echo ""
+          sudo apt-get -y update
+          sudo apt-get -y install git
+          echo ""
+        fi
+      cd ~/repos
+      rm -rf ~/repos/armitage
+      git clone https://github.com/r00t0v3rr1d3/armitage.git
+
+    # Compilar
+      echo ""
+      echo "  Compilando..."
+      echo ""
+      sudo rm -rf /opt/armitage
+      sudo mv armitage /opt/
+      cd /opt/armitage
+      ./package.sh
+
+    # Comprimir
+      echo ""
+      echo "  Comprimiendo las releases..."
+      echo ""
+
+      echo ""
+      echo "    Comprimiendo para GNU/Linux..."
+      echo ""
+      cd /opt/armitage/release/unix
+      # Comprobar si el paquete tar está instalado. Si no lo está, instalarlo.
+        if [[ $(dpkg-query -s tar 2>/dev/null | grep installed) == "" ]]; then
+          echo ""
+          echo -e "${cColorRojo}  El paquete tar no está instalado. Iniciando su instalación...${cFinColor}"
+          echo ""
+          sudo apt-get -y update
+          sudo apt-get -y install tar
+          echo ""
+        fi
+      rm -f /opt/armitage/release/unix/ArmitageLinux.tar.gz
+      tar -czvf ArmitageLinux.tar.gz ./ 2> /dev/null
+
+      echo ""
+      echo "    Comprimiendo para Windows"
+      echo ""
+      cd /opt/armitage/release/windows
+      # Comprobar si el paquete zip está instalado. Si no lo está, instalarlo.
+        if [[ $(dpkg-query -s zip 2>/dev/null | grep installed) == "" ]]; then
+          echo ""
+          echo -e "${cColorRojo}  El paquete zip no está instalado. Iniciando su instalación...${cFinColor}"
+          echo ""
+          sudo apt-get -y update
+          sudo apt-get -y install zip
+          echo ""
+        fi
+      rm -f /opt/armitage/release/windows/ArmitageWindows.zip
+      zip -r ArmitageWindows.zip *
+
+    # Crear el servidor web
+      echo ""
+      echo "  Creando el servidor web para que puedas descargar los archivos..."
+      echo ""
+      sudo mkdir /opt/armitage/web
+      sudo rm -rf /opt/armitage/web/*
+      sudo cp -vf /opt/armitage/release/unix/ArmitageLinux.tar.gz   /opt/armitage/web/
+      sudo cp -vf /opt/armitage/release/windows/ArmitageWindows.zip /opt/armitage/web/
+      cd /opt/armitage/web
+      vHostIP=$(hostname -I | sed 's- --g')
+      echo ""
+      echo "    Para descargar los archivos comprimidos de armitage, conéctate al servidor web en la URL:"
+      echo ""
+      echo "      http://$vHostIP:8000"
+      echo ""
+      python3 -m http.server
 
   elif [ $cVerSO == "10" ]; then
 
@@ -111,7 +181,7 @@
     echo ""
 
     echo ""
-    echo -e "${cColorRojo}    Comandos para Debian 10 todavía no preparados. Prueba ejecutarlo en otra versión de Debian.${cFinColor}"
+    echo -e "${cColorRojo}    Comandos para Debian 10 todavía no preparados. Ejecútalo en Debian 11. Se compilará y podrás descargarlo para otros Debian.${cFinColor}"
     echo ""
 
   elif [ $cVerSO == "9" ]; then
@@ -121,7 +191,7 @@
     echo ""
 
     echo ""
-    echo -e "${cColorRojo}    Comandos para Debian 9 todavía no preparados. Prueba ejecutarlo en otra versión de Debian.${cFinColor}"
+    echo -e "${cColorRojo}    Comandos para Debian 9 todavía no preparados. Ejecútalo en Debian 11. Se compilará y podrás descargarlo para otros Debian.${cFinColor}"
     echo ""
 
   elif [ $cVerSO == "8" ]; then
@@ -131,7 +201,7 @@
     echo ""
 
     echo ""
-    echo -e "${cColorRojo}    Comandos para Debian 8 todavía no preparados. Prueba ejecutarlo en otra versión de Debian.${cFinColor}"
+    echo -e "${cColorRojo}    Comandos para Debian 8 todavía no preparados. Ejecútalo en Debian 11. Se compilará y podrás descargarlo para otros Debian.${cFinColor}"
     echo ""
 
   elif [ $cVerSO == "7" ]; then
@@ -141,7 +211,7 @@
     echo ""
 
     echo ""
-    echo -e "${cColorRojo}    Comandos para Debian 7 todavía no preparados. Prueba ejecutarlo en otra versión de Debian.${cFinColor}"
+    echo -e "${cColorRojo}    Comandos para Debian 7 todavía no preparados. Ejecútalo en Debian 11. Se compilará y podrás descargarlo para otros Debian.${cFinColor}"
     echo ""
 
   fi
