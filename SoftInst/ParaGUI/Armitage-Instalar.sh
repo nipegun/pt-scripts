@@ -172,6 +172,10 @@
       echo ""
       echo "      http://$vHostIP:8000"
       echo ""
+      echo "    Recuerda iniciar el servidor msfrpcd para poder conectar armitage a Metasploit Framework:"
+      echo ""
+      echo "      msfrpcd -U msf -P P@ssw0rd --ssl"
+      echo ""
       python3 -m http.server
 
   elif [ $cVerSO == "10" ]; then
