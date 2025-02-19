@@ -24,6 +24,9 @@
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ServWeb/Nessus-Instalar.sh | nano -
 # ----------
 
+vNessus="10.8.3"
+vMinDebian="10"
+
 # Definir constantes de color
   cColorAzul='\033[0;34m'
   cColorAzulClaro='\033[1;34m'
@@ -40,16 +43,6 @@
     echo -e "${cColorRojo}  Este script está preparado para ejecutarse con privilegios de administrador (como root o con sudo).${cFinColor}"
     echo ""
     exit
-  fi
-
-# Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
-  if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
-    echo ""
-    echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
-    echo ""
-    sudo apt-get -y update
-    sudo apt-get -y install curl
-    echo ""
   fi
 
 # Determinar la versión de Debian
@@ -90,9 +83,27 @@
     echo -e "${cColorAzulClaro}  Iniciando el script de instalación de Nessus para Debian 12 (Bookworm)...${cFinColor}"
     echo ""
 
-    echo ""
-    echo -e "${cColorRojo}    Comandos para Debian 12 todavía no preparados. Prueba ejecutarlo en otra versión de Debian.${cFinColor}"
-    echo ""
+    # Descargar el paquete .deb
+      echo ""
+      echo "    Descargando el paquete .deb..."
+      echo ""
+      # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
+        if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
+          echo ""
+          echo -e "${cColorRojo}      El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
+          echo ""
+          sudo apt-get -y update
+          sudo apt-get -y install curl
+          echo ""
+        fi
+      curl --request GET --url "https://www.tenable.com/downloads/api/v2/pages/nessus/files/Nessus-$vNessus-debian$vMinDebian_amd64.deb" --output /tmp/Nessus.deb
+
+    # Instalar el paquete .deb
+      echo ""
+      echo "    Instalando el paquete .deb..."
+      echo ""
+      sudo apt -y update
+      sudo apt -y install /tmp/Nessus.deb
 
   elif [ $cVerSO == "11" ]; then
 
