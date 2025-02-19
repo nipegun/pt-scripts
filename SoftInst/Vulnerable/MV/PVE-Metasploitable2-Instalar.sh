@@ -9,13 +9,13 @@
 # Script de NiPeGun para crear un laboratorio de ciberseguridad en Proxmox
 #
 # Ejecución remota:
-#   curl -sL https://raw.githubusercontent.com/nipegun/p-scripts/refs/heads/master/MVs/Packs/Lab-CyberSec-Importar.sh | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/Vulnerable/MV/PVE-Metasploitable2-Instalar.sh | bash
 #
 # Ejecución remota con parámetros:
-#   curl sL https://raw.githubusercontent.com/nipegun/p-scripts/refs/heads/master/MVs/Packs/Lab-CyberSec-Importar.sh | bash -s Almacenamiento
+#   curl sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/Vulnerable/MV/PVE-Metasploitable2-Instalar.sh | bash -s Almacenamiento
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/p-scripts/refs/heads/master/MVs/Packs/Lab-CyberSec-Importar.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/Vulnerable/MV/PVE-Metasploitable2-Instalar.sh | nano -
 # ----------
 
 vLinkDeDescarga="https://sourceforge.net/projects/metasploitable/files/latest/download"
