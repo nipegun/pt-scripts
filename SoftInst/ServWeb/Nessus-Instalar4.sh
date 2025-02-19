@@ -88,7 +88,8 @@ vMinDebian="10"
           echo ""
         fi
       sudo chmod 1777 /tmp -R
-      curl --request GET --url "https://www.tenable.com/downloads/api/v2/pages/nessus/files/Nessus-$vNessus-debian$vMinDebian_amd64.deb" --output /tmp/Nessus.deb
+      sudo apt -y dist-upgrade
+      curl --request GET --url "https://www.tenable.com/downloads/api/v2/pages/nessus/files/Nessus-"$vNessus"-debian"$vMinDebian"_amd64.deb" --output /tmp/Nessus.deb
 
     # Instalar el paquete .deb
       echo ""
