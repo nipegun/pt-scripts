@@ -98,9 +98,22 @@ vMinDebian="10"
       sudo apt -y update
       sudo apt -y install /tmp/Nessus.deb
 
+    # Activando e iniciando el servicio
+      echo ""
+      echo "    Activando e iniciando el servicio..."
+      echo ""
+      sudo systemctl enable nessusd.service --now
+      sleep 5
+
+    # Mostrar el estado del servicio
+      echo ""
+      echo "    Mostrando el estado del servicio..."
+      echo ""
+      sudo systemctl status nessusd.service --no-pager
+
     # Notificar fin de ejecución del script
       echo ""
-      echo "  El script de instalación de Nessus ha finalizado."
+      echo "    El script de instalación de Nessus ha finalizado."
       echo ""
       echo "  Para ejecutarlo:"
       echo ""
