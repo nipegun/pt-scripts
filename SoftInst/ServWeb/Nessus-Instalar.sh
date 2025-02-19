@@ -98,6 +98,22 @@ vMinDebian="10"
       sudo apt -y update
       sudo apt -y install /tmp/Nessus.deb
 
+    # Notificar fin de ejecución del script
+      echo ""
+      echo "  El script de instalación de Nessus ha finalizado."
+      echo ""
+      echo "  Para ejecutarlo:"
+      echo ""
+      echo "    sudo systemctl start nessusd.service"
+      echo ""
+      vIPHost=$(hostname -I | sed 's- --g')
+      echo "    luego accede a:"
+      echo ""
+      echo "      https://$vIPHost:8834/"
+      echo ""
+      echo "    ...para configurar el scanner"
+      echo ""
+
   elif [ $cVerSO == "11" ]; then
 
     echo ""
