@@ -35,7 +35,7 @@ vDirMac="00:00:00:00:00:01"
     --sockets 1 \
     --cpu x86-64-v2-AES \
     --cores 4 \
-    --memory 4096 \
+    --memory 2048 \
     --balloon 0 \
     --vga memory=512 \
     --net0 virtio=$vDirMac,bridge=$vIDDelPuente,firewall=1 \
