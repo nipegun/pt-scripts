@@ -20,9 +20,9 @@
 
 vLinkDeDescarga="https://sourceforge.net/projects/metasploitable/files/latest/download"
 vAlmacenamiento="local-lvm"
-vIDdeLaMV=2000
-vIDDelPuente="vmbr80"
-vDirMac="00:aa:aa:aa:10:02"
+vIDdeLaMV="2000"
+vIDDelPuente="vmbr0"
+vDirMac="00:00:00:00:00:01"
 
 # Crear la máquina virtual
   echo ""
