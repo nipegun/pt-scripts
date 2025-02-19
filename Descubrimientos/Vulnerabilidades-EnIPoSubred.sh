@@ -9,13 +9,13 @@
 # Script de NiPeGun para escanear vulnerabilidades con nmap en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/VulnerabilidadesEnIPoSubred.sh | bash -s "192.168.1.0/24"
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Vulnerabilidades-EnIPoSubred.sh | bash -s "192.168.1.0/24"
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/VulnerabilidadesEnIPoSubred.sh | sed 's-sudo--g' | bash -s "192.168.1.3"
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Vulnerabilidades-EnIPoSubred.sh | sed 's-sudo--g' | bash -s "192.168.1.3"
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/VulnerabilidadesEnIPoSubred.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Vulnerabilidades-EnIPoSubred.sh | nano -
 # ----------
 
 vIPoSubred="$1"
