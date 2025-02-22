@@ -117,8 +117,7 @@
           sudo apt-get -y install unzip
           echo ""
         fi
-      cd /tmp/
-      unzip -o /tmp/rustscan.zip
+      unzip /tmp/rustscan.zip -d /tmp
 
     # Mover el binario a carpeta de binarios
       echo ""
