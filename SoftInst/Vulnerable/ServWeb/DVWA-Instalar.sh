@@ -17,6 +17,8 @@
 # Bajar y editar directamente el archivo en nano
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/Vulnerable/ServWeb/DVWA-Instalar.sh | nano -
 # ----------
+# enlace 1: https://keepcoding.io/blog/como-instalar-dvwa-en-kali-linux/
+# enlace 2: https://github.com/digininja/DVWA/blob/master/README.es.md
 
 # Definir constantes de color
   cColorAzul='\033[0;34m'
