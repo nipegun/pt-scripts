@@ -135,6 +135,7 @@
       sudo rm -rf /opt/armitage
       sudo mv /tmp/armitage/ /opt/
       sudo chown $USER:$USER /opt/armitage -R
+      mv /opt/armitage/armitage /opt/armitage/armitage.sh
 
     # Crear el icono para lanzar la aplicación desde el menú gráfico
       echo ""
@@ -144,11 +145,11 @@
       echo '[Desktop Entry]'                      | sudo tee    ~/.local/share/applications/Armitage.desktop
       echo 'Name=Armitage'                        | sudo tee -a ~/.local/share/applications/Armitage.desktop
       echo 'Categories=Development'               | sudo tee -a ~/.local/share/applications/Armitage.desktop
-      echo "Exec=/opt/armitage/armitage"          | sudo tee -a ~/.local/share/applications/Armitage.desktop
+      echo "Exec=/opt/armitage/armitage.sh"       | sudo tee -a ~/.local/share/applications/Armitage.desktop
       echo "Icon=/opt/armitage/armitage-logo.png" | sudo tee -a ~/.local/share/applications/Armitage.desktop
       echo 'Type=Application'                     | sudo tee -a ~/.local/share/applications/Armitage.desktop
       echo 'Terminal=false'                       | sudo tee -a ~/.local/share/applications/Armitage.desktop
-      sudo chown $USER:$USER '/home/nipegun/.local/share/applications/Armitage.desktop'
+      sudo chown $USER:$USER ~/.local/share/applications/Armitage.desktop
 
     # Modificar las variables de entorno
       # Determinar si la base de datos de metasploit existe
