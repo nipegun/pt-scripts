@@ -148,6 +148,7 @@
       echo "Icon=/opt/armitage/armitage-logo.png" | sudo tee -a ~/.local/share/applications/Armitage.desktop
       echo 'Type=Application'                     | sudo tee -a ~/.local/share/applications/Armitage.desktop
       echo 'Terminal=false'                       | sudo tee -a ~/.local/share/applications/Armitage.desktop
+      sudo chown $USER:$USER '/home/nipegun/.local/share/applications/Armitage.desktop'
 
     # Modificar las variables de entorno
       # Determinar si la base de datos de metasploit existe
