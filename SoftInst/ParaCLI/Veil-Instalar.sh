@@ -7,18 +7,16 @@ sudo apt -y install git curl python3 python3-pip python3-venv wine64 unzip mingw
 # Instalar UPX
   curl -L https://github.com/upx/upx/releases/download/v5.0.0/upx-5.0.0-amd64_linux.tar.xz -o /tmp/upx.tar.xz
   cd /tmp/
-  tar -xfv upx.tar.xz
+  tar -xvf upx.tar.xz
   cd upx-*
-
-3. Mover UPX a /usr/local/bin
-
-sudo mv upx /usr/local/bin/
+  sudo mv -v upx /usr/local/bin/
 
 # Configurar mingw-w64 para usar x86_64-w64-mingw32 como predeterminado
   sudo update-alternatives --config x86_64-w64-mingw32-gcc
   # Y marcar: /usr/bin/x86_64-w64-mingw32-gcc-win32
 
 # Clonar veil
+  cd ~/
   git clone https://github.com/Veil-Framework/Veil.git
   cd Veil/
   ./config/setup.sh --force --silent
