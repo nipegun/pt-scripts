@@ -6,6 +6,9 @@
 sudo apt -y update
 sudo apt -y upgrade
 sudo apt -y install git curl python3 python3-pip python3-venv wine64 unzip mingw-w64 mono-devel
+sudo $(which python3) -m pip install --force-reinstall pycryptodome --break-system-packages
+
+
 
 # Instalar UPX
   curl -L https://github.com/upx/upx/releases/download/v5.0.0/upx-5.0.0-amd64_linux.tar.xz -o /tmp/upx.tar.xz
