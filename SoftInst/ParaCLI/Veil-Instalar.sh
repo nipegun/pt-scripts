@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+# Instalar primero metasploit framework
+
 sudo apt -y update
 sudo apt -y upgrade
 sudo apt -y install git curl python3 python3-pip python3-venv wine64 unzip mingw-w64 mono-devel
@@ -20,3 +23,4 @@ sudo apt -y install git curl python3 python3-pip python3-venv wine64 unzip mingw
   git clone https://github.com/Veil-Framework/Veil.git
   cd Veil/
   ./config/setup.sh --force --silent
+# Indicar el directorio de msfvenom (normalmente /usr/bin/)
