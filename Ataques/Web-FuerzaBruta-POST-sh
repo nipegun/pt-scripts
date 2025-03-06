@@ -6,7 +6,7 @@
 # No tienes que aceptar ningún tipo de términos de uso o licencia para utilizarlo o modificarlo porque va sin CopyLeft.
 
 # ----------
-# Script de NiPeGun para instalar y configurar xxxxxxxxx en Debian
+# Script de NiPeGun para inyectar un valor JSON a la fuerza, con method POST, en una API web determinada
 #
 # Ejecución remota (puede requerir permisos sudo):
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web-FuerzaBruta-POST-sh | bash
