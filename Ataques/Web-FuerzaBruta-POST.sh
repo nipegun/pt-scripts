@@ -34,10 +34,10 @@ if [ "$#" -ne 2 ]; then
 fi
 
 URL="$1"
-ARCHIVO="$2"
+vArchDict="$2"
 
-if [ ! -f "$ARCHIVO" ]; then
-  echo "Error: El archivo '$ARCHIVO' no existe."
+if [ ! -f "$vArchDict" ]; then
+  echo "Error: El archivo '$vArchDict' no existe."
   exit 1
 fi
 
@@ -54,4 +54,4 @@ while IFS= read -r linea; do
   # Enviar la petición POST
   codigo_http=$(curl -s -o /dev/null -w "%{http_code}" -X POST -H "Content-Type: application/json" -d "$payload" "$URL")
   echo "Inyección $contador: Valor '$linea' -> Código HTTP $codigo_http"
-done < "$ARCHIVO"
+done < "$vArchDict"
