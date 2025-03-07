@@ -27,7 +27,7 @@
 import socket
 
 vDestino = "example.com"
-vPruerto = 80
+vPuerto = 80
 vDatosEnBinario = b"\x50\x79\x74\x68\x6f\x6e\x00\x01\x02\x03"  # Datos binarios arbitrarios
 
 vConex = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
