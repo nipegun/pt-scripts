@@ -41,9 +41,9 @@ try:
     if not chunk:                     # Si no hay más datos, salir del bucle
       break
     vDatosRespuesta += chunk
-  print(vRespuesta)                   # Mostrar respuesta cruda
-  print(vRespuesta.hex())             # Mostrar respuesta convertida a cadena de caracteres hexadecimales
-  print(vRespuesta.decode())          # Mostrar respuesta convertida en cadena de caracteres string
+  print(vDatosRespuesta)                   # Mostrar respuesta cruda
+  print(vDatosRespuesta.hex())             # Mostrar respuesta convertida a cadena de caracteres hexadecimales
+  print(vDatosRespuesta.decode())          # Mostrar respuesta convertida en cadena de caracteres string
 
 except socket.error as vDescError:
   print(f"Error en la creación del socket: {vDescError}")
