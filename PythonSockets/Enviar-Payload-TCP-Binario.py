@@ -43,7 +43,7 @@ try:
   print(vRespuesta)                   # Mostrar respuesta cruda
   print(vRespuesta.hex())             # Mostrar respuesta convertida a cadena de caracteres hexadecimales
   print(vRespuesta.decode())          # Mostrar respuesta convertida en cadena de caracteres string
-  
+
 except socket.error as vDescError:
   print(f"Error en la creación del socket: {vDescError}")
 finally:
