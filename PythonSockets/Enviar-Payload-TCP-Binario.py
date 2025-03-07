@@ -9,21 +9,20 @@
 # Script de NiPeGun para enviar una carga binaria por TCP
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Scan-Idle.py | python3
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/PythonSockets/Enviar-Payload-TCP-Binario.py | python3
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Scan-Idle.py | sed 's-sudo--g' | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/PythonSockets/Enviar-Payload-TCP-Binario.py | sed 's-sudo--g' | bash
 #
 # Ejecución remota sin caché:
-#   curl -sL -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Scan-Idle.py | bash
+#   curl -sL -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/PythonSockets/Enviar-Payload-TCP-Binario.py | bash
 #
 # Ejecución remota con parámetros:
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Scan-Idle.py | bash -s Parámetro1 Parámetro2
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/PythonSockets/Enviar-Payload-TCP-Binario.py | bash -s Parámetro1 Parámetro2
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Scan-Idle.py | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/PythonSockets/Enviar-Payload-TCP-Binario.py | nano -
 # ----------
-
 
 import socket
 
@@ -33,11 +32,11 @@ vDatosEnBinario = b"\x50\x79\x74\x68\x6f\x6e\x00\x01\x02\x03"  # Datos binarios 
 
 vConex = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 try:
-    vConex.connect((vDestino, vPuerto))
-    vConex.sendall(vDatosEnBinario)
-    vRespuesta = vConex.recv(4096)
-    print(vRespuesta)
+  vConex.connect((vDestino, vPuerto))
+  vConex.sendall(vDatosEnBinario)
+  vRespuesta = vConex.recv(4096)
+  print(vRespuesta)
 except socket.error as vDescError:
-    print(f"Error en la creación del socket: {vDescError}")
+  print(f"Error en la creación del socket: {vDescError}")
 finally:
-    vConex.close()
+  vConex.close()
