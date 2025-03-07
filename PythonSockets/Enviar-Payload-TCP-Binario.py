@@ -31,6 +31,7 @@ vPuerto = 80
 vDatosEnBinario = b"\x50\x79\x74\x68\x6f\x6e\x00\x01\x02\x03"  # Datos binarios arbitrarios
 
 vConex = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+vConex.settimeout(5)                                           # Establecer timeout de 5 segundos
 
 try:
   vConex.connect((vDestino, vPuerto)) # Conectar socket
@@ -47,6 +48,9 @@ try:
 
 except socket.error as vDescError:
   print(f"Error en la creación del socket: {vDescError}")
+
+except socket.timeout:
+  print("Timeout alcanzado en la conexión")
 
 finally:
   vConex.close()
