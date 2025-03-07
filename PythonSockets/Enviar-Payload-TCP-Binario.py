@@ -31,6 +31,7 @@ vPuerto = 80
 vDatosEnBinario = b"\x50\x79\x74\x68\x6f\x6e\x00\x01\x02\x03"  # Datos binarios arbitrarios
 
 vConex = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
 try:
   vConex.connect((vDestino, vPuerto)) # Conectar socket
   vConex.sendall(vDatosEnBinario)     # Enviar datos
@@ -46,5 +47,6 @@ try:
 
 except socket.error as vDescError:
   print(f"Error en la creación del socket: {vDescError}")
+
 finally:
   vConex.close()
