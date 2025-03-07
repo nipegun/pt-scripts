@@ -32,15 +32,18 @@ vDatosEnBinario = b"\x50\x79\x74\x68\x6f\x6e\x00\x01\x02\x03"  # Datos binarios 
 
 vConex = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 try:
-  vConex.connect((vDestino, vPuerto))
-  vConex.sendall(vDatosEnBinario)
-  vDatosRespuesta = b""       # Inicializar un buffer vacío para almacenar los datos
+  vConex.connect((vDestino, vPuerto)) # Conectar socket
+  vConex.sendall(vDatosEnBinario)     # Enviar datos
+  vDatosRespuesta = b""               # Inicializar un buffer vacío para almacenar los datos
   while True:
-    chunk = vConex.recv(4096) # Leer en fragmentos de 4096 bytes
-    if not chunk:             # Si no hay más datos, salir del bucle
+    chunk = vConex.recv(4096)         # Leer en fragmentos de 4096 bytes
+    if not chunk:                     # Si no hay más datos, salir del bucle
       break
     vDatosRespuesta += chunk
-  print(vRespuesta.decode())  # Mostrar la respuesta completa
+  print(vRespuesta)                   # Mostrar respuesta cruda
+  print(vRespuesta.hex())             # Mostrar respuesta convertida a cadena de caracteres hexadecimales
+  print(vRespuesta.decode())          # Mostrar respuesta convertida en cadena de caracteres string
+  
 except socket.error as vDescError:
   print(f"Error en la creación del socket: {vDescError}")
 finally:
