@@ -45,14 +45,14 @@
     fi
   menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 96 16)
     opciones=(
-      1 "  Descargar diccionarios de SecLists"             on
-      2 "  Descargar diccionarios de CSL-LABS"             on
-      3 "  Reservado"                                      off
-      4 "  Reservado"                                      off
-      5 "  Reservado"                                      off
-      6 "  Reservado"                                      off
-      7 "    Eliminar caracteres de tabulación"            on
-      8 "      Preparar diccionarios de 1 a 16 caracteres" on
+      1 "  Descargar diccionarios de SecLists"                 on
+      2 "  Descargar diccionarios de CSL-LABS"                 on
+      3 "  Reservado"                                          off
+      4 "  Reservado"                                          off
+      5 "  Reservado"                                          off
+      6 "  Reservado"                                          off
+      7 "    Eliminar caracteres de tabulación"                on
+      8 "      Preparar diccionarios de 1 hasta 16 caracteres" on
     )
     choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
 
@@ -234,7 +234,7 @@
             8)
 
               echo ""
-              echo "  Preparando diccionarios con listas de 1 a 16 caracteres..."
+              echo "  Preparando diccionarios de 1 hasta 16 caracteres..."
               echo ""
 
               # Crear diccionarios
