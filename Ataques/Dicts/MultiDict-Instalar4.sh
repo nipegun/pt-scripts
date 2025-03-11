@@ -62,8 +62,6 @@
               echo ""
               echo "  Preparando la carpeta ~/MultiDict..."
               echo ""
-              # Borrar la carpeta vieja
-                rm -rf ~/MultiDict/Internet/
               # Crearla
                 mkdir -p ~/MultiDict/Internet/ 2> /dev/null
 
@@ -74,6 +72,8 @@
               echo ""
               echo "  Descargando diccionarios de SecLists..."
               echo ""
+              # Borrar la carpeta vieja
+                rm -rf ~/MultiDict/Internet/SecLists/
               # Posicionarse en la carpeta
                 cd ~/MultiDict/Internet/
               # Clonar el repo de SecLists
@@ -125,7 +125,7 @@
               echo "  Descargando diccionarios de CSL-LABS..."
               echo ""
               # Borrar posible descarga anterior
-                rm -rf /tmp/CrackingWordLists/
+                rm -rf /tmp/CrackingWordLists/ 2> /dev/null
               # Posicionarse en la carpeta /tmp
                 cd /tmp/
               # Clonar el repo de SecLists
@@ -139,6 +139,8 @@
                     echo ""
                   fi
                 git clone --depth 1 https://github.com/CSL-LABS/CrackingWordLists.git
+              # Borrar la carpeta vieja
+                rm -rf ~/MultiDict/Internet/CSL-LABS/ 2> /dev/null
                 mv /tmp/CrackingWordLists/dics/ ~/MultiDict/Internet/CSL-LABS/
                 cd ~/MultiDict/Internet/CSL-LABS/
                 tar -xvzf ROCKYOU-CSL.tar.gz
