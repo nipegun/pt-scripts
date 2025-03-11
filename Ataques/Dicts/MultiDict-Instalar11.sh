@@ -244,7 +244,7 @@
                   > "All${i}Characters.txt"
                 done
 
-                find "$vCarpetaInicio" -type f -name "*.txt" -print0 | xargs -0 awk -v min="$vCaracteresMin" -v max="$vCaracteresMax" '
+                find "$vCarpetaInicio" -type f -name "*.txt" -print0 | xargs -0 awk -c -v min="$vCaracteresMin" -v max="$vCaracteresMax" '
                 {
                   len = length($0);
                   if (len >= min && len <= max)
