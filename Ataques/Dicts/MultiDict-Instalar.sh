@@ -45,11 +45,14 @@
     fi
   menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 96 16)
     opciones=(
-      1 "Preparar la carpeta ~/MultiDict"                  on
-      2 "  Descargar diccionarios de SecLists"             on
-      3 "  Descargar diccionarios de CSL-LABS"             on
-      4 "    Convertir todos los archivos a UTF8"          off
-      5 "      Preparar diccionarios de 1 a 16 caracteres" off
+      1 "  Descargar diccionarios de SecLists"             on
+      2 "  Descargar diccionarios de CSL-LABS"             on
+      3 "  Reservado"                                      on
+      4 "  Reservado"                                      on
+      5 "  Reservado"                                      on
+      6 "  Reservado"                                      on
+      7 "    Eliminar caracteres de tabulación"            off
+      8 "      Preparar diccionarios de 1 a 16 caracteres" off
     )
     choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
 
@@ -60,20 +63,12 @@
             1)
 
               echo ""
-              echo "  Preparando la carpeta ~/MultiDict..."
-              echo ""
-              # Crearla
-                mkdir -p ~/MultiDict/Internet/ 2> /dev/null
-
-            ;;
-
-            2)
-
-              echo ""
               echo "  Descargando diccionarios de SecLists..."
               echo ""
               # Borrar la carpeta vieja
-                rm -rf ~/MultiDict/Internet/SecLists/
+                rm -rf ~/MultiDict/Internet/SecLists/ 2> /dev/null
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/MultiDict/Internet/ 2> /dev/null
               # Posicionarse en la carpeta
                 cd ~/MultiDict/Internet/
               # Clonar el repo de SecLists
@@ -98,20 +93,20 @@
                 # Archivos README.md
                   find ~/MultiDict/Internet/SecLists/ -type f -name README.md -exec rm -f {} \;
                   rm -f ~/MultiDict/Internet/SecLists/Discovery/Infrastructure/IPGenerator.sh
-    
-                rm -rf ~/MultiDict/Internet/SecLists/Ai 2> /dev/null
-                rm -rf ~/MultiDict/Internet/SecLists/Ai 2> /dev/null
+                # Archivos de inteligencia artificial
+                  rm -rf ~/MultiDict/Internet/SecLists/Ai 2> /dev/null
+                  rm -rf ~/MultiDict/Internet/SecLists/Ai 2> /dev/null
 
               # Descomprimir archivos comprimidos
                 cd ~/MultiDict/Internet/SecLists/Passwords/
                 bzip2 -d "500-worst-passwords.txt.bz2"
                 tar -xvzf "SCRABBLE-hackerhouse.tgz"
                 rm "SCRABBLE-hackerhouse.tgz"
-                rm -rf  ~/MultiDict/Internet/SecLists/Passwords/SCRABBLE/fetch.sh
-                rm -rf  ~/MultiDict/Internet/SecLists/Passwords/SCRABBLE/mangle.py
-                rm -rf  ~/MultiDict/Internet/SecLists/Passwords/Default-Credentials/scada-pass.csv
-                rm -rf  ~/MultiDict/Internet/SecLists/Passwords/Default-Credentials/default-passwords.csv
-                rm -rf  ~/MultiDict/Internet/SecLists/Pattern-Matching/grepstrings-auditing-php.md
+                rm -rf ~/MultiDict/Internet/SecLists/Passwords/SCRABBLE/fetch.sh
+                rm -rf ~/MultiDict/Internet/SecLists/Passwords/SCRABBLE/mangle.py
+                rm -rf ~/MultiDict/Internet/SecLists/Passwords/Default-Credentials/scada-pass.csv
+                rm -rf ~/MultiDict/Internet/SecLists/Passwords/Default-Credentials/default-passwords.csv
+                rm -rf ~/MultiDict/Internet/SecLists/Pattern-Matching/grepstrings-auditing-php.md
                 rm -rf ~/MultiDict/Internet/SecLists/Payloads/
                 rm -rf ~/MultiDict/Internet/SecLists/Web-Shells/
                 rm -rf ~/MultiDict/Internet/SecLists/Fuzzing/
@@ -148,7 +143,7 @@
 
             ;;
 
-            3)
+            2)
 
               echo ""
               echo "  Descargando diccionarios de CSL-LABS..."
@@ -171,7 +166,11 @@
                 git clone --depth 1 https://github.com/CSL-LABS/CrackingWordLists.git
               # Borrar la carpeta vieja
                 rm -rf ~/MultiDict/Internet/CSL-LABS/ 2> /dev/null
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/MultiDict/Internet/ 2> /dev/null
+              # Mover carpeta
                 mv /tmp/CrackingWordLists/dics/ ~/MultiDict/Internet/CSL-LABS/
+              #
                 cd ~/MultiDict/Internet/CSL-LABS/
                 tar -xvzf ROCKYOU-CSL.tar.gz
                 rm -f ROCKYOU-CSL.tar.gz
@@ -179,50 +178,60 @@
 
             ;;
 
+            3)
+
+              echo ""
+              echo "  Reservado..."
+              echo ""
+
+
+
+            ;;
+
             4)
 
               echo ""
-              echo "  Convirtiendo todos los archivos a UTF8..."
+              echo "  Reservado..."
               echo ""
 
-              # Directorio de origen (se puede modificar o pasar como argumento)
-              DIRECTORIO="$HOME/MultiDict/Internet/"
 
-              # Detectar la codificación y convertir a UTF-8
-              convertir_a_utf8() {
-                local archivo="$1"
-                local codificacion
-
-                # Obtener la codificación del archivo
-                codificacion=$(file -i "$archivo" | awk -F'charset=' '{print $2}')
-
-                # Si la codificación ya es UTF-8, no hacer nada
-                if [[ "$codificacion" == "utf-8" ]]; then
-                  return
-                fi
-
-                # Intentar convertir a UTF-8
-                iconv -f "$codificacion" -t UTF-8 "$archivo" -o "$archivo.converted"
-
-                # Si la conversión fue exitosa, reemplazar el archivo original
-                if [[ $? -eq 0 ]]; then
-                  mv "$archivo.converted" "$archivo"
-                else
-                  echo "❌ Error en la conversión de $archivo"
-                  rm -f "$archivo.converted"
-                fi
-              }
-
-              export -f convertir_a_utf8
-
-              # Buscar todos los archivos .txt en la carpeta y subcarpetas
-              find "$DIRECTORIO" -type f -name "*.txt" -print0 | xargs -0 -I {} bash -c 'convertir_a_utf8 "$@"' _ {}
-
-              echo "🎉 Conversión completada."
 
             ;;
 
             5)
+
+              echo ""
+              echo "  Reservado..."
+              echo ""
+
+
+
+            ;;
+
+            6)
+
+              echo ""
+              echo "  Reservado..."
+              echo ""
+
+
+
+            ;;
+
+            7)
+
+              echo ""
+              echo "  Eliminando caracteres de tabulación..."
+              echo ""
+
+              vCarpetaInicio="$HOME/MultiDict/Internet/"
+              find "$vCarpetaInicio" -type f -name "*.txt" -print0 | while IFS= read -r -d '' vArchivo; do
+                sed -i 's/\t//g' "$vArchivo"
+              done
+
+            ;;
+
+            8)
 
               echo ""
               echo "  Preparando diccionarios con listas de 1 a 16 caracteres..."
