@@ -122,6 +122,8 @@
               echo ""
               echo "  Descargando diccionarios de CSL-LABS..."
               echo ""
+              # Borrar posible descarga anterior
+                rm -rf /tmp/CrackingWordLists/
               # Posicionarse en la carpeta /tmp
                 cd /tmp/
               # Clonar el repo de SecLists
