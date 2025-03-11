@@ -77,6 +77,7 @@
               # Posicionarse en la carpeta
                 cd ~/MultiDict/Internet/
               # Clonar el repo de SecLists
+                export LC_ALL=C.UTF-8  # Forzar UTF-8 para evitar problemas de codificación
                 # Comprobar si el paquete git está instalado. Si no lo está, instalarlo.
                   if [[ $(dpkg-query -s git 2>/dev/null | grep installed) == "" ]]; then
                     echo ""
@@ -115,35 +116,35 @@
                 rm -rf ~/MultiDict/Internet/SecLists/Web-Shells/
                 rm -rf ~/MultiDict/Internet/SecLists/Fuzzing/
                 # No convierten bien a UTF8
-                  rm -rf ~/MultiDict/Internet/SecLists/Discovery/DNS/FUZZSUBS_CYFARE_2.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/raft-large-files-lowercase.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/trickest-robots-disallowed-wordlists/top-10000.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/raft-large-files.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/combined_words.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/CMS/trickest-cms-wordlist/dolibarr.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/CMS/trickest-cms-wordlist/dolibarr-all-levels.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/CMS/Django.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/raft-large-directories.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/raft-small-directories.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/raft-medium-directories.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Passwords/dutch_passwordlist.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Passwords/Cracked-Hashes/milw0rm-dictionary.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Passwords/Leaked-Databases/fortinet-2021.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Passwords/Leaked-Databases/honeynet-withcount.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Passwords/Leaked-Databases/honeynet2.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Passwords/Leaked-Databases/honeynet.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Passwords/Leaked-Databases/myspace-withcount.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Passwords/Honeypot-Captures/python-heralding-sep2019.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Passwords/Common-Credentials/10-million-password-list-top-100.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Passwords/Common-Credentials/Language-Specific/Spanish_common-usernames-and-passwords.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Passwords/Common-Credentials/10-million-password-list-top-100000.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Usernames/Honeypot-Captures/multiplesources-users-fabian-fingerle.de.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Miscellaneous/control-chars.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Miscellaneous/Moby-Project/Moby-Language-II/german.txt
-                  rm -rf ~/MultiDict/Internet/SecLists/Miscellaneous/Moby-Project/Moby-Language-II/japanese.txt
-                  rm -rf ~/MultiDict/Internet/CSL-LABS/ROCKYOU-CSL.txt
-                  rm -rf ~/MultiDict/Internet/CSL-LABS/misc/sports.txt
-                  rm -rf ~/MultiDict/Internet/CSL-LABS/misc/top_songs.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Discovery/DNS/FUZZSUBS_CYFARE_2.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/raft-large-files-lowercase.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/trickest-robots-disallowed-wordlists/top-10000.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/raft-large-files.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/combined_words.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/CMS/trickest-cms-wordlist/dolibarr.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/CMS/trickest-cms-wordlist/dolibarr-all-levels.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/CMS/Django.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/raft-large-directories.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/raft-small-directories.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/raft-medium-directories.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Passwords/dutch_passwordlist.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Passwords/Cracked-Hashes/milw0rm-dictionary.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Passwords/Leaked-Databases/fortinet-2021.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Passwords/Leaked-Databases/honeynet-withcount.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Passwords/Leaked-Databases/honeynet2.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Passwords/Leaked-Databases/honeynet.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Passwords/Leaked-Databases/myspace-withcount.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Passwords/Honeypot-Captures/python-heralding-sep2019.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Passwords/Common-Credentials/10-million-password-list-top-100.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Passwords/Common-Credentials/Language-Specific/Spanish_common-usernames-and-passwords.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Passwords/Common-Credentials/10-million-password-list-top-100000.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Usernames/Honeypot-Captures/multiplesources-users-fabian-fingerle.de.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Miscellaneous/control-chars.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Miscellaneous/Moby-Project/Moby-Language-II/german.txt
+                  #rm -rf ~/MultiDict/Internet/SecLists/Miscellaneous/Moby-Project/Moby-Language-II/japanese.txt
+                  #rm -rf ~/MultiDict/Internet/CSL-LABS/ROCKYOU-CSL.txt
+                  #rm -rf ~/MultiDict/Internet/CSL-LABS/misc/sports.txt
+                  #rm -rf ~/MultiDict/Internet/CSL-LABS/misc/top_songs.txt
 
             ;;
 
@@ -156,7 +157,8 @@
                 rm -rf /tmp/CrackingWordLists/ 2> /dev/null
               # Posicionarse en la carpeta /tmp
                 cd /tmp/
-              # Clonar el repo de SecLists
+              # Clonar el repo de CSL-LABS
+                export LC_ALL=C.UTF-8  # Forzar UTF-8 para evitar problemas de codificación
                 # Comprobar si el paquete git está instalado. Si no lo está, instalarlo.
                   if [[ $(dpkg-query -s git 2>/dev/null | grep installed) == "" ]]; then
                     echo ""
@@ -251,6 +253,11 @@
                 '
 
                 echo "Procesamiento completado."
+
+              # Buscar y procesar cada archivo .txt en la carpeta y subcarpetas
+              find "$DIRECTORIO" -type f -name "*.txt" | while read -r vArchivo; do
+                sort "$vArchivo" | uniq > "$vArchivo.tmp" && mv "$vArchivo.tmp" "$vArchivo"
+              done
 
             ;;
 
