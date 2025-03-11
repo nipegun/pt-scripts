@@ -4,13 +4,13 @@
 # Script de NiPeGun para aplicar fuerza bruta de contraseñas a un archivo .zip
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/zip2john-Instalar-Compilando.sh | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Passwords/FuerzaBruta-Archivo-zip.sh | bash -s Parámetro1 Parámetro2
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/zip2john-Instalar-Compilando.sh | sed 's-sudo--g' | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Passwords/FuerzaBruta-Archivo-zip.sh | sed 's-sudo--g' | bash -s Parámetro1 Parámetro2
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/zip2john-Instalar-Compilando.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Passwords/FuerzaBruta-Archivo-zip.sh | nano -
 # ----------
 
 # Definir la cantidad de argumentos esperados
