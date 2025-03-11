@@ -9,10 +9,10 @@
 # Script de NiPeGun para buscar servicios web en una subred o host
 #
 # Ejecución remota con parámetros:
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web-BuscarServiciosEnIP.sh | bash -s "localhost"
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Web-BuscarServiciosEnIP.sh | bash -s "localhost"
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web-BuscarServiciosEnIP.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Web-BuscarServiciosEnIP.sh | nano -
 # ----------
 
 # Definir constantes de color
@@ -57,7 +57,7 @@
       sudo apt-get -y install nmap
       echo ""
     fi
-  mapfile -t vResultados < <(nmap -p- --open "$vHost" | awk ' /Nmap scan report for/ {ip=$NF} 
+  mapfile -t vResultados < <(nmap -p- -Pn --open "$vHost" | awk ' /Nmap scan report for/ {ip=$NF} 
     /^[0-9]+\/tcp/ {gsub(/[()]/, "", ip); print ip ":" $1}')
 
 # Array para puertos con respuesta HTML
