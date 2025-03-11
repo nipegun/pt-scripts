@@ -47,12 +47,12 @@
     opciones=(
       1 "  Descargar diccionarios de SecLists"             on
       2 "  Descargar diccionarios de CSL-LABS"             on
-      3 "  Reservado"                                      on
-      4 "  Reservado"                                      on
-      5 "  Reservado"                                      on
-      6 "  Reservado"                                      on
-      7 "    Eliminar caracteres de tabulación"            off
-      8 "      Preparar diccionarios de 1 a 16 caracteres" off
+      3 "  Reservado"                                      off
+      4 "  Reservado"                                      off
+      5 "  Reservado"                                      off
+      6 "  Reservado"                                      off
+      7 "    Eliminar caracteres de tabulación"            on
+      8 "      Preparar diccionarios de 1 a 16 caracteres" on
     )
     choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
 
