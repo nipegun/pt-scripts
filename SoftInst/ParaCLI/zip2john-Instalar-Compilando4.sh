@@ -82,6 +82,8 @@
     sudo apt -y install libssl-dev
     sudo apt -y install zlib1g-dev
     sudo apt -y install libbz2-dev
+    sudo apt -y install libgmp-dev
+    sudo apt -y install libpcap-dev
     sudo apt -y install yasm
     sudo apt -y install pkg-config
     sudo apt -y autoremove --purge john
