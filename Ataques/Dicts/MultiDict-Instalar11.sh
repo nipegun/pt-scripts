@@ -233,6 +233,7 @@
 
                 vCarpetaInicio="$HOME/MultiDict/Internet/"
                 vCarpetaDestino="$HOME/MultiDict/PorCantCaracteres/"
+                rm "$vCarpetaDestino"/*
 
                 mkdir -p "$vCarpetaDestino"
                 cd "$vCarpetaDestino" || exit 1
