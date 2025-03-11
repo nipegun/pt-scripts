@@ -45,11 +45,11 @@
     fi
   menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 96 16)
     opciones=(
-      1 "Preparar la carpeta ~/MultiDict"      on
-      2 "  Descargar diccionarios de SecLists" off
-      3 "  Descargar diccionarios de CSL-LABS" off
-      4 "Opción 4" off
-      5 "  Preparar diccionarios de 1 a 16 caracteres" off
+      1 "Preparar la carpeta ~/MultiDict"                on
+      2 "  Descargar diccionarios de SecLists"           off
+      3 "  Descargar diccionarios de CSL-LABS"           off
+      4 "    Convertir todos los archivos a UTF8"        off
+      5 "    Preparar diccionarios de 1 a 16 caracteres" off
     )
     choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
 
@@ -62,8 +62,10 @@
               echo ""
               echo "  Preparando la carpeta ~/MultiDict..."
               echo ""
-              # Posicionarse en la carpeta
-                mkdir ~/MultiDict/
+              # Borrar la carpeta vieja
+                rm -rf ~/MultiDict/Internet/
+              # Crearla
+                mkdir -p ~/MultiDict/Internet/ 2> /dev/null
 
             ;;
 
@@ -73,7 +75,7 @@
               echo "  Descargando SecLists..."
               echo ""
               # Posicionarse en la carpeta
-                cd ~/MultiDict/
+                cd ~/MultiDict/Internet/
               # Clonar el repo de SecLists
                 # Comprobar si el paquete git está instalado. Si no lo está, instalarlo.
                   if [[ $(dpkg-query -s git 2>/dev/null | grep installed) == "" ]]; then
@@ -88,29 +90,30 @@
 
               # Borrar carpetas sobrantes
                 # Archivos de la raiz
-                  rm -f ~/MultiDict/SecLists/SecLists.png
-                  rm -f ~/MultiDict/SecLists/LICENSE
-                  rm -f ~/MultiDict/SecLists/CONTRIBUTORS.md
-                  rm -f ~/MultiDict/SecLists/CONTRIBUTING.md
+                  rm -f ~/MultiDict/Internet/SecLists/SecLists.png
+                  rm -f ~/MultiDict/Internet/SecLists/LICENSE
+                  rm -f ~/MultiDict/Internet/SecLists/CONTRIBUTORS.md
+                  rm -f ~/MultiDict/Internet/SecLists/CONTRIBUTING.md
                 # Archivos README.md
-                  find ~/MultiDict/SecLists/ -type f -name README.md -exec rm -f {} \;
-                  rm -f ~/MultiDict/SecLists/Discovery/Infrastructure/IPGenerator.sh
+                  find ~/MultiDict/Internet/SecLists/ -type f -name README.md -exec rm -f {} \;
+                  rm -f ~/MultiDict/Internet/SecLists/Discovery/Infrastructure/IPGenerator.sh
     
-                rm -rf ~/MultiDict/SecLists/Ai 2> /dev/null
-                rm -rf ~/MultiDict/SecLists/Ai 2> /dev/null
+                rm -rf ~/MultiDict/Internet/SecLists/Ai 2> /dev/null
+                rm -rf ~/MultiDict/Internet/SecLists/Ai 2> /dev/null
 
               # Descomprimir archivos comprimidos
-                cd ~/MultiDict/SecLists/Passwords/
+                cd ~/MultiDict/Internet/SecLists/Passwords/
                 bzip2 -d "500-worst-passwords.txt.bz2"
                 tar -xvzf "SCRABBLE-hackerhouse.tgz"
                 rm "SCRABBLE-hackerhouse.tgz"
-                rm -f ~/MultiDict/SecLists/Passwords/SCRABBLE/fetch.sh
-                rm -f ~/MultiDict/SecLists/Passwords/SCRABBLE/mangle.py
-                rm -f ~/MultiDict/SecLists/Passwords/Default-Credentials/scada-pass.csv
-                rm -f ~/MultiDict/SecLists/Passwords/Default-Credentials/default-passwords.csv
-                rm -f ~/MultiDict/SecLists/Pattern-Matching/grepstrings-auditing-php.md
-                rm -rf ~/MultiDict/SecLists/Payloads/
-                rm -rf ~/MultiDict/SecLists/Web-Shells/
+                rm -f  ~/MultiDict/Internet/SecLists/Passwords/SCRABBLE/fetch.sh
+                rm -f  ~/MultiDict/Internet/SecLists/Passwords/SCRABBLE/mangle.py
+                rm -f  ~/MultiDict/Internet/SecLists/Passwords/Default-Credentials/scada-pass.csv
+                rm -f  ~/MultiDict/Internet/SecLists/Passwords/Default-Credentials/default-passwords.csv
+                rm -f  ~/MultiDict/Internet/SecLists/Pattern-Matching/grepstrings-auditing-php.md
+                rm -rf ~/MultiDict/Internet/SecLists/Payloads/
+                rm -rf ~/MultiDict/Internet/SecLists/Web-Shells/
+                rm -rf ~/MultiDict/Internet/SecLists/Fuzzing/
 
             ;;
 
@@ -132,19 +135,57 @@
                     echo ""
                   fi
                 git clone --depth 1 https://github.com/CSL-LABS/CrackingWordLists.git
-                mv /tmp/CrackingWordLists/dics/ ~/MultiDict/CSL-LABS/
-                cd ~/MultiDict/CSL-LABS/
+                mv /tmp/CrackingWordLists/dics/ ~/MultiDict/Internet/CSL-LABS/
+                cd ~/MultiDict/Internet/CSL-LABS/
                 tar -xvzf ROCKYOU-CSL.tar.gz
                 rm -f ROCKYOU-CSL.tar.gz
-                find ~/MultiDict/CSL-LABS/ -type f -name "*.dic" -exec bash -c 'mv "$0" "${0%.dic}.txt"' {} \;
+                find ~/MultiDict/Internet/CSL-LABS/ -type f -name "*.dic" -exec bash -c 'mv "$0" "${0%.dic}.txt"' {} \;
 
             ;;
 
             4)
 
               echo ""
-              echo "  Opción 4..."
+              echo "  Convirtiendo todos los archivos a UTF8..."
               echo ""
+
+              # Directorio de origen (se puede modificar o pasar como argumento)
+              DIRECTORIO="$HOME/MultiDict/Internet/"
+
+              # Detectar la codificación y convertir a UTF-8
+              convertir_a_utf8() {
+                local archivo="$1"
+                local codificacion
+
+                # Obtener la codificación del archivo
+                codificacion=$(file -i "$archivo" | awk -F'charset=' '{print $2}')
+
+                # Si la codificación ya es UTF-8, no hacer nada
+                if [[ "$codificacion" == "utf-8" ]]; then
+                  echo "✅ [UTF-8] $archivo (sin cambios)"
+                  return
+                fi
+
+                # Intentar convertir a UTF-8
+                echo "🔄 Convirtiendo $archivo de $codificacion a UTF-8..."
+                iconv -f "$codificacion" -t UTF-8 "$archivo" -o "$archivo.converted"
+
+                # Si la conversión fue exitosa, reemplazar el archivo original
+                if [[ $? -eq 0 ]]; then
+                  mv "$archivo.converted" "$archivo"
+                  echo "✅ Conversión exitosa: $archivo"
+                else
+                  echo "❌ Error en la conversión de $archivo"
+                  rm -f "$archivo.converted"
+                fi
+              }
+
+              export -f convertir_a_utf8
+
+              # Buscar todos los archivos .txt en la carpeta y subcarpetas
+              find "$DIRECTORIO" -type f -name "*.txt" -print0 | xargs -0 -I {} bash -c 'convertir_a_utf8 "$@"' _ {}
+
+              echo "🎉 Conversión completada."
 
             ;;
 
@@ -154,27 +195,31 @@
               echo "  Preparando diccionarios con listas de 1 a 16 caracteres..."
               echo ""
 
-              vCarpetaInicio="$HOME/MultiDict/SecLists/"  # Carpeta de origen
-              mkdir -p ~/MultiDict/PorCantCaracteres/  # Asegura que la carpeta existe
-              cd ~/MultiDict/PorCantCaracteres/ || exit 1  # Si falla, salir del script
+              # Crear diccionarios
+                export LC_ALL=C.UTF-8  # Forzar UTF-8 para evitar problemas de codificación
 
-              vCaracteresMin=1
-              vCaracteresMax=16
+                vCarpetaInicio="$HOME/MultiDict/Internet/"
+                vCarpetaDestino="$HOME/MultiDict/PorCantCaracteres/"
 
-              # Limpiar archivos de salida si ya existen
-              for ((i=vCaracteresMin; i<=vCaracteresMax; i++)); do
-                > "All${i}Characters.txt"  # Vacía los archivos antes de escribir
-              done
+                mkdir -p "$vCarpetaDestino"
+                cd "$vCarpetaDestino" || exit 1
 
-              # Recorrer todos los archivos en la carpeta de origen
-              find "$vCarpetaInicio" -type f -name "*.txt" | while read -r vArchivo; do
-                while IFS= read -r vLinea; do
-                  vCantCaracteres=$(echo -n "$vLinea" | wc -m)
-                  if (( vCantCaracteres >= vCaracteresMin && vCantCaracteres <= vCaracteresMax )); then
-                    echo "$vLinea" >> "All${vCantCaracteres}Characters.txt"
-                  fi
-                done < "$vArchivo"
-              done
+                vCaracteresMin=1
+                vCaracteresMax=16
+
+                for ((i=vCaracteresMin; i<=vCaracteresMax; i++)); do
+                  > "All${i}Characters.txt"
+                done
+
+                find "$vCarpetaInicio" -type f -name "*.txt" -print0 | xargs -0 awk -v min="$vCaracteresMin" -v max="$vCaracteresMax" '
+                {
+                  len = length($0);
+                  if (len >= min && len <= max)
+                    print $0 >> ("All" len "Characters.txt");
+                }
+                '
+
+                echo "Procesamiento completado."
 
             ;;
 
