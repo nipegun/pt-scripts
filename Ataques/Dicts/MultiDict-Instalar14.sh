@@ -245,17 +245,15 @@
                   > "All${i}Characters.txt"
                 done
 
-                find "$vCarpetaInicio" -type f -name "*.txt" -print0 | xargs -0 awk -v min="$vCaracteresMin" -v max="$vCaracteresMax" '
-                {
-                  cmd = "echo " $0 " | iconv -c -f UTF-8 -t UTF-8";
-                  cmd | getline line;
-                  close(cmd);
+find "$vCarpetaInicio" -type f -name "*.txt" -print0 | while IFS= read -r -d '' file; do
+  iconv -c -f UTF-8 -t UTF-8 "$file" | awk -v min="$vCaracteresMin" -v max="$vCaracteresMax" '
+  {
+    len = length($0);
+    if (len >= min && len <= max)
+      print $0 >> ("All" len "Characters.txt");
+  }'
+done
 
-                  len = length(line);
-                  if (len >= min && len <= max)
-                    print line >> ("All" len "Characters.txt");
-                }
-                '
 
                 echo "Procesamiento completado."
 
