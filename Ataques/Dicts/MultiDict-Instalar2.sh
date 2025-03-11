@@ -72,7 +72,7 @@
             2)
 
               echo ""
-              echo "  Descargando SecLists..."
+              echo "  Descargando diccionarios de SecLists..."
               echo ""
               # Posicionarse en la carpeta
                 cd ~/MultiDict/Internet/
