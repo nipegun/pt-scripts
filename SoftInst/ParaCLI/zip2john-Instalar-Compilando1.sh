@@ -75,6 +75,8 @@
     echo -e "${cColorAzulClaro}  Iniciando el script de instalación de zip2john para Debian 12 (Bookworm)...${cFinColor}"
     echo ""
 
+    vCarpetaDeUsuario="$HOME"
+
     sudo apt -y update
     sudo apt -y install build-essential
     sudo apt -y install libssl-dev
@@ -90,7 +92,7 @@
     ./configure
     make -s clean
     make -sj$(nproc)
-    vCarpetaDondeInstalar="$HOME/HackingTools/john"
+    vCarpetaDondeInstalar="$vCarpetaDeUsuario/HackingTools/john"
     mkdir -p $vCarpetaDondeInstalar 2> /dev/null
     cp -fv ../run/zip2john                      $vCarpetaDondeInstalar/
     cp -fv ../run/john                          $vCarpetaDondeInstalar/
