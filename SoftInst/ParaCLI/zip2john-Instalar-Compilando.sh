@@ -9,13 +9,13 @@
 # Script de NiPeGun para instalar zip2john en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/zip2john-Instalar.sh | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/zip2john-Instalar-Compilando.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/zip2john-Instalar.sh | sed 's-sudo--g' | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/zip2john-Instalar-Compilando.sh | sed 's-sudo--g' | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/zip2john-Instalar.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/zip2john-Instalar-Compilando.sh | nano -
 # ----------
 
 # Definir constantes de color
@@ -83,11 +83,32 @@
     sudo apt -y install pkg-config
 
     cd /tmp/
-    git clone https://github.com/openwall/john.git ~/john
+    git clone https://github.com/openwall/john.git
     cd /tmp/john/src
-    ./configure && make -s clean && make -sj$(nproc)
-    sudo cp -fv ../run/zip2john /usr/local/bin/
-    sudo cp -fv ../run/john     /usr/local/bin/
+    ./configure
+    make -s clean
+    make -sj$(nproc)
+    vCarpetaDondeInstalar="$HOME/HackingTools/john"
+    mkdir -p $vCarpetaDondeInstalar 2> /dev/null
+    cp -fv ../run/zip2john                      $vCarpetaDondeInstalar/
+    cp -fv ../run/john                          $vCarpetaDondeInstalar/
+    cp -fv ../run/john.conf                     $vCarpetaDondeInstalar/
+    cp -fv ../run/rules-by-score.conf           $vCarpetaDondeInstalar/
+    cp -fv ../run/rules-by-rate.conf            $vCarpetaDondeInstalar/
+    cp -fv ../run/unisubst.conf                 $vCarpetaDondeInstalar/
+    cp -fv ../run/korelogic.conf                $vCarpetaDondeInstalar/
+    cp -fv ../run/hybrid.conf                   $vCarpetaDondeInstalar/
+    cp -fv ../run/dumb16.conf                   $vCarpetaDondeInstalar/
+    cp -fv ../run/dumb32.conf                   $vCarpetaDondeInstalar/
+    cp -fv ../run/repeats16.conf                $vCarpetaDondeInstalar/
+    cp -fv ../run/repeats32.conf                $vCarpetaDondeInstalar/
+    cp -fv ../run/dynamic.conf                  $vCarpetaDondeInstalar/
+    cp -fv ../run/dynamic_flat_sse_formats.conf $vCarpetaDondeInstalar/
+    cp -fv ../run/regex_alphabets.conf          $vCarpetaDondeInstalar/
+    mkdir -p $vCarpetaDondeInstalar/rules/ 2> /dev/null
+    cp -fv ../run/rules/*   $vCarpetaDondeInstalar/rules/
+
+
 
   elif [ $cVerSO == "11" ]; then
 
