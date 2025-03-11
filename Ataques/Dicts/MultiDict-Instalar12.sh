@@ -256,7 +256,7 @@
                 echo "Procesamiento completado."
 
               # Buscar y procesar cada archivo .txt en la carpeta y subcarpetas
-              find "$DIRECTORIO" -type f -name "*.txt" | while read -r vArchivo; do
+              find "$vCarpetaDestino" -type f -name "*.txt" | while read -r vArchivo; do
                 sort "$vArchivo" | uniq > "$vArchivo.tmp" && mv "$vArchivo.tmp" "$vArchivo"
               done
 
