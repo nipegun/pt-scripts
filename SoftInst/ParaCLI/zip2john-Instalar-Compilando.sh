@@ -81,8 +81,10 @@
     sudo apt -y install zlib1g-dev
     sudo apt -y install yasm
     sudo apt -y install pkg-config
+    sudo apt -y autoremove --purge john
 
     cd /tmp/
+    rm -rf /tmp/john/ 2> /dev/null
     git clone https://github.com/openwall/john.git
     cd /tmp/john/src
     ./configure
@@ -107,7 +109,6 @@
     cp -fv ../run/regex_alphabets.conf          $vCarpetaDondeInstalar/
     mkdir -p $vCarpetaDondeInstalar/rules/ 2> /dev/null
     cp -fv ../run/rules/*   $vCarpetaDondeInstalar/rules/
-
 
 
   elif [ $cVerSO == "11" ]; then
