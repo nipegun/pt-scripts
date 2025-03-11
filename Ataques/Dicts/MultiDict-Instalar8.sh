@@ -45,11 +45,11 @@
     fi
   menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 96 16)
     opciones=(
-      1 "Preparar la carpeta ~/MultiDict"                on
-      2 "  Descargar diccionarios de SecLists"           off
-      3 "  Descargar diccionarios de CSL-LABS"           off
-      4 "    Convertir todos los archivos a UTF8"        off
-      5 "    Preparar diccionarios de 1 a 16 caracteres" off
+      1 "Preparar la carpeta ~/MultiDict"                  on
+      2 "  Descargar diccionarios de SecLists"             off
+      3 "  Descargar diccionarios de CSL-LABS"             off
+      4 "    Convertir todos los archivos a UTF8"          off
+      5 "      Preparar diccionarios de 1 a 16 caracteres" off
     )
     choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
 
@@ -200,7 +200,8 @@
                 fi
 
                 # Intentar convertir a UTF-8
-                iconv -f "$codificacion" -t UTF-8 "$archivo" -o "$archivo.converted"
+                #iconv -f "$codificacion" -t UTF-8 "$archivo" -o "$archivo.converted"
+                iconv -f "$codificacion" -t UTF-8//TRANSLIT "$archivo" -o "$archivo.converted"
 
                 # Si la conversión fue exitosa, reemplazar el archivo original
                 if [[ $? -eq 0 ]]; then
