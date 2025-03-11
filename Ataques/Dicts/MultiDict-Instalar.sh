@@ -45,9 +45,9 @@
     fi
   menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 96 16)
     opciones=(
-      1 "Preparar la carpeta ~/MultiDict" on
-      2 "  Descargar SecLists" off
-      3 "Opción 3" off
+      1 "Preparar la carpeta ~/MultiDict"      on
+      2 "  Descargar diccionarios de SecLists" off
+      3 "  Descargar diccionarios de CSL-LABS" off
       4 "Opción 4" off
       5 "  Preparar diccionarios de 1 a 16 caracteres" off
     )
@@ -117,8 +117,26 @@
             3)
 
               echo ""
-              echo "  Opción 3..."
+              echo "  Descargando diccionarios de CSL-LABS..."
               echo ""
+              # Posicionarse en la carpeta /tmp
+                cd /tmp/
+              # Clonar el repo de SecLists
+                # Comprobar si el paquete git está instalado. Si no lo está, instalarlo.
+                  if [[ $(dpkg-query -s git 2>/dev/null | grep installed) == "" ]]; then
+                    echo ""
+                    echo -e "${cColorRojo}  El paquete git no está instalado. Iniciando su instalación...${cFinColor}"
+                    echo ""
+                    sudo apt-get -y update
+                    sudo apt-get -y install git
+                    echo ""
+                  fi
+                git clone --depth 1 https://github.com/CSL-LABS/CrackingWordLists.git
+                mv /tmp/CrackingWordLists/dics/ ~/MultiDict/CSL-LABS/
+                cd ~/MultiDict/CSL-LABS/
+                tar -xvzf ROCKYOU-CSL.tar.gz
+                rm -f ROCKYOU-CSL.tar.gz
+                find ~/MultiDict/CSL-LABS/ -type f -name "*.dic" -exec bash -c 'mv "$0" "${0%.dic}.txt"' {} \;
 
             ;;
 
