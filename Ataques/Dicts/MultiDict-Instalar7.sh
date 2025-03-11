@@ -196,7 +196,6 @@
 
                 # Si la codificación ya es UTF-8, no hacer nada
                 if [[ "$codificacion" == "utf-8" ]]; then
-                  echo "✅ [UTF-8] $archivo (sin cambios)"
                   return
                 fi
 
