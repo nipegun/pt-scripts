@@ -46,8 +46,8 @@
   menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 96 16)
     opciones=(
       1 "Preparar la carpeta ~/MultiDict"                  on
-      2 "  Descargar diccionarios de SecLists"             off
-      3 "  Descargar diccionarios de CSL-LABS"             off
+      2 "  Descargar diccionarios de SecLists"             on
+      3 "  Descargar diccionarios de CSL-LABS"             on
       4 "    Convertir todos los archivos a UTF8"          off
       5 "      Preparar diccionarios de 1 a 16 caracteres" off
     )
@@ -245,15 +245,14 @@
                   > "All${i}Characters.txt"
                 done
 
-find "$vCarpetaInicio" -type f -name "*.txt" -print0 | while IFS= read -r -d '' file; do
-  iconv -c -f UTF-8 -t UTF-8 "$file" | awk -v min="$vCaracteresMin" -v max="$vCaracteresMax" '
-  {
-    len = length($0);
-    if (len >= min && len <= max)
-      print $0 >> ("All" len "Characters.txt");
-  }'
-done
-
+                find "$vCarpetaInicio" -type f -name "*.txt" -print0 | while IFS= read -r -d '' file; do
+                  iconv -c -f UTF-8 -t UTF-8 "$file" | awk -v min="$vCaracteresMin" -v max="$vCaracteresMax" '
+                  {
+                    len = length($0);
+                    if (len >= min && len <= max)
+                      print $0 >> ("All" len "Characters.txt");
+                  }'
+                done
 
                 echo "Procesamiento completado."
 
