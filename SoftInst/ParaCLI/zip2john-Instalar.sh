@@ -86,7 +86,8 @@
     git clone https://github.com/openwall/john.git ~/john
     cd /tmp/john/src
     ./configure && make -s clean && make -sj$(nproc)
-    sudo cp ../run/zip2john /usr/local/bin/
+    sudo cp -fv ../run/zip2john /usr/local/bin/
+    sudo cp -fv ../run/john     /usr/local/bin/
 
   elif [ $cVerSO == "11" ]; then
 
