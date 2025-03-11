@@ -262,7 +262,7 @@
 
               # Notificar fin de la ejecución
                 echo ""
-                echo "  Se han procesado todos los archivos de $vCarpetaInicio y se han creado nuevos diccionarios con su contenido."
+                echo "  Se han procesado todos los .txt de $vCarpetaInicio y se han creado nuevos diccionarios con su contenido."
                 echo "  Puedes encontrar los nuevos diccionarios en $vCarpetaDestino"
                 echo ""
 
