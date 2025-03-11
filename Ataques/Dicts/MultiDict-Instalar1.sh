@@ -106,14 +106,16 @@
                 bzip2 -d "500-worst-passwords.txt.bz2"
                 tar -xvzf "SCRABBLE-hackerhouse.tgz"
                 rm "SCRABBLE-hackerhouse.tgz"
-                rm -f  ~/MultiDict/Internet/SecLists/Passwords/SCRABBLE/fetch.sh
-                rm -f  ~/MultiDict/Internet/SecLists/Passwords/SCRABBLE/mangle.py
-                rm -f  ~/MultiDict/Internet/SecLists/Passwords/Default-Credentials/scada-pass.csv
-                rm -f  ~/MultiDict/Internet/SecLists/Passwords/Default-Credentials/default-passwords.csv
-                rm -f  ~/MultiDict/Internet/SecLists/Pattern-Matching/grepstrings-auditing-php.md
+                rm -rf  ~/MultiDict/Internet/SecLists/Passwords/SCRABBLE/fetch.sh
+                rm -rf  ~/MultiDict/Internet/SecLists/Passwords/SCRABBLE/mangle.py
+                rm -rf  ~/MultiDict/Internet/SecLists/Passwords/Default-Credentials/scada-pass.csv
+                rm -rf  ~/MultiDict/Internet/SecLists/Passwords/Default-Credentials/default-passwords.csv
+                rm -rf  ~/MultiDict/Internet/SecLists/Pattern-Matching/grepstrings-auditing-php.md
                 rm -rf ~/MultiDict/Internet/SecLists/Payloads/
                 rm -rf ~/MultiDict/Internet/SecLists/Web-Shells/
                 rm -rf ~/MultiDict/Internet/SecLists/Fuzzing/
+                rm -rf ~/MultiDict/Internet/SecLists/Discovery/DNS/FUZZSUBS_CYFARE_2.txt
+                rm -rf ~/MultiDict/Internet/SecLists/Discovery/Web-Content/raft-large-files-lowercase.txt
 
             ;;
 
