@@ -233,7 +233,7 @@
 
                 vCarpetaInicio="$HOME/MultiDict/Internet/"
                 vCarpetaDestino="$HOME/MultiDict/PorCantCaracteres/"
-                rm "$vCarpetaDestino"/*
+                rm "$vCarpetaDestino"* 2> /dev/null
 
                 mkdir -p "$vCarpetaDestino"
                 cd "$vCarpetaDestino" || exit 1
@@ -254,12 +254,17 @@
                   }'
                 done
 
-                echo "Procesamiento completado."
+              # Eliminar líneas duplicadas
+                find "$vCarpetaDestino" -type f -name "*.txt" | while read -r vArchivo; do
+                  sort "$vArchivo" | uniq > "$vArchivo.tmp" && mv "$vArchivo.tmp" "$vArchivo"
+                done
+                echo ""
 
-              # Buscar y procesar cada archivo .txt en la carpeta y subcarpetas
-              find "$vCarpetaDestino" -type f -name "*.txt" | while read -r vArchivo; do
-                sort "$vArchivo" | uniq > "$vArchivo.tmp" && mv "$vArchivo.tmp" "$vArchivo"
-              done
+              # Notificar fin de la ejecución
+                echo ""
+                echo "  Se han procesado todos los archivos de $vCarpetaInicio y se han creado nuevos diccionarios con su contenido."
+                echo "  Puedes encontrar los nuevos diccionarios en $vCarpetaDestino"
+                echo ""
 
             ;;
 
