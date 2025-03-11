@@ -86,7 +86,7 @@
     sudo apt -y autoremove --purge john
 
     cd /tmp/
-    rm -rf /tmp/john/ 2> /dev/null
+    sudo rm -rf /tmp/john/ 2> /dev/null
     git clone https://github.com/openwall/john.git
     cd /tmp/john/src
     ./configure
