@@ -53,6 +53,8 @@ vRutaAlDiccionario="$2"
 
 # Crackear contraseña
   ~/HackingTools/john/zip2john "$vRutaAlArchivo" > "$vRutaAlArchivo.hashes"
+  echo ""
   ~/HackingTools/john/john -w="$vRutaAlDiccionario" "$vRutaAlArchivo.hashes"
+  echo ""
   ~/HackingTools/john/john --show "$vRutaAlArchivo.hashes" | cut -d':' -f1,2 | sed 's-:- > El password es -g'
   echo ""
