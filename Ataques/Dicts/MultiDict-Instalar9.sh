@@ -200,9 +200,7 @@
                 fi
 
                 # Intentar convertir a UTF-8
-                #iconv -f "$codificacion" -t UTF-8 "$archivo" -o "$archivo.converted"
-                #iconv -f "$codificacion" -t UTF-8//TRANSLIT "$archivo" -o "$archivo.converted"
-                iconv -f "$codificacion" -t UTF-8//IGNORE "$archivo" -o "$archivo.converted"
+                iconv -f "$codificacion" -t UTF-8 "$archivo" -o "$archivo.converted"
 
                 # Si la conversión fue exitosa, reemplazar el archivo original
                 if [[ $? -eq 0 ]]; then
