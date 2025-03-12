@@ -39,9 +39,9 @@
     fi
   menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 96 16)
     opciones=(
-      1 "  Descargar diccionarios de SecLists"                 on
-      2 "  Descargar diccionarios de CSL-LABS"                 on
-      3 "  Reservado"                                          off
+      1 "  Instalar Diccionarios de Debian"                    on
+      2 "  Descargar diccionarios de SecLists"                 on
+      3 "  Descargar diccionarios de CSL-LABS"                 off
       4 "  Reservado"                                          off
       5 "  Reservado"                                          off
       6 "  Reservado"                                          off
@@ -55,6 +55,81 @@
           case $choice in
 
             1)
+
+              echo ""
+              echo "  Instalando diccionarios de Debian..."
+              echo ""
+              sudo apt-get -y update
+              sudo apt-get -y install wbulgarian
+              sudo apt-get -y install wesperanto
+              sudo apt-get -y install wirish
+              sudo apt-get -y install wmanx
+              sudo apt-get -y install wukrainian
+              sudo apt-get -y install wgerman-medical
+              sudo apt-get -y install wamerican-huge
+              sudo apt-get -y install wamerican-insane
+              sudo apt-get -y install wamerican-large
+              sudo apt-get -y install wamerican-small
+              sudo apt-get -y install wbritish-huge
+              sudo apt-get -y install wbritish-insane
+              sudo apt-get -y install wbritish-large
+              sudo apt-get -y install wbritish-small
+              sudo apt-get -y install wcanadian
+              sudo apt-get -y install wcanadian-huge
+              sudo apt-get -y install wcanadian-insane
+              sudo apt-get -y install wcanadian-large
+              sudo apt-get -y install wcanadian-small
+              sudo apt-get -y install wcatalan
+              sudo apt-get -y install wswedish
+              sudo apt-get -y install wfrench
+              sudo apt-get -y install witalian
+              sudo apt-get -y install wspanish
+              sudo apt-get -y install wordlist
+              sudo apt-get -y install scowl
+              # Borrar la carpeta vieja
+                rm -rf ~/MultiDict/Debian/ 2> /dev/null
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/MultiDict/Debian/ 2> /dev/null
+              # Copiar diccionarios a la carpeta Debian
+                cp -fv /usr/share/dict/american-english        ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/american-english-huge   ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/american-english-insane ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/american-english-large  ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/american-english-small  ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/bokmaal                 ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/brazilian               ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/british-english-huge    ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/british-english-insane  ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/british-english-large   ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/british-english-small   ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/canadian-english        ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/canadian-english-huge   ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/canadian-english-insane ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/canadian-english-large  ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/canadian-english-small  ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/catalan                 ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/cracklib-small          ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/danish                  ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/dutch                   ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/esperanto               ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/french                  ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/german-medical          ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/irish                   ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/italian                 ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/manx                    ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/ngerman                 ~/MultiDict/Debian/
+                cp -fv /etc/dictionaries-common/norsk          ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/nynorsk                 ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/polish                  ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/portuguese              ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/spanish                 ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/swedish                 ~/MultiDict/Debian/
+                cp -fv /usr/share/dict/ukranian                ~/MultiDict/Debian/
+                cp -fv /etc/dictionaries-common/words          ~/MultiDict/Debian/
+
+            ;;
+
+            2)
 
               echo ""
               echo "  Descargando diccionarios de SecLists..."
@@ -137,7 +212,7 @@
 
             ;;
 
-            2)
+            3)
 
               echo ""
               echo "  Descargando diccionarios de CSL-LABS..."
@@ -169,16 +244,6 @@
                 tar -xvzf ROCKYOU-CSL.tar.gz
                 rm -f ROCKYOU-CSL.tar.gz
                 find ~/MultiDict/Internet/CSL-LABS/ -type f -name "*.dic" -exec bash -c 'mv "$0" "${0%.dic}.txt"' {} \;
-
-            ;;
-
-            3)
-
-              echo ""
-              echo "  Reservado..."
-              echo ""
-
-
 
             ;;
 
