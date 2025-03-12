@@ -91,6 +91,8 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/MultiDict/Debian/ 2> /dev/null
               # Copiar diccionarios a la carpeta Debian
+                mkdir -p ~/MultiDict/Debian/scowl/
+                cp -fv /usr/share/dict/scowl/*                 ~/MultiDict/Debian/scowl/
                 cp -fv /usr/share/dict/american-english        ~/MultiDict/Debian/
                 cp -fv /usr/share/dict/american-english-huge   ~/MultiDict/Debian/
                 cp -fv /usr/share/dict/american-english-insane ~/MultiDict/Debian/
