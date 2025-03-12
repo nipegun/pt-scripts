@@ -47,38 +47,38 @@
     echo ""
     echo -e "${cColorRojo}  El paquete dirb no está instalado. Iniciando su instalación...${cFinColor}"
     echo ""
-    apt-get -y update
-    apt-get -y install dirb
+    sudo apt-get -y update
+    sudo apt-get -y install dirb
     echo ""
   fi
 
 # Instalar diccionarios
-  apt-get -y install wbulgarian
-  apt-get -y install wesperanto
-  apt-get -y install wirish
-  apt-get -y install wmanx
-  apt-get -y install wukrainian
-  apt-get -y install wgerman-medical
-  apt-get -y install wamerican-huge
-  apt-get -y install wamerican-insane
-  apt-get -y install wamerican-large
-  apt-get -y install wamerican-small
-  apt-get -y install wbritish-huge
-  apt-get -y install wbritish-insane
-  apt-get -y install wbritish-large
-  apt-get -y install wbritish-small
-  apt-get -y install wcanadian
-  apt-get -y install wcanadian-huge
-  apt-get -y install wcanadian-insane
-  apt-get -y install wcanadian-large
-  apt-get -y install wcanadian-small
-  apt-get -y install wcatalan
-  apt-get -y install wswedish
-  apt-get -y install wfrench
-  apt-get -y install witalian
-  apt-get -y install wspanish
-  apt-get -y install wordlist
-  apt-get -y install scowl
+  sudo apt-get -y install wbulgarian
+  sudo apt-get -y install wesperanto
+  sudo apt-get -y install wirish
+  sudo apt-get -y install wmanx
+  sudo apt-get -y install wukrainian
+  sudo apt-get -y install wgerman-medical
+  sudo apt-get -y install wamerican-huge
+  sudo apt-get -y install wamerican-insane
+  sudo apt-get -y install wamerican-large
+  sudo apt-get -y install wamerican-small
+  sudo apt-get -y install wbritish-huge
+  sudo apt-get -y install wbritish-insane
+  sudo apt-get -y install wbritish-large
+  sudo apt-get -y install wbritish-small
+  sudo apt-get -y install wcanadian
+  sudo apt-get -y install wcanadian-huge
+  sudo apt-get -y install wcanadian-insane
+  sudo apt-get -y install wcanadian-large
+  sudo apt-get -y install wcanadian-small
+  sudo apt-get -y install wcatalan
+  sudo apt-get -y install wswedish
+  sudo apt-get -y install wfrench
+  sudo apt-get -y install witalian
+  sudo apt-get -y install wspanish
+  sudo apt-get -y install wordlist
+  sudo apt-get -y install scowl
 
 # Escaneo de archivos y directorios basado en los diccionarios instalados
   
