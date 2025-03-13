@@ -18,6 +18,7 @@ cp -r * ~/bin/ilspycmd/
 echo '#!/bin/bash'                              > ~/bin/ilspy
 echo 'dotnet ~/bin/ilspycmd/ilspycmd.dll "$@"' >> ~/bin/ilspy
 chmod +x                                          ~/bin/ilspy
-
+sudo dotnet workload update --from-previous-sdk
+sudo dotnet workload update
 # Para ejecutar el decompilador
 # ~/bin/ilspy -o ./CarpetaConCodFuente '/ruta/al/archivo/dll' 
