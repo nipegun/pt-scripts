@@ -41,8 +41,6 @@ vRutaAlDiccionario="$2"
     #echo "$(tput setaf 1)Mensaje en color rojo. $(tput sgr 0)"
   cFinColor='\033[0m'
 
-sudo pip3 install pyhanko --break-system-packages
-
 # Comprobar si pdf2john está disponible, si no lo está, compilarlo e instalarlo
   if [ ! -f "$HOME/HackingTools/john/pdf2john.pl" ]; then
     echo ""
