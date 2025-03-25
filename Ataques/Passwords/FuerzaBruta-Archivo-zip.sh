@@ -24,7 +24,7 @@
       echo "    $0 [RutaAlArchivoZIP] [DiccionarioAUtilizar]"
       echo ""
       echo "  Ejemplo:"
-      echo "    $0 '$HOME/Descargas/ArchivoProtegido.zip' '$HOME/HackingTools/MultiDict/Internet/CSL-LABS/ROCKYOU-CSL.txt'"
+      echo "    $0 '$HOME/Descargas/ArchivoProtegido.zip' '$HOME/HackingTools/MultiDict/Packs/CSL-LABS/ROCKYOU-CSL.txt'"
       echo ""
       exit
   fi
@@ -42,15 +42,14 @@ vRutaAlDiccionario="$2"
   cFinColor='\033[0m'
 
 # Comprobar si zip2john está disponible, si no lo está, compilarlo e instalarlo
-  if [[ $(which zip2john) == "" ]]; then
+  if [ ! -f "$HOME/HackingTools/john/zip2john" ]; then
     echo ""
-    echo -e "${cColorRojo}  zip2john no está instalado. Iniciando su instalación...${cFinColor}"
+    echo -e "${cColorRojo}  pdf2john no está instalado. Iniciando su instalación...${cFinColor}"
     echo ""
     sudo apt -y update
     sudo apt -y install curl
-    curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/zip2john-Instalar-Compilando.sh | sudo bash
+    curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/zip2john-Instalar-Compilando.sh | bash
   fi
-
 # Crackear contraseña
   ~/HackingTools/john/zip2john "$vRutaAlArchivo" > "$vRutaAlArchivo.hashes"
   echo ""
