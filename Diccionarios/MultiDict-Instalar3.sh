@@ -60,45 +60,51 @@
               echo "  Instalando diccionarios de Debian..."
               echo ""
               sudo apt-get -y update
-              sudo apt-get -y install miscfiles
-              sudo apt-get -y install wamerican
-              sudo apt-get -y install wamerican-huge
-              sudo apt-get -y install wamerican-insane
-              sudo apt-get -y install wamerican-large
-              sudo apt-get -y install wamerican-small
-              sudo apt-get -y install wbrazilian
-              sudo apt-get -y install wbritish
-              sudo apt-get -y install wbritish-huge
-              sudo apt-get -y install wbritish-insane
-              sudo apt-get -y install wbritish-large
-              sudo apt-get -y install wbritish-small
-              sudo apt-get -y install wbulgarian
-              sudo apt-get -y install wcanadian
-              sudo apt-get -y install wcanadian-huge
-              sudo apt-get -y install wcanadian-insane
-              sudo apt-get -y install wcanadian-large
-              sudo apt-get -y install wcanadian-small
-              sudo apt-get -y install wcatalan
-              sudo apt-get -y install wdanish
-              sudo apt-get -y install wdutch
-              sudo apt-get -y install wesperanto
-              sudo apt-get -y install wfaroese
-              sudo apt-get -y install wfrench
-              sudo apt-get -y install wgalician-minimos
-              sudo apt-get -y install wgerman-medical
-              sudo apt-get -y install wirish
-              sudo apt-get -y install witalian
-              sudo apt-get -y install wmanx
-              sudo apt-get -y install wngerman
-              sudo apt-get -y install wnorwegian
-              sudo apt-get -y install wogerman
-              sudo apt-get -y install wpolish
-              sudo apt-get -y install wportuguese
-              sudo apt-get -y install wspanish
-              sudo apt-get -y install wswedish
-              sudo apt-get -y install wswiss
-              sudo apt-get -y install wukrainian
-              sudo apt-get -y install scowl
+              # 
+              sudo apt-get -y --reinstall install cracklib-runtime
+              sudo apt-get -y --reinstall install miscfiles
+              sudo apt-get -y --reinstall install wamerican
+              sudo apt-get -y --reinstall install wamerican-huge
+              sudo apt-get -y --reinstall install wamerican-insane
+              sudo apt-get -y --reinstall install wamerican-large
+              sudo apt-get -y --reinstall install wamerican-small
+              sudo apt-get -y --reinstall install wbrazilian
+              sudo apt-get -y --reinstall install wbritish
+              sudo apt-get -y --reinstall install wbritish-huge
+              sudo apt-get -y --reinstall install wbritish-insane
+              sudo apt-get -y --reinstall install wbritish-large
+              sudo apt-get -y --reinstall install wbritish-small
+              sudo apt-get -y --reinstall install wbulgarian
+              sudo apt-get -y --reinstall install wcanadian
+              sudo apt-get -y --reinstall install wcanadian-huge
+              sudo apt-get -y --reinstall install wcanadian-insane
+              sudo apt-get -y --reinstall install wcanadian-large
+              sudo apt-get -y --reinstall install wcanadian-small
+              sudo apt-get -y --reinstall install wcatalan
+              sudo apt-get -y --reinstall install wdanish
+              sudo apt-get -y --reinstall install wdutch
+              sudo apt-get -y --reinstall install wesperanto
+              sudo apt-get -y --reinstall install wfaroese
+              sudo apt-get -y --reinstall install wfrench
+              sudo apt-get -y --reinstall install wgalician-minimos
+              sudo apt-get -y --reinstall install wgerman-medical
+              sudo apt-get -y --reinstall install wirish
+              sudo apt-get -y --reinstall install witalian
+              sudo apt-get -y --reinstall install wmanx
+              sudo apt-get -y --reinstall install wngerman
+              sudo apt-get -y --reinstall install wnorwegian
+              sudo apt-get -y --reinstall install wogerman
+              sudo apt-get -y --reinstall install wpolish
+              sudo apt-get -y --reinstall install wportuguese
+              sudo apt-get -y --reinstall install wspanish
+              sudo apt-get -y --reinstall install wswedish
+              sudo apt-get -y --reinstall install wswiss
+              sudo apt-get -y --reinstall install wukrainian
+              sudo apt-get -y --reinstall install scowl
+              cd /usr/share/dict/
+              sudo gzip -v -f -d -k connectives.gz
+              sudo gzip -v -f -d -k propernames.gz
+              sudo gzip -v -f -d -k web2a.gz
               # Borrar la carpeta vieja
                 rm -rf ~/HackingTools/MultiDict/Debian/ 2> /dev/null
               # Asegurarse de que la carpeta base exista
@@ -117,17 +123,21 @@
                 cp -fv /usr/share/dict/british-english-insane  ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/british-english-large   ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/british-english-small   ~/HackingTools/MultiDict/Debian/
+                cp -fv /usr/share/dict/bulgarian               ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/canadian-english        ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/canadian-english-huge   ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/canadian-english-insane ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/canadian-english-large  ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/canadian-english-small  ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/catalan                 ~/HackingTools/MultiDict/Debian/
+                cp -fv /usr/share/dict/connectives             ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/cracklib-small          ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/danish                  ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/dutch                   ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/esperanto               ~/HackingTools/MultiDict/Debian/
+                cp -fv /usr/share/dict/faroese                 ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/french                  ~/HackingTools/MultiDict/Debian/
+                cp -fv /usr/share/dict/galician-minimos        ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/german-medical          ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/irish                   ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/italian                 ~/HackingTools/MultiDict/Debian/
@@ -135,11 +145,16 @@
                 cp -fv /usr/share/dict/ngerman                 ~/HackingTools/MultiDict/Debian/
                 cp -fv /etc/dictionaries-common/norsk          ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/nynorsk                 ~/HackingTools/MultiDict/Debian/
+                cp -fv /usr/share/dict/ogerman                 ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/polish                  ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/portuguese              ~/HackingTools/MultiDict/Debian/
+                cp -fv /usr/share/dict/propernames             ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/spanish                 ~/HackingTools/MultiDict/Debian/
                 cp -fv /usr/share/dict/swedish                 ~/HackingTools/MultiDict/Debian/
-                cp -fv /usr/share/dict/ukranian                ~/HackingTools/MultiDict/Debian/
+                cp -fv /usr/share/dict/swiss                   ~/HackingTools/MultiDict/Debian/
+                cp -fv /usr/share/dict/ukrainian               ~/HackingTools/MultiDict/Debian/
+                cp -fv /usr/share/dict/web2                    ~/HackingTools/MultiDict/Debian/
+                cp -fv /usr/share/dict/web2a                   ~/HackingTools/MultiDict/Debian/
                 cp -fv /etc/dictionaries-common/words          ~/HackingTools/MultiDict/Debian/
 
             ;;
