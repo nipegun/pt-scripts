@@ -87,7 +87,7 @@
     make -sj$(nproc)
     vCarpetaDondeInstalar="$vCarpetaDeUsuario/HackingTools/john"
     mkdir -p $vCarpetaDondeInstalar 2> /dev/null
-    cp -fv ../run/pdf2john                      $vCarpetaDondeInstalar/
+    cp -fv ../run/pdf2john.pl                   $vCarpetaDondeInstalar/
     cp -fv ../run/john                          $vCarpetaDondeInstalar/
     cp -fv ../run/john.conf                     $vCarpetaDondeInstalar/
     cp -fv ../run/rules-by-score.conf           $vCarpetaDondeInstalar/
@@ -104,7 +104,8 @@
     cp -fv ../run/regex_alphabets.conf          $vCarpetaDondeInstalar/
     mkdir -p $vCarpetaDondeInstalar/rules/ 2> /dev/null
     cp -fv ../run/rules/*   $vCarpetaDondeInstalar/rules/
-
+    mkdir -p $vCarpetaDondeInstalar/lib/ 2> /dev/null
+    cp -fv ../run/rules/lib/*   $vCarpetaDondeInstalar/rules/
 
   elif [ $cVerSO == "11" ]; then
 
