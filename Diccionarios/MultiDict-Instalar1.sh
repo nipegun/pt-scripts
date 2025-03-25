@@ -41,7 +41,7 @@
     opciones=(
       1 "  Instalar Diccionarios de Debian"                    on
       2 "  Descargar diccionarios de SecLists"                 on
-      3 "  Descargar diccionarios de CSL-LABS"                 off
+      3 "  Descargar diccionarios de CSL-LABS"                 on
       4 "  Reservado"                                          off
       5 "  Reservado"                                          off
       6 "  Reservado"                                          off
@@ -60,31 +60,44 @@
               echo "  Instalando diccionarios de Debian..."
               echo ""
               sudo apt-get -y update
-              sudo apt-get -y install wbulgarian
-              sudo apt-get -y install wesperanto
-              sudo apt-get -y install wirish
-              sudo apt-get -y install wmanx
-              sudo apt-get -y install wukrainian
-              sudo apt-get -y install wgerman-medical
+              sudo apt-get -y install miscfiles
+              sudo apt-get -y install wamerican
               sudo apt-get -y install wamerican-huge
               sudo apt-get -y install wamerican-insane
               sudo apt-get -y install wamerican-large
               sudo apt-get -y install wamerican-small
+              sudo apt-get -y install wbrazilian
+              sudo apt-get -y install wbritish
               sudo apt-get -y install wbritish-huge
               sudo apt-get -y install wbritish-insane
               sudo apt-get -y install wbritish-large
               sudo apt-get -y install wbritish-small
+              sudo apt-get -y install wbulgarian
               sudo apt-get -y install wcanadian
               sudo apt-get -y install wcanadian-huge
               sudo apt-get -y install wcanadian-insane
               sudo apt-get -y install wcanadian-large
               sudo apt-get -y install wcanadian-small
               sudo apt-get -y install wcatalan
-              sudo apt-get -y install wswedish
+              sudo apt-get -y install wdanish
+              sudo apt-get -y install wdutch
+              sudo apt-get -y install wesperanto
+              sudo apt-get -y install wfaroese
               sudo apt-get -y install wfrench
+              sudo apt-get -y install wgalician-minimos
+              sudo apt-get -y install wgerman-medical
+              sudo apt-get -y install wirish
               sudo apt-get -y install witalian
+              sudo apt-get -y install wmanx
+              sudo apt-get -y install wngerman
+              sudo apt-get -y install wnorwegian
+              sudo apt-get -y install wogerman
+              sudo apt-get -y install wpolish
+              sudo apt-get -y install wportuguese
               sudo apt-get -y install wspanish
-              sudo apt-get -y install wordlist
+              sudo apt-get -y install wswedish
+              sudo apt-get -y install wswiss
+              sudo apt-get -y install wukrainian
               sudo apt-get -y install scowl
               # Borrar la carpeta vieja
                 rm -rf ~/HackingTools/MultiDict/Debian/ 2> /dev/null
