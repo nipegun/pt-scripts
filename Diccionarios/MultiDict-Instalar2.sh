@@ -298,7 +298,7 @@
               echo "  Eliminando caracteres de tabulación..."
               echo ""
 
-              vCarpetaInicio="$HOME/MultiDict/Internet/"
+              vCarpetaInicio="$HOME/HackingTools/MultiDict/Internet/"
               find "$vCarpetaInicio" -type f -name "*.txt" -print0 | while IFS= read -r -d '' vArchivo; do
                 sed -i 's/\t//g' "$vArchivo"
               done
@@ -314,8 +314,8 @@
               # Crear diccionarios
                 export LC_ALL=C.UTF-8  # Forzar UTF-8 para evitar problemas de codificación
 
-                vCarpetaInicio="$HOME/MultiDict/Internet/"
-                vCarpetaDestino="$HOME/MultiDict/PorCantCaracteres/"
+                vCarpetaInicio="$HOME/HackingTools/MultiDict/Internet/"
+                vCarpetaDestino="$HOME/HackingTools/MultiDict/PorCantCaracteres/"
                 rm "$vCarpetaDestino"* 2> /dev/null
 
                 mkdir -p "$vCarpetaDestino"
