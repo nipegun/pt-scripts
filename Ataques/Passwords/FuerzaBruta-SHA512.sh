@@ -24,7 +24,7 @@
       echo "    $0 [RutaAlArchivoZIP] [DiccionarioAUtilizar]"
       echo ""
       echo "  Ejemplo:"
-      echo "    $0 '$HOME/Descargas/ArchivoProtegido.zip' '$HOME/HackingTools/MultiDict/Internet/CSL-LABS/ROCKYOU-CSL.txt'"
+      echo "    $0 '$HOME/Descargas/ArchivoProtegido.zip' '$HOME/HackingTools/MultiDict/Packs/CSL-LABS/ROCKYOU-CSL.txt'"
       echo ""
       exit
   fi
