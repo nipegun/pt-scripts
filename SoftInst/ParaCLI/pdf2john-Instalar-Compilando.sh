@@ -105,7 +105,7 @@
     mkdir -p $vCarpetaDondeInstalar/rules/ 2> /dev/null
     cp -fv ../run/rules/*   $vCarpetaDondeInstalar/rules/
     mkdir -p $vCarpetaDondeInstalar/lib/ 2> /dev/null
-    cp -fv ../run/rules/lib/*   $vCarpetaDondeInstalar/rules/
+    cp -fv ../run/lib/*   $vCarpetaDondeInstalar/lib/
 
   elif [ $cVerSO == "11" ]; then
 
