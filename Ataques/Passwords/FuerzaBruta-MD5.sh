@@ -41,7 +41,7 @@ vRutaAlDiccionario="$2"
     #echo "$(tput setaf 1)Mensaje en color rojo. $(tput sgr 0)"
   cFinColor='\033[0m'
 
-  ~/HackingTools/john/john -w="$vRutaAlDiccionario" "$vRutaAlArchivo.hashes"
+  ~/HackingTools/john/john -w="$vRutaAlDiccionario" "$vRutaAlArchivo"
   echo ""
   ~/HackingTools/john/john --show "$vRutaAlArchivo" | cut -d':' -f1,2 | sed 's-:- > El password es -g'
   echo ""
