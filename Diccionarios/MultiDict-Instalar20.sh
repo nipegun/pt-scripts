@@ -346,6 +346,8 @@
                   > "All${i}Characters.txt"
                 done
 
+
+              # Popular los archivos
                 find "$vCarpetaInicio" -type f -name "*.txt" -print0 | while IFS= read -r -d '' file; do
                   iconv -c -f UTF-8 -t UTF-8 "$file" | awk -v min="$vCaracteresMin" -v max="$vCaracteresMax" '
                   {
@@ -353,6 +355,12 @@
                     if (len >= min && len <= max)
                       print $0 >> ("All" len "Characters.txt");
                   }'
+                done
+
+              # Eliminar caracteres no imprimibles de todos los archivos y sanitizar algunas líneas
+                for vArchivo in ~/HackingTools/MultiDict/PorCantCaracteres/*.txt; do
+                  sed -e 's/^[[:space:]]*//' "$vArchivo" | grep -P '^[\x20-\x7E]+$' > "$vArchivo.tmp"
+                  mv -f "$vArchivo.tmp" "$vArchivo"
                 done
 
               # Eliminar líneas duplicadas
@@ -371,12 +379,6 @@
                 mv ~/HackingTools/MultiDict/PorCantCaracteres/All7Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All07Characters.txt
                 mv ~/HackingTools/MultiDict/PorCantCaracteres/All8Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All08Characters.txt
                 mv ~/HackingTools/MultiDict/PorCantCaracteres/All9Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All09Characters.txt
-
-              # Eliminar caracteres no imprimibles de todos los archivos
-                for vArchivo in ~/HackingTools/MultiDict/PorCantCaracteres/*.txt; do
-                  sed -e 's/^[[:space:]]*//' "$vArchivo" | grep -P '^[\x20-\x7E]+$' > "$vArchivo.tmp"
-                  #mv -f "$vArchivo.tmp" "$vArchivo"
-                done
 
               # Notificar fin de la ejecución
                 echo ""
