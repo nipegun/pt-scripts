@@ -361,6 +361,27 @@
                 done
                 echo ""
 
+              # Corregir nombres de algunos archivos
+                mv ~/HackingTools/MultiDict/PorCantCaracteres/All1Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All01Characters.txt
+                mv ~/HackingTools/MultiDict/PorCantCaracteres/All2Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All02Characters.txt
+                mv ~/HackingTools/MultiDict/PorCantCaracteres/All3Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All03Characters.txt
+                mv ~/HackingTools/MultiDict/PorCantCaracteres/All4Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All04Characters.txt
+                mv ~/HackingTools/MultiDict/PorCantCaracteres/All5Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All05Characters.txt
+                mv ~/HackingTools/MultiDict/PorCantCaracteres/All6Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All06Characters.txt
+                mv ~/HackingTools/MultiDict/PorCantCaracteres/All7Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All07Characters.txt
+                mv ~/HackingTools/MultiDict/PorCantCaracteres/All8Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All08Characters.txt
+                mv ~/HackingTools/MultiDict/PorCantCaracteres/All9Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All09Characters.txt
+
+              # Eliminar caracteres no imprimibles de todos los archivos
+                for vArchivo in ~/HackingTools/MultiDict/PorCantCaracteres/*.txt; do
+                  vNombreArchivo=$(basename $vArchivo | cut -d'C' -f1)
+                  grep -P '^[\x20-\x7E]*$' "$vArchivo" > ~/HackingTools/MultiDict/PorCantCaracteres/"$vNombreArchivo".txt
+                  rm -f $vArchivo
+                done
+
+              # .
+                sudo chown $USER:$USER ~/HackingTools/MultiDict/ -R
+
               # Notificar fin de la ejecución
                 echo ""
                 echo "  Se han procesado todos los .txt de $vCarpetaInicio y se han creado nuevos diccionarios con su contenido."
