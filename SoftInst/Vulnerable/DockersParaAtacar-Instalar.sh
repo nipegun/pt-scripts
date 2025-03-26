@@ -154,8 +154,8 @@
           echo "  Construyendo la imagen de activemq (CVE-2023-46604)..."
           echo ""
           cd /tmp/vulhub-master/activemq/CVE-2023-46604/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -165,8 +165,8 @@
           echo "  Construyendo la imagen de appweb (CVE-2018-8715)..."
           echo ""
           cd /tmp/vulhub-master/appweb/CVE-2018-8715/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -176,8 +176,8 @@
           echo "  Construyendo la imagen de bash (CVE-2014-6271)..."
           echo ""
           cd /tmp/vulhub-master/bash/CVE-2014-6271/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -187,8 +187,8 @@
           echo "  Construyendo la imagen de cgi (CVE-2016-5385)..."
           echo ""
           cd /tmp/vulhub-master/cgi/CVE-2016-5385/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -198,8 +198,8 @@
           echo "  Construyendo la imagen de confluence (CVE-2023-22527)..."
           echo ""
           cd /tmp/vulhub-master/confluence/CVE-2023-22527/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -209,8 +209,8 @@
           echo "  Construyendo la imagen de django (CVE-2022-34265)..."
           echo ""
           cd /tmp/vulhub-master/django/CVE-2022-34265/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -220,8 +220,8 @@
           echo "  Construyendo la imagen de dns-zone-transfer..."
           echo ""
           cd /tmp/vulhub-master/dns-zone-transfer/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -231,8 +231,8 @@
           echo "  Construyendo la imagen de drupal (CVE-2019-6341)..."
           echo ""
           cd /tmp/vulhub-master/drupal/CVE-2019-6341/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -242,8 +242,8 @@
           echo "  Construyendo la imagen de elasticsearch (CVE-2015-5531)..."
           echo ""
           cd /tmp/vulhub-master/elasticsearch/CVE-2015-5531/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -253,8 +253,8 @@
           echo "  Construyendo la imagen de ffmpeg (CVE-2017-9993)..."
           echo ""
           cd /tmp/vulhub-master/ffmpeg/CVE-2017-9993/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -264,8 +264,8 @@
           echo "  Construyendo la imagen de geoserver (CVE-2024-36401)..."
           echo ""
           cd /tmp/vulhub-master/geoserver/CVE-2024-36401/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -275,8 +275,8 @@
           echo "  Construyendo la imagen de ghostscript (CVE-2019-6116)..."
           echo ""
           cd /tmp/vulhub-master/ghostscript/CVE-2019-6116/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -286,8 +286,8 @@
           echo "  Construyendo la imagen de git (CVE-2017-8386)..."
           echo ""
           cd /tmp/vulhub-master/git/CVE-2017-8386/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -297,8 +297,8 @@
           echo "  Construyendo la imagen de gitlab (CVE-2021-22205)..."
           echo ""
           cd /tmp/vulhub-master/gitlab/CVE-2021-22205/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -308,8 +308,8 @@
           echo "  Construyendo la imagen de grafana (CVE-2021-43798)..."
           echo ""
           cd /tmp/vulhub-master/grafana/CVE-2021-43798/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -319,8 +319,8 @@
           echo "  Construyendo la imagen de grafana (admin-ssrf)..."
           echo ""
           cd /tmp/vulhub-master/grafana/admin-ssrf/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -330,8 +330,8 @@
           echo "  Construyendo la imagen de httpd (CVE-2021-42013)..."
           echo ""
           cd /tmp/vulhub-master/httpd/CVE-2021-42013/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -341,8 +341,8 @@
           echo "  Construyendo la imagen de imagemagick (CVE-2022-44268)..."
           echo ""
           cd /tmp/vulhub-master/imagemagick/CVE-2022-44268/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -352,8 +352,8 @@
           echo "  Construyendo la imagen de influxdb (CVE-2019-20933)..."
           echo ""
           cd /tmp/vulhub-master/influxdb/CVE-2019-20933/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -363,8 +363,8 @@
           echo "  Construyendo la imagen de jenkins (CVE-2024-23897)..."
           echo ""
           cd /tmp/vulhub-master/jenkins/CVE-2024-23897/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -374,8 +374,8 @@
           echo "  Construyendo la imagen de joomla (CVE-2023-23752)..."
           echo ""
           cd /tmp/vulhub-master/joomla/CVE-2023-23752/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -385,8 +385,8 @@
           echo "  Construyendo la imagen de kibana (CVE-2020-7012)..."
           echo ""
           cd /tmp/vulhub-master/kibana/CVE-2020-7012/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -396,8 +396,8 @@
           echo "  Construyendo la imagen de libssh (CVE-2018-10933)..."
           echo ""
           cd /tmp/vulhub-master/libssh/CVE-2018-10933/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -407,8 +407,8 @@
           echo "  Construyendo la imagen de log4j (CVE-2021-44228)..."
           echo ""
           cd /tmp/vulhub-master/log4j/CVE-2021-44228/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -418,8 +418,8 @@
           echo "  Construyendo la imagen de magento (2.2-sqli)..."
           echo ""
           cd /tmp/vulhub-master/magento/2.2-sqli/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -429,8 +429,8 @@
           echo "  Construyendo la imagen de mongo-express (CVE-2019-10758)..."
           echo ""
           cd /tmp/vulhub-master/mongo-express/CVE-2019-10758/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -440,8 +440,8 @@
           echo "  Construyendo la imagen de mysql (CVE-2012-2122)..."
           echo ""
           cd /tmp/vulhub-master/mysql/CVE-2012-2122/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -451,8 +451,8 @@
           echo "  Construyendo la imagen de nexus (CVE-2024-4956)..."
           echo ""
           cd /tmp/vulhub-master/nexus/CVE-2024-4956/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -462,8 +462,8 @@
           echo "  Construyendo la imagen de nginx (CVE-2017-7529)..."
           echo ""
           cd /tmp/vulhub-master/nginx/CVE-2017-7529/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -473,8 +473,8 @@
           echo "  Construyendo la imagen de nginx (insecure-configuration)..."
           echo ""
           cd /tmp/vulhub-master/nginx/insecure-configuration/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -484,8 +484,8 @@
           echo "  Construyendo la imagen de nginx (nginx-parsing-vulnerability)..."
           echo ""
           cd /tmp/vulhub-master/nginx/nginx-parsing-vulnerability/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -495,8 +495,8 @@
           echo "  Construyendo la imagen de node (CVE-2017-16082)..."
           echo ""
           cd /tmp/vulhub-master/node/CVE-2017-16082/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -506,8 +506,8 @@
           echo "  Construyendo la imagen de ntopng (CVE-2021-28073)..."
           echo ""
           cd /tmp/vulhub-master/ntopng/CVE-2021-28073/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -517,8 +517,8 @@
           echo "  Construyendo la imagen de openfire (CVE-2023-32315)..."
           echo ""
           cd /tmp/vulhub-master/openfire/CVE-2023-32315/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -528,8 +528,8 @@
           echo "  Construyendo la imagen de opensmtpd (CVE-2020-7247)..."
           echo ""
           cd /tmp/vulhub-master/opensmtpd/CVE-2020-7247/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -539,8 +539,8 @@
           echo "  Construyendo la imagen de openssh (CVE-2018-15473)..."
           echo ""
           cd /tmp/vulhub-master/openssh/CVE-2018-15473/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -550,8 +550,8 @@
           echo "  Construyendo la imagen de openssl (CVE-2022-0778)..."
           echo ""
           cd /tmp/vulhub-master/openssl/CVE-2022-0778/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -561,8 +561,8 @@
           echo "  Construyendo la imagen de openssl (heartbleed)..."
           echo ""
           cd /tmp/vulhub-master/openssl/heartbleed/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -572,8 +572,8 @@
           echo "  Construyendo la imagen de php (8.1-backdoor)..."
           echo ""
           cd /tmp/vulhub-master/php/8.1-backdoor/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -583,8 +583,8 @@
           echo "  Construyendo la imagen de php (CVE-2024-2961)..."
           echo ""
           cd /tmp/vulhub-master/php/CVE-2024-2961/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -594,8 +594,8 @@
           echo "  Construyendo la imagen de phpmyadmin (CVE-2018-12613)..."
           echo ""
           cd /tmp/vulhub-master/phpmyadmin/CVE-2018-12613/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -605,8 +605,8 @@
           echo "  Construyendo la imagen de postgres (CVE-2019-9193)..."
           echo ""
           cd /tmp/vulhub-master/postgres/CVE-2019-9193/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -616,8 +616,8 @@
           echo "  Construyendo la imagen de rsync (common)..."
           echo ""
           cd /tmp/vulhub-master/rsync/common/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -627,8 +627,8 @@
           echo "  Construyendo la imagen de samba (CVE-2017-7494)..."
           echo ""
           cd /tmp/vulhub-master/samba/CVE-2017-7494/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -638,8 +638,8 @@
           echo "  Construyendo la imagen de tomcat (CVE-2025-24813)..."
           echo ""
           cd /tmp/vulhub-master/tomcat/CVE-2025-24813/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -649,8 +649,8 @@
           echo "  Construyendo la imagen de webmin (CVE-2019-15107)..."
           echo ""
           cd /tmp/vulhub-master/webmin/CVE-2019-15107/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -660,8 +660,8 @@
           echo "  Construyendo la imagen de wordpress (pwnscriptum)..."
           echo ""
           cd /tmp/vulhub-master/wordpress/pwnscriptum/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
@@ -671,8 +671,8 @@
           echo "  Construyendo la imagen de zabbix (CVE-2020-11800)..."
           echo ""
           cd /tmp/vulhub-master/zabbix/CVE-2020-11800/
-          sudo docker compose build
-          sudo docker compose up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
 
         ;;
 
