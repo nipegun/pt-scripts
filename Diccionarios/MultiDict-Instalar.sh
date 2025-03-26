@@ -42,7 +42,7 @@
       1 "  Instalar Diccionarios de Debian"                    on
       2 "  Descargar diccionarios de SecLists"                 on
       3 "  Descargar diccionarios de CSL-LABS"                 on
-      4 "  Reservado"                                          off
+      4 "  Descargar diccionarios de CrackStation"             off
       5 "  Reservado"                                          off
       6 "  Reservado"                                          off
       7 "    Eliminar caracteres de tabulación"                on
@@ -280,9 +280,9 @@
             4)
 
               echo ""
-              echo "  Reservado..."
+              echo "  Descargando diccionarios de CrackStation..."
               echo ""
-
+              curl -L https://crackstation.net/files/crackstation.txt.gz -o /tmp/crackstation.txt.gz
 
 
             ;;
