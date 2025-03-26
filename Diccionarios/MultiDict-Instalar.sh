@@ -39,14 +39,14 @@
     fi
   menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 96 16)
     opciones=(
-      1 "  Instalar Diccionarios de Debian"                    on
-      2 "  Descargar diccionarios de SecLists"                 on
-      3 "  Descargar diccionarios de CSL-LABS"                 on
-      4 "  Descargar diccionarios de CrackStation"             off
-      5 "  Reservado"                                          off
-      6 "  Reservado"                                          off
-      7 "    Eliminar caracteres de tabulación"                on
-      8 "      Preparar diccionarios de 1 hasta 16 caracteres" on
+      1 "  Instalar Diccionarios de Debian"                       on
+      2 "  Descargar diccionarios de SecLists"                    on
+      3 "  Descargar diccionarios de CSL-LABS"                    on
+      4 "  Descargar diccionarios de CrackStation"                off
+      5 "  Reservado"                                             off
+      6 "  Reservado"                                             off
+      7 "    Eliminar caracteres de tabulación"                   on
+      8 "      Preparar diccionarios de caracteres incrementales" on
     )
     choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
 
@@ -326,7 +326,7 @@
             8)
 
               echo ""
-              echo "  Preparando diccionarios de 1 hasta 16 caracteres..."
+              echo "  Preparando diccionarios de caracteres incrementales..."
               echo ""
 
               # Crear diccionarios
@@ -340,7 +340,7 @@
                 cd "$vCarpetaDestino" || exit 1
 
                 vCaracteresMin=1
-                vCaracteresMax=16
+                vCaracteresMax=32
 
                 for ((i=vCaracteresMin; i<=vCaracteresMax; i++)); do
                   > "All${i}Characters.txt"
