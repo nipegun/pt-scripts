@@ -379,9 +379,6 @@
                   rm -f $vArchivo
                 done
 
-              # .
-                sudo chown $USER:$USER ~/HackingTools/MultiDict/ -R
-
               # Notificar fin de la ejecución
                 echo ""
                 echo "  Se han procesado todos los .txt de $vCarpetaInicio y se han creado nuevos diccionarios con su contenido."
