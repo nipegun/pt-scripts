@@ -327,6 +327,7 @@
 
               echo ""
               echo "  Preparando diccionarios de caracteres incrementales..."
+              echo "  Dependiendo de la capacidad de proceso del sistema, puede tardar más de 10 minutos."
               echo ""
 
               # Crear diccionarios
@@ -342,10 +343,10 @@
                 vCaracteresMin=1
                 vCaracteresMax=32
 
+              # Crear los archivos
                 for ((i=vCaracteresMin; i<=vCaracteresMax; i++)); do
                   > "All${i}Characters.txt"
                 done
-
 
               # Popular los archivos
                 find "$vCarpetaInicio" -type f -name "*.txt" -print0 | while IFS= read -r -d '' file; do
@@ -363,13 +364,20 @@
                   mv -f "$vArchivo.tmp" "$vArchivo"
                 done
 
-              # Eliminar líneas duplicadas
+              # Ordenar y eliminar líneas duplicadas
                 find "$vCarpetaDestino" -type f -name "*.txt" | while read -r vArchivo; do
                   sort "$vArchivo" | uniq > "$vArchivo.tmp" && mv "$vArchivo.tmp" "$vArchivo"
                 done
                 echo ""
 
-              # Corregir nombres de algunos archivos
+              # Asegurarse de que cada arhivo tenga la cantidad correcta de caracteres por linea
+                for vArchivo in ~/HackingTools/MultiDict/PorCantCaracteres/All*Characters.txt; do
+                  vCantidad=$(basename "$vArchivo" | sed -E 's/All([0-9]+)Characters\.txt/\1/')
+                  grep -E "^.{$vCantidad}$" "$vArchivo" > "$vArchivo.tmp"
+                  mv -f "$vArchivo.tmp" "$vArchivo"
+                done
+
+              # Corregir nombres de los archivos con un sólo número
                 mv ~/HackingTools/MultiDict/PorCantCaracteres/All1Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All01Characters.txt
                 mv ~/HackingTools/MultiDict/PorCantCaracteres/All2Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All02Characters.txt
                 mv ~/HackingTools/MultiDict/PorCantCaracteres/All3Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All03Characters.txt
