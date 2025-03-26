@@ -283,7 +283,8 @@
               echo "  Descargando diccionarios de CrackStation..."
               echo ""
               curl -L https://crackstation.net/files/crackstation.txt.gz -o /tmp/crackstation.txt.gz
-
+              cd /tmp/
+              gunzip -v /tmp/crackstation.txt.gz
 
             ;;
 
