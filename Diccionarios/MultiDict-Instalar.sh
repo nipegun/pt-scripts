@@ -285,6 +285,8 @@
               curl -L https://crackstation.net/files/crackstation.txt.gz -o /tmp/crackstation.txt.gz
               cd /tmp/
               gunzip -v /tmp/crackstation.txt.gz
+              mkdir -p ~/HackingTools/MultiDict/Packs/CrackStation/ 2> /dev/null
+              mv /tmp/crackstation.txt ~/HackingTools/MultiDict/Packs/CrackStation/
 
             ;;
 
