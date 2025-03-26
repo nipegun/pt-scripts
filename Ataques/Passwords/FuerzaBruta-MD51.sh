@@ -43,5 +43,5 @@ vRutaAlDiccionario="$2"
 
   ~/HackingTools/john/john -w="$vRutaAlDiccionario" "$vRutaAlArchivo.hashes"
   echo ""
-  ~/HackingTools/john/john --show "$vRutaAlArchivo.hashes" | cut -d':' -f1,2 | sed 's-:- > El password es -g'
+  ~/HackingTools/john/john --show "$vRutaAlArchivo" | cut -d':' -f1,2 | sed 's-:- > El password es -g'
   echo ""
