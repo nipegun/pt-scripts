@@ -41,18 +41,57 @@
     fi
   menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 96 16)
     opciones=(
-      1 "Descargar repo de Github de dockers vulnerables de vulhub" on
-      2 "Comprobar disponibilidad de docker-compose"                on
-      3 "  Construir la imagen de x"                                off
-      4 "  Construir la imagen de x"                                off
-      5 "  Construir la imagen de x"                                off
-      6 "  Construir la imagen de x"                                off
-      7 "  Construir la imagen de x"                                off
-      8 "  Construir la imagen de x"                                off
-      9 "  Construir la imagen de x"                                off
-     10 "  Construir la imagen de x"                                off
-     11 "  Construir la imagen de x"                                off
-     12 "  Construir la imagen de x"                                off
+      1 "Descargar repo de Github de dockers vulnerables de vulhub"    on
+      2 "Comprobar disponibilidad de docker-compose"                   on
+      3 "  Construir la imagen de activemq (CVE-2023-46604)"           off
+      4 "  Construir la imagen de appweb (CVE-2018-8715)"              off
+      5 "  Construir la imagen de bash (CVE-2014-6271)"                off
+      6 "  Construir la imagen de cgi (CVE-2016-5385)"                 off
+      7 "  Construir la imagen de confluence (CVE-2023-22527)"         off
+      8 "  Construir la imagen de django (CVE-2022-34265)"             off
+      9 "  Construir la imagen de dns-zone-transfer"                   off
+     10 "  Construir la imagen de drupal (CVE-2019-6341)"              off
+     11 "  Construir la imagen de elasticsearch (CVE-2015-5531)"       off
+     12 "  Construir la imagen de ffmpeg (CVE-2017-9993)"              off
+     13 "  Construir la imagen de geoserver (CVE-2024-36401)"          off
+     14 "  Construir la imagen de ghostscript (CVE-2019-6116)"         off
+     15 "  Construir la imagen de git (CVE-2017-8386)"                 off
+     16 "  Construir la imagen de gitlab (CVE-2021-22205)"             off
+     17 "  Construir la imagen de grafana (CVE-2021-43798)"            off
+     18 "  Construir la imagen de grafana (admin-ssrf)"                off
+     19 "  Construir la imagen de httpd (CVE-2021-42013)"              off
+     20 "  Construir la imagen de imagemagick (CVE-2022-44268)"        off
+     21 "  Construir la imagen de influxdb (CVE-2019-20933)"           off
+     22 "  Construir la imagen de jenkins (CVE-2024-23897)"            off
+     23 "  Construir la imagen de joomla (CVE-2023-23752)"             off
+     24 "  Construir la imagen de kibana (CVE-2020-7012)"              off
+     25 "  Construir la imagen de libssh (CVE-2018-10933)"             off
+     26 "  Construir la imagen de log4j (CVE-2021-44228)"              off
+     27 "  Construir la imagen de magento (2.2-sqli)"                  off
+     28 "  Construir la imagen de mongo-express (CVE-2019-10758)"      off
+     29 "  Construir la imagen de mysql (CVE-2012-2122)"               off
+     30 "  Construir la imagen de nexus (CVE-2024-4956)"               off
+     31 "  Construir la imagen de nginx (CVE-2017-7529)"               off
+     32 "  Construir la imagen de nginx (insecure-configuration)"      off
+     33 "  Construir la imagen de nginx (nginx-parsing-vulnerability)" off
+     34 "  Construir la imagen de node (CVE-2017-16082)"               off
+     35 "  Construir la imagen de ntopng (CVE-2021-28073)"             off
+     36 "  Construir la imagen de openfire (CVE-2023-32315)"           off
+     37 "  Construir la imagen de opensmtpd (CVE-2020-7247)"           off
+     38 "  Construir la imagen de openssh (CVE-2018-15473)"            off
+     39 "  Construir la imagen de openssl (CVE-2022-0778)"             off
+     40 "  Construir la imagen de openssl (heartbleed)"                off
+     41 "  Construir la imagen de php (8.1-backdoor)"                  off
+     42 "  Construir la imagen de php (CVE-2024-2961)"                 off
+     43 "  Construir la imagen de phpmyadmin (CVE-2018-12613)"         off
+     44 "  Construir la imagen de postgres (CVE-2019-9193)"            off
+     45 "  Construir la imagen de rsync (common)"                      off
+     46 "  Construir la imagen de samba (CVE-2017-7494)"               off
+     47 "  Construir la imagen de tomcat (CVE-2025-24813)"             off
+     48 "  Construir la imagen de webmin (CVE-2019-15107)"             off
+     49 "  Construir la imagen de wordpress (pwnscriptum)"             off
+     50 "  Construir la imagen de zabbix (CVE-2020-11800)"             off
+
     )
   choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
 
@@ -112,6 +151,17 @@
         3)
 
           echo ""
+          echo "  Construyendo la imagen de activemq (CVE-2023-46604)..."
+          echo ""
+          cd /tmp/vulhub-master/activemq/CVE-2023-46604/
+          sudo docker compose build
+          sudo docker compose up -d
+
+        ;;
+
+        4)
+
+          echo ""
           echo "  Construyendo la imagen de appweb (CVE-2018-8715)..."
           echo ""
           cd /tmp/vulhub-master/appweb/CVE-2018-8715/
@@ -120,7 +170,7 @@
 
         ;;
 
-        4)
+        5)
 
           echo ""
           echo "  Construyendo la imagen de bash (CVE-2014-6271)..."
@@ -131,8 +181,7 @@
 
         ;;
 
-
-        5)
+        6)
 
           echo ""
           echo "  Construyendo la imagen de cgi (CVE-2016-5385)..."
@@ -143,7 +192,7 @@
 
         ;;
 
-        6)
+        7)
 
           echo ""
           echo "  Construyendo la imagen de confluence (CVE-2023-22527)..."
@@ -154,7 +203,7 @@
 
         ;;
 
-        7)
+        8)
 
           echo ""
           echo "  Construyendo la imagen de django (CVE-2022-34265)..."
@@ -165,7 +214,7 @@
 
         ;;
 
-        8)
+        9)
 
           echo ""
           echo "  Construyendo la imagen de dns-zone-transfer..."
@@ -176,7 +225,7 @@
 
         ;;
 
-        9)
+       10)
 
           echo ""
           echo "  Construyendo la imagen de drupal (CVE-2019-6341)..."
@@ -187,7 +236,7 @@
 
         ;;
 
-       10)
+       11)
 
           echo ""
           echo "  Construyendo la imagen de elasticsearch (CVE-2015-5531)..."
@@ -198,7 +247,7 @@
 
         ;;
 
-       11)
+       12)
 
           echo ""
           echo "  Construyendo la imagen de ffmpeg (CVE-2017-9993)..."
@@ -209,7 +258,7 @@
 
         ;;
 
-       12)
+       13)
 
           echo ""
           echo "  Construyendo la imagen de geoserver (CVE-2024-36401)..."
@@ -220,7 +269,7 @@
 
         ;;
 
-       13)
+       14)
 
           echo ""
           echo "  Construyendo la imagen de ghostscript (CVE-2019-6116)..."
@@ -231,7 +280,7 @@
 
         ;;
 
-       14)
+       15)
 
           echo ""
           echo "  Construyendo la imagen de git (CVE-2017-8386)..."
@@ -242,7 +291,7 @@
 
         ;;
 
-       15)
+       16)
 
           echo ""
           echo "  Construyendo la imagen de gitlab (CVE-2021-22205)..."
@@ -253,7 +302,7 @@
 
         ;;
 
-       16)
+       17)
 
           echo ""
           echo "  Construyendo la imagen de grafana (CVE-2021-43798)..."
@@ -264,7 +313,7 @@
 
         ;;
 
-       17)
+       18)
 
           echo ""
           echo "  Construyendo la imagen de grafana (admin-ssrf)..."
@@ -275,7 +324,7 @@
 
         ;;
 
-       18)
+       19)
 
           echo ""
           echo "  Construyendo la imagen de httpd (CVE-2021-42013)..."
@@ -286,7 +335,7 @@
 
         ;;
 
-       19)
+       20)
 
           echo ""
           echo "  Construyendo la imagen de imagemagick (CVE-2022-44268)..."
@@ -297,7 +346,7 @@
 
         ;;
 
-       20)
+       21)
 
           echo ""
           echo "  Construyendo la imagen de influxdb (CVE-2019-20933)..."
@@ -308,7 +357,7 @@
 
         ;;
 
-       21)
+       22)
 
           echo ""
           echo "  Construyendo la imagen de jenkins (CVE-2024-23897)..."
@@ -319,7 +368,7 @@
 
         ;;
 
-       22)
+       23)
 
           echo ""
           echo "  Construyendo la imagen de joomla (CVE-2023-23752)..."
@@ -330,7 +379,7 @@
 
         ;;
 
-       23)
+       24)
 
           echo ""
           echo "  Construyendo la imagen de kibana (CVE-2020-7012)..."
@@ -341,7 +390,7 @@
 
         ;;
 
-       24)
+       25)
 
           echo ""
           echo "  Construyendo la imagen de libssh (CVE-2018-10933)..."
@@ -352,7 +401,18 @@
 
         ;;
 
-       25)
+       26)
+
+          echo ""
+          echo "  Construyendo la imagen de log4j (CVE-2021-44228)..."
+          echo ""
+          cd /tmp/vulhub-master/log4j/CVE-2021-44228/
+          sudo docker compose build
+          sudo docker compose up -d
+
+        ;;
+
+       27)
 
           echo ""
           echo "  Construyendo la imagen de magento (2.2-sqli)..."
@@ -363,7 +423,7 @@
 
         ;;
 
-       26)
+       28)
 
           echo ""
           echo "  Construyendo la imagen de mongo-express (CVE-2019-10758)..."
@@ -374,7 +434,7 @@
 
         ;;
 
-       27)
+       29)
 
           echo ""
           echo "  Construyendo la imagen de mysql (CVE-2012-2122)..."
@@ -385,7 +445,7 @@
 
         ;;
 
-       28)
+       30)
 
           echo ""
           echo "  Construyendo la imagen de nexus (CVE-2024-4956)..."
@@ -396,7 +456,7 @@
 
         ;;
 
-       29)
+       31)
 
           echo ""
           echo "  Construyendo la imagen de nginx (CVE-2017-7529)..."
@@ -407,7 +467,7 @@
 
         ;;
 
-       30)
+       32)
 
           echo ""
           echo "  Construyendo la imagen de nginx (insecure-configuration)..."
@@ -418,7 +478,7 @@
 
         ;;
 
-       31)
+       33)
 
           echo ""
           echo "  Construyendo la imagen de nginx (nginx-parsing-vulnerability)..."
@@ -429,7 +489,7 @@
 
         ;;
 
-       32)
+       34)
 
           echo ""
           echo "  Construyendo la imagen de node (CVE-2017-16082)..."
@@ -440,7 +500,7 @@
 
         ;;
 
-       33)
+       35)
 
           echo ""
           echo "  Construyendo la imagen de ntopng (CVE-2021-28073)..."
@@ -451,34 +511,12 @@
 
         ;;
 
-       34)
-
-          echo ""
-          echo "  Construyendo la imagen de x..."
-          echo ""
-          cd /tmp/vulhub-master/x
-          sudo docker compose build
-          sudo docker compose up -d
-
-        ;;
-
-       35)
-
-          echo ""
-          echo "  Construyendo la imagen de x..."
-          echo ""
-          cd /tmp/vulhub-master/x
-          sudo docker compose build
-          sudo docker compose up -d
-
-        ;;
-
        36)
 
           echo ""
-          echo "  Construyendo la imagen de x..."
+          echo "  Construyendo la imagen de openfire (CVE-2023-32315)..."
           echo ""
-          cd /tmp/vulhub-master/x
+          cd /tmp/vulhub-master/openfire/CVE-2023-32315/
           sudo docker compose build
           sudo docker compose up -d
 
@@ -487,9 +525,9 @@
        37)
 
           echo ""
-          echo "  Construyendo la imagen de x..."
+          echo "  Construyendo la imagen de opensmtpd (CVE-2020-7247)..."
           echo ""
-          cd /tmp/vulhub-master/x
+          cd /tmp/vulhub-master/opensmtpd/CVE-2020-7247/
           sudo docker compose build
           sudo docker compose up -d
 
@@ -498,9 +536,9 @@
        38)
 
           echo ""
-          echo "  Construyendo la imagen de x..."
+          echo "  Construyendo la imagen de openssh (CVE-2018-15473)..."
           echo ""
-          cd /tmp/vulhub-master/x
+          cd /tmp/vulhub-master/openssh/CVE-2018-15473/
           sudo docker compose build
           sudo docker compose up -d
 
@@ -509,9 +547,9 @@
        39)
 
           echo ""
-          echo "  Construyendo la imagen de x..."
+          echo "  Construyendo la imagen de openssl (CVE-2022-0778)..."
           echo ""
-          cd /tmp/vulhub-master/x
+          cd /tmp/vulhub-master/openssl/CVE-2022-0778/
           sudo docker compose build
           sudo docker compose up -d
 
@@ -520,9 +558,9 @@
        40)
 
           echo ""
-          echo "  Construyendo la imagen de x..."
+          echo "  Construyendo la imagen de openssl (heartbleed)..."
           echo ""
-          cd /tmp/vulhub-master/x
+          cd /tmp/vulhub-master/openssl/heartbleed/
           sudo docker compose build
           sudo docker compose up -d
 
@@ -531,9 +569,108 @@
        41)
 
           echo ""
-          echo "  Construyendo la imagen de x..."
+          echo "  Construyendo la imagen de php (8.1-backdoor)..."
           echo ""
-          cd /tmp/vulhub-master/x
+          cd /tmp/vulhub-master/php/8.1-backdoor/
+          sudo docker compose build
+          sudo docker compose up -d
+
+        ;;
+
+       42)
+
+          echo ""
+          echo "  Construyendo la imagen de php (CVE-2024-2961)..."
+          echo ""
+          cd /tmp/vulhub-master/php/CVE-2024-2961/
+          sudo docker compose build
+          sudo docker compose up -d
+
+        ;;
+
+       43)
+
+          echo ""
+          echo "  Construyendo la imagen de phpmyadmin (CVE-2018-12613)..."
+          echo ""
+          cd /tmp/vulhub-master/phpmyadmin/CVE-2018-12613/
+          sudo docker compose build
+          sudo docker compose up -d
+
+        ;;
+
+       44)
+
+          echo ""
+          echo "  Construyendo la imagen de postgres (CVE-2019-9193)..."
+          echo ""
+          cd /tmp/vulhub-master/postgres/CVE-2019-9193/
+          sudo docker compose build
+          sudo docker compose up -d
+
+        ;;
+
+       45)
+
+          echo ""
+          echo "  Construyendo la imagen de rsync (common)..."
+          echo ""
+          cd /tmp/vulhub-master/rsync/common/
+          sudo docker compose build
+          sudo docker compose up -d
+
+        ;;
+
+       46)
+
+          echo ""
+          echo "  Construyendo la imagen de samba (CVE-2017-7494)..."
+          echo ""
+          cd /tmp/vulhub-master/samba/CVE-2017-7494/
+          sudo docker compose build
+          sudo docker compose up -d
+
+        ;;
+
+       47)
+
+          echo ""
+          echo "  Construyendo la imagen de tomcat (CVE-2025-24813)..."
+          echo ""
+          cd /tmp/vulhub-master/tomcat/CVE-2025-24813/
+          sudo docker compose build
+          sudo docker compose up -d
+
+        ;;
+
+       48)
+
+          echo ""
+          echo "  Construyendo la imagen de webmin (CVE-2019-15107)..."
+          echo ""
+          cd /tmp/vulhub-master/webmin/CVE-2019-15107/
+          sudo docker compose build
+          sudo docker compose up -d
+
+        ;;
+
+       49)
+
+          echo ""
+          echo "  Construyendo la imagen de wordpress (pwnscriptum)..."
+          echo ""
+          cd /tmp/vulhub-master/wordpress/pwnscriptum/
+          sudo docker compose build
+          sudo docker compose up -d
+
+        ;;
+
+       50)
+
+          echo ""
+          echo "  Construyendo la imagen de zabbix (CVE-2020-11800)..."
+          echo ""
+          cd /tmp/vulhub-master/zabbix/CVE-2020-11800/
           sudo docker compose build
           sudo docker compose up -d
 
