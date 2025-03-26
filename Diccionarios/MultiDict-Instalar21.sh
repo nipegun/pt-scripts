@@ -360,7 +360,7 @@
 
               # Eliminar caracteres no imprimibles de todos los archivos y sanitizar algunas líneas
                 for vArchivo in ~/HackingTools/MultiDict/PorCantCaracteres/*.txt; do
-                  sed -e 's/^[[:space:]]*//' "$vArchivo" | grep -P '^[\x20-\x7E]+$' > "$vArchivo.tmp"
+                  sed -e 's/^[[:space:]]*//' "$vArchivo" | grep -a -P '^[\x20-\x7E]+$' > "$vArchivo.tmp"
                   mv -f "$vArchivo.tmp" "$vArchivo"
                 done
 
