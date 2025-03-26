@@ -374,8 +374,7 @@
 
               # Eliminar caracteres no imprimibles de todos los archivos
                 for vArchivo in ~/HackingTools/MultiDict/PorCantCaracteres/*.txt; do
-                  vNombreArchivo=$(basename $vArchivo | cut -d'C' -f1)
-                  grep -a -P '^[\x20-\x7E]*$' "$vArchivo" > "$vArchivo.tmp"
+                  sed -e 's/^[[:space:]]*//' "$vArchivo" | grep -P '^[\x20-\x7E]+$' > "$vArchivo.tmp"
                   #mv -f "$vArchivo.tmp" "$vArchivo"
                 done
 
