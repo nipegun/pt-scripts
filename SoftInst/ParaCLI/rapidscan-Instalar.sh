@@ -99,7 +99,7 @@
   sudo apt-get -y install dnsenum
   sudo apt-get -y install uniscan #
   sudo apt-get -y install whatweb
-  sudo apt-get -y install theHarvester #
+  sudo apt-get -y install theharvester #
   sudo apt-get -y install davtest #
   sudo apt-get -y install fierce
   sudo apt-get -y install dnswalk
