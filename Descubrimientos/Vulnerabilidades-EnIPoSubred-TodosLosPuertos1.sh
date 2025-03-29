@@ -31,13 +31,16 @@ vIPoSubred="$1"
   fi
 
 # Actualizar la base de datos
+  echo ""
+  echo "  Ejecutando script updatedb..."
+  echo ""
   sudo nmap --script-updatedb
 
 # Ejecutar script vuln
   echo ""
   echo "  Ejecutando script vuln..."
   echo ""
-  sudo nmap -sV -p- --script=vuln,vulners "$vIPoSubred" -oN ~/ResultadoNmap-vuln.txt
+  sudo nmap -sV -p- --script=vuln "$vIPoSubred" -oN ~/ResultadoNmap-vuln.txt
 
 # Ejecutar script vulners
   echo ""
