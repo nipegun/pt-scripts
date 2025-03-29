@@ -93,9 +93,9 @@
       echo ""
       echo "  Script de instalación de nuclei, finalizado. Para ejecutar nuclei:"
       echo ""
-      echo "    nuclei -u [IP o FQDN]"
+      echo "    /usr/local/bin/nuclei -u [IP o FQDN]"
       echo "      o"
-      echo "    nuclei -l [ArchivoConListaDeIPs]"
+      echo "    /usr/local/bin/nuclei -l [ArchivoConListaDeIPs]"
       echo ""
 
   elif [ $cVerSO == "11" ]; then
