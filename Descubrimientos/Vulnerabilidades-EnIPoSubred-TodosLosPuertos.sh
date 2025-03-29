@@ -20,25 +20,36 @@
 
 vIPoSubred="$1"
 
+# Comprobar si el paquete nmap está instalado. Si no lo está, instalarlo.
+  if [[ $(dpkg-query -s nmap 2>/dev/null | grep installed) == "" ]]; then
+    echo ""
+    echo -e "${cColorRojo}  El paquete nmap no está instalado. Iniciando su instalación...${cFinColor}"
+    echo ""
+    sudo apt-get -y update
+    sudo apt-get -y install nmap
+    echo ""
+  fi
+
 # Actualizar la base de datos
   sudo nmap --script-updatedb
 
-# Escaneo de vulnerabilidades NSE (vuln y vulners)
+# Ejecutar script vuln
+  echo ""
+  echo "  Ejecutando script vuln..."
+  echo ""
+  sudo nmap -sV -p- --script=vuln,vulners "$vIPoSubred" -oN ~/ResultadoNmap-vuln.txt
 
-  # Comprobar si el paquete nmap está instalado. Si no lo está, instalarlo.
-    if [[ $(dpkg-query -s nmap 2>/dev/null | grep installed) == "" ]]; then
-      echo ""
-      echo -e "${cColorRojo}  El paquete nmap no está instalado. Iniciando su instalación...${cFinColor}"
-      echo ""
-      sudo apt-get -y update
-      sudo apt-get -y install nmap
-      echo ""
-    fi
-  sudo nmap -sV -p- --script=vuln,vulners "$vIPoSubred" -oN ~/ResultadoNmap1-nse.txt
-
-
+# Ejecutar script vulners
+  echo ""
+  echo "  Ejecutando script vulners..."
+  echo ""
+  sudo nmap -sV -p- --script=vulners "$vIPoSubred" -oN ~/ResultadoNmap-vulners.txt
 # Escaneo de vulnerabilidades vulscan
 
+# Ejecutar script vulscan
+  echo ""
+  echo "  Ejecutando script vulscan..."
+  echo ""
   # Comprobar si el paquete git está instalado. Si no lo está, instalarlo.
     if [[ $(dpkg-query -s git 2>/dev/null | grep installed) == "" ]]; then
       echo ""
@@ -50,10 +61,12 @@ vIPoSubred="$1"
     fi
   cd /usr/share/nmap/scripts/
   sudo git clone https://github.com/scipag/vulscan.git
-  sudo nmap -sV -p- --script=vulscan/vulscan.nse "$vIPoSubred" -oN ~/ResultadoNmap2-vulscan.txt
+  sudo nmap -sV -p- --script=vulscan/vulscan.nse "$vIPoSubred" -oN ~/ResultadoNmap-vulscan.txt
 
 
-# Escaneo de exploits conocidos (exploit)
-
-  sudo nmap -sV --script=exploit "$vIPoSubred" -oN ~/ResultadoNmap3-exploits.txt
+# Ejecutar script exploit
+  echo ""
+  echo "  Ejecutando script exploit..."
+  echo ""
+  sudo nmap -sV --script=exploit "$vIPoSubred" -oN ~/ResultadoNmap-exploits.txt
 
