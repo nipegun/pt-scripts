@@ -86,7 +86,7 @@
     cd /tmp/
     unzip nuclei.zip
     # Copiar el archivo a la carpeta de binarios
-      sudo cp nuclei /usr/local/bin/
+      sudo cp -fv nuclei /usr/local/bin/
     # Ejecutar por primera vez para que baje los templates
       nuclei
     # Notificar fin de ejecución del script
