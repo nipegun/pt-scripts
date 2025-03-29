@@ -21,7 +21,7 @@
 vIPoSubred="$1"
 
 # Actualizar la base de datos
-  sudo nmap -- script - updated
+  sudo nmap --script-updatedb
 
 # Escaneo de vulnerabilidades NSE (vuln y vulners)
 
