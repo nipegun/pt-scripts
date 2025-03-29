@@ -71,5 +71,5 @@ vIPoSubred="$1"
   echo ""
   echo "  Ejecutando script exploit..."
   echo ""
-  sudo nmap -sV --script=exploit "$vIPoSubred" -oN ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-exploits.txt
+  sudo nmap -sV -p- --script=exploit "$vIPoSubred" -oN ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-exploits.txt
 
