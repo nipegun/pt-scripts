@@ -40,13 +40,13 @@ vIPoSubred="$1"
   echo ""
   echo "  Ejecutando script vuln..."
   echo ""
-  sudo nmap -sV -p- --script=vuln "$vIPoSubred" -oN ~/ResultadoNmap-"$vIPoSubred"-vuln.txt
+  sudo nmap -sV -p- --script=vuln "$vIPoSubred" -oN ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-vuln.txt
 
 # Ejecutar script vulners
   echo ""
   echo "  Ejecutando script vulners..."
   echo ""
-  sudo nmap -sV -p- --script=vulners "$vIPoSubred" -oN ~/ResultadoNmap-"$vIPoSubred"-vulners.txt
+  sudo nmap -sV -p- --script=vulners "$vIPoSubred" -oN ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-vulners.txt
 # Escaneo de vulnerabilidades vulscan
 
 # Ejecutar script vulscan
@@ -64,12 +64,12 @@ vIPoSubred="$1"
     fi
   cd /usr/share/nmap/scripts/
   sudo git clone https://github.com/scipag/vulscan.git
-  sudo nmap -sV -p- --script=vulscan/vulscan.nse "$vIPoSubred" -oN ~/ResultadoNmap-"$vIPoSubred"-vulscan.txt
+  sudo nmap -sV -p- --script=vulscan/vulscan.nse "$vIPoSubred" -oN ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-vulscan.txt
 
 
 # Ejecutar script exploit
   echo ""
   echo "  Ejecutando script exploit..."
   echo ""
-  sudo nmap -sV --script=exploit "$vIPoSubred" -oN ~/ResultadoNmap-"$vIPoSubred"-exploits.txt
+  sudo nmap -sV --script=exploit "$vIPoSubred" -oN ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-exploits.txt
 
