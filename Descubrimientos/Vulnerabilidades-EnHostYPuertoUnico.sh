@@ -69,8 +69,8 @@ vPuerto="$2"
   echo ""
   echo "  Ejecutando script exploit..."
   echo ""
-  sudo nmap -v -Pn -sV -p $vPuerto --script=exploit "$vIPoSubred" -oN ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-"$vPuerto"-exploits.txt
-  sudo chown $USER:$USER ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-"$vPuerto"-exploits.txt
+  sudo nmap -v -Pn -sV -p $vPuerto --script=exploit "$vIPoSubred" -oN ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-"$vPuerto"-exploit.txt
+  sudo chown $USER:$USER ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-"$vPuerto"-exploit.txt
   cat ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-"$vPuerto"-exploit.txt | grep -E 'vulners:|cpe:|EXPLOIT' | column -t
 
 # Notificar fin de ejecución del script
