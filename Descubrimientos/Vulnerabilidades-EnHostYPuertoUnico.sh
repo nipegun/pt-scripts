@@ -78,3 +78,4 @@ vPuerto="$2"
   echo "  Script finalizado. Se han creado los siguientes archivos:"
   echo ""
   ls -l ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-"$vPuerto"-*
+  echo ""
