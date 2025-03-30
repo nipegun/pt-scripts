@@ -9,7 +9,7 @@
 # Script de NiPeGun para escanear vulnerabilidades con nmap en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Vulnerabilidades-EnIPoSubred-PuertoUnico.sh | bash -s "192.168.1.0/24"
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Vulnerabilidades-EnIPoSubred-PuertoUnico.sh | bash -s "192.168.1.0/24" "80"
 #
 # Ejecución remota como root (para sistemas sin sudo):
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Vulnerabilidades-EnIPoSubred-PuertoUnico.sh | sed 's-sudo--g' | bash -s "192.168.1.3"
