@@ -77,5 +77,5 @@ vPuerto="$2"
   echo ""
   echo "  Script finalizado. Se han creado los siguientes archivos:"
   echo ""
-  ls -l ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-"$vPuerto"-*
+  ls -l ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-"$vPuerto"-* | awk '{print $9}'
   echo ""
