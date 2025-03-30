@@ -72,3 +72,6 @@ vPuerto="$2"
   echo ""
   sudo nmap -sV -p $vPuerto --script=exploit "$vIPoSubred" -oN ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-"$vPuerto"-exploits.txt
 
+# Corregir permisos
+  sudo chown $USER:$USER ~/ResultadoNmap-*
+
