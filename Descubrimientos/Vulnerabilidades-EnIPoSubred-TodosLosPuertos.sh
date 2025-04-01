@@ -38,16 +38,11 @@ vIPoSubred="$1"
 
 # Ejecutar script vuln
   echo ""
-  echo "  Ejecutando script vuln..."
+  echo "  Ejecutando metascript vuln..."
   echo ""
-  sudo nmap -sV -p- --script=vuln "$vIPoSubred" -oN ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-vuln.txt
-
-# Ejecutar script vulners
-  echo ""
-  echo "  Ejecutando script vulners..."
-  echo ""
-  sudo nmap -sV -p- --script=vulners "$vIPoSubred" -oN ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-vulners.txt
-# Escaneo de vulnerabilidades vulscan
+  sudo nmap -v -Pn -sV --script=vuln -oN ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-vuln.txt "$vIPoSubred" -p-
+  sudo chown $USER:$USER ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-vuln.txt
+  cat ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-vuln.txt | grep -E 'vulners:|cpe:|EXPLOIT' | column -t
 
 # Ejecutar script vulscan
   echo ""
@@ -63,13 +58,23 @@ vIPoSubred="$1"
       echo ""
     fi
   cd /usr/share/nmap/scripts/
+  sudo rm -rf vulscan
   sudo git clone https://github.com/scipag/vulscan.git
-  sudo nmap -sV -p- --script=vulscan/vulscan.nse "$vIPoSubred" -oN ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-vulscan.txt
-
+  sudo nmap -v -Pn -sV --script=vulscan/vulscan.nse --script-args vulscandb=scipvuldb.csv,cve.csv,exploitdb.csv,openvas.csv,osvdb.csv,securityfocus.csv,securitytracker.csv,xforce.csv -oN ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-vulscan.txt "$vIPoSubred" -p-
+  sudo chown $USER:$USER ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-vulscan.txt
+  cat ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-vulscan.txt | grep -E 'vulners:|cpe:|EXPLOIT' | column -t
 
 # Ejecutar script exploit
   echo ""
   echo "  Ejecutando script exploit..."
   echo ""
-  sudo nmap -sV -p- --script=exploit "$vIPoSubred" -oN ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-exploits.txt
+  sudo nmap -v -Pn -sV -p- --script=exploit "$vIPoSubred" -oN ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-exploit.txt
+  sudo chown $USER:$USER ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-exploit.txt
+  cat ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"-exploit.txt | grep -E 'vulners:|cpe:|EXPLOIT' | column -t
 
+# Notificar fin de ejecución del script
+  echo ""
+  echo "  Script finalizado. Se han creado los siguientes archivos:"
+  echo ""
+  ls -l ~/ResultadoNmap-"$(echo "$vIPoSubred" | cut -d'/' -f1)"--* | awk '{print $9}'
+  echo ""
