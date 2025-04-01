@@ -28,7 +28,7 @@
   echo ""
 
 # Ejecutar Nmap y extraer los números de puerto
-  mapfile -t vPuertosConRespuesta < <(nmap -p- "$vHost" | grep -oP '^\d+(?=/)')
+  mapfile -t vPuertosConRespuesta < <(nmap -v -Pn -p- "$vHost" | grep -oP '^\d+(?=/)')
 
 # Verificar si se encontraron puertos
   if [ ${#vPuertosConRespuesta[@]} -eq 0 ]; then
