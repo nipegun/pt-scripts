@@ -35,7 +35,7 @@
       echo "    $0 [IPAtacante] [PuertoAtacante] [IPVictima] [PuertoVictima] [ArchivoVictimaALeer]"
       echo ""
       echo "  Ejemplo:"
-      echo "    $0 '192.168.1.3' '4444' '192.168.1.10' '1234' '/etc/passwd'"
+      echo "    $0 '"$(hostname -I | cut -d' ' -f1)"' '4444' '192.168.1.10' '1234' '/etc/passwd'"
       echo ""
       exit
   fi
