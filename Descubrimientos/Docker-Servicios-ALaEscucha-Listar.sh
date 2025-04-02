@@ -46,7 +46,7 @@ if ! command -v ss &>/dev/null; then
 fi
 
 # Escribir el encabezado
-echo -e "PROTO\tPUERTO\tPID\tBINARIO\tCMDLINE"
+printf "PROTO\tPUERTO\tPID\tBINARIO\tUSUARIO\tCMDLINE\n"
 
 # Procesar salida de ss
 ss -tulpn | tail -n +2 | while read -r line; do
@@ -54,13 +54,21 @@ ss -tulpn | tail -n +2 | while read -r line; do
   local_addr=$(echo "$line" | awk '{print $5}')
   port=$(echo "$local_addr" | sed -E 's/.*:([0-9]+)$/\1/')
 
-  pids=$(echo "$line" | grep -oP 'pid=\K[0-9]+')
+  users_field=$(echo "$line" | grep -o 'users:(.*)')
 
-  for pid in $pids; do
-    if [[ -d "/proc/$pid" ]]; then
-      exe=$(readlink -f /proc/"$pid"/exe 2>/dev/null)
-      cmdline=$(tr '\0' ' ' < /proc/"$pid"/cmdline 2>/dev/null)
-      echo -e "$proto\t$port\t$pid\t$exe\t$cmdline"
-    fi
-  done
+  if [ -n "$users_field" ]; then
+    echo "$users_field" | tr ',' '\n' | sed -n 's/.*pid=\([0-9]\+\).*/\1/p' | while read -r pid; do
+      if [ -n "$pid" ] && [ -d "/proc/$pid" ]; then
+        exe=$(readlink -f "/proc/$pid/exe" 2>/dev/null)
+        cmdline=$(tr '\0' ' ' < "/proc/$pid/cmdline" 2>/dev/null)
+        uid=$(awk '/^Uid:/ {print $2}' /proc/$pid/status 2>/dev/null)
+        user=$(getent passwd "$uid" | cut -d: -f1)
+        [ -z "$user" ] && user="$uid"
+        printf "%s\t%s\t%s\t%s\t%s\t%s\n" "$proto" "$port" "$pid" "$exe" "$user" "$cmdline"
+      fi
+    done
+  else
+    # Entrada sin información de usuarios (sin PID)
+    printf "%s\t%s\t-\t-\t-\t-\n" "$proto" "$port"
+  fi
 done
