@@ -1,5 +1,9 @@
 #!/bin/bash
 
+sudo pip uninstall SQLAlchemy --break-system-packages
+sudo pip install SQLAlchemy==1.3.24 --break-system-packages
+
+
 # Instalar en venv
   echo ""
   echo "  Instalando Legion en el venv..."
