@@ -15,10 +15,6 @@
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Servicios-Web-EnSubred.sh | nano -
 # ----------
 
-echo -e "PROTO\tPUERTO\tPID\tBINARIO\tCMDLINE"
-
-
-
 # Detección de distribución
 distro="desconocida"
 if [ -f /etc/os-release ]; then
@@ -48,6 +44,9 @@ if ! command -v ss &>/dev/null; then
       ;;
   esac
 fi
+
+# Escribir el encabezado
+echo -e "PROTO\tPUERTO\tPID\tBINARIO\tCMDLINE"
 
 # Procesar salida de ss
 ss -tulpn | tail -n +2 | while read -r line; do
