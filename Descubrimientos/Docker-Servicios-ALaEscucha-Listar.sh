@@ -9,11 +9,16 @@
 # Script de NiPeGun para listar los servicios desde dentro de un docker y ver que comando los lanzó
 #
 # Ejecución remota con parámetros:
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Servicios-Web-EnSubred.sh | bash -s "192.168.1.0/24"
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Docker-Servicios-ALaEscucha-Listar.sh | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Servicios-Web-EnSubred.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Docker-Servicios-ALaEscucha-Listar.sh | nano -
 # ----------
+
+# Verificación de Docker
+if grep -qE '/docker/|/lxc/' /proc/1/cgroup 2>/dev/null || [ -f /.dockerenv ]; then
+  echo "[INFO] Ejecutándose dentro de un contenedor Docker"
+fi
 
 # Detección de distribución
 distro="desconocida"
@@ -21,11 +26,6 @@ if [ -f /etc/os-release ]; then
   . /etc/os-release
   distro="$ID"
   echo "[INFO] Distribución detectada: $distro"
-fi
-
-# Verificación de Docker
-if grep -qE '/docker/|/lxc/' /proc/1/cgroup 2>/dev/null || [ -f /.dockerenv ]; then
-  echo "[INFO] Ejecutándose dentro de un contenedor Docker"
 fi
 
 # Instalar ss si no está
