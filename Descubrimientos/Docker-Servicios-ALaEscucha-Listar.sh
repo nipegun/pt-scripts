@@ -72,3 +72,4 @@ ss -tulpn | tail -n +2 | while read -r line; do
     printf "%s\t%s\t-\t-\t-\t-\n" "$proto" "$port"
   fi
 done
+
