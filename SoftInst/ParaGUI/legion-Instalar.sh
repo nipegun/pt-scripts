@@ -2,7 +2,8 @@
 
 sudo pip uninstall SQLAlchemy --break-system-packages
 sudo pip install SQLAlchemy==1.3.24 --break-system-packages
-
+sudo rm -f /usr/share/legion/app/importers/NmapImporter.py
+sudo curl -L https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/extra/legion/NmapImporter.py -o /usr/share/legion/app/importers/NmapImporter.py
 
 # Instalar en venv
   echo ""
