@@ -9,7 +9,7 @@
 # Script de NiPeGun para crear payloads que envíen el cat de un archivo a un orrenador remoto.
 #
 # Ejecución remota con parámetros:
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Payloads/CrearPayloadParaCatDeArchivo.sh | bash -s Parámetro1 Parámetro2
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Payloads/CrearPayloadParaCatDeArchivo.sh | bash -s [IPAtacante] [PuertoAtacante] [IPVictima] [PuertoVictima] [ArchivoVictimaALeer]
 #
 # Bajar y editar directamente el archivo en nano
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Payloads/CrearPayloadParaCatDeArchivo.sh | nano -
