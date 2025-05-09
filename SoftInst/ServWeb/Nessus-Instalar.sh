@@ -24,7 +24,7 @@
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ServWeb/Nessus-Instalar.sh | nano -
 # ----------
 
-vNessus="10.8.3"
+vNessus="10.8.4"
 vMinDebian="10"
 
 # Definir constantes de color
