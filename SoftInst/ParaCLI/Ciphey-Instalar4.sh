@@ -197,7 +197,8 @@
                 python3 -m pip install pyinstaller
 
               # Compilar
-               pyinstaller --onefile --name ciphey --collect-all=ciphey ciphey/__main__.py
+               #pyinstaller --onefile --name ciphey --collect-all=ciphey ciphey/__main__.py
+               pyinstaller --onefile --name ciphey --collect-all ciphey -m ciphey
 
               # Copiar el binario a /usr/bin
                 mkdir ~/bin/
