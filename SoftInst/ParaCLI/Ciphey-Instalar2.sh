@@ -154,7 +154,7 @@
                     fi
                     vUltVersCipheyCore=$(curl -sL https://api.github.com/repos/liudonghua123/CipheyCore/releases/latest | jq -r '.tag_name')
                     echo ""
-                    echo "      El número de versión es $vUltVersCipheyCore"
+                    echo "      El número de la última versión de CipheyCore es $vUltVersCipheyCore"
                     echo ""
                 # Descargar  CipheyCore
                   curl -L https://github.com/liudonghua123/CipheyCore/releases/download/"$vUltVersCipheyCore"/cipheycore-"$vUltVersCipheyCore"-cp311-cp311-manylinux_2_31_x86_64.whl  -o /tmp/cipheycore-"$vUltVersCipheyCore"-cp311-cp311-manylinux_2_31_x86_64.whl
