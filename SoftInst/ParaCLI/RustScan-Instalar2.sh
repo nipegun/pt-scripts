@@ -93,7 +93,7 @@
           sudo apt-get -y install jq
           echo ""
         fi
-      vUltVersRustScan=$(curl -sL https://api.github.com/repos/RustScan/RustScan/releases/latest | jq -r '.tag_name')
+      vUltVersRustScan=$(curl -sL https://api.github.com/repos/bee-san/RustScan/releases/latest | jq -r '.tag_name')
       echo ""
       echo "      El número de versión es $vUltVersRustScan"
       echo ""
@@ -102,7 +102,7 @@
       echo ""
       echo "    Descargando el archivo zip de la última versión..."
       echo ""
-      curl -L https://github.com/RustScan/RustScan/releases/download/$vUltVersRustScan/rustscan-$vUltVersRustScan-x86_64-linux.zip -o /tmp/rustscan.zip
+      https://github.com/bee-san/RustScan/releases/download/$vUltVersRustScan/x86_64-linux-rustscan.tar.gz.zip -o /tmp/rustscan.zip
 
     # Descomprimir el archivo
       echo ""
