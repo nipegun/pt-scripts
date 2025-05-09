@@ -132,9 +132,35 @@
                 echo 'echo -e "\n  Activando el entorno virtual de Ciphey... \n"' >> ~/repos/python/Ciphey/venv/bin/activate
               # Entrar al entorno virtual
                 source ~/repos/python/Ciphey/venv/bin/activate
-              # Determinar cual es la versión más reciente de CipheyCore
-                CipheyCore
-              # Instalar requerimientos
+              # Descargar e instalar CipheyCore
+                # Determinar cual es la versión más reciente de CipheyCore
+                  # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
+                    if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
+                      echo ""
+                      echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
+                      echo ""
+                      sudo apt-get -y update
+                      sudo apt-get -y install curl
+                      echo ""
+                    fi
+                  # Comprobar si el paquete jq está instalado. Si no lo está, instalarlo.
+                    if [[ $(dpkg-query -s jq 2>/dev/null | grep installed) == "" ]]; then
+                      echo ""
+                      echo -e "${cColorRojo}  El paquete jq no está instalado. Iniciando su instalación...${cFinColor}"
+                      echo ""
+                      sudo apt-get -y update
+                      sudo apt-get -y install jq
+                      echo ""
+                    fi
+                    vUltVersCipheyCore=$(curl -sL https://api.github.com/repos/liudonghua123/CipheyCore/releases/latest | jq -r '.tag_name')
+                    echo ""
+                    echo "      El número de versión es $vUltVersCipheyCore"
+                    echo ""
+                # Descargar  CipheyCore
+                  curl -L https://github.com/liudonghua123/CipheyCore/releases/download/"$vUltVersCipheyCore"/cipheycore-"$vUltVersCipheyCore"-cp311-cp311-manylinux_2_31_x86_64.whl  -o /tmp/cipheycore-"$vUltVersCipheyCore"-cp311-cp311-manylinux_2_31_x86_64.whl
+                # Instalar CipheyCore
+                  pip3 install /tmp/cipheycore-"$vUltVersCipheyCore"-cp311-cp311-manylinux_2_31_x86_64.whl
+              # Instalar Ciphey
                 pip3 install .
               # Salir del entorno virtual
                 deactivate
