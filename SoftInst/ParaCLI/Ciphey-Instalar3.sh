@@ -197,11 +197,11 @@
                 python3 -m pip install pyinstaller
 
               # Compilar
-                pyinstaller --onefile --collect-all=Ciphey Ciphey.py
+               pyinstaller --onefile --name ciphey --collect-all=ciphey ciphey/__main__.py
 
               # Copiar el binario a /usr/bin
                 mkdir ~/bin/
-                cp -f ~/repos/python/Ciphey/dist/Ciphey ~/bin/
+                cp -fv ~/repos/python/Ciphey/dist/ciphey ~/bin/
 
               # Desactivar el entorno virtual
                 deactivate
@@ -210,13 +210,7 @@
                 echo ""
                 echo "  El script ha finalizado. Ciphey se ha descargado, compilado e instalado."
                 echo ""
-                echo "    Puedes encontrar el binario en ~/bin/Ciphey"
-                echo ""
-                echo "  El binario debe ser usado con precaución. Es mejor correr el script directamente con python, de la siguiente manera:"
-                echo ""
-                echo "    source ~/PythonVirtualEnvironments/Ciphey/bin/activate"
-                echo "    python3 ~/scripts/python/Ciphey/Ciphey.py [Argumentos]"
-                echo "    deactivate"
+                echo "    Puedes encontrar el binario en ~/bin/ciphey"
                 echo ""
 
             ;;
