@@ -198,7 +198,8 @@
 
               # Compilar
                #pyinstaller --onefile --name ciphey --collect-all=ciphey ciphey/__main__.py
-               pyinstaller --onefile --name ciphey --collect-all ciphey -m ciphey
+               #pyinstaller --onefile --name ciphey --collect-all ciphey -m ciphey
+               pyinstaller --onefile --name ciphey --collect-all ciphey ciphey
 
               # Copiar el binario a /usr/bin
                 mkdir ~/bin/
