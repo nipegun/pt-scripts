@@ -74,13 +74,13 @@
         fi
       menu=(dialog --checklist "Marca como quieres instalar la herramienta:" 22 70 16)
         opciones=(
-          1 "Clonar el repo de Ciphey"                                        on
-          2 "  Crear el entorno virtual de python e instalar dentro"          on
-          3 "    Compilar e instalar en /home/$USER/bin/"                     off
-          4 "  Instalar en /home/$USER/.local/bin/"                           off
-          5 "    Agregar /home/$USER/.local/bin/ al path"                     off
-          6 "Clonar repo, crear venv, compilar e instalar a nivel de sistema" off
-          7 "Otro tipo de instalación"                                        off
+          1 "Clonar el repo de Ciphey"                                           on
+          2 "  Crear el entorno virtual de python e instalar dentro"             on
+          3 "    Compilar e instalar en /home/$USER/bin/ (Todavía no funcional)" off
+          4 "  Instalar en /home/$USER/.local/bin/"                              off
+          5 "    Agregar /home/$USER/.local/bin/ al path"                        off
+          6 "Clonar repo, crear venv, compilar e instalar a nivel de sistema"    off
+          7 "Instalar a nivel de sistema"                                        off
         )
       choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
 
@@ -340,8 +340,43 @@
             7)
 
               echo ""
-              echo "  Otro tipo de instalación (Pruebas)..."
+              echo "  Instalando a nivel de sistema (Pruebas)..."
               echo ""
+
+              # Descargar e instalar CipheyCore
+                # Determinar cual es la versión más reciente de CipheyCore
+                  # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
+                    if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
+                      echo ""
+                      echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
+                      echo ""
+                      sudo apt-get -y update
+                      sudo apt-get -y install curl
+                      echo ""
+                    fi
+                  # Comprobar si el paquete jq está instalado. Si no lo está, instalarlo.
+                    if [[ $(dpkg-query -s jq 2>/dev/null | grep installed) == "" ]]; then
+                      echo ""
+                      echo -e "${cColorRojo}  El paquete jq no está instalado. Iniciando su instalación...${cFinColor}"
+                      echo ""
+                      sudo apt-get -y update
+                      sudo apt-get -y install jq
+                      echo ""
+                    fi
+                    vUltVersCipheyCore=$(curl -sL https://api.github.com/repos/liudonghua123/CipheyCore/releases/latest | jq -r '.tag_name')
+                    echo ""
+                    echo "      El número de la última versión de CipheyCore es $vUltVersCipheyCore"
+                    echo ""
+                # Descargar  CipheyCore
+                  curl -L https://github.com/liudonghua123/CipheyCore/releases/download/"$vUltVersCipheyCore"/cipheycore-"$vUltVersCipheyCore"-cp311-cp311-manylinux_2_31_x86_64.whl  -o /tmp/cipheycore-"$vUltVersCipheyCore"-cp311-cp311-manylinux_2_31_x86_64.whl
+                # Instalar CipheyCore
+                  python3 -m pip install /tmp/cipheycore-"$vUltVersCipheyCore"-cp311-cp311-manylinux_2_31_x86_64.whl
+
+sudo apt install build-essential python3-dev cython3
+
+python3 -m pip install appdirs base58 base91 cipheydists click flake8 loguru mock pybase62 pylint pywhat --break-system-packages
+python3 -m pip install ciphey --no-deps --break-system-packages
+
 
             ;;
 
