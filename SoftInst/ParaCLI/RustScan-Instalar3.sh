@@ -102,7 +102,7 @@
       echo ""
       echo "    Descargando el archivo zip de la última versión..."
       echo ""
-      https://github.com/bee-san/RustScan/releases/download/$vUltVersRustScan/x86_64-linux-rustscan.tar.gz.zip -o /tmp/rustscan.zip
+      curl -L https://github.com/bee-san/RustScan/releases/download/$vUltVersRustScan/x86_64-linux-rustscan.tar.gz.zip -o /tmp/rustscan.zip
 
     # Descomprimir el archivo
       echo ""
