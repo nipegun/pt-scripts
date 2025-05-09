@@ -104,9 +104,9 @@
       echo ""
       curl -L https://github.com/bee-san/RustScan/releases/download/$vUltVersRustScan/x86_64-linux-rustscan.tar.gz.zip -o /tmp/rustscan.zip
 
-    # Descomprimir el archivo
+    # Descomprimir el zip
       echo ""
-      echo "    Descomprimiendo el archivo..."
+      echo "    Descomprimiendo el zip..."
       echo ""
       # Comprobar si el paquete unzip está instalado. Si no lo está, instalarlo.
         if [[ $(dpkg-query -s unzip 2>/dev/null | grep installed) == "" ]]; then
@@ -119,11 +119,28 @@
         fi
       unzip /tmp/rustscan.zip -d /tmp
 
+    # Descomprimir el tar.gz
+      echo ""
+      echo "    Descomprimiendo el tar.gz..."
+      echo ""
+      # Comprobar si el paquete tar está instalado. Si no lo está, instalarlo.
+        if [[ $(dpkg-query -s tar 2>/dev/null | grep installed) == "" ]]; then
+          echo ""
+          echo -e "${cColorRojo}  El paquete tar no está instalado. Iniciando su instalación...${cFinColor}"
+          echo ""
+          sudo apt-get -y update
+          sudo apt-get -y install tar
+          echo ""
+        fi
+      tar -xzvf /tmp/x86_64-linux-rustscan.tar.gz -C /tmp/
+
     # Mover el binario a carpeta de binarios
       echo ""
       echo "    Moviendo el binario a /usr/bin/..."
       echo ""
       find /tmp/ -type f -name rustscan -exec sudo cp -v {} /usr/bin/ \;
+      # Darle permisos de ejecución
+        sudo chmod +x /usr/bin/rustscan
 
     # Notificar fin de ejecución del script
       echo ""
