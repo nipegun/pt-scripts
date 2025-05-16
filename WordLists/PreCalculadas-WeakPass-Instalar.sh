@@ -30,34 +30,31 @@
     #echo "$(tput setaf 1)Mensaje en color rojo. $(tput sgr 0)"
   cFinColor='\033[0m'
 
-  # Función para calcular el espacio libre disponible
-    fCalcularEspacioLibre() {
-      local vGBsNecesarios="$1"
-      # Verificar que la variable global vCarpetaTemporal esté definida
-        if [ -z "$vCarpetaTemporal" ] || [ -z "$vGBsNecesarios" ]; then
-          false
-          return
-        fi
-      # Convertir GB necesarios a KB (1 GiB = 1024 * 1024 KB)
-        local vEspacioNecesarioEnKB
-        vEspacioNecesarioEnKB=$(echo "$vGBsNecesarios * 1024 * 1024" | bc | cut -d'.' -f1)
-      # Obtener espacio libre en KB de la partición correspondiente a la ruta
-        local vEspacioLibreEnKB
-        vEspacioLibreEnKB=$(df -k "$vCarpetaTemporal" | tail -1 | tr -s ' ' | cut -d ' ' -f 4)
-      # Comparar y retornar true o false
-        [ "$vEspacioLibreEnKB" -ge "$vEspacioNecesarioEnKB" ] && true || false
-    }
+# Instalar paquetes necesarios para ejecutar correctamente el script
+  sudo apt-get -y update
+  sudo apt-get -y install dialog
+  sudo apt-get -y install curl
+  sudo apt-get -y install p7zip-full
+
+# Función para calcular el espacio libre disponible
+  fCalcularEspacioLibre() {
+    local vGBsNecesarios="$1"
+    # Verificar que la variable global vCarpetaTemporal esté definida
+      if [ -z "$vCarpetaTemporal" ] || [ -z "$vGBsNecesarios" ]; then
+        false
+        return
+      fi
+    # Convertir GB necesarios a KB (1 GiB = 1024 * 1024 KB)
+      local vEspacioNecesarioEnKB
+      vEspacioNecesarioEnKB=$(echo "$vGBsNecesarios * 1024 * 1024" | bc | cut -d'.' -f1)
+    # Obtener espacio libre en KB de la partición correspondiente a la ruta
+      local vEspacioLibreEnKB
+      vEspacioLibreEnKB=$(df -k "$vCarpetaTemporal" | tail -1 | tr -s ' ' | cut -d ' ' -f 4)
+    # Comparar y retornar true o false
+      [ "$vEspacioLibreEnKB" -ge "$vEspacioNecesarioEnKB" ] && true || false
+  }
 
 # Crear el menú
-  # Comprobar si el paquete dialog está instalado. Si no lo está, instalarlo.
-    if [[ $(dpkg-query -s dialog 2>/dev/null | grep installed) == "" ]]; then
-      echo ""
-      echo -e "${cColorRojo}  El paquete dialog no está instalado. Iniciando su instalación...${cFinColor}"
-      echo ""
-      sudo apt-get -y update
-      sudo apt-get -y install dialog
-      echo ""
-    fi
   menu=(dialog --checklist "Marca las WordLists PreCalculadas que quieras instalar:" 22 80 16)
     opciones=(
       1 "  WeakPass RockYou MD5         (0,6 GB descomprimido)" off
