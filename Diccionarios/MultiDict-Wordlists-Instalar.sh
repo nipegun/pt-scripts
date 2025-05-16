@@ -6,16 +6,16 @@
 # No tienes que aceptar ningún tipo de términos de uso o licencia para utilizarlo o modificarlo porque va sin CopyLeft.
 
 # ----------
-# Script de NiPeGun para instalar la máxima cantidad posible de Wordlists en texto plano en Debian
+# Script de NiPeGun para instalar la máxima cantidad posible de WordLists en texto plano en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Diccionarios/MultiDict-Wordlists-Instalar.sh | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Diccionarios/MultiDict-WordLists-Instalar.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Diccionarios/MultiDict-Wordlists-Instalar.sh | sed 's-sudo--g' | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Diccionarios/MultiDict-WordLists-Instalar.sh | sed 's-sudo--g' | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Diccionarios/MultiDict-Wordlists-Instalar.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Diccionarios/MultiDict-WordLists-Instalar.sh | nano -
 # ----------
 
 # Definir constantes de color
@@ -106,56 +106,56 @@
               sudo gzip -v -f -d -k propernames.gz
               sudo gzip -v -f -d -k web2a.gz
               # Borrar la carpeta vieja
-                rm -rf ~/HackingTools/MultiDict/Packs/Debian/ 2> /dev/null
+                rm -rf ~/HackingTools/MultiDict/WordLists/Packs/Debian/ 2> /dev/null
               # Asegurarse de que la carpeta base exista
-                mkdir -p ~/HackingTools/MultiDict/Packs/Debian/ 2> /dev/null
+                mkdir -p ~/HackingTools/MultiDict/WordLists/Packs/Debian/ 2> /dev/null
               # Copiar diccionarios a la carpeta Debian
-                mkdir -p ~/HackingTools/MultiDict/Packs/Debian/scowl/
-                cp -fv /usr/share/dict/scowl/*                 ~/HackingTools/MultiDict/Packs/Debian/scowl/
-                cp -fv /usr/share/dict/american-english        ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/american-english-huge   ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/american-english-insane ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/american-english-large  ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/american-english-small  ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/bokmaal                 ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/brazilian               ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/british-english-huge    ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/british-english-insane  ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/british-english-large   ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/british-english-small   ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/bulgarian               ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/canadian-english        ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/canadian-english-huge   ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/canadian-english-insane ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/canadian-english-large  ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/canadian-english-small  ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/catalan                 ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/connectives             ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/cracklib-small          ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/danish                  ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/dutch                   ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/esperanto               ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/faroese                 ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/french                  ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/galician-minimos        ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/german-medical          ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/irish                   ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/italian                 ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/manx                    ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/ngerman                 ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /etc/dictionaries-common/norsk          ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/nynorsk                 ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/ogerman                 ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/polish                  ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/portuguese              ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/propernames             ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/spanish                 ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/swedish                 ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/swiss                   ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/ukrainian               ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/web2                    ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /usr/share/dict/web2a                   ~/HackingTools/MultiDict/Packs/Debian/
-                cp -fv /etc/dictionaries-common/words          ~/HackingTools/MultiDict/Packs/Debian/
+                mkdir -p ~/HackingTools/MultiDict/WordLists/Packs/Debian/scowl/
+                cp -fv /usr/share/dict/scowl/*                 ~/HackingTools/MultiDict/WordLists/Packs/Debian/scowl/
+                cp -fv /usr/share/dict/american-english        ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/american-english-huge   ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/american-english-insane ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/american-english-large  ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/american-english-small  ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/bokmaal                 ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/brazilian               ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/british-english-huge    ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/british-english-insane  ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/british-english-large   ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/british-english-small   ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/bulgarian               ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/canadian-english        ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/canadian-english-huge   ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/canadian-english-insane ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/canadian-english-large  ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/canadian-english-small  ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/catalan                 ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/connectives             ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/cracklib-small          ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/danish                  ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/dutch                   ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/esperanto               ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/faroese                 ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/french                  ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/galician-minimos        ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/german-medical          ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/irish                   ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/italian                 ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/manx                    ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/ngerman                 ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /etc/dictionaries-common/norsk          ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/nynorsk                 ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/ogerman                 ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/polish                  ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/portuguese              ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/propernames             ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/spanish                 ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/swedish                 ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/swiss                   ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/ukrainian               ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/web2                    ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /usr/share/dict/web2a                   ~/HackingTools/MultiDict/WordLists/Packs/Debian/
+                cp -fv /etc/dictionaries-common/words          ~/HackingTools/MultiDict/WordLists/Packs/Debian/
 
             ;;
 
@@ -165,11 +165,11 @@
               echo "  Descargando diccionarios de SecLists..."
               echo ""
               # Borrar la carpeta vieja
-                rm -rf ~/HackingTools/MultiDict/Packs/SecLists/ 2> /dev/null
+                rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/ 2> /dev/null
               # Asegurarse de que la carpeta base exista
-                mkdir -p ~/HackingTools/MultiDict/Packs/ 2> /dev/null
+                mkdir -p ~/HackingTools/MultiDict/WordLists/Packs/ 2> /dev/null
               # Posicionarse en la carpeta
-                cd ~/HackingTools/MultiDict/Packs/
+                cd ~/HackingTools/MultiDict/WordLists/Packs/
               # Clonar el repo de SecLists
                 export LC_ALL=C.UTF-8  # Forzar UTF-8 para evitar problemas de codificación
                 # Comprobar si el paquete git está instalado. Si no lo está, instalarlo.
@@ -185,60 +185,60 @@
 
               # Borrar carpetas sobrantes
                 # Archivos de la raiz
-                  rm -f ~/HackingTools/MultiDict/Packs/SecLists/SecLists.png
-                  rm -f ~/HackingTools/MultiDict/Packs/SecLists/LICENSE
-                  rm -f ~/HackingTools/MultiDict/Packs/SecLists/CONTRIBUTORS.md
-                  rm -f ~/HackingTools/MultiDict/Packs/SecLists/CONTRIBUTING.md
+                  rm -f ~/HackingTools/MultiDict/WordLists/Packs/SecLists/SecLists.png
+                  rm -f ~/HackingTools/MultiDict/WordLists/Packs/SecLists/LICENSE
+                  rm -f ~/HackingTools/MultiDict/WordLists/Packs/SecLists/CONTRIBUTORS.md
+                  rm -f ~/HackingTools/MultiDict/WordLists/Packs/SecLists/CONTRIBUTING.md
                 # Archivos README.md
-                  find ~/HackingTools/MultiDict/Packs/SecLists/ -type f -name README.md -exec rm -f {} \;
-                  rm -f ~/HackingTools/MultiDict/Packs/SecLists/Discovery/Infrastructure/IPGenerator.sh
+                  find ~/HackingTools/MultiDict/WordLists/Packs/SecLists/ -type f -name README.md -exec rm -f {} \;
+                  rm -f ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Discovery/Infrastructure/IPGenerator.sh
                 # Archivos de inteligencia artificial
-                  rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Ai 2> /dev/null
-                  rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Ai 2> /dev/null
+                  rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Ai 2> /dev/null
+                  rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Ai 2> /dev/null
 
               # Descomprimir archivos comprimidos
-                cd ~/HackingTools/MultiDict/Packs/SecLists/Passwords/
+                cd ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Passwords/
                 bzip2 -d "500-worst-passwords.txt.bz2"
                 tar -xvzf "SCRABBLE-hackerhouse.tgz"
                 rm "SCRABBLE-hackerhouse.tgz"
-                rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Passwords/SCRABBLE/fetch.sh
-                rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Passwords/SCRABBLE/mangle.py
-                rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Passwords/Default-Credentials/scada-pass.csv
-                rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Passwords/Default-Credentials/default-passwords.csv
-                rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Pattern-Matching/grepstrings-auditing-php.md
-                rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Payloads/
-                rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Web-Shells/
-                rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Fuzzing/
+                rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Passwords/SCRABBLE/fetch.sh
+                rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Passwords/SCRABBLE/mangle.py
+                rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Passwords/Default-Credentials/scada-pass.csv
+                rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Passwords/Default-Credentials/default-passwords.csv
+                rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Pattern-Matching/grepstrings-auditing-php.md
+                rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Payloads/
+                rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Web-Shells/
+                rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Fuzzing/
                 # No convierten bien a UTF8
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Discovery/DNS/FUZZSUBS_CYFARE_2.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Discovery/Web-Content/raft-large-files-lowercase.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Discovery/Web-Content/trickest-robots-disallowed-wordlists/top-10000.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Discovery/Web-Content/raft-large-files.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Discovery/Web-Content/combined_words.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Discovery/Web-Content/CMS/trickest-cms-wordlist/dolibarr.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Discovery/Web-Content/CMS/trickest-cms-wordlist/dolibarr-all-levels.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Discovery/Web-Content/CMS/Django.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Discovery/Web-Content/raft-large-directories.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Discovery/Web-Content/raft-small-directories.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Discovery/Web-Content/raft-medium-directories.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Passwords/dutch_passwordlist.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Passwords/Cracked-Hashes/milw0rm-dictionary.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Passwords/Leaked-Databases/fortinet-2021.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Passwords/Leaked-Databases/honeynet-withcount.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Passwords/Leaked-Databases/honeynet2.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Passwords/Leaked-Databases/honeynet.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Passwords/Leaked-Databases/myspace-withcount.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Passwords/Honeypot-Captures/python-heralding-sep2019.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Passwords/Common-Credentials/10-million-password-list-top-100.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Passwords/Common-Credentials/Language-Specific/Spanish_common-usernames-and-passwords.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Passwords/Common-Credentials/10-million-password-list-top-100000.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Usernames/Honeypot-Captures/multiplesources-users-fabian-fingerle.de.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Miscellaneous/control-chars.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Miscellaneous/Moby-Project/Moby-Language-II/german.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/SecLists/Miscellaneous/Moby-Project/Moby-Language-II/japanese.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/CSL-LABS/ROCKYOU-CSL.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/CSL-LABS/misc/sports.txt
-                  #rm -rf ~/HackingTools/MultiDict/Packs/CSL-LABS/misc/top_songs.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Discovery/DNS/FUZZSUBS_CYFARE_2.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Discovery/Web-Content/raft-large-files-lowercase.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Discovery/Web-Content/trickest-robots-disallowed-wordlists/top-10000.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Discovery/Web-Content/raft-large-files.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Discovery/Web-Content/combined_words.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Discovery/Web-Content/CMS/trickest-cms-wordlist/dolibarr.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Discovery/Web-Content/CMS/trickest-cms-wordlist/dolibarr-all-levels.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Discovery/Web-Content/CMS/Django.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Discovery/Web-Content/raft-large-directories.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Discovery/Web-Content/raft-small-directories.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Discovery/Web-Content/raft-medium-directories.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Passwords/dutch_passwordlist.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Passwords/Cracked-Hashes/milw0rm-dictionary.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Passwords/Leaked-Databases/fortinet-2021.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Passwords/Leaked-Databases/honeynet-withcount.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Passwords/Leaked-Databases/honeynet2.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Passwords/Leaked-Databases/honeynet.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Passwords/Leaked-Databases/myspace-withcount.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Passwords/Honeypot-Captures/python-heralding-sep2019.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Passwords/Common-Credentials/10-million-password-list-top-100.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Passwords/Common-Credentials/Language-Specific/Spanish_common-usernames-and-passwords.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Passwords/Common-Credentials/10-million-password-list-top-100000.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Usernames/Honeypot-Captures/multiplesources-users-fabian-fingerle.de.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Miscellaneous/control-chars.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Miscellaneous/Moby-Project/Moby-Language-II/german.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Miscellaneous/Moby-Project/Moby-Language-II/japanese.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/CSL-LABS/ROCKYOU-CSL.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/CSL-LABS/misc/sports.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/CSL-LABS/misc/top_songs.txt
 
             ;;
 
@@ -264,16 +264,16 @@
                   fi
                 git clone --depth 1 https://github.com/CSL-LABS/CrackingWordLists.git
               # Borrar la carpeta vieja
-                rm -rf ~/HackingTools/MultiDict/Packs/CSL-LABS/ 2> /dev/null
+                rm -rf ~/HackingTools/MultiDict/WordLists/Packs/CSL-LABS/ 2> /dev/null
               # Asegurarse de que la carpeta base exista
-                mkdir -p ~/HackingTools/MultiDict/Packs/ 2> /dev/null
+                mkdir -p ~/HackingTools/MultiDict/WordLists/Packs/ 2> /dev/null
               # Mover carpeta
-                mv /tmp/CrackingWordLists/dics/ ~/HackingTools/MultiDict/Packs/CSL-LABS/
+                mv /tmp/CrackingWordLists/dics/ ~/HackingTools/MultiDict/WordLists/Packs/CSL-LABS/
               #
-                cd ~/HackingTools/MultiDict/Packs/CSL-LABS/
+                cd ~/HackingTools/MultiDict/WordLists/Packs/CSL-LABS/
                 tar -xvzf ROCKYOU-CSL.tar.gz
                 rm -f ROCKYOU-CSL.tar.gz
-                find ~/HackingTools/MultiDict/Packs/CSL-LABS/ -type f -name "*.dic" -exec bash -c 'mv "$0" "${0%.dic}.txt"' {} \;
+                find ~/HackingTools/MultiDict/WordLists/Packs/CSL-LABS/ -type f -name "*.dic" -exec bash -c 'mv "$0" "${0%.dic}.txt"' {} \;
 
             ;;
 
@@ -285,8 +285,8 @@
               curl -L https://crackstation.net/files/crackstation.txt.gz -o /tmp/crackstation.txt.gz
               cd /tmp/
               gunzip -v /tmp/crackstation.txt.gz
-              mkdir -p ~/HackingTools/MultiDict/Packs/CrackStation/ 2> /dev/null
-              mv /tmp/crackstation.txt ~/HackingTools/MultiDict/Packs/CrackStation/
+              mkdir -p ~/HackingTools/MultiDict/WordLists/Packs/CrackStation/ 2> /dev/null
+              mv /tmp/crackstation.txt ~/HackingTools/MultiDict/WordLists/Packs/CrackStation/
 
             ;;
 
@@ -305,8 +305,8 @@
                   echo ""
                 fi
               curl -L https://weakpass.com/download/2015/weakpass_4a.txt.7z -o /tmp/weakpass_4a.txt.7z
-              mkdir -p ~/HackingTools/MultiDict/Packs/WeakPass4a/ 2> /dev/null
-              7z x /tmp/weakpass_4a.txt.7z -o~/HackingTools/MultiDict/Packs/WeakPass4a/ # No hay que dejar espacio entre -o y la ruta del directorio
+              mkdir -p ~/HackingTools/MultiDict/WordLists/Packs/WeakPass4a/ 2> /dev/null
+              7z x /tmp/weakpass_4a.txt.7z -o~/HackingTools/MultiDict/WordLists/Packs/WeakPass4a/ # No hay que dejar espacio entre -o y la ruta del directorio
 
             ;;
 
@@ -369,7 +369,7 @@
                 done
 
               # Eliminar caracteres no imprimibles de todos los archivos y sanitizar algunas líneas
-                for vArchivo in ~/HackingTools/MultiDict/PorCantCaracteres/*.txt; do
+                for vArchivo in ~/HackingTools/MultiDict/WordLists/PorCantCaracteres/*.txt; do
                   sed -e 's/^[[:space:]]*//' "$vArchivo" | grep -a -P '^[\x20-\x7E]+$' > "$vArchivo.tmp"
                   mv -f "$vArchivo.tmp" "$vArchivo"
                 done
@@ -381,22 +381,22 @@
                 echo ""
 
               # Asegurarse de que cada arhivo tenga la cantidad correcta de caracteres por linea
-                for vArchivo in ~/HackingTools/MultiDict/PorCantCaracteres/All*Characters.txt; do
+                for vArchivo in ~/HackingTools/MultiDict/WordLists/PorCantCaracteres/All*Characters.txt; do
                   vCantidad=$(basename "$vArchivo" | sed -E 's/All([0-9]+)Characters\.txt/\1/')
                   grep -E "^.{$vCantidad}$" "$vArchivo" > "$vArchivo.tmp"
                   mv -f "$vArchivo.tmp" "$vArchivo"
                 done
 
               # Corregir nombres de los archivos con un sólo número
-                mv ~/HackingTools/MultiDict/PorCantCaracteres/All1Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All01Characters.txt
-                mv ~/HackingTools/MultiDict/PorCantCaracteres/All2Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All02Characters.txt
-                mv ~/HackingTools/MultiDict/PorCantCaracteres/All3Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All03Characters.txt
-                mv ~/HackingTools/MultiDict/PorCantCaracteres/All4Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All04Characters.txt
-                mv ~/HackingTools/MultiDict/PorCantCaracteres/All5Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All05Characters.txt
-                mv ~/HackingTools/MultiDict/PorCantCaracteres/All6Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All06Characters.txt
-                mv ~/HackingTools/MultiDict/PorCantCaracteres/All7Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All07Characters.txt
-                mv ~/HackingTools/MultiDict/PorCantCaracteres/All8Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All08Characters.txt
-                mv ~/HackingTools/MultiDict/PorCantCaracteres/All9Characters.txt ~/HackingTools/MultiDict/PorCantCaracteres/All09Characters.txt
+                mv ~/HackingTools/MultiDict/WordLists/PorCantCaracteres/All1Characters.txt ~/HackingTools/MultiDict/WordLists/PorCantCaracteres/All01Characters.txt
+                mv ~/HackingTools/MultiDict/WordLists/PorCantCaracteres/All2Characters.txt ~/HackingTools/MultiDict/WordLists/PorCantCaracteres/All02Characters.txt
+                mv ~/HackingTools/MultiDict/WordLists/PorCantCaracteres/All3Characters.txt ~/HackingTools/MultiDict/WordLists/PorCantCaracteres/All03Characters.txt
+                mv ~/HackingTools/MultiDict/WordLists/PorCantCaracteres/All4Characters.txt ~/HackingTools/MultiDict/WordLists/PorCantCaracteres/All04Characters.txt
+                mv ~/HackingTools/MultiDict/WordLists/PorCantCaracteres/All5Characters.txt ~/HackingTools/MultiDict/WordLists/PorCantCaracteres/All05Characters.txt
+                mv ~/HackingTools/MultiDict/WordLists/PorCantCaracteres/All6Characters.txt ~/HackingTools/MultiDict/WordLists/PorCantCaracteres/All06Characters.txt
+                mv ~/HackingTools/MultiDict/WordLists/PorCantCaracteres/All7Characters.txt ~/HackingTools/MultiDict/WordLists/PorCantCaracteres/All07Characters.txt
+                mv ~/HackingTools/MultiDict/WordLists/PorCantCaracteres/All8Characters.txt ~/HackingTools/MultiDict/WordLists/PorCantCaracteres/All08Characters.txt
+                mv ~/HackingTools/MultiDict/WordLists/PorCantCaracteres/All9Characters.txt ~/HackingTools/MultiDict/WordLists/PorCantCaracteres/All09Characters.txt
 
               # Notificar fin de la ejecución
                 echo ""
