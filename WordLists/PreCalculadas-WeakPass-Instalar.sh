@@ -9,13 +9,13 @@
 # Script de NiPeGun para instalar la máxima cantidad posible de WordLists en texto plano en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/PreCalculadas-Instalar.sh | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/PreCalculadas-WeakPass-Instalar.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/PreCalculadas-Instalar.sh | sed 's-sudo--g' | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/PreCalculadas-WeakPass-Instalar.sh | sed 's-sudo--g' | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/PreCalculadas-Instalar.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/PreCalculadas-WeakPass-Instalar.sh | nano -
 # ----------
 
 # Definir cual va a ser la carpeta temporal
@@ -60,48 +60,48 @@
     fi
   menu=(dialog --checklist "Marca las WordLists PreCalculadas que quieras instalar:" 22 96 16)
     opciones=(
-      1 "  WeakPass RockYou MD5"            off
-      2 "  WeakPass RockYou NTLM"           off
-      3 "  WeakPass RockYou SHA1"           off
-      4 "  WeakPass RockYou SHA256 NTLM"    off
-      5 "  WeakPass RockYou SHA256"         off
+      1 "  WeakPass RockYou MD5         (0GB)" off
+      2 "  WeakPass RockYou NTLM        (0GB)" off
+      3 "  WeakPass RockYou SHA1        (0GB)" off
+      4 "  WeakPass RockYou SHA256 NTLM (0GB)" off
+      5 "  WeakPass RockYou SHA256      (0GB)" off
 
-      6 "  WeakPass 4 Latin MD5"            off
-      7 "  WeakPass 4 Latin NTLM"           off
-      8 "  WeakPass 4 Latin SHA1"           off
-      9 "  WeakPass 4 Latin SHA256 NTLM"    off
-     10 "  WeakPass 4 Latin SHA256"         off
+      6 "  WeakPass 4 Latin MD5      (0GB)"            off
+      7 "  WeakPass 4 Latin NTLM      (0GB)"           off
+      8 "  WeakPass 4 Latin SHA1      (0GB)"           off
+      9 "  WeakPass 4 Latin SHA256 NTLM      (0GB)"    off
+     10 "  WeakPass 4 Latin SHA256      (0GB)"         off
 
-     11 "  WeakPass 4 Merged MD5"           off
-     12 "  WeakPass 4 Merged NTLM"          off
-     13 "  WeakPass 4 Merged SHA1"          off
-     14 "  WeakPass 4 Merged SHA256 NTLM"   off
-     15 "  WeakPass 4 Merged SHA256"        off
+     11 "  WeakPass 4 Merged MD5      (0GB)"           off
+     12 "  WeakPass 4 Merged NTLM      (0GB)"          off
+     13 "  WeakPass 4 Merged SHA1      (0GB)"          off
+     14 "  WeakPass 4 Merged SHA256 NTLM      (0GB)"   off
+     15 "  WeakPass 4 Merged SHA256      (0GB)"        off
 
-     16 "  WeakPass 4 Policy MD5"           off
-     17 "  WeakPass 4 Policy NTLM"          off
-     18 "  WeakPass 4 Policy SHA1"          off
-     19 "  WeakPass 4 Policy SHA256 NTLM"   off
-     21 "  WeakPass 4 Policy SHA256"        off
+     16 "  WeakPass 4 Policy MD5      (0GB)"           off
+     17 "  WeakPass 4 Policy NTLM      (0GB)"          off
+     18 "  WeakPass 4 Policy SHA1      (0GB)"          off
+     19 "  WeakPass 4 Policy SHA256 NTLM      (0GB)"   off
+     21 "  WeakPass 4 Policy SHA256      (0GB)"        off
 
-     22 "  WeakPass 4a Latin MD5"           off
-     23 "  WeakPass 4a Latin NTLM"          off
-     24 "  WeakPass 4a Latin SHA1"          off
-     25 "  WeakPass 4a Latin SHA256 NTLM"   off
-     26 "  WeakPass 4a Latin SHA256"        off
+     22 "  WeakPass 4a Latin MD5      (0GB)"           off
+     23 "  WeakPass 4a Latin NTLM      (0GB)"          off
+     24 "  WeakPass 4a Latin SHA1      (0GB)"          off
+     25 "  WeakPass 4a Latin SHA256 NTLM      (0GB)"   off
+     26 "  WeakPass 4a Latin SHA256      (0GB)"        off
 
-     27 "  WeakPass 4a Policy MD5"          off
-     28 "  WeakPass 4a Policy NTLM"         off
-     29 "  WeakPass 4a Policy SHA1"         off
-     30 "  WeakPass 4a Policy SHA256 NTLM"  off
-     31 "  WeakPass 4a Policy SHA256"       off
+     27 "  WeakPass 4a Policy MD5      (0GB)"          off
+     28 "  WeakPass 4a Policy NTLM      (0GB)"         off
+     29 "  WeakPass 4a Policy SHA1      (0GB)"         off
+     30 "  WeakPass 4a Policy SHA256 NTLM      (0GB)"  off
+     31 "  WeakPass 4a Policy SHA256      (0GB)"       off
 
-     32 "  WeakPass All in One Policy MD5"  off
-     33 "  WeakPass All in One Policy NTLM" off
-     34 "  WeakPass All in One Policy SHA1" off
+     32 "  WeakPass All in One Policy MD5      (0GB)"  off
+     33 "  WeakPass All in One Policy NTLM      (0GB)" off
+     34 "  WeakPass All in One Policy SHA1      (0GB)" off
       
-     35 "  WeakPass All in One Latin NTLM"  off
-     36 "  WeakPass All in One Latin MD5"   off
+     35 "  WeakPass All in One Latin NTLM      (0GB)"  off
+     36 "  WeakPass All in One Latin MD5      (0GB)"   off
 
       6 "  Reservado"                                          off
       7 "    Eliminar caracteres de tabulación"                on
