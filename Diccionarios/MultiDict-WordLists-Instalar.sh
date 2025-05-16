@@ -9,13 +9,13 @@
 # Script de NiPeGun para instalar la máxima cantidad posible de WordLists en texto plano en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Diccionarios/MultiDict-WordLists-Instalar.sh | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/TextoPlano-Instalar.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Diccionarios/MultiDict-WordLists-Instalar.sh | sed 's-sudo--g' | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/TextoPlano-Instalar.sh | sed 's-sudo--g' | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Diccionarios/MultiDict-WordLists-Instalar.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/TextoPlano-Instalar.sh | nano -
 # ----------
 
 # Definir constantes de color
