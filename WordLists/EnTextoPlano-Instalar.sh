@@ -43,7 +43,7 @@
       2 "  Descargar WordLists de SecLists"                    on
       3 "  Descargar WordLists de CSL-LABS"                    on
       4 "  Descargar WordLists de CrackStation"                on
-      5 "  Descargar wordlist WeakPass 4a"                     on
+      5 "  Descargar WordList WeakPass 4a"                     on
       6 "  Reservado"                                          off
       7 "    Eliminar caracteres de tabulación"                on
       8 "      Preparar WordLists de caracteres incrementales" on
@@ -215,13 +215,13 @@
                   #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/trickest-robots-disallowed-WordLists/top-10000.txt
                   #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/raft-large-files.txt
                   #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/combined_words.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/CMS/trickest-cms-wordlist/dolibarr.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/CMS/trickest-cms-wordlist/dolibarr-all-levels.txt
+                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/CMS/trickest-cms-WordList/dolibarr.txt
+                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/CMS/trickest-cms-WordList/dolibarr-all-levels.txt
                   #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/CMS/Django.txt
                   #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/raft-large-directories.txt
                   #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/raft-small-directories.txt
                   #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/raft-medium-directories.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/dutch_passwordlist.txt
+                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/dutch_passWordList.txt
                   #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/Cracked-Hashes/milw0rm-dictionary.txt
                   #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/Leaked-Databases/fortinet-2021.txt
                   #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/Leaked-Databases/honeynet-withcount.txt
