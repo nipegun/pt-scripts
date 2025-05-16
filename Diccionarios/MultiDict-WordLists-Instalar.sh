@@ -39,14 +39,14 @@
     fi
   menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 96 16)
     opciones=(
-      1 "  Instalar Diccionarios de Debian"                       on
-      2 "  Descargar diccionarios de SecLists"                    on
-      3 "  Descargar diccionarios de CSL-LABS"                    on
-      4 "  Descargar diccionarios de CrackStation"                on
-      5 "  Descargar WeakPass 4a"                                 on
-      6 "  Reservado"                                             off
-      7 "    Eliminar caracteres de tabulación"                   on
-      8 "      Preparar diccionarios de caracteres incrementales" on
+      1 "  Instalar WordLists de Debian"                       on
+      2 "  Descargar WordLists de SecLists"                    on
+      3 "  Descargar WordLists de CSL-LABS"                    on
+      4 "  Descargar WordLists de CrackStation"                on
+      5 "  Descargar wordlist WeakPass 4a"                     on
+      6 "  Reservado"                                          off
+      7 "    Eliminar caracteres de tabulación"                on
+      8 "      Preparar WordLists de caracteres incrementales" on
     )
     choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
 
@@ -57,7 +57,7 @@
             1)
 
               echo ""
-              echo "  Instalando diccionarios de Debian..."
+              echo "  Instalando WordLists de Debian..."
               echo ""
               sudo apt-get -y update
               # 
@@ -109,7 +109,7 @@
                 rm -rf ~/HackingTools/MultiDict/WordLists/Packs/Debian/ 2> /dev/null
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/MultiDict/WordLists/Packs/Debian/ 2> /dev/null
-              # Copiar diccionarios a la carpeta Debian
+              # Copiar WordLists a la carpeta Debian
                 mkdir -p ~/HackingTools/MultiDict/WordLists/Packs/Debian/scowl/
                 cp -fv /usr/share/dict/scowl/*                 ~/HackingTools/MultiDict/WordLists/Packs/Debian/scowl/
                 cp -fv /usr/share/dict/american-english        ~/HackingTools/MultiDict/WordLists/Packs/Debian/
@@ -162,7 +162,7 @@
             2)
 
               echo ""
-              echo "  Descargando diccionarios de SecLists..."
+              echo "  Descargando WordLists de SecLists..."
               echo ""
               # Borrar la carpeta vieja
                 rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/ 2> /dev/null
@@ -212,7 +212,7 @@
                 # No convierten bien a UTF8
                   #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Discovery/DNS/FUZZSUBS_CYFARE_2.txt
                   #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Discovery/Web-Content/raft-large-files-lowercase.txt
-                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Discovery/Web-Content/trickest-robots-disallowed-wordlists/top-10000.txt
+                  #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Discovery/Web-Content/trickest-robots-disallowed-WordLists/top-10000.txt
                   #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Discovery/Web-Content/raft-large-files.txt
                   #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Discovery/Web-Content/combined_words.txt
                   #rm -rf ~/HackingTools/MultiDict/WordLists/Packs/SecLists/Discovery/Web-Content/CMS/trickest-cms-wordlist/dolibarr.txt
@@ -245,7 +245,7 @@
             3)
 
               echo ""
-              echo "  Descargando diccionarios de CSL-LABS..."
+              echo "  Descargando WordLists de CSL-LABS..."
               echo ""
               # Borrar posible descarga anterior
                 rm -rf /tmp/CrackingWordLists/ 2> /dev/null
@@ -280,7 +280,7 @@
             4)
 
               echo ""
-              echo "  Descargando diccionarios de CrackStation..."
+              echo "  Descargando WordLists de CrackStation..."
               echo ""
               curl -L https://crackstation.net/files/crackstation.txt.gz -o /tmp/crackstation.txt.gz
               cd /tmp/
@@ -293,7 +293,7 @@
             5)
 
               echo ""
-              echo "  Descargando diccionario WeakPass 4a..."
+              echo "  Descargando WordList WeakPass 4a..."
               echo ""
               # Comprobar si el paquete p7zip-full está instalado. Si no lo está, instalarlo.
                 if [[ $(dpkg-query -s p7zip-full 2>/dev/null | grep installed) == "" ]]; then
@@ -336,11 +336,11 @@
             8)
 
               echo ""
-              echo "  Preparando diccionarios de caracteres incrementales..."
+              echo "  Preparando WordLists de caracteres incrementales..."
               echo "  Dependiendo de la capacidad de proceso del sistema, puede tardar más de 10 minutos."
               echo ""
 
-              # Crear diccionarios
+              # Crear WordLists
                 export LC_ALL=C.UTF-8  # Forzar UTF-8 para evitar problemas de codificación
 
                 vCarpetaInicio="$HOME/HackingTools/MultiDict/Packs/"
@@ -400,8 +400,8 @@
 
               # Notificar fin de la ejecución
                 echo ""
-                echo "  Se han procesado todos los .txt de $vCarpetaInicio y se han creado nuevos diccionarios con su contenido."
-                echo "  Puedes encontrar los nuevos diccionarios en $vCarpetaDestino"
+                echo "  Se han procesado todos los .txt de $vCarpetaInicio y se han creado nuevas WordLists con su contenido."
+                echo "  Puedes encontrarlas en $vCarpetaDestino"
                 echo ""
 
             ;;
