@@ -37,13 +37,51 @@
       sudo apt-get -y install dialog
       echo ""
     fi
-  menu=(dialog --checklist "Marca las opciones que quieras instalar:" 22 96 16)
+  menu=(dialog --checklist "Marca las WordLists PreCalculadas que quieras instalar:" 22 96 16)
     opciones=(
-      1 "  Instalar WordLists de Debian"                       on
-      2 "  Descargar WordLists de SecLists"                    on
-      3 "  Descargar WordLists de CSL-LABS"                    on
-      4 "  Descargar WordLists de CrackStation"                on
-      5 "  Descargar WordList WeakPass 4a"                     on
+      1 "  WeakPass RockYou MD5"            off
+      2 "  WeakPass RockYou NTLM"           off
+      3 "  WeakPass RockYou SHA1"           off
+      4 "  WeakPass RockYou SHA256 NTLM"    off
+      5 "  WeakPass RockYou SHA256"         off
+
+      6 "  WeakPass 4 Latin MD5"            off
+      7 "  WeakPass 4 Latin NTLM"           off
+      8 "  WeakPass 4 Latin SHA1"           off
+      9 "  WeakPass 4 Latin SHA256 NTLM"    off
+     10 "  WeakPass 4 Latin SHA256"         off
+
+     11 "  WeakPass 4 Merged MD5"           off
+     12 "  WeakPass 4 Merged NTLM"          off
+     13 "  WeakPass 4 Merged SHA1"          off
+     14 "  WeakPass 4 Merged SHA256 NTLM"   off
+     15 "  WeakPass 4 Merged SHA256"        off
+
+     16 "  WeakPass 4 Policy MD5"           off
+     17 "  WeakPass 4 Policy NTLM"          off
+     18 "  WeakPass 4 Policy SHA1"          off
+     19 "  WeakPass 4 Policy SHA256 NTLM"   off
+     21 "  WeakPass 4 Policy SHA256"        off
+
+     22 "  WeakPass 4a Latin MD5"           off
+     23 "  WeakPass 4a Latin NTLM"          off
+     24 "  WeakPass 4a Latin SHA1"          off
+     25 "  WeakPass 4a Latin SHA256 NTLM"   off
+     26 "  WeakPass 4a Latin SHA256"        off
+
+     27 "  WeakPass 4a Policy MD5"          off
+     28 "  WeakPass 4a Policy NTLM"         off
+     29 "  WeakPass 4a Policy SHA1"         off
+     30 "  WeakPass 4a Policy SHA256 NTLM"  off
+     31 "  WeakPass 4a Policy SHA256"       off
+
+     32 "  WeakPass All in One Policy MD5"  off
+     33 "  WeakPass All in One Policy NTLM" off
+     34 "  WeakPass All in One Policy SHA1" off
+      
+     35 "  WeakPass All in One Latin NTLM"  off
+     36 "  WeakPass All in One Latin MD5"   off
+
       6 "  Reservado"                                          off
       7 "    Eliminar caracteres de tabulación"                on
       8 "      Preparar WordLists de caracteres incrementales" on
@@ -57,8 +95,372 @@
             1)
 
               echo ""
-              echo "  Instalando WordLists de Debian..."
+              echo "  Instalando WordList WeakPass RockYou MD5..."
               echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/RockYou/ 2> /dev/null
+
+            ;;
+
+            2)
+
+              echo ""
+              echo "  Instalando WordList WeakPass RockYou NTLM..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/RockYou/ 2> /dev/null
+
+            ;;
+
+            3)
+
+              echo ""
+              echo "  Instalando WordList WeakPass RockYou SHA1..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/RockYou/ 2> /dev/null
+
+            ;;
+
+            4)
+
+              echo ""
+              echo "  Instalando WordList WeakPass RockYou SHA256 NTLM..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/RockYou/ 2> /dev/null
+
+            ;;
+
+            5)
+
+              echo ""
+              echo "  Instalando WordList WeakPass RockYou SHA256..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/RockYou/ 2> /dev/null
+
+            ;;
+
+            6)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4 Latin MD5..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Latin/ 2> /dev/null
+
+            ;;
+
+            7)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4 Latin NTLM..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Latin/ 2> /dev/null
+
+            ;;
+
+            8)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4 Latin SHA1..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Latin/ 2> /dev/null
+
+            ;;
+
+            9)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4 Latin SHA256 NTLM..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Latin/ 2> /dev/null
+
+            ;;
+
+           10)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4 Latin SHA256..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Latin/ 2> /dev/null
+
+            ;;
+
+           11)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4 Merged MD5..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Merged/ 2> /dev/null
+
+            ;;
+
+           12)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4 Merged NTLM..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Merged/ 2> /dev/null
+
+            ;;
+
+           13)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4 Merged SHA1..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Merged/ 2> /dev/null
+
+            ;;
+
+           14)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4 Merged SHA256 NTLM..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Merged/ 2> /dev/null
+
+            ;;
+
+           15)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4 Merged SHA256..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Merged/ 2> /dev/null
+
+            ;;
+
+           16)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4 Policy MD5..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Policy/ 2> /dev/null
+
+            ;;
+
+           17)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4 Policy NTLM..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Policy/ 2> /dev/null
+
+            ;;
+
+           18)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4 Policy SHA1..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Policy/ 2> /dev/null
+
+            ;;
+
+           19)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4 Policy SHA256 NTLM..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Policy/ 2> /dev/null
+
+            ;;
+
+           21)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4 Policy SHA256..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Policy/ 2> /dev/null
+
+            ;;
+
+           22)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4a Latin MD5..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4aLatin/ 2> /dev/null
+
+            ;;
+
+           23)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4a Latin NTLM..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4aLatin/ 2> /dev/null
+
+            ;;
+
+           24)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4a Latin SHA1..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4aLatin/ 2> /dev/null
+
+            ;;
+
+           25)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4a Latin SHA256 NTLM..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4aLatin/ 2> /dev/null
+
+            ;;
+
+           26)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4a Latin SHA256..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4aLatin/ 2> /dev/null
+
+            ;;
+
+           27)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4a Policy MD5..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4aPolicy/ 2> /dev/null
+
+            ;;
+
+           28)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4a Policy NTLM..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4aPolicy/ 2> /dev/null
+
+            ;;
+
+           29)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4a Policy SHA1..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4aPolicy/ 2> /dev/null
+
+            ;;
+
+           30)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4a Policy SHA256 NTLM..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4aPolicy/ 2> /dev/null
+
+            ;;
+
+           31)
+
+              echo ""
+              echo "  Instalando WordList WeakPass 4a Policy SHA256..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4aPolicy/ 2> /dev/null
+
+            ;;
+
+           32)
+
+              echo ""
+              echo "  Instalando WordList WeakPass All in One Policy MD5..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/AiOPolicy/ 2> /dev/null
+
+            ;;
+
+           33)
+
+              echo ""
+              echo "  Instalando WordList WeakPass All in One Policy NTLM..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/AiOPolicy/ 2> /dev/null
+
+            ;;
+
+           34)
+
+              echo ""
+              echo "  Instalando WordList WeakPass All in One Policy SHA1..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/AiOPolicy/ 2> /dev/null
+
+            ;;
+
+           35)
+
+              echo ""
+              echo "  Instalando WordList WeakPass All in One Latin NTLM..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/AiOLatin/ 2> /dev/null
+
+            ;;
+
+           36)
+
+              echo ""
+              echo "  Instalando WordList WeakPass All in One Latin MD5..."
+              echo ""
+              # Asegurarse de que la carpeta base exista
+                mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/AiOLatin/ 2> /dev/null
+
+            ;;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            1)
+
+              echo ""
+              echo "  Instalando WordList s de Debian..."
+              echo ""
+
               sudo apt-get -y update
               # 
               sudo apt-get -y --reinstall install cracklib-runtime
