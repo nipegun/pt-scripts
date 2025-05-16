@@ -42,8 +42,8 @@
       1 "  Instalar Diccionarios de Debian"                       on
       2 "  Descargar diccionarios de SecLists"                    on
       3 "  Descargar diccionarios de CSL-LABS"                    on
-      4 "  Descargar diccionarios de CrackStation"                off
-      5 "  Reservado"                                             off
+      4 "  Descargar diccionarios de CrackStation"                on
+      5 "  Descargar WeakPass 4a"                                 on
       6 "  Reservado"                                             off
       7 "    Eliminar caracteres de tabulación"                   on
       8 "      Preparar diccionarios de caracteres incrementales" on
@@ -293,10 +293,20 @@
             5)
 
               echo ""
-              echo "  Reservado..."
+              echo "  Descargando diccionario WeakPass 4a..."
               echo ""
-
-
+              # Comprobar si el paquete p7zip-full está instalado. Si no lo está, instalarlo.
+                if [[ $(dpkg-query -s p7zip-full 2>/dev/null | grep installed) == "" ]]; then
+                  echo ""
+                  echo -e "${cColorRojo}  El paquete p7zip-full no está instalado. Iniciando su instalación...${cFinColor}"
+                  echo ""
+                  sudo apt-get -y update
+                  sudo apt-get -y install p7zip-full
+                  echo ""
+                fi
+              curl -L https://weakpass.com/download/2015/weakpass_4a.txt.7z -o /tmp/weakpass_4a.txt.7z
+              mkdir -p ~/HackingTools/MultiDict/Packs/WeakPass4a/ 2> /dev/null
+              7z x /tmp/weakpass_4a.txt.7z -o~/HackingTools/MultiDict/Packs/WeakPass4a/ # No hay que dejar espacio entre -o y la ruta del directorio
 
             ;;
 
@@ -341,7 +351,7 @@
                 cd "$vCarpetaDestino" || exit 1
 
                 vCaracteresMin=1
-                vCaracteresMax=32
+                vCaracteresMax=64
 
               # Crear los archivos
                 for ((i=vCaracteresMin; i<=vCaracteresMax; i++)); do
