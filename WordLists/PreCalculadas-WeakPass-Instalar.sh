@@ -124,6 +124,8 @@
                 if fCalcularEspacioLibre 0.3; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/rockyou.txt.md5.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/rockyou.txt.md5.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass RockYou MD5...${cFinColor}"
@@ -143,6 +145,8 @@
                 if fCalcularEspacioLibre 0.3; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/rockyou.txt.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/rockyou.txt.ntlm.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass RockYou NTLM...${cFinColor}"
@@ -162,6 +166,8 @@
                 if fCalcularEspacioLibre 0.4; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/rockyou.txt.sha1.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/rockyou.txt.sha1.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass RockYou SHA1...${cFinColor}"
@@ -181,6 +187,8 @@
                 if fCalcularEspacioLibre 0.6; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/rockyou.txt.sha256.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/rockyou.txt.sha256.ntlm.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass RockYou SHA256 NTLM...${cFinColor}"
@@ -200,6 +208,8 @@
                 if fCalcularEspacioLibre 0.6; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/rockyou.txt.sha256.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/rockyou.txt.sha256.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass RockYou SHA256...${cFinColor}"
@@ -219,6 +229,8 @@
                 if fCalcularEspacioLibre 89; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.md5.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.latin.txt.md5.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Latin MD5...${cFinColor}"
@@ -238,6 +250,8 @@
                 if fCalcularEspacioLibre 89; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.latin.txt.ntlm.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Latin NTLM...${cFinColor}"
@@ -257,6 +271,8 @@
                 if fCalcularEspacioLibre 105; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.sha1.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.latin.txt.sha1.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Latin SHA1...${cFinColor}"
@@ -276,6 +292,8 @@
                 if fCalcularEspacioLibre 153; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.sha256.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.latin.txt.sha256.ntlm.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Latin SHA256 NTLM...${cFinColor}"
@@ -295,6 +313,8 @@
                 if fCalcularEspacioLibre 153; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.sha256.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.latin.txt.sha256.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Latin SHA256...${cFinColor}"
@@ -314,6 +334,8 @@
                 if fCalcularEspacioLibre 148; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.md5.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.merged.txt.md5.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Merged MD5...${cFinColor}"
@@ -333,6 +355,8 @@
                 if fCalcularEspacioLibre 148; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.merged.txt.ntlm.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Merged NTLM...${cFinColor}"
@@ -352,6 +376,8 @@
                 if fCalcularEspacioLibre 175; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.sha1.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.merged.txt.sha1.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Merged SHA1...${cFinColor}"
@@ -371,6 +397,8 @@
                 if fCalcularEspacioLibre 255; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.sha256.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.merged.txt.sha256.ntlm.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Merged SHA256 NTLM...${cFinColor}"
@@ -390,6 +418,8 @@
                 if fCalcularEspacioLibre 255; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.sha256.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.merged.txt.sha256.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Merged SHA256...${cFinColor}"
@@ -409,6 +439,8 @@
                 if fCalcularEspacioLibre 14; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.md5.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.policy.txt.md5.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Policy MD5...${cFinColor}"
@@ -428,6 +460,8 @@
                 if fCalcularEspacioLibre 14; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.policy.txt.ntlm.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Policy NTLM...${cFinColor}"
@@ -447,6 +481,8 @@
                 if fCalcularEspacioLibre 16; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.sha1.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.policy.txt.sha1.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Policy SHA1...${cFinColor}"
@@ -466,6 +502,8 @@
                 if fCalcularEspacioLibre 23; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.sha256.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.policy.txt.sha256.ntlm.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Policy SHA256 NTLM...${cFinColor}"
@@ -485,6 +523,8 @@
                 if fCalcularEspacioLibre 23; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.sha256.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.policy.txt.sha256.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Policy SHA256...${cFinColor}"
@@ -504,6 +544,8 @@
                 if fCalcularEspacioLibre 335; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.md5.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4a.latin.txt.md5.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Latin MD5...${cFinColor}"
@@ -523,6 +565,8 @@
                 if fCalcularEspacioLibre 335; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4a.latin.txt.ntlm.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Latin NTLM...${cFinColor}"
@@ -542,6 +586,8 @@
                 if fCalcularEspacioLibre 396; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.sha1.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4a.latin.txt.sha1.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Latin SHA1...${cFinColor}"
@@ -561,6 +607,8 @@
                 if fCalcularEspacioLibre 590; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.sha256.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4a.latin.txt.sha256.ntlm.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Latin SHA256 NTLM...${cFinColor}"
@@ -580,6 +628,8 @@
                 if fCalcularEspacioLibre 590; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.sha256.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4a.latin.txt.sha256.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Latin SHA256...${cFinColor}"
@@ -599,6 +649,8 @@
                 if fCalcularEspacioLibre 73; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.md5.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4a.policy.txt.md5.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Policy MD5...${cFinColor}"
@@ -618,6 +670,8 @@
                 if fCalcularEspacioLibre 73; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4a.policy.txt.ntlm.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Policy NTLM...${cFinColor}"
@@ -637,6 +691,8 @@
                 if fCalcularEspacioLibre 86; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.sha1.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4a.policy.txt.sha1.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Policy SHA1...${cFinColor}"
@@ -656,6 +712,8 @@
                 if fCalcularEspacioLibre 125; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.sha256.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4a.policy.txt.sha256.ntlm.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Policy SHA256 NTLM...${cFinColor}"
@@ -675,6 +733,8 @@
                 if fCalcularEspacioLibre 125; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.sha256.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4a.policy.txt.sha256.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Policy SHA256...${cFinColor}"
@@ -694,6 +754,8 @@
                 if fCalcularEspacioLibre 153; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/all_in_one.policy.txt.md5.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/all_in_one.policy.txt.md5.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass All in One Policy MD5...${cFinColor}"
@@ -713,6 +775,8 @@
                 if fCalcularEspacioLibre 153; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/all_in_one.policy.txt.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/all_in_one.policy.txt.ntlm.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass All in One Policy NTLM...${cFinColor}"
@@ -732,6 +796,8 @@
                 if fCalcularEspacioLibre 182; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/all_in_one.policy.txt.sha1.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/all_in_one.policy.txt.sha1.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass All in One Policy SHA1...${cFinColor}"
@@ -751,6 +817,8 @@
                 if fCalcularEspacioLibre 563; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/all_in_one.latin.txt.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/all_in_one.latin.txt.ntlm.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass All in One Latin NTLM...${cFinColor}"
@@ -770,6 +838,8 @@
                 if fCalcularEspacioLibre 563; then
                   # Descargar archivo comprimido
                     curl -L https://weakpass.com/pre-computed/download/all_in_one.latin.txt.md5.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/all_in_one.latin.txt.md5.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    .
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass All in One Latin MD5...${cFinColor}"
