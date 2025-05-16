@@ -121,7 +121,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/RockYou/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 0.3; then
                   curl -L https://weakpass.com/pre-computed/download/rockyou.txt.md5.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/rockyou.txt.md5.txt.7z
                 else
                   echo ""
@@ -139,7 +139,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/RockYou/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 0.3; then
                   curl -L https://weakpass.com/pre-computed/download/rockyou.txt.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/rockyou.txt.ntlm.txt.7z
                 else
                   echo ""
@@ -157,7 +157,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/RockYou/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 0.4; then
                   curl -L https://weakpass.com/pre-computed/download/rockyou.txt.sha1.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/rockyou.txt.sha1.txt.7z
                 else
                   echo ""
@@ -175,7 +175,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/RockYou/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 0.6; then
                   curl -L https://weakpass.com/pre-computed/download/rockyou.txt.sha256.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/rockyou.txt.sha256.ntlm.txt.7z
                 else
                   echo ""
@@ -193,7 +193,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/RockYou/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 0.6; then
                   curl -L https://weakpass.com/pre-computed/download/rockyou.txt.sha256.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/rockyou.txt.sha256.txt.7z
                 else
                   echo ""
@@ -211,7 +211,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Latin/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 89; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.md5.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.latin.txt.md5.txt.7z
                 else
                   echo ""
@@ -229,7 +229,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Latin/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 89; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.latin.txt.ntlm.txt.7z
                 else
                   echo ""
@@ -247,7 +247,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Latin/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 105; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.sha1.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.latin.txt.sha1.txt.7z
                 else
                   echo ""
@@ -265,7 +265,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Latin/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 153; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.sha256.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.latin.txt.sha256.ntlm.txt.7z
                 else
                   echo ""
@@ -283,7 +283,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Latin/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 153; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.sha256.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.latin.txt.sha256.txt.7z
                 else
                   echo ""
@@ -301,7 +301,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Merged/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 148; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.md5.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.merged.txt.md5.txt.7z
                 else
                   echo ""
@@ -319,7 +319,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Merged/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 148; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.merged.txt.ntlm.txt.7z
                 else
                   echo ""
@@ -337,7 +337,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Merged/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 175; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.sha1.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.merged.txt.sha1.txt.7z
                 else
                   echo ""
@@ -355,7 +355,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Merged/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 255; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.sha256.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.merged.txt.sha256.ntlm.txt.7z
                 else
                   echo ""
@@ -373,7 +373,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Merged/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 255; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.sha256.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.merged.txt.sha256.txt.7z
                 else
                   echo ""
@@ -391,7 +391,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Policy/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 14; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.md5.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.policy.txt.md5.txt.7z
                 else
                   echo ""
@@ -409,7 +409,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Policy/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 14; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.policy.txt.ntlm.txt.7z
                 else
                   echo ""
@@ -427,7 +427,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Policy/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 16; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.sha1.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.policy.txt.sha1.txt.7z
                 else
                   echo ""
@@ -445,7 +445,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Policy/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 23; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.sha256.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.policy.txt.sha256.ntlm.txt.7z
                 else
                   echo ""
@@ -463,7 +463,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4Policy/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 23; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.sha256.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4.policy.txt.sha256.txt.7z
                 else
                   echo ""
@@ -481,7 +481,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4aLatin/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 335; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.md5.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4a.latin.txt.md5.txt.7z
                 else
                   echo ""
@@ -499,7 +499,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4aLatin/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 335; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4a.latin.txt.ntlm.txt.7z
                 else
                   echo ""
@@ -517,7 +517,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4aLatin/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 396; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.sha1.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4a.latin.txt.sha1.txt.7z
                 else
                   echo ""
@@ -535,7 +535,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4aLatin/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 590; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.sha256.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4a.latin.txt.sha256.ntlm.txt.7z
                 else
                   echo ""
@@ -553,7 +553,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4aLatin/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 590; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.sha256.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4a.latin.txt.sha256.txt.7z
                 else
                   echo ""
@@ -571,7 +571,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4aPolicy/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 73; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.md5.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4a.policy.txt.md5.txt.7z
                 else
                   echo ""
@@ -589,7 +589,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4aPolicy/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 73; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4a.policy.txt.ntlm.txt.7z
                 else
                   echo ""
@@ -607,7 +607,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4aPolicy/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 86; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.sha1.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4a.policy.txt.sha1.txt.7z
                 else
                   echo ""
@@ -625,7 +625,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4aPolicy/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 125; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.sha256.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4a.policy.txt.sha256.ntlm.txt.7z
                 else
                   echo ""
@@ -643,7 +643,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4aPolicy/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 125; then
                   curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.sha256.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/weakpass_4a.policy.txt.sha256.txt.7z
                 else
                   echo ""
@@ -661,7 +661,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/AiOPolicy/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 460; then
+                if fCalcularEspacioLibre 153; then
                   curl -L https://weakpass.com/pre-computed/download/all_in_one.policy.txt.md5.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/all_in_one.policy.txt.md5.txt.7z
                 else
                   echo ""
@@ -679,7 +679,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/AiOPolicy/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 460; then
+                if fCalcularEspacioLibre 153; then
                   curl -L https://weakpass.com/pre-computed/download/all_in_one.policy.txt.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/all_in_one.policy.txt.ntlm.txt.7z
                 else
                   echo ""
@@ -697,7 +697,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/AiOPolicy/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 520; then
+                if fCalcularEspacioLibre 182; then
                   curl -L https://weakpass.com/pre-computed/download/all_in_one.policy.txt.sha1.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/all_in_one.policy.txt.sha1.txt.7z
                 else
                   echo ""
@@ -715,7 +715,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/AiOLatin/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1700; then
+                if fCalcularEspacioLibre 563; then
                   curl -L https://weakpass.com/pre-computed/download/all_in_one.latin.txt.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/all_in_one.latin.txt.ntlm.txt.7z
                 else
                   echo ""
@@ -733,7 +733,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/AiOLatin/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1700; then
+                if fCalcularEspacioLibre 563; then
                   curl -L https://weakpass.com/pre-computed/download/all_in_one.latin.txt.md5.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/all_in_one.latin.txt.md5.txt.7z
                 else
                   echo ""
