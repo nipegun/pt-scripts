@@ -60,48 +60,48 @@
     fi
   menu=(dialog --checklist "Marca las WordLists PreCalculadas que quieras instalar:" 22 96 16)
     opciones=(
-      1 "  WeakPass RockYou MD5         (0GB)" off
-      2 "  WeakPass RockYou NTLM        (0GB)" off
-      3 "  WeakPass RockYou SHA1        (0GB)" off
-      4 "  WeakPass RockYou SHA256 NTLM (0GB)" off
-      5 "  WeakPass RockYou SHA256      (0GB)" off
+      1 "  WeakPass RockYou MD5         (0 GB descomprimido)" off
+      2 "  WeakPass RockYou NTLM        (0 GB descomprimido)" off
+      3 "  WeakPass RockYou SHA1        (0 GB descomprimido)" off
+      4 "  WeakPass RockYou SHA256 NTLM (0 GB descomprimido)" off
+      5 "  WeakPass RockYou SHA256      (0 GB descomprimido)" off
 
-      6 "  WeakPass 4 Latin MD5         (0GB)" off
-      7 "  WeakPass 4 Latin NTLM        (0GB)" off
-      8 "  WeakPass 4 Latin SHA1        (0GB)" off
-      9 "  WeakPass 4 Latin SHA256 NTLM (0GB)" off
-     10 "  WeakPass 4 Latin SHA256      (0GB)" off
+      6 "  WeakPass 4 Latin MD5         (0 GB descomprimido)" off
+      7 "  WeakPass 4 Latin NTLM        (0 GB descomprimido)" off
+      8 "  WeakPass 4 Latin SHA1        (0 GB descomprimido)" off
+      9 "  WeakPass 4 Latin SHA256 NTLM (0 GB descomprimido)" off
+     10 "  WeakPass 4 Latin SHA256      (0 GB descomprimido)" off
 
-     11 "  WeakPass 4 Merged MD5         (0GB)" off
-     12 "  WeakPass 4 Merged NTLM        (0GB)" off
-     13 "  WeakPass 4 Merged SHA1        (0GB)" off
-     14 "  WeakPass 4 Merged SHA256 NTLM (0GB)" off
-     15 "  WeakPass 4 Merged SHA256      (0GB)" off
+     11 "  WeakPass 4 Merged MD5         (0 GB descomprimido)" off
+     12 "  WeakPass 4 Merged NTLM        (0 GB descomprimido)" off
+     13 "  WeakPass 4 Merged SHA1        (0 GB descomprimido)" off
+     14 "  WeakPass 4 Merged SHA256 NTLM (0 GB descomprimido)" off
+     15 "  WeakPass 4 Merged SHA256      (0 GB descomprimido)" off
 
-     16 "  WeakPass 4 Policy MD5         (0GB)" off
-     17 "  WeakPass 4 Policy NTLM        (0GB)" off
-     18 "  WeakPass 4 Policy SHA1        (0GB)" off
-     19 "  WeakPass 4 Policy SHA256 NTLM (0GB)" off
-     21 "  WeakPass 4 Policy SHA256      (0GB)" off
+     16 "  WeakPass 4 Policy MD5         (0 GB descomprimido)" off
+     17 "  WeakPass 4 Policy NTLM        (0 GB descomprimido)" off
+     18 "  WeakPass 4 Policy SHA1        (0 GB descomprimido)" off
+     19 "  WeakPass 4 Policy SHA256 NTLM (0 GB descomprimido)" off
+     21 "  WeakPass 4 Policy SHA256      (0 GB descomprimido)" off
 
-     22 "  WeakPass 4a Latin MD5         (0GB)" off
-     23 "  WeakPass 4a Latin NTLM        (0GB)" off
-     24 "  WeakPass 4a Latin SHA1        (0GB)" off
-     25 "  WeakPass 4a Latin SHA256 NTLM (0GB)" off
-     26 "  WeakPass 4a Latin SHA256      (0GB)" off
+     22 "  WeakPass 4a Latin MD5         (0 GB descomprimido)" off
+     23 "  WeakPass 4a Latin NTLM        (0 GB descomprimido)" off
+     24 "  WeakPass 4a Latin SHA1        (400 GB descomprimido)" off
+     25 "  WeakPass 4a Latin SHA256 NTLM (590 GB descomprimido)" off
+     26 "  WeakPass 4a Latin SHA256      (590 GB descomprimido)" off
 
-     27 "  WeakPass 4a Policy MD5         (0GB)" off
-     28 "  WeakPass 4a Policy NTLM        (0GB)" off
-     29 "  WeakPass 4a Policy SHA1        (0GB)" off
-     30 "  WeakPass 4a Policy SHA256 NTLM (0GB)" off
-     31 "  WeakPass 4a Policy SHA256      (0GB)" off
+     27 "  WeakPass 4a Policy MD5         (73 GB descomprimido)" off
+     28 "  WeakPass 4a Policy NTLM        (73 GB descomprimido)" off
+     29 "  WeakPass 4a Policy SHA1        (86 GB descomprimido)" off
+     30 "  WeakPass 4a Policy SHA256 NTLM (125 GB descomprimido)" off
+     31 "  WeakPass 4a Policy SHA256      (125 GB descomprimido)" off
 
-     32 "  WeakPass All in One Policy MD5  (0GB)" off
-     33 "  WeakPass All in One Policy NTLM (0GB)" off
-     34 "  WeakPass All in One Policy SHA1 (0GB)" off
-      
-     35 "  WeakPass All in One Latin NTLM  (0GB)" off
-     36 "  WeakPass All in One Latin MD5   (0GB)" off
+     32 "  WeakPass All in One Policy MD5  (302 GB descomprimido)" off
+     33 "  WeakPass All in One Policy NTLM (302 GB descomprimido)" off
+     34 "  WeakPass All in One Policy SHA1 (355 GB descomprimido)" off
+
+     35 "  WeakPass All in One Latin NTLM  (1,1 TB descomprimido)" off
+     36 "  WeakPass All in One Latin MD5   (1,1 TB descomprimido)" off
 
       6 "  Reservado"                                          off
       7 "    Eliminar caracteres de tabulación"                on
@@ -661,7 +661,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/AiOPolicy/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 460; then
                   curl -L https://weakpass.com/pre-computed/download/all_in_one.policy.txt.md5.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/
                 else
                   echo ""
@@ -679,7 +679,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/AiOPolicy/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 460; then
                   curl -L https://weakpass.com/pre-computed/download/all_in_one.policy.txt.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/
                 else
                   echo ""
@@ -697,7 +697,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/AiOPolicy/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 520; then
                   curl -L https://weakpass.com/pre-computed/download/all_in_one.policy.txt.sha1.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/
                 else
                   echo ""
@@ -715,7 +715,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/AiOLatin/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 1700; then
                   curl -L https://weakpass.com/pre-computed/download/all_in_one.latin.txt.ntlm.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/
                 else
                   echo ""
@@ -733,7 +733,7 @@
               # Asegurarse de que la carpeta base exista
                 mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/AiOLatin/ 2> /dev/null
               # Calcular espacio libre disponible antes de instalar la WordList
-                if fCalcularEspacioLibre 1; then
+                if fCalcularEspacioLibre 1700; then
                   curl -L https://weakpass.com/pre-computed/download/all_in_one.latin.txt.md5.txt.7z -o ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/
                 else
                   echo ""
