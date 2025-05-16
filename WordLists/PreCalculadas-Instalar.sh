@@ -43,7 +43,7 @@
       2 "  Descargar WordLists de SecLists"                    on
       3 "  Descargar WordLists de CSL-LABS"                    on
       4 "  Descargar WordLists de CrackStation"                on
-      5 "  Descargar wordlist WeakPass 4a"                     on
+      5 "  Descargar WordList WeakPass 4a"                     on
       6 "  Reservado"                                          off
       7 "    Eliminar caracteres de tabulación"                on
       8 "      Preparar WordLists de caracteres incrementales" on
@@ -215,13 +215,13 @@
                   #rm -rf ~/HackingTools/WordLists/PreCalculadas/Packs/SecLists/Discovery/Web-Content/trickest-robots-disallowed-WordLists/top-10000.txt
                   #rm -rf ~/HackingTools/WordLists/PreCalculadas/Packs/SecLists/Discovery/Web-Content/raft-large-files.txt
                   #rm -rf ~/HackingTools/WordLists/PreCalculadas/Packs/SecLists/Discovery/Web-Content/combined_words.txt
-                  #rm -rf ~/HackingTools/WordLists/PreCalculadas/Packs/SecLists/Discovery/Web-Content/CMS/trickest-cms-wordlist/dolibarr.txt
-                  #rm -rf ~/HackingTools/WordLists/PreCalculadas/Packs/SecLists/Discovery/Web-Content/CMS/trickest-cms-wordlist/dolibarr-all-levels.txt
+                  #rm -rf ~/HackingTools/WordLists/PreCalculadas/Packs/SecLists/Discovery/Web-Content/CMS/trickest-cms-WordList/dolibarr.txt
+                  #rm -rf ~/HackingTools/WordLists/PreCalculadas/Packs/SecLists/Discovery/Web-Content/CMS/trickest-cms-WordList/dolibarr-all-levels.txt
                   #rm -rf ~/HackingTools/WordLists/PreCalculadas/Packs/SecLists/Discovery/Web-Content/CMS/Django.txt
                   #rm -rf ~/HackingTools/WordLists/PreCalculadas/Packs/SecLists/Discovery/Web-Content/raft-large-directories.txt
                   #rm -rf ~/HackingTools/WordLists/PreCalculadas/Packs/SecLists/Discovery/Web-Content/raft-small-directories.txt
                   #rm -rf ~/HackingTools/WordLists/PreCalculadas/Packs/SecLists/Discovery/Web-Content/raft-medium-directories.txt
-                  #rm -rf ~/HackingTools/WordLists/PreCalculadas/Packs/SecLists/Passwords/dutch_passwordlist.txt
+                  #rm -rf ~/HackingTools/WordLists/PreCalculadas/Packs/SecLists/Passwords/dutch_passWordList.txt
                   #rm -rf ~/HackingTools/WordLists/PreCalculadas/Packs/SecLists/Passwords/Cracked-Hashes/milw0rm-dictionary.txt
                   #rm -rf ~/HackingTools/WordLists/PreCalculadas/Packs/SecLists/Passwords/Leaked-Databases/fortinet-2021.txt
                   #rm -rf ~/HackingTools/WordLists/PreCalculadas/Packs/SecLists/Passwords/Leaked-Databases/honeynet-withcount.txt
@@ -305,8 +305,8 @@
                   echo ""
                 fi
               curl -L https://weakpass.com/download/2015/weakpass_4a.txt.7z -o /tmp/weakpass_4a.txt.7z
-              mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass4a/ 2> /dev/null
-              7z x /tmp/weakpass_4a.txt.7z -o~/HackingTools/MultiDict/WordLists/Packs/WeakPass4a/ # No hay que dejar espacio entre -o y la ruta del directorio
+              mkdir -p ~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4a/ 2> /dev/null
+              7z x /tmp/weakpass_4a.txt.7z -o~/HackingTools/WordLists/PreCalculadas/Packs/WeakPass/4a/ # No hay que dejar espacio entre -o y la ruta del directorio
 
             ;;
 
