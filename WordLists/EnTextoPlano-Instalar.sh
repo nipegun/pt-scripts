@@ -305,8 +305,8 @@
                   echo ""
                 fi
               curl -L https://weakpass.com/download/2015/weakpass_4a.txt.7z -o /tmp/weakpass_4a.txt.7z
-              mkdir -p ~/HackingTools/WordLists/EnTextoPlano/Packs/WeakPass4a/ 2> /dev/null
-              7z x /tmp/weakpass_4a.txt.7z -o~/HackingTools/WordLists/EnTextoPlano/Packs/WeakPass4a/ # No hay que dejar espacio entre -o y la ruta del directorio
+              mkdir -p ~/HackingTools/WordLists/EnTextoPlano/Packs/WeakPass/4a/ 2> /dev/null
+              7z x /tmp/weakpass_4a.txt.7z -o~/HackingTools/WordLists/EnTextoPlano/Packs/WeakPass/4a/ # No hay que dejar espacio entre -o y la ruta del directorio
 
             ;;
 
