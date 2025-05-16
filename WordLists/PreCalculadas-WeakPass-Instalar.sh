@@ -60,39 +60,39 @@
     fi
   menu=(dialog --checklist "Marca las WordLists PreCalculadas que quieras instalar:" 22 96 16)
     opciones=(
-      1 "  WeakPass RockYou MD5         (0 GB descomprimido)" off
-      2 "  WeakPass RockYou NTLM        (0 GB descomprimido)" off
-      3 "  WeakPass RockYou SHA1        (0 GB descomprimido)" off
-      4 "  WeakPass RockYou SHA256 NTLM (0 GB descomprimido)" off
-      5 "  WeakPass RockYou SHA256      (0 GB descomprimido)" off
+      1 "  WeakPass RockYou MD5         (0,6 GB descomprimido)" off
+      2 "  WeakPass RockYou NTLM        (0,6 GB descomprimido)" off
+      3 "  WeakPass RockYou SHA1        (0,7 GB descomprimido)" off
+      4 "  WeakPass RockYou SHA256 NTLM (1,1 GB descomprimido)" off
+      5 "  WeakPass RockYou SHA256      (1,1 GB descomprimido)" off
 
-      6 "  WeakPass 4 Latin MD5         (0 GB descomprimido)" off
-      7 "  WeakPass 4 Latin NTLM        (0 GB descomprimido)" off
-      8 "  WeakPass 4 Latin SHA1        (0 GB descomprimido)" off
-      9 "  WeakPass 4 Latin SHA256 NTLM (0 GB descomprimido)" off
-     10 "  WeakPass 4 Latin SHA256      (0 GB descomprimido)" off
+      6 "  WeakPass 4 Latin MD5         ( 90 GB descomprimido)" off
+      7 "  WeakPass 4 Latin NTLM        (105 GB descomprimido)" off
+      8 "  WeakPass 4 Latin SHA1        (105 GB descomprimido)" off
+      9 "  WeakPass 4 Latin SHA256 NTLM (155 GB descomprimido)" off
+     10 "  WeakPass 4 Latin SHA256      (155 GB descomprimido)" off
 
-     11 "  WeakPass 4 Merged MD5         (0 GB descomprimido)" off
-     12 "  WeakPass 4 Merged NTLM        (0 GB descomprimido)" off
-     13 "  WeakPass 4 Merged SHA1        (0 GB descomprimido)" off
-     14 "  WeakPass 4 Merged SHA256 NTLM (0 GB descomprimido)" off
-     15 "  WeakPass 4 Merged SHA256      (0 GB descomprimido)" off
+     11 "  WeakPass 4 Merged MD5         (150 GB descomprimido)" off
+     12 "  WeakPass 4 Merged NTLM        (150 GB descomprimido)" off
+     13 "  WeakPass 4 Merged SHA1        (180 GB descomprimido)" off
+     14 "  WeakPass 4 Merged SHA256 NTLM (260 GB descomprimido)" off
+     15 "  WeakPass 4 Merged SHA256      (260 GB descomprimido)" off
 
-     16 "  WeakPass 4 Policy MD5         (0 GB descomprimido)" off
-     17 "  WeakPass 4 Policy NTLM        (0 GB descomprimido)" off
-     18 "  WeakPass 4 Policy SHA1        (0 GB descomprimido)" off
-     19 "  WeakPass 4 Policy SHA256 NTLM (0 GB descomprimido)" off
-     21 "  WeakPass 4 Policy SHA256      (0 GB descomprimido)" off
+     16 "  WeakPass 4 Policy MD5         (14 GB descomprimido)" off
+     17 "  WeakPass 4 Policy NTLM        (14 GB descomprimido)" off
+     18 "  WeakPass 4 Policy SHA1        (16 GB descomprimido)" off
+     19 "  WeakPass 4 Policy SHA256 NTLM (23 GB descomprimido)" off
+     21 "  WeakPass 4 Policy SHA256      (23 GB descomprimido)" off
 
-     22 "  WeakPass 4a Latin MD5         (0 GB descomprimido)" off
-     23 "  WeakPass 4a Latin NTLM        (0 GB descomprimido)" off
+     22 "  WeakPass 4a Latin MD5         (340 GB descomprimido)" off
+     23 "  WeakPass 4a Latin NTLM        (340 GB descomprimido)" off
      24 "  WeakPass 4a Latin SHA1        (400 GB descomprimido)" off
      25 "  WeakPass 4a Latin SHA256 NTLM (590 GB descomprimido)" off
      26 "  WeakPass 4a Latin SHA256      (590 GB descomprimido)" off
 
-     27 "  WeakPass 4a Policy MD5         (73 GB descomprimido)" off
-     28 "  WeakPass 4a Policy NTLM        (73 GB descomprimido)" off
-     29 "  WeakPass 4a Policy SHA1        (86 GB descomprimido)" off
+     27 "  WeakPass 4a Policy MD5         ( 73 GB descomprimido)" off
+     28 "  WeakPass 4a Policy NTLM        ( 73 GB descomprimido)" off
+     29 "  WeakPass 4a Policy SHA1        ( 86 GB descomprimido)" off
      30 "  WeakPass 4a Policy SHA256 NTLM (125 GB descomprimido)" off
      31 "  WeakPass 4a Policy SHA256      (125 GB descomprimido)" off
 
