@@ -343,8 +343,8 @@
               # Crear WordLists
                 export LC_ALL=C.UTF-8  # Forzar UTF-8 para evitar problemas de codificación
 
-                vCarpetaInicio="$HOME/HackingTools/WordLists/Packs/"
-                vCarpetaDestino="$HOME/HackingTools/WordLists/PorCantCaracteres/"
+                vCarpetaInicio="$HOME/HackingTools/WordLists/EnTextoPlano/Packs/"
+                vCarpetaDestino="$HOME/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/"
                 rm "$vCarpetaDestino"* 2> /dev/null
 
                 mkdir -p "$vCarpetaDestino"
