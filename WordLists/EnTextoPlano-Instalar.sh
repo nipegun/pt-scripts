@@ -326,7 +326,7 @@
               echo "  Eliminando caracteres de tabulación..."
               echo ""
 
-              vCarpetaInicio="$HOME/HackingTools/MultiDict/Packs/"
+              vCarpetaInicio="$HOME/HackingTools/WordLists/EnTextoPlano/Packs/"
               find "$vCarpetaInicio" -type f -name "*.txt" -print0 | while IFS= read -r -d '' vArchivo; do
                 sed -i 's/\t//g' "$vArchivo"
               done
@@ -343,8 +343,8 @@
               # Crear WordLists
                 export LC_ALL=C.UTF-8  # Forzar UTF-8 para evitar problemas de codificación
 
-                vCarpetaInicio="$HOME/HackingTools/MultiDict/Packs/"
-                vCarpetaDestino="$HOME/HackingTools/MultiDict/PorCantCaracteres/"
+                vCarpetaInicio="$HOME/HackingTools/WordLists/Packs/"
+                vCarpetaDestino="$HOME/HackingTools/WordLists/PorCantCaracteres/"
                 rm "$vCarpetaDestino"* 2> /dev/null
 
                 mkdir -p "$vCarpetaDestino"
