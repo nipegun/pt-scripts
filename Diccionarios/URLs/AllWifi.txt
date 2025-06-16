@@ -1,1 +1,0 @@
-https://raw.githubusercontent.com/CSL-LABS/CrackingWordLists/refs/heads/master/dics/CSL_Master_WiFi.dic
