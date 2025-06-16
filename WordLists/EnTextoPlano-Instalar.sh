@@ -198,7 +198,7 @@
 
               # Descomprimir archivos comprimidos
                 cd ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/
-                bzip2 -d "500-worst-passwords.txt.bz2"
+                #bzip2 -d "500-worst-passwords.txt.bz2"
                 tar -xvzf "SCRABBLE-hackerhouse.tgz"
                 rm "SCRABBLE-hackerhouse.tgz"
                 rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/SCRABBLE/fetch.sh
@@ -306,7 +306,7 @@
                 fi
               curl -L https://weakpass.com/download/2015/weakpass_4a.txt.7z -o /tmp/weakpass_4a.txt.7z
               mkdir -p ~/HackingTools/WordLists/EnTextoPlano/Packs/WeakPass/4a/ 2> /dev/null
-              7z x /tmp/weakpass_4a.txt.7z -o~/HackingTools/WordLists/EnTextoPlano/Packs/WeakPass/4a/ # No hay que dejar espacio entre -o y la ruta del directorio
+              7z x /tmp/weakpass_4a.txt.7z -o~/HackingTools/WordLists/EnTextoPlano/Packs/WeakPass/4a/ -aoa # No hay que dejar espacio entre -o y la ruta del directorio
 
             ;;
 
