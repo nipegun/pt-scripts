@@ -157,6 +157,44 @@
                 cp -fv /usr/share/dict/web2a                   ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
                 cp -fv /etc/dictionaries-common/words          ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
 
+              # Recorrer todos los archivos y cambiar la extensión a txt
+                find "$HOME""/HackingTools/WordLists/EnTextoPlano/Packs/Debian/" -type f | while read -r file; do
+                  # Omitir si ya es .txt
+                  if [[ "$file" == *.txt ]]; then
+                    continue
+                  fi
+
+                  filename=$(basename "$file")
+                  dir=$(dirname "$file")
+
+                  # Si no hay punto, no tiene extensión
+                  if [[ "$filename" != *.* ]]; then
+                    newname="${file}.txt"
+  
+                  else
+                    name="${filename%.*}"
+                    ext="${filename##*.}"
+
+                    # Si extensión es numérica → agregar .txt al nombre completo
+                    if [[ "$ext" =~ ^[0-9]+$ ]]; then
+                      newname="${file}.txt"
+
+                    # Si extensión es NO numérica → eliminar extensión y poner .txt (si no existe ya)
+                    else
+                      newname="${dir}/${name}.txt"
+                    fi
+                  fi
+
+                  # Evitar sobrescritura
+                  if [[ ! -e "$newname" ]]; then
+                    mv "$file" "$newname"
+                    echo "Renombrado: $file → $newname"
+                  else
+                    echo "Ya existe: $newname – no se renombró $file"
+                  fi
+
+                done
+
             ;;
 
             2)
@@ -236,9 +274,13 @@
                   #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Miscellaneous/control-chars.txt
                   #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Miscellaneous/Moby-Project/Moby-Language-II/german.txt
                   #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Miscellaneous/Moby-Project/Moby-Language-II/japanese.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/CSL-LABS/ROCKYOU-CSL.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/CSL-LABS/misc/sports.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/CSL-LABS/misc/top_songs.txt
+
+              # Borrar resto de archivos del repositorio
+                rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/.bin/
+                rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/.git/
+                rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/.github/
+                rm -f ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/.gitattributes
+                rm -f ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/.gitignore
 
             ;;
 
@@ -273,6 +315,9 @@
                 cd ~/HackingTools/WordLists/EnTextoPlano/Packs/CSL-LABS/
                 tar -xvzf ROCKYOU-CSL.tar.gz
                 rm -f ROCKYOU-CSL.tar.gz
+                #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/CSL-LABS/ROCKYOU-CSL.txt
+                #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/CSL-LABS/misc/sports.txt
+                #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/CSL-LABS/misc/top_songs.txt
                 find ~/HackingTools/WordLists/EnTextoPlano/Packs/CSL-LABS/ -type f -name "*.dic" -exec bash -c 'mv "$0" "${0%.dic}.txt"' {} \;
 
             ;;
