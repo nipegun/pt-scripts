@@ -1,8 +1,8 @@
 #!/bin/bash
 
-curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/OSINT/OSINTIA/Instalar-Debian.sh | bash
+# curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/OSINT/OSINTIA/Instalar-Debian.sh | bash
 
-curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/OSINT/OSINTIA/Instalar-Debian.sh | sed 's-sudo--g' | bash
+# curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/OSINT/OSINTIA/Instalar-Debian.sh | sed 's-sudo--g' | bash
 
 # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
   if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
