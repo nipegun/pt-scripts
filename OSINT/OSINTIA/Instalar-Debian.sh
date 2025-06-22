@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#  curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/OSINT/OSINTIA/Instalar-Debian.sh | bash
+
 # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
   if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
     echo ""
@@ -27,4 +29,8 @@
   sudo curl -sL -O https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/OSINT/OSINTIA/n8n/social-api.py
   cd $HOME/OSINTIA/n8n/demo-data/workflows/
   sudo curl -sL -O https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/OSINT/OSINTIA/n8n/demo-data/workflows/Agente_Smith.json
+  sudo chown $USER:$USER $HOME/OSINTIA/ -Rv
+  # Permisos
+    find $HOME/OSINTIA/ -print -type f -name "*.py" -exec chmod +x {} \;
+    find $HOME/OSINTIA/ -print -type f -name "*.sh" -exec chmod +x {} \;
   #ls -lha --group-directories-first
