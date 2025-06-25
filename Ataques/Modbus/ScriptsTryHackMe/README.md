@@ -2,7 +2,7 @@
 
 Estos scripts en Python son proporcionados por TryHackMe para resolver las salas "Attacking ICS Plant #1" y "Attacking ICS Plant #2".
 
-## Instalación
+## Instalación en Debian o derivadas
 
 Mediante usuario con permisos sudo:
 
@@ -16,3 +16,6 @@ Mediante usuario root (para sistemas sin sudo:
 curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Modbus/ScriptsTryHackMe/Instalar.sh | sed 's-sudo--g' | bash
 ```
 
+## Uso
+
+.
