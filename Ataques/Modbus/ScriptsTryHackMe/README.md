@@ -1,6 +1,6 @@
 # Scripts de Python para ataques Modbus de TryHackMe
 
-Estos scripts en Python son proporcionados por TryHackMe para resolver las salas "Attacking ICS Plant #1" y "Attacking ICS Plant #2".
+Estos scripts de Python son proporcionados por TryHackMe para resolver las salas "Attacking ICS Plant #1" y "Attacking ICS Plant #2". Usan la librería PyModbus de Python. Concretamente pymodbus 1.5.2.
 
 ## Instalación en Debian o derivadas
 
