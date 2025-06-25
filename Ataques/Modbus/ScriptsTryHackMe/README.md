@@ -10,7 +10,7 @@ Mediante usuario con permisos sudo:
 curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Modbus/ScriptsTryHackMe/Instalar.sh | bash
 ```
 
-Mediante usuario root (para sistemas sin sudo:
+Mediante usuario root (para sistemas sin sudo):
 
 ```
 curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Modbus/ScriptsTryHackMe/Instalar.sh | sed 's-sudo--g' | bash
