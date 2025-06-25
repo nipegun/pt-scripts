@@ -79,4 +79,25 @@
   curl -sL -O https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Modbus/ScriptsTryHackMe/attack_stop_fill2.py
   curl -sL -O https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Modbus/ScriptsTryHackMe/discovery.py
   curl -sL -O https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Modbus/ScriptsTryHackMe/set_registry.py
+  find $HOME/HackingTools/Modbus/ScriptsTryHackMe/ -type f -name '*.py' -exec chmod +x {} \;
+
+# Notificar fin de ejecución del script
+  echo ""
+  echo "  Script de instalación de los scripts de Modbus de TryHackMe, finalizado."
+  echo ""
+  echo "    Para ejecutar los scripts, haz primero:"
+  echo ""
+  echo "      cd $HOME/HackingTools/Modbus/ScriptsTryHackMe/"
+  echo "      source PythonVirtualEnvironment/bin/activate"
+  echo ""
+  echo "      ... y luego ejecuta cada script por separado."
+  echo ""
+  echo "    Por ejemplo:"
+  echo ""
+  echo "      ./discover.py '192.168.1.10'"
+  echo ""
+  echo "    o"
+  echo ""
+  echo "      ./set_registry.py '192.168.1.10' 11 1"
+  echo ""
 
