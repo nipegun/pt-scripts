@@ -9,26 +9,26 @@
 # Script de NiPeGun para instalar y configurar xxxxxxxxx en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL x | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Modbus/ScriptsTryHackMe/Instalar.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL x | sed 's-sudo--g' | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Modbus/ScriptsTryHackMe/Instalar.sh | sed 's-sudo--g' | bash
 #
 # Ejecución remota sin caché:
-#   curl -sL -H 'Cache-Control: no-cache, no-store' x | bash
-#
-# Ejecución remota con parámetros:
-#   curl -sL x | bash -s Parámetro1 Parámetro2
+#   curl -sL -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Modbus/ScriptsTryHackMe/Instalar.sh | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL x | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Modbus/ScriptsTryHackMe/Instalar.sh | nano -
 # ----------
 
 # Crear la carpeta HackingTools
   mkdir -p $HOME/HackingTools/ 2> /dev/null
 
+# Borrar la carpeta anterior
+  rm -rf $HOME/HackingTools/Modbus/ScriptsTryHackMe/  2> /dev/null
+
 # Crear la carpeta para estos scripts
-  mkdir -p $HOME/HackingTools/Modbus/TryHackMeScripts/ 2> /dev/null
+  mkdir -p $HOME/HackingTools/Modbus/ScriptsTryHackMe/ 2> /dev/null
 
 # Crear el entorno virtual de Python
   echo ""
@@ -43,16 +43,16 @@
       sudo apt-get -y install python3-venv
       echo ""
     fi
-  cd $HOME/HackingTools/Modbus/TryHackMeScripts/
+  cd $HOME/HackingTools/Modbus/ScriptsTryHackMe/
   python3 -m venv PythonVirtualEnvironment
   # Crear el mensaje para mostrar cuando se entra al entorno virtual
-    echo 'echo -e "\n  Activando el entorno virtual de Python para los scripts Modbus de TryHackMe... \n"' >> $HOME/HackingTools/Modbus/TryHackMeScripts/PythonVirtualEnvironment/bin/activate
+    echo 'echo -e "\n  Activando el entorno virtual de Python para los scripts Modbus de TryHackMe... \n"' >> $HOME/HackingTools/Modbus/ScriptsTryHackMe/PythonVirtualEnvironment/bin/activate
 
 # Instalar los requisitos
   echo ""
   echo "  Instalando los requisitos..."
   echo ""
-  source $HOME/HackingTools/Modbus/TryHackMeScripts/PythonVirtualEnvironment/bin/activate
+  source $HOME/HackingTools/Modbus/ScriptsTryHackMe/PythonVirtualEnvironment/bin/activate
     pip3 install pymodbus==1.5.2
     pip3 install six
   deactivate
@@ -70,7 +70,7 @@
       sudo apt-get -y install curl
       echo ""
     fi
-  cd $HOME/HackingTools/Modbus/TryHackMeScripts/
+  cd $HOME/HackingTools/Modbus/ScriptsTryHackMe/
   curl -sL -O https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Modbus/ScriptsTryHackMe/attack_move_fill.py
   curl -sL -O https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Modbus/ScriptsTryHackMe/attack_move_fill2.py
   curl -sL -O https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Modbus/ScriptsTryHackMe/attack_shutdown.py
