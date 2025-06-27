@@ -7,13 +7,13 @@ Estos scripts de Python son proporcionados por TryHackMe para resolver las salas
 Mediante usuario con permisos sudo:
 
 ```
-curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Modbus/ScriptsTryHackMe/Instalar.sh | bash
+curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Modbus/ScriptsTryHackMe/Instalar.sh | bash
 ```
 
 Mediante usuario root (para sistemas sin sudo):
 
 ```
-curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Modbus/ScriptsTryHackMe/Instalar.sh | sed 's-sudo--g' | bash
+curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Modbus/ScriptsTryHackMe/Instalar.sh | sed 's-sudo--g' | bash
 ```
 
 ## Uso
