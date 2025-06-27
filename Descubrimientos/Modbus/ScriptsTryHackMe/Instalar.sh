@@ -9,26 +9,26 @@
 # Script de NiPeGun para instalar y configurar los scripts de Modbus de TryHackMe en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Modbus/ScriptsTryHackMe/Instalar.sh | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Modbus/ScriptsTryHackMe/Instalar.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Modbus/ScriptsTryHackMe/Instalar.sh | sed 's-sudo--g' | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Modbus/ScriptsTryHackMe/Instalar.sh | sed 's-sudo--g' | bash
 #
 # Ejecución remota sin caché:
-#   curl -sL -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Modbus/ScriptsTryHackMe/Instalar.sh | bash
+#   curl -sL -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Modbus/ScriptsTryHackMe/Instalar.sh | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Modbus/ScriptsTryHackMe/Instalar.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Modbus/ScriptsTryHackMe/Instalar.sh | nano -
 # ----------
 
 # Crear la carpeta HackingTools
   mkdir -p $HOME/HackingTools/ 2> /dev/null
 
 # Borrar la carpeta anterior
-  rm -rf $HOME/HackingTools/Modbus/ScriptsTryHackMe/  2> /dev/null
+  rm -rf $HOME/HackingTools/Descubrimiento/Modbus/ScriptsTryHackMe/  2> /dev/null
 
 # Crear la carpeta para estos scripts
-  mkdir -p $HOME/HackingTools/Modbus/ScriptsTryHackMe/ 2> /dev/null
+  mkdir -p $HOME/HackingTools/Descubrimiento/Modbus/ScriptsTryHackMe/ 2> /dev/null
 
 # Crear el entorno virtual de Python
   echo ""
@@ -43,7 +43,7 @@
       sudo apt-get -y install python3-venv
       echo ""
     fi
-  cd $HOME/HackingTools/Modbus/ScriptsTryHackMe/
+  cd $HOME/HackingTools/Descubrimiento/Modbus/ScriptsTryHackMe/
   python3 -m venv PythonVirtualEnvironment
   # Crear el mensaje para mostrar cuando se entra al entorno virtual
     echo 'echo -e "\n  Activando el entorno virtual de Python para los scripts Modbus de TryHackMe... \n"' >> $HOME/HackingTools/Modbus/ScriptsTryHackMe/PythonVirtualEnvironment/bin/activate
