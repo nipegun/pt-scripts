@@ -9,10 +9,10 @@
 # Script de NiPeGun para listar los servicios desde dentro de un docker y ver que comando los lanzó
 #
 # Ejecución remota con parámetros:
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Docker-Servicios-ALaEscucha-Listar.sh | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Docker-Servicios-ALaEscucha-Listar.sh | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Descubrimientos/Docker-Servicios-ALaEscucha-Listar.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Docker-Servicios-ALaEscucha-Listar.sh | nano -
 # ----------
 
 # Verificación de Docker
