@@ -18,7 +18,7 @@ client.connect()
 # Bucle infinito para leer continuamente los registros Modbus
 while True:
   # Se leen 16 registros 'holding' comenzando desde la dirección 1
-  rr = client.read_holding_registers(1, 16)
+  rr = client.read_holding_registers(0, 50)
 
   # Se imprime la lista de valores leídos desde los registros
   print(rr.registers)
