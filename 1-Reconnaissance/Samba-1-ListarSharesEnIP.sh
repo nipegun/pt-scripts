@@ -9,13 +9,13 @@
 # Script de NiPeGun para listar los usuarios de un servidor samba sabiendo el usuario y contraseña de un usuario válido
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-1-ListarShares.sh | bash -s 'IPServSamba' 'Usuario'
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-1-ListarSharesEnIP.sh | bash -s 'IPServSamba' 'Usuario'
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-1-ListarShares.sh | sed 's-sudo--g' | bash -s 'IPServSamba' 'Usuario'
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-1-ListarSharesEnIP.sh | sed 's-sudo--g' | bash -s 'IPServSamba' 'Usuario'
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-1-ListarShares.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-1-ListarSharesEnIP.sh | nano -
 # ----------
 
 # Definir constantes de color
