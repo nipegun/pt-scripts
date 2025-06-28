@@ -10,19 +10,16 @@
 # Script de NiPeGun para escanear un PLC usando python-snap7 v1
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL x | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/S7Comm/Snap7v1-ScanPLC.py | python3 - [IPDelPLC]
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL x | sed 's-sudo--g' | python3 -
-#
-# Ejecución remota sin caché:
-#   curl -sL -H 'Cache-Control: no-cache, no-store' x | python3 -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/S7Comm/Snap7v1-ScanPLC.py | sed 's-sudo--g' | python3 - [IPDelPLC]
 #
 # Ejecución remota con parámetros:
-#   curl -sL x | python3 - -s Parámetro1 Parámetro2
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/S7Comm/Snap7v1-ScanPLC.py | python3 - [IPDelPLC]
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL x | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/S7Comm/Snap7v1-ScanPLC.py | nano -
 # ----------
 
 
