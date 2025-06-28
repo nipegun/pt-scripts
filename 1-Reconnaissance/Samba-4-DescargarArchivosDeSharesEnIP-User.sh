@@ -65,7 +65,7 @@ vPassword="$3"
 #  done
 
 
-aUsuarios=(pepe julia)
+aUsuarios=(arlina roberto guest)
 
 # Descargar contenido de cada share
   for vNombreDelShare in "${aSharesEncontrados[@]}"; do
