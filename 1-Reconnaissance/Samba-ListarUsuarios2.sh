@@ -35,9 +35,11 @@
     then
       echo ""
       echo -e "${cColorRojo}  Mal uso del script. El uso correcto sería: ${cFinColor}"
+      echo ""
       echo "    $0 [IPServSamba] [UsuarioConocido] [PassDelUsuario]"
       echo ""
       echo "  Ejemplo:"
+      echo ""
       echo "    $0 '10.10.76.111' 'arlina' 'Default_2025!'"
       echo ""
       exit
