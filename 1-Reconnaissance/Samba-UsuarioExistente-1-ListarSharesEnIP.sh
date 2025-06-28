@@ -45,7 +45,7 @@
       echo ""
       echo "  Ejemplo:"
       echo ""
-      echo "    $vNombreDelScript '10.10.100.206' 'x' 'Default_2025!'"
+      echo "    $vNombreDelScript '10.10.100.206' 'roberto' 'Default_2025!'"
       echo ""
       exit
   fi
