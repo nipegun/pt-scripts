@@ -45,7 +45,7 @@
       echo ""
       echo "  Ejemplo:"
       echo ""
-      echo "    $vNombreDelScript '10.10.76.111' 'arlina' 'Default_2025!'"
+      echo "    $vNombreDelScript '10.10.100.206' 'arlina' 'Default_2025!'"
       echo ""
       exit
   fi
