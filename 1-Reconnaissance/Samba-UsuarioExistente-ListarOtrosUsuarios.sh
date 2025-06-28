@@ -9,10 +9,10 @@
 # Script de NiPeGun para listar los usuarios de un servidor samba sabiendo el usuario y contraseña de un usuario válido
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-UsuarioNoExistente-ListarOtrosUsuarios.sh | bash -s 'IPServSamba' 'UsuarioConocido' 'PassDelUsuario'
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-UsuarioNoExistente-ListarOtrosUsuarios.sh | bash -s 'IPServSamba' 'UsuarioExistente' 'PassDelUsuario'
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-UsuarioNoExistente-ListarOtrosUsuarios.sh | sed 's-sudo--g' | bash -s 'IPServSamba' 'UsuarioConocido' 'PassDelUsuario'
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-UsuarioNoExistente-ListarOtrosUsuarios.sh | sed 's-sudo--g' | bash -s 'IPServSamba' 'UsuarioExistente' 'PassDelUsuario'
 #
 # Bajar y editar directamente el archivo en nano
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-UsuarioNoExistente-ListarOtrosUsuarios.sh | nano -
@@ -41,7 +41,7 @@
       else
         vNombreDelScript="$0"
       fi
-      echo "    $vNombreDelScript [IPServSamba] [UsuarioConocido] [PassDelUsuario]"
+      echo "    $vNombreDelScript [IPServSamba] [UsuarioExistente] [PassDelUsuario]"
       echo ""
       echo "  Ejemplo:"
       echo ""
