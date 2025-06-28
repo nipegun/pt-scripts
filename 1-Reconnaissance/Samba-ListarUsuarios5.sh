@@ -37,9 +37,10 @@
       echo -e "${cColorRojo}  Mal uso del script. El uso correcto sería: ${cFinColor}"
       echo ""
       if [[ "$0" == "bash" ]]; then
-        vNombreDelScriptScript="pepe"
+        vNombreDelScript="pepe"
       else
         vNombreDelScript="$0"
+        vNombreDelScript="pepe"
       fi
       echo "    $vNombreDelScript [IPServSamba] [UsuarioConocido] [PassDelUsuario]"
       echo ""
