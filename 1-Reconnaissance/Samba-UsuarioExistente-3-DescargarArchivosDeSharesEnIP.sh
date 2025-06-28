@@ -9,13 +9,13 @@
 # Script de NiPeGun para descargar los archivos de los shares encontrados con el script de listar shares conociendo el usuario y la contraseña
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-UsuarioNoExistente-3-DescargarArchivosDeSharesEnIP.sh | bash -s 'IPServSamba' 'UsuarioExistente' 'Contraseña'
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-UsuarioExistente-3-DescargarArchivosDeSharesEnIP.sh | bash -s 'IPServSamba' 'UsuarioExistente' 'Contraseña'
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-UsuarioNoExistente-3-DescargarArchivosDeSharesEnIP.sh | sed 's-sudo--g' | bash -s 'IPServSamba' 'UsuarioExistente' 'Contraseña'
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-UsuarioExistente-3-DescargarArchivosDeSharesEnIP.sh | sed 's-sudo--g' | bash -s 'IPServSamba' 'UsuarioExistente' 'Contraseña'
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-UsuarioNoExistente-3-DescargarArchivosDeSharesEnIP.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-UsuarioExistente-3-DescargarArchivosDeSharesEnIP.sh | nano -
 # ----------
 
 # Definir constantes de color
