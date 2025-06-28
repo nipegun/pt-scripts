@@ -9,7 +9,7 @@
 # Script de NiPeGun para listar los shares de un servidor samba sabiendo su IP
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-UsuarioNoExistnte-1-ListarSharesEnIP.sh | bash -s 'IPServSamba' 'UsuarioNoExistente'
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-UsuarioNoExistente-1-ListarSharesEnIP.sh | bash -s 'IPServSamba' 'UsuarioNoExistente'
 #
 # Ejecución remota como root (para sistemas sin sudo):
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-UsuarioNoExistente-1-ListarSharesEnIP.sh | sed 's-sudo--g' | bash -s 'IPServSamba' 'UsuarioNoExistente'
