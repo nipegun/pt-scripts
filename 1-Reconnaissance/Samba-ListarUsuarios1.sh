@@ -18,6 +18,31 @@
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-ListarUsuarios.sh | nano -
 # ----------
 
+# Definir constantes de color
+  cColorAzul="\033[0;34m"
+  cColorAzulClaro="\033[1;34m"
+  cColorVerde='\033[1;32m'
+  cColorRojo='\033[1;31m'
+  # Para el color rojo también:
+    #echo "$(tput setaf 1)Mensaje en color rojo. $(tput sgr 0)"
+  cFinColor='\033[0m'
+
+# Definir la cantidad de argumentos esperados
+  cCantParamEsperados=3
+
+# Comprobar que se hayan pasado la cantidad de parámetros correctos. Abortar el script si no.
+  if [ $# -ne $cCantParamEsperados ]
+    then
+      echo ""
+      echo -e "${cColorRojo}  Mal uso del script. El uso correcto sería: ${cFinColor}"
+      echo "    $0 [IPServSamba] [UsuarioConocido] [PassDelUsuario]"
+      echo ""
+      echo "  Ejemplo:"
+      echo "    $0 '10.10.76.111' 'arlina' 'Default_2025!'"
+      echo ""
+      exit
+  fi
+
 vIPServSamba="$1"
 vUsuarioConocido="$2"
 vPassDelUsuario="$3"
