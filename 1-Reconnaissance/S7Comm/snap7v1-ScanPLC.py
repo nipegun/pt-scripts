@@ -1,5 +1,31 @@
 #!/usr/bin/env python3
 
+
+# Pongo a disposición pública este script bajo el término de "software de dominio público".
+# Puedes hacer lo que quieras con él porque es libre de verdad; no libre con condiciones como las licencias GNU y otras patrañas similares.
+# Si se te llena la boca hablando de libertad entonces hazlo realmente libre.
+# No tienes que aceptar ningún tipo de términos de uso o licencia para utilizarlo o modificarlo porque va sin CopyLeft.
+
+# ----------
+# Script de NiPeGun para escanear un PLC usando python-snap7 v1
+#
+# Ejecución remota (puede requerir permisos sudo):
+#   curl -sL x | bash
+#
+# Ejecución remota como root (para sistemas sin sudo):
+#   curl -sL x | sed 's-sudo--g' | python3 -
+#
+# Ejecución remota sin caché:
+#   curl -sL -H 'Cache-Control: no-cache, no-store' x | python3 -
+#
+# Ejecución remota con parámetros:
+#   curl -sL x | python3 - -s Parámetro1 Parámetro2
+#
+# Bajar y editar directamente el archivo en nano
+#   curl -sL x | nano -
+# ----------
+
+
 import sys
 import subprocess
 
