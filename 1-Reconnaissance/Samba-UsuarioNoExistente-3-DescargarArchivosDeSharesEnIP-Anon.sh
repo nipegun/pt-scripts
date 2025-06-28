@@ -6,16 +6,16 @@
 # No tienes que aceptar ningún tipo de términos de uso o licencia para utilizarlo o modificarlo porque va sin CopyLeft.
 
 # ----------
-# Script de NiPeGun para descargar anónimamente los archivos de los shares encontrados con el script de listar shares anónimos
+# Script de NiPeGun para descargar los archivos de los shares encontrados con el script de listar shares con usuario no existente
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-3-DescargarArchivosDeSharesEnIP-Anon.sh | bash -s 'IPServSamba' 'UsuarioNoExistente'
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-UsuarioNoExistente-3-DescargarArchivosDeSharesEnIP.sh | bash -s 'IPServSamba' 'UsuarioNoExistente'
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-3-DescargarArchivosDeSharesEnIP-Anon.sh | sed 's-sudo--g' | bash -s 'IPServSamba' 'UsuarioNoExistente'
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-UsuarioNoExistente-3-DescargarArchivosDeSharesEnIP.sh | sed 's-sudo--g' | bash -s 'IPServSamba' 'UsuarioNoExistente'
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-3-DescargarArchivosDeSharesEnIP-Anon.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-UsuarioNoExistente-3-DescargarArchivosDeSharesEnIP.sh | nano -
 # ----------
 
 # Definir constantes de color
@@ -54,7 +54,7 @@ vIPServSamba="$1"
 vUsuarioNoExistente="$2"
 
 # Guardar los shares obtenidos con el otro script
-  aSharesEncontrados=($(curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-1-ListarSharesEnIP-Anon.sh | bash -s "$vIPServSamba" "$vUsuarioNoExistente" | cut -d':' -f2 | sed 's/^[ \t]*//'))
+  aSharesEncontrados=($(curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-UsuarioNoExistente-1-ListarSharesEnIP.sh | bash -s "$vIPServSamba" "$vUsuarioNoExistente" | cut -d':' -f2 | sed 's/^[ \t]*//'))
 
 # Descargar contenido de cada share
   for vNombreDelShare in "${aSharesEncontrados[@]}"; do
