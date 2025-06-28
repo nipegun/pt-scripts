@@ -38,9 +38,9 @@
       echo ""
       if [[ "$0" == "bash" ]]; then
         vNombreDelScript="pepe"
+        echo "$0"
       else
         vNombreDelScript="$0"
-        vNombreDelScript="pepe"
       fi
       echo "    $vNombreDelScript [IPServSamba] [UsuarioConocido] [PassDelUsuario]"
       echo ""
