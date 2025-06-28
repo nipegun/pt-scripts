@@ -59,5 +59,5 @@ vUsuario="$2"
 # Listar contenido de cada share
   for vNombreDelShare in "${aSharesEncontrados[@]}"; do
     echo -e "\n===== Nombre del share: $vNombreDelShare =====\n"
-    smbclient "//$vIPServSamba/$vNombreDelShare" -N -c 'lcd $vUsuario; recurse; prompt; mget *.*'
+    smbclient "//$vIPServSamba/$vNombreDelShare" -N -c 'lcd $vNombreDelShare; recurse; prompt; mget *.*'
   done
