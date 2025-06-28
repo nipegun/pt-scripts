@@ -56,8 +56,14 @@ vUsuario="$2"
 # Guardar los shares obtenidos con el otro script
   aSharesEncontrados=($(curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-1-ListarSharesEnIP.sh | bash -s "$vIPServSamba" "$vUsuario" | cut -d':' -f2 | sed 's/^[ \t]*//'))
 
-# Listar contenido de cada share
+# Descargar contenido de cada share
   for vNombreDelShare in "${aSharesEncontrados[@]}"; do
     echo -e "\n===== Nombre del share: $vNombreDelShare =====\n"
     smbclient "//$vIPServSamba/$vNombreDelShare" -N -c 'lcd $vNombreDelShare; recurse; prompt; mget *.*'
   done
+
+for vNombreDelShare in "${aSharesEncontrados[@]}"; do
+  echo -e "\n===== Nombre del share: $vNombreDelShare =====\n"
+  mkdir -p "$vNombreDelShare"
+  smbclient "//$vIPServSamba/$vNombreDelShare" -N -c "lcd Share$vNombreDelShare; recurse; prompt; mget *.*"
+done
