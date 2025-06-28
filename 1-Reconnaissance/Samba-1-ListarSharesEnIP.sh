@@ -6,7 +6,7 @@
 # No tienes que aceptar ningún tipo de términos de uso o licencia para utilizarlo o modificarlo porque va sin CopyLeft.
 
 # ----------
-# Script de NiPeGun para listar los usuarios de un servidor samba sabiendo el usuario y contraseña de un usuario válido
+# Script de NiPeGun para listar los shares de un servidor samba sabiendo su IP
 #
 # Ejecución remota (puede requerir permisos sudo):
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-1-ListarSharesEnIP.sh | bash -s 'IPServSamba' 'Usuario'
