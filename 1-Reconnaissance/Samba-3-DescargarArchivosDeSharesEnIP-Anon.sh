@@ -45,7 +45,7 @@
       echo ""
       echo "  Ejemplo:"
       echo ""
-      echo "    $vNombreDelScript '10.10.76.111' 'guest'"
+      echo "    $vNombreDelScript '10.10.100.206' 'guest'"
       echo ""
       exit
   fi
