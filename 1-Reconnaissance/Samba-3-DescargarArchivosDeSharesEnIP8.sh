@@ -59,11 +59,6 @@ vUsuario="$2"
 # Descargar contenido de cada share
   for vNombreDelShare in "${aSharesEncontrados[@]}"; do
     echo -e "\n===== Nombre del share: $vNombreDelShare =====\n"
-    smbclient "//$vIPServSamba/$vNombreDelShare" -N -c 'lcd $vNombreDelShare; recurse; prompt; mget *.*'
+    smbclient "//$vIPServSamba/$vNombreDelShare" -N -c "lcd $vNombreDelShare; recurse; prompt; mget *.*"
   done
 
-for vNombreDelShare in "${aSharesEncontrados[@]}"; do
-  echo -e "\n===== Nombre del share: $vNombreDelShare =====\n"
-  mkdir -p "$vNombreDelShare"
-  smbclient "//$vIPServSamba/$vNombreDelShare" -N -c "lcd Share$vNombreDelShare; recurse; prompt; mget *.*"
-done
