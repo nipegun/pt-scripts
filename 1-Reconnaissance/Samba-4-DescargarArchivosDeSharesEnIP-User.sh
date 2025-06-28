@@ -52,7 +52,7 @@
 
 vIPServSamba="$1"
 vUsuario="$2"
-vUsuario="$3"
+vPassword="$3"
 
 # Guardar los shares obtenidos con el otro script
   aSharesEncontrados=($(curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-1-ListarSharesEnIP.sh | bash -s "$vIPServSamba" "$vUsuario" | cut -d':' -f2 | sed 's/^[ \t]*//'))
@@ -79,8 +79,8 @@ aUsuarios=(pepe julia)
         # Crear carpeta para el share y usuario
           mkdir -p Share-"$vNombreDelShare"/"$vUsuario"
         # Con smbclient descarga recursiva en la carpeta del usuario
-          smbclient "//$vIP/it" -U "$vUsuario%$vPassword" -c "lcd Share-$vNombreDelShare/$vUsuario; recurse; prompt; mget *.*"
-          echo "[+] Descarga completada en ./$vUsuario/"
+          smbclient "//$vIPServSamba/it" -U "$vUsuario%$vPassword" -c "lcd Share-$vNombreDelShare/$vUsuario; recurse; prompt; mget *.*"
+          echo "[+] Descarga completada en ./Share-$vNombreDelShare/$vUsuario/"
       else
         echo "[-] Login fallido con el usuario $vUsuario."
       fi
