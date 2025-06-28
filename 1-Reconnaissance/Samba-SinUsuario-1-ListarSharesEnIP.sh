@@ -54,7 +54,7 @@ vIPServSamba="$1"
 vUsuarioNoExistente="$2"
 
 # Mostrar por pantalla
-  #smbclient -L //"$vIPServSamba"/ -U "$vUsuario"% 2> /dev/null
+  #smbclient -L //"$vIPServSamba"/ -N 2> /dev/null
 
 # Guardar la salida en un array
   mapfile -t shares < <(smbclient -L //"$vIPServSamba"/ -N 2> /dev/null | grep -E 'Disk|IPC' | sed -E 's/^\s*([^\s]+).*/\1/' | cut -d' ' -f1)
