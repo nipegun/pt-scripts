@@ -9,10 +9,10 @@
 # Script de NiPeGun para listar los shares de un servidor samba sabiendo su IP
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-SinUsuario-1-ListarSharesEnIP.sh | bash -s 'IPServSamba' 'UsuarioNoExistente'
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-SinUsuario-1-ListarSharesEnIP.sh | bash -s 'IPServSamba'
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-SinUsuario-1-ListarSharesEnIP.sh | sed 's-sudo--g' | bash -s 'IPServSamba' 'UsuarioNoExistente'
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-SinUsuario-1-ListarSharesEnIP.sh | sed 's-sudo--g' | bash -s 'IPServSamba'
 #
 # Bajar y editar directamente el archivo en nano
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-SinUsuario-1-ListarSharesEnIP.sh | nano -
@@ -28,7 +28,7 @@
   cFinColor='\033[0m'
 
 # Definir la cantidad de argumentos esperados
-  cCantParamEsperados=2
+  cCantParamEsperados=1
 
 # Comprobar que se hayan pasado la cantidad de parámetros correctos. Abortar el script si no.
   if [ $# -ne $cCantParamEsperados ]
@@ -41,17 +41,16 @@
       else
         vNombreDelScript="$0"
       fi
-      echo "    $vNombreDelScript [IPServSamba] [UsuarioNoExistente]"
+      echo "    $vNombreDelScript [IPServSamba]"
       echo ""
       echo "  Ejemplo:"
       echo ""
-      echo "    $vNombreDelScript '10.10.100.206' 'x'"
+      echo "    $vNombreDelScript '10.10.100.206'"
       echo ""
       exit
   fi
 
 vIPServSamba="$1"
-vUsuarioNoExistente="$2"
 
 # Mostrar por pantalla
   #smbclient -L //"$vIPServSamba"/ -N 2> /dev/null
