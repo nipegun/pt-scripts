@@ -9,13 +9,13 @@
 # Script de NiPeGun para listar los shares de un servidor samba sabiendo su IP
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-1-ListarSharesEnIP.sh | bash -s 'IPServSamba' 'Usuario'
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-1-ListarSharesEnIP-Anon.sh | bash -s 'IPServSamba' 'UsuarioNoExistente'
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-1-ListarSharesEnIP.sh | sed 's-sudo--g' | bash -s 'IPServSamba' 'Usuario'
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-1-ListarSharesEnIP-Anon.sh | sed 's-sudo--g' | bash -s 'IPServSamba' 'UsuarioNoExistente'
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-1-ListarSharesEnIP.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Samba-1-ListarSharesEnIP-Anon.sh | nano -
 # ----------
 
 # Definir constantes de color
@@ -41,23 +41,23 @@
       else
         vNombreDelScript="$0"
       fi
-      echo "    $vNombreDelScript [IPServSamba] [Usuario]"
+      echo "    $vNombreDelScript [IPServSamba] [UsuarioNoExistente]"
       echo ""
       echo "  Ejemplo:"
       echo ""
-      echo "    $vNombreDelScript '10.10.76.111' 'guest'"
+      echo "    $vNombreDelScript '10.10.76.111' 'x'"
       echo ""
       exit
   fi
 
 vIPServSamba="$1"
-vUsuario="$2"
+vUsuarioNoExistente="$2"
 
 # Mostrar por pantalla
   #smbclient -L //"$vIPServSamba"/ -U "$vUsuario"% 2> /dev/null
 
 # Guardar la salida en un array
-  mapfile -t shares < <(smbclient -L //"$vIPServSamba"/ -U "$vUsuario"% 2> /dev/null | grep -E 'Disk|IPC' | sed -E 's/^\s*([^\s]+).*/\1/' | cut -d' ' -f1)
+  mapfile -t shares < <(smbclient -L //"$vIPServSamba"/ -U "$vUsuarioNoExistente"% 2> /dev/null | grep -E 'Disk|IPC' | sed -E 's/^\s*([^\s]+).*/\1/' | cut -d' ' -f1)
   # MNostrar el array
     echo ""
     for s in "${shares[@]}"; do
