@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ----------
-# Script de NiPeGun para aplicar fuerza bruta de contraseñas a un archivo .zip
+# Script de NiPeGun para aplicar un ataque de diccionario a un archivo con hashes SHA512
 #
 # Ejecución remota (puede requerir permisos sudo):
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Passwords/FuerzaBruta-SHA512.sh | bash -s [ArchivoConHashes] [ArchivoDeDiccionario]
@@ -21,10 +21,10 @@
     then
       echo ""
       echo -e "${cColorRojo}  Mal uso del script. El uso correcto sería: ${cFinColor}"
-      echo "    $0 [RutaAlArchivoZIP] [DiccionarioAUtilizar]"
+      echo "    $0 [RutaAlArchivoConHashesCrudos] [DiccionarioAUtilizar]"
       echo ""
       echo "  Ejemplo:"
-      echo "    $0 '$HOME/Descargas/ArchivoProtegido.zip' '$HOME/HackingTools/MultiDict/Packs/CSL-LABS/ROCKYOU-CSL.txt'"
+      echo "    $0 '$HOME/Descargas/HashesCrudos.txt' '$HOME/HackingTools/WordLists/EnTextoPlano/Packs/CSL-LABS/ROCKYOU-CSL.txt'"
       echo ""
       exit
   fi
@@ -41,7 +41,7 @@ vRutaAlDiccionario="$2"
     #echo "$(tput setaf 1)Mensaje en color rojo. $(tput sgr 0)"
   cFinColor='\033[0m'
 
-  ~/HackingTools/john/john -w="$vRutaAlDiccionario" "$vRutaAlArchivo.hashes"
+  ~/HackingTools/john/john --format=Raw-SHA512 -w="$vRutaAlDiccionario" "$vRutaAlArchivo"
   echo ""
-  ~/HackingTools/john/john --show "$vRutaAlArchivo.hashes" | cut -d':' -f1,2 | sed 's-:- > El password es -g'
+  ~/HackingTools/john/john --show --format=Raw-SHA512 "$vRutaAlArchivo" | cut -d':' -f1,2 | sed 's-:- > El password es -g'
   echo ""
