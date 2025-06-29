@@ -4,13 +4,13 @@
 # Script de NiPeGun para aplicar un ataque de diccionario a un archivo con hashes SHA512
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Passwords/FuerzaBruta-SHA512.sh | bash -s [ArchivoConHashes] [ArchivoDeDiccionario]
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Passwords/John-Diccionario-SHA512-Raw.sh | bash -s [ArchivoConHashes] [ArchivoDeDiccionario]
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Passwords/FuerzaBruta-SHA512.sh | sed 's-sudo--g' | bash -s [ArchivoConHashes] [ArchivoDeDiccionario]
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Passwords/John-Diccionario-SHA512-Raw.sh | sed 's-sudo--g' | bash -s [ArchivoConHashes] [ArchivoDeDiccionario]
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Passwords/FuerzaBruta-SHA512.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Passwords/John-Diccionario-SHA512-Raw.sh | nano -
 # ----------
 
 # Definir la cantidad de argumentos esperados
