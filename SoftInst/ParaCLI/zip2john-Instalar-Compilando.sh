@@ -96,6 +96,7 @@
     make -s clean
     make -sj$(nproc)
     vCarpetaDondeInstalar="$vCarpetaDeUsuario/HackingTools/john"
+    sudo rm -rf $vCarpetaDondeInstalar
     mkdir -p $vCarpetaDondeInstalar 2> /dev/null
     cp -fv ../run/zip2john                      $vCarpetaDondeInstalar/
     cp -fv ../run/john                          $vCarpetaDondeInstalar/
