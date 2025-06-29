@@ -1,16 +1,16 @@
 #!/bin/bash
 
 # ----------
-# Script de NiPeGun para aplicar fuerza bruta de contraseñas a un archivo .zip
+# Script de NiPeGun para aplicar ataque de diccionario archivo .pdf protegido por contraseña
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Passwords/FuerzaBruta-Archivo-pdf.sh | bash -s Parámetro1 Parámetro2
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Passwords/John-Diccionario-Archivo-pdf.sh | bash -s Parámetro1 Parámetro2
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Passwords/FuerzaBruta-Archivo-pdf.sh | sed 's-sudo--g' | bash -s Parámetro1 Parámetro2
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Passwords/John-Diccionario-Archivo-pdf.sh | sed 's-sudo--g' | bash -s Parámetro1 Parámetro2
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Passwords/FuerzaBruta-Archivo-pdf.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Passwords/John-Diccionario-Archivo-pdf.sh | nano -
 # ----------
 
 # Definir la cantidad de argumentos esperados
@@ -24,7 +24,7 @@
       echo "    $0 [RutaAlArchivoZIP] [DiccionarioAUtilizar]"
       echo ""
       echo "  Ejemplo:"
-      echo "    $0 '$HOME/Descargas/ArchivoProtegido.zip' '$HOME/HackingTools/MultiDict/Packs/CSL-LABS/ROCKYOU-CSL.txt'"
+      echo "    $0 '$HOME/Descargas/ArchivoProtegido.pdf' '$HOME/HackingTools/MultiDict/Packs/CSL-LABS/ROCKYOU-CSL.txt'"
       echo ""
       exit
   fi
