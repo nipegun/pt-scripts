@@ -8,17 +8,11 @@
 # ----------
 # Script de NiPeGun para usar error-based SQLi para dumpear una base de datos de una URL específica
 #
-# Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Web/SQLi/LoginVulnDetector.py | python3 -
-#
-# Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Web/SQLi/LoginVulnDetector.py | sed 's-sudo--g' | python3 -
-#
 # Ejecución remota con parámetros:
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Web/SQLi/LoginVulnDetector.py | python3 - --utl [URLaComprobar]
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Web/SQLi/WebLoginSQLiVulnDetector.py | python3 - --utl [URLaComprobar] --user-field ["username"] --pass-field ["password"]
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Web/SQLi/LoginVulnDetector.py | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Web/SQLi/WebLoginSQLiVulnDetector.py | nano -
 # ----------
 
 # Requisitos: # python3 -m pip install --user x --break-system-packages
