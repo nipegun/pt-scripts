@@ -9,10 +9,10 @@
 # Script de NiPeGun para Dumpear las bases de datos de un servidor web atacando el formulario de login con la vulnerabilidad error based
 #
 # Ejecución remota con parámetros:
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web/SQLi/LoginForm-DumpearBasesDeDatos-ConVulnErrorBased.py | python3 - Parámetro1 Parámetro2
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web/LoginForm/SQLi/DumpearBasesDeDatos-ConVulnErrorBased.py | python3 - Parámetro1 Parámetro2
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web/SQLi/LoginForm-DumpearBasesDeDatos-ConVulnErrorBased.py | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web/LoginForm/SQLi/DumpearBasesDeDatos-ConVulnErrorBased.py | nano -
 #
 # Requisitos: # python3 -m pip install --user x --break-system-packages
 #
