@@ -9,19 +9,13 @@
 # Script de NiPeGun para instalar y configurar CrackMapExec en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL x | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/CrackMapExec-Instalar.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL x | sed 's-sudo--g' | bash
-#
-# Ejecución remota sin caché:
-#   curl -sL -H 'Cache-Control: no-cache, no-store' x | bash
-#
-# Ejecución remota con parámetros:
-#   curl -sL x | bash -s Parámetro1 Parámetro2
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/CrackMapExec-Instalar.sh | sed 's-sudo--g' | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL x | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaCLI/CrackMapExec-Instalar.sh | nano -
 # ----------
 
 # Definir constantes de color
@@ -99,6 +93,9 @@
       echo "    Creando entorno virtual e instalando dentro..."
       echo ""
       python3 -m venv venv
+      echo ''                                                            >> $HOME/HackingTools/CrackMapExec/venv/bin/activate
+      echo '  Activando el entorno virtual de python de CrackMapExec...' >> $HOME/HackingTools/CrackMapExec/venv/bin/activate
+      echo ''                                                            >> $HOME/HackingTools/CrackMapExec/venv/bin/activate
       source venv/bin/activate
       pip install --upgrade pip
       pip install poetry
