@@ -8,12 +8,6 @@
 # ----------
 # Script de NiPeGun para usar error-based SQLi para dumpear una base de datos de una URL específica
 #
-# Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/SQLi/ErrorBased-DumpearBaseDeDatos.py | python3 -
-#
-# Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/SQLi/ErrorBased-DumpearBaseDeDatos.py | sed 's-sudo--g' | python3 -
-#
 # Ejecución remota con parámetros:
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/SQLi/ErrorBased-DumpearBaseDeDatos.py | python3 - Parámetro1 Parámetro2
 #
