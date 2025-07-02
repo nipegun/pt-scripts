@@ -1,5 +1,28 @@
 #!/usr/bin/env python3
 
+# Pongo a disposición pública este script bajo el término de "software de dominio público".
+# Puedes hacer lo que quieras con él porque es libre de verdad; no libre con condiciones como las licencias GNU y otras patrañas similares.
+# Si se te llena la boca hablando de libertad entonces hazlo realmente libre.
+# No tienes que aceptar ningún tipo de términos de uso o licencia para utilizarlo o modificarlo porque va sin CopyLeft.
+
+# ----------
+# Script de NiPeGun para usar error-based SQLi y dumpear una base de datos de una URL específica mostrando el status de la acción
+#
+# Ejecución remota (puede requerir permisos sudo):
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/SQLi/ErrorBased-DumpearBasesDeDatosMostrandoStatus.py | python3 -
+#
+# Ejecución remota como root (para sistemas sin sudo):
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/SQLi/ErrorBased-DumpearBasesDeDatosMostrandoStatus.py | sed 's-sudo--g' | python3 -
+#
+# Ejecución remota con parámetros:
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/SQLi/ErrorBased-DumpearBasesDeDatosMostrandoStatus.py | python3 - Parámetro1 Parámetro2
+#
+# Bajar y editar directamente el archivo en nano
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/SQLi/ErrorBased-DumpearBasesDeDatosMostrandoStatus.py | nano -
+# ----------
+
+# Requisitos: # python3 -m pip install --user x --break-system-packages
+
 import requests
 import argparse
 import csv
