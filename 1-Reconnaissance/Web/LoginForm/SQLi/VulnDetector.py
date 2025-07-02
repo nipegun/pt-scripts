@@ -9,10 +9,10 @@
 # Script de NiPeGun para usar error-based SQLi para dumpear una base de datos de una URL específica
 #
 # Ejecución remota con parámetros:
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Web/SQLi/WebLoginSQLiVulnDetector.py | python3 - --utl [URLaComprobar] --user-field ["username"] --pass-field ["password"]
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Web/LoginForm/SQLiVulnDetector.py | python3 - --utl [URLaComprobar] --userfield ["username"] --passfield ["password"]
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Web/SQLi/WebLoginSQLiVulnDetector.py | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Web/LoginForm/SQLiVulnDetector.py | nano -
 # ----------
 
 # Requisitos: # python3 -m pip install --user x --break-system-packages
@@ -23,8 +23,8 @@ import argparse
 
 parser = argparse.ArgumentParser(description="Detector de vulnerabilidades SQLi")
 parser.add_argument("--url", required=True, help="URL vulnerable (ej: http://10.10.224.12/login)")
-parser.add_argument("--user-field", required=True, help="Nombre del campo del usuario (ej: username)")
-parser.add_argument("--pass-field", required=True, help="Nombre del campo de contraseña (ej: password)")
+parser.add_argument("--userfield", required=True, help="Nombre del campo del usuario (ej: username)")
+parser.add_argument("--passfield", required=True, help="Nombre del campo de contraseña (ej: password)")
 parser.add_argument("--delay", type=int, default=5, help="Delay para time-based SQLi (default: 5s)")
 parser.add_argument("--success", default="Bienvenido", help="Texto que indica login exitoso (boolean-based)")
 
@@ -103,4 +103,4 @@ if not detected:
 else:
   print("\n Puedes usar los siguientes scripts:")
   for tech in detected:
-    print(f"  - sqli_{tech.replace('-', '')}.py --url \"{url}\" --user-field \"{user_field}\" --pass-field \"{pass_field}\"")
+    print(f"  - sqli_{tech.replace('-', '')}.py --url \"{url}\" --userfield \"{user_field}\" --passfield \"{pass_field}\"")
