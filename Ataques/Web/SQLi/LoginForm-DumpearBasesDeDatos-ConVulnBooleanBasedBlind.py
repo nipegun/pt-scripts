@@ -8,12 +8,6 @@
 # ----------
 # Script de NiPeGun para usar error-based SQLi para dumpear una base de datos de una URL específica
 #
-# Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web/SQLi/LoginForm-DumpearBasesDeDatos-ConBooleanBasedBlind.py | python3 -
-#
-# Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web/SQLi/LoginForm-DumpearBasesDeDatos-ConBooleanBasedBlind.py | sed 's-sudo--g' | python3 -
-#
 # Ejecución remota con parámetros:
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web/SQLi/LoginForm-DumpearBasesDeDatos-ConBooleanBasedBlind.py | python3 - Parámetro1 Parámetro2
 #
@@ -35,8 +29,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--url", required=True, help="URL del login vulnerable (ej: http://10.10.10.10/login)")
 parser.add_argument("--max", type=int, default=10, help="Máximo de elementos por nivel")
 parser.add_argument("--success", default="Bienvenido", help="Texto que indica autenticación exitosa")
-parser.add_argument("--user-field", required=True, help="Nombre del campo de usuario en el formulario")
-parser.add_argument("--pass-field", required=True, help="Nombre del campo de contraseña en el formulario")
+parser.add_argument("--userfield", required=True, help="Nombre del campo de usuario en el formulario")
+parser.add_argument("--passfield", required=True, help="Nombre del campo de contraseña en el formulario")
 args = parser.parse_args()
 
 # Parámetros
