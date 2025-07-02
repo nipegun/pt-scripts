@@ -13,9 +13,10 @@
 #
 # Bajar y editar directamente el archivo en nano
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/SQLi/ErrorBased-DumpearBasesDeDatosMostrandoStatus.py | nano -
-# ----------
-
+#
 # Requisitos: # python3 -m pip install --user x --break-system-packages
+#
+# ----------
 
 import requests
 import argparse
