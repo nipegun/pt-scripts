@@ -6,7 +6,7 @@
 # No tienes que aceptar ningún tipo de términos de uso o licencia para utilizarlo o modificarlo porque va sin CopyLeft.
 
 # ----------
-# Script de NiPeGun para usar error-based SQLi para dumpear una base de datos de una URL específica
+# Script de NiPeGun para Dumpear las bases de datos de un servidor web atacando el formulario de login con la vulnerabilidad time based blind
 #
 # Ejecución remota con parámetros:
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web/SQLi/LoginForm-DumpearBasesDeDatos-ConVulnTimeBasedBlind.py | python3 - Parámetro1 Parámetro2
