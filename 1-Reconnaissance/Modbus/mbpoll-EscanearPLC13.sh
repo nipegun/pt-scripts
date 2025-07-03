@@ -90,12 +90,12 @@ done
     echo ""
     echo "  🔍 Escaneando Coils (0x01) del Slave ID $vSlaveID..."
     echo ""
-    timeout "$vTimeOut" mbpoll -m tcp -t 0 -a $vSlaveID -r 0 -c 2000 -0 -1 -q "$vIP" || echo "    ⚠️ Fallo al leer Coils del Slave ID $vSlaveID"
+    timeout "$vTimeOut" mbpoll -m tcp -t 0 -a $vSlaveID -r 0 -c 125 -0 -1 -q "$vIP" || echo "    ⚠️ Fallo al leer Coils del Slave ID $vSlaveID"
 
     echo ""
     echo "  🔍 Escaneando Discrete Inputs (0x02) del Slave ID $vSlaveID..."
     echo ""
-    timeout "$vTimeOut" mbpoll -m tcp -t 1 -a $vSlaveID -r 0 -c 2000 -0 -1 -q "$vIP" || echo "    ⚠️ Fallo al leer Inputs del Slave ID $vSlaveID"
+    timeout "$vTimeOut" mbpoll -m tcp -t 1 -a $vSlaveID -r 0 -c 125 -0 -1 -q "$vIP" || echo "    ⚠️ Fallo al leer Inputs del Slave ID $vSlaveID"
 
     echo ""
     echo "  🔍 Escaneando Input Registers (0x04) del Slave ID $vSlaveID..."
