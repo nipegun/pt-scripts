@@ -81,7 +81,9 @@ done
 
 # Salir si no hay ningún Slave ID válido
   if [ ${#aSlaveIDsValidos[@]} -eq 0 ]; then
-    echo "\n[!] No se detectaron Slave IDs válidos. Saliendo...\n"
+    echo ""
+    echo "  [!] No se detectaron Slave IDs válidos. Saliendo..."
+    echo ""
     exit 1
   fi
 
