@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# Shebang que indica que el script debe ejecutarse con Python 3
 
 import sys
 import time
