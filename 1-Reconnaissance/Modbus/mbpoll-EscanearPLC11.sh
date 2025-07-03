@@ -91,23 +91,23 @@ done
   for vSlaveID in "${aSlaveIDsValidos[@]}"; do
     
     echo ""
-    echo "🔍 Escaneando Coils (0x01) del Slave ID $vSlaveID..."
+    echo "  🔍 Escaneando Coils (0x01) del Slave ID $vSlaveID..."
     echo ""
-    timeout "$vTimeOut" mbpoll -m tcp -t 0 -a $vSlaveID -r 0 -c 2000 -0 -1 "$vIP" || echo "    ⚠️ Fallo al leer Coils del Slave ID $vSlaveID"
+    timeout "$vTimeOut" mbpoll -m tcp -t 0 -a $vSlaveID -r 0 -c 2000 -0 -1 "$vIP" > /dev/null 2>&1 || echo "    ⚠️ Fallo al leer Coils del Slave ID $vSlaveID"
 
     echo ""
-    echo "🔍 Escaneando Discrete Inputs (0x02) del Slave ID $vSlaveID..."
+    echo "  🔍 Escaneando Discrete Inputs (0x02) del Slave ID $vSlaveID..."
     echo ""
-    timeout "$vTimeOut" mbpoll -m tcp -t 1 -a $vSlaveID -r 0 -c 2000 -0 -1 "$vIP" || echo "    ⚠️ Fallo al leer Inputs del Slave ID $vSlaveID"
+    timeout "$vTimeOut" mbpoll -m tcp -t 1 -a $vSlaveID -r 0 -c 2000 -0 -1 "$vIP" > /dev/null 2>&1 || echo "    ⚠️ Fallo al leer Inputs del Slave ID $vSlaveID"
 
     echo ""
-    echo "🔍 Escaneando Input Registers (0x04) del Slave ID $vSlaveID..."
+    echo "  🔍 Escaneando Input Registers (0x04) del Slave ID $vSlaveID..."
     echo ""
-    timeout "$vTimeOut" mbpoll -m tcp -t 3 -a $vSlaveID -r 0 -c 125 -0 -1 "$vIP" || echo "    ⚠️ Fallo al leer Input Registers del Slave ID $vSlaveID"
+    timeout "$vTimeOut" mbpoll -m tcp -t 3 -a $vSlaveID -r 0 -c 125 -0 -1 "$vIP" > /dev/null 2>&1 || echo "    ⚠️ Fallo al leer Input Registers del Slave ID $vSlaveID"
 
     echo ""
-    echo "🔍 Escaneando Holding Registers (0x03) del Slave ID $vSlaveID..."
+    echo "  🔍 Escaneando Holding Registers (0x03) del Slave ID $vSlaveID..."
     echo ""
-    timeout "$vTimeOut" mbpoll -m tcp -t 4 -a $vSlaveID -r 0 -c 125 -0 -1 "$vIP" || echo "    ⚠️ Fallo al leer Holding Registers del Slave ID $vSlaveID"
+    timeout "$vTimeOut" mbpoll -m tcp -t 4 -a $vSlaveID -r 0 -c 125 -0 -1 "$vIP" > /dev/null 2>&1 || echo "    ⚠️ Fallo al leer Holding Registers del Slave ID $vSlaveID"
 
   done
