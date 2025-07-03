@@ -71,7 +71,7 @@ aSlaveIDsValidos=()
     mbpoll -m tcp -t 4 -a $vSlaveID -r 0 -c 1 -0 -1 -o 1 127.0.0.1 > /dev/null 2>&1
   if [ $? -eq 0 ]; then
     echo "✅ Responde"
-    aSlavesValidos+=($vSlaveID)
+    aSlaveIDsValidos+=($vSlaveID)
   else
     echo "❌ No responde"
   fi
