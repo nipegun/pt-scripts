@@ -13,6 +13,8 @@
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Modbus/mbpoll-EscanearPLC.sh | nano -
 # ----------
 
+vTimeOut="1"
+
 # Definir constantes de color
   cColorAzul="\033[0;34m"
   cColorAzulClaro="\033[1;34m"
@@ -88,7 +90,6 @@ done
   echo ""
   for vSlaveID in "${aSlaveIDsValidos[@]}"; do
     echo "🔍 Escaneando registros del Slave ID $vSlaveID..."
-    mbpoll -m tcp -t 4 -a $vSlaveID -r 0 -c 125 -0 $vIP
+    timeout "$vTimeOut" mbpoll -m tcp -t 4 -a "$vSlaveID" -r 0 -c 125 -0 "$vIP" || echo "⚠️  Fallo al escanear registros del Slave ID $vSlaveID"
     echo ""
   done
-
