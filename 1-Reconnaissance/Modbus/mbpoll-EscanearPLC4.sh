@@ -68,7 +68,7 @@ aSlaveIDsValidos=()
   echo ""
   for vSlaveID in $(seq 1 3); do
     echo -n "Probando Slave ID $vSlaveID... "
-    mbpoll -m tcp -t 4 -a $vSlaveID -r 0 -c 1 -0 -1 -o 1 127.0.0.1 > /dev/null 2>&1
+    mbpoll -m tcp -t 4 -a $vSlaveID -r 0 -c 1 -0 -1 -o 1 127.0.0.1 -P $vPuerto > /dev/null 2>&1
   if [ $? -eq 0 ]; then
     echo "✅ Responde"
     aSlaveIDsValidos+=($vSlaveID)
@@ -79,6 +79,16 @@ done
 
 # Mostrar Slave IDs vñalidos
   echo ""
-  echo "Slaves válidos detectados: ${aSlaveIDsValidos[@]}"
+  echo "Slaves IDs: ${aSlaveIDsValidos[@]}"
   echo ""
+
+# Escaneo de registros de cada Slave ID válido
+  echo ""
+  echo "  Escaneando registros de los Slave IDs ${aSlaveIDsValidos[@]}..."
+  echo ""
+  for vSlaveID in "${aSlaveIDsValidos[@]}"; do
+    echo "🔍 Escaneando registros del Slave ID $vSlaveID..."
+    mbpoll -m tcp -t 4 -a $vSlaveID -r 0 -c 125 -0 -p $vPuerto $vIP
+    echo ""
+  done
 
