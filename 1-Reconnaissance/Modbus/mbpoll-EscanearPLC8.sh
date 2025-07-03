@@ -90,6 +90,6 @@ done
   echo ""
   for vSlaveID in "${aSlaveIDsValidos[@]}"; do
     echo "🔍 Escaneando registros del Slave ID $vSlaveID..."
-    timeout "$vTimeOut" mbpoll -m tcp -t 4 -a "$vSlaveID" -r 0 -c 125 -0 "$vIP" || echo "⚠️  Fallo al escanear registros del Slave ID $vSlaveID"
+    timeout "$vTimeOut" mbpoll -m tcp -t 4 -a "$vSlaveID" -r 0 -c 125 -0 -1 "$vIP" || echo "⚠️  Fallo al escanear registros del Slave ID $vSlaveID"
     echo ""
   done
