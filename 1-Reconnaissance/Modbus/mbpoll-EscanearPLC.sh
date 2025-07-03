@@ -89,7 +89,7 @@ done
 
 # Mostrar Slave IDs vñalidos
   echo ""
-  echo "    Slaves IDs: ${aSlaveIDsValidos[@]}"
+  echo "    Slaves IDs válidos: ${aSlaveIDsValidos[@]}"
   echo ""
 
 # Escaneo de registros de cada Slave ID válido
