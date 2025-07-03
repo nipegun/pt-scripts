@@ -60,6 +60,8 @@ vPuerto="$2"
 
 trap 'echo -e "\n[!] Escaneo cancelado por el usuario.\n"; exit 1' SIGINT
 
+aSlavesValidos=()
+
 # Escanear el PLC en búsqueda de Slave IDs válidos
   echo ""
   echo "  Escaneando el PLC en busca de Slave IDs válidos..."
@@ -67,10 +69,16 @@ trap 'echo -e "\n[!] Escaneo cancelado por el usuario.\n"; exit 1' SIGINT
   for vSlaveID in $(seq 1 255); do
     echo -n "Probando Slave ID $vSlaveID... "
     mbpoll -m tcp -t 4 -a $vSlaveID -r 0 -c 1 -0 -1 -o 1 127.0.0.1 > /dev/null 2>&1
-    if [ $? -eq 0 ]; then
-      echo "✅ Responde"
-    else
-      echo "❌ No responde"
-    fi
-  done
+  if [ $? -eq 0 ]; then
+    echo "✅ Responde"
+    aSlavesValidos+=($vSlaveID)
+  else
+    echo "❌ No responde"
+  fi
+done
+
+# Mostrar Slave IDs vñalidos
+  echo ""
+  echo "Slaves válidos detectados: ${slavesValidos[@]}"
+  echo ""
 
