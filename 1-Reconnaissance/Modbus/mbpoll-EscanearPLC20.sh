@@ -70,7 +70,7 @@ aSlaveIDsValidos=()
   echo ""
   for vSlaveID in $(seq 1 3); do
     echo -n "Probando Slave ID $vSlaveID... "
-    mbpoll -m tcp -t 4 -a $vSlaveID -r 0 -c 1 -0 -1 -o 1 $vIP > /dev/null 2>&1
+    mbpoll -m tcp -t 4 -a $vSlaveID -r 0 -c 1 -0 -1 -o 1 "$vIP" -p "$vPuerto" > /dev/null 2>&1
   if [ $? -eq 0 ]; then
     echo "✅ Responde"
     aSlaveIDsValidos+=($vSlaveID)
