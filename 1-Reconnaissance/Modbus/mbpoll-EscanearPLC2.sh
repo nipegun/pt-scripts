@@ -60,7 +60,7 @@ vPuerto="$2"
 
 trap 'echo -e "\n[!] Escaneo cancelado por el usuario.\n"; exit 1' SIGINT
 
-aSlavesValidos=()
+aSlaveIDsValidos=()
 
 # Escanear el PLC en búsqueda de Slave IDs válidos
   echo ""
@@ -79,6 +79,6 @@ done
 
 # Mostrar Slave IDs vñalidos
   echo ""
-  echo "Slaves válidos detectados: ${slavesValidos[@]}"
+  echo "Slaves válidos detectados: ${aSlaveIDsValidos[@]}"
   echo ""
 
