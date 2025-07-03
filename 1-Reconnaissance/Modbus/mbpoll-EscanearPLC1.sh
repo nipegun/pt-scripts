@@ -66,7 +66,7 @@ aSlavesValidos=()
   echo ""
   echo "  Escaneando el PLC en busca de Slave IDs válidos..."
   echo ""
-  for vSlaveID in $(seq 1 255); do
+  for vSlaveID in $(seq 1 3); do
     echo -n "Probando Slave ID $vSlaveID... "
     mbpoll -m tcp -t 4 -a $vSlaveID -r 0 -c 1 -0 -1 -o 1 127.0.0.1 > /dev/null 2>&1
   if [ $? -eq 0 ]; then
