@@ -6,7 +6,7 @@
 # No tienes que aceptar ningún tipo de términos de uso o licencia para utilizarlo o modificarlo porque va sin CopyLeft.
 
 # ----------
-# Script de NiPeGun para preparar la máquina de metasploitable3-ubuntu en Debian
+# Script de NiPeGun para preparar la máquina de metasploitable3-ubuntu usando VirtualBox en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/Vulnerable/MV/VirtualBox-Metasploitable3-Ubuntu-Preparar.sh | bash
@@ -58,7 +58,7 @@
   if [ $cVerSO == "13" ]; then
 
     echo ""
-    echo -e "${cColorAzulClaro}  Iniciando el script de preparación de la máquina de metasploitable3-ubuntu en Debian 13 (x)...${cFinColor}"
+    echo -e "${cColorAzulClaro}  Iniciando el script de preparación de la máquina de metasploitable3-ubuntu usando VirtualBox en Debian 13 (x)...${cFinColor}"
     echo ""
 
     echo ""
@@ -68,7 +68,7 @@
   elif [ $cVerSO == "12" ]; then
 
     echo ""
-    echo -e "${cColorAzulClaro}  Iniciando el script de preparación de la máquina de metasploitable3-ubuntu en Debian 12 (Bookworm)...${cFinColor}"
+    echo -e "${cColorAzulClaro}  Iniciando el script de preparación de la máquina de metasploitable3-ubuntu usando VirtualBox en Debian 12 (Bookworm)...${cFinColor}"
     echo ""
 
     # Instalar dependencias
@@ -76,22 +76,25 @@
       sudo apt -y install git
       sudo apt -y install curl
       sudo apt -y install unzip
-      sudo apt -y install virtualbox
       sudo apt -y install vagrant
       sudo apt -y install packer
+      sudo apt -y install virtualbox
 
     # Clonar el repositorio oficial
       git clone https://github.com/rapid7/metasploitable3.git
       cd metasploitable3
 
-    # Preparar la máquina
-      ./build.sh ubuntu1404
+    # Motificar el script oficial para forzar virtualbox
+      sed -i -e 's-providers=""-providers="virtualbox"-g' build.sh
+      sed -i 's/providers="qemu \$providers"/providers="virtualbox"/' "build.sh"
 
+    # Construir
+      ./build.sh ubuntu1404
 
   elif [ $cVerSO == "11" ]; then
 
     echo ""
-    echo -e "${cColorAzulClaro}  Iniciando el script de preparación de la máquina de metasploitable3-ubuntu en Debian 11 (Bullseye)...${cFinColor}"
+    echo -e "${cColorAzulClaro}  Iniciando el script de preparación de la máquina de metasploitable3-ubuntu usando VirtualBox en Debian 11 (Bullseye)...${cFinColor}"
     echo ""
 
     echo ""
@@ -101,7 +104,7 @@
   elif [ $cVerSO == "10" ]; then
 
     echo ""
-    echo -e "${cColorAzulClaro}  Iniciando el script de preparación de la máquina de metasploitable3-ubuntu en Debian 10 (Buster)...${cFinColor}"
+    echo -e "${cColorAzulClaro}  Iniciando el script de preparación de la máquina de metasploitable3-ubuntu usando VirtualBox en Debian 10 (Buster)...${cFinColor}"
     echo ""
 
     echo ""
@@ -111,7 +114,7 @@
   elif [ $cVerSO == "9" ]; then
 
     echo ""
-    echo -e "${cColorAzulClaro}  Iniciando el script de preparación de la máquina de metasploitable3-ubuntu en Debian 9 (Stretch)...${cFinColor}"
+    echo -e "${cColorAzulClaro}  Iniciando el script de preparación de la máquina de metasploitable3-ubuntu usando VirtualBox en Debian 9 (Stretch)...${cFinColor}"
     echo ""
 
     echo ""
@@ -121,7 +124,7 @@
   elif [ $cVerSO == "8" ]; then
 
     echo ""
-    echo -e "${cColorAzulClaro}  Iniciando el script de preparación de la máquina de metasploitable3-ubuntu en Debian 8 (Jessie)...${cFinColor}"
+    echo -e "${cColorAzulClaro}  Iniciando el script de preparación de la máquina de metasploitable3-ubuntu usando VirtualBox en Debian 8 (Jessie)...${cFinColor}"
     echo ""
 
     echo ""
@@ -131,7 +134,7 @@
   elif [ $cVerSO == "7" ]; then
 
     echo ""
-    echo -e "${cColorAzulClaro}  IIniciando el script de preparación de la máquina de metasploitable3-ubuntu en Debian 7 (Wheezy)...${cFinColor}"
+    echo -e "${cColorAzulClaro}  IIniciando el script de preparación de la máquina de metasploitable3-ubuntu usando VirtualBox en Debian 7 (Wheezy)...${cFinColor}"
     echo ""
 
     echo ""
