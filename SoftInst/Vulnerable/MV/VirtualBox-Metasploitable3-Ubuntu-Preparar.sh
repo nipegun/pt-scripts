@@ -89,6 +89,9 @@
       sed -i 's/providers="qemu \$providers"/providers="virtualbox"/' "build.sh"
 
     # Construir
+      echo ""
+      echo "    Construyendo la máquina virtual. No interactúes con ella hasta que termine. Deja que vagrant la controle..."
+      echo ""
       ./build.sh ubuntu1404
 
   elif [ $cVerSO == "11" ]; then
