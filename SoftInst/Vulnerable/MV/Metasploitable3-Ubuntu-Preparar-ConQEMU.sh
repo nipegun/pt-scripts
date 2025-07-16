@@ -90,7 +90,11 @@
         ub1404.vm.provision "shell", inline: <<-SHELL\n\
         echo '\''deb http://old-releases.ubuntu.com/ubuntu trusty main universe'\'' > /etc/apt/sources.list\n\
         apt-get update\n\
-        apt-get install -y docker.io\n\
+        apt-get install -y docker.io dpkg-dev\n\
+        dpkg-divert --add --rename /usr/bin/docker\n\
+        ln -s /usr/bin/docker.io /usr/bin/docker\n\
+        echo -e "Package: docker-ce\\nStatus: install ok installed\\nPriority: optional\\nSection: utils\\nInstalled-Size: 0\\nMaintainer: NiPeGun\\nArchitecture: amd64\\nVersion: 18.06.1~ce~3-0~ubuntu\\nDescription: dummy docker-ce" > /var/lib/dpkg/status.d/docker-ce\n\
+        grep -q docker-ce /var/lib/dpkg/status || cat /var/lib/dpkg/status.d/docker-ce >> /var/lib/dpkg/status\n\
       SHELL\n' ~/metasploitable3/Vagrantfile
 
     # Construir
