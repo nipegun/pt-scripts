@@ -72,7 +72,8 @@
       sudo apt -y install unzip
       sudo apt -y install vagrant
       sudo apt -y install packer
-      sudo apt -y install virtualbox
+      sudo apt-get -y autoremove --purge virtualbox
+      curl -sL https://raw.githubusercontent.com/nipegun/d-scripts/refs/heads/master/InstDeSoftware/ParaGUI/VirtualBox-Instalar.sh | bash
 
     # Clonar el repositorio oficial
       git clone https://github.com/rapid7/metasploitable3.git
