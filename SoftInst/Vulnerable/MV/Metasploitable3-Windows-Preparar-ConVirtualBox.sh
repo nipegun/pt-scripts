@@ -82,11 +82,26 @@
       sed -i -e 's-providers=""-providers="virtualbox"-g' build.sh
       sed -i 's/providers="VirtualBox \$providers"/providers="virtualbox"/' "build.sh"
 
+    # Modificar el script para indicar una nueva URL con la ISO de Windows Server
+      vURL="https://dn720502.ca.archive.org/0/items/Windows_Server_2008_R2_x64.iso_reupload/Windows_Server_2008_R2_x64.iso"
+      vNombreISO="windows2008.iso"
+      vDirISO="$HOME/metasploitable3/iso"
+      vArchivoJSON="$HOME/metasploitable3/packer/templates/windows_2008_r2.json"
+      # Crear el directorio iso si no existe
+        mkdir -p "$vDirISO"
+      # Descargar ISO con curl -L
+        curl -L "$vURL" -o "$vDirISO/$vNombreISO"
+      # Calcular el hash MD5
+        vMD5=$(md5sum "$vDirISO/$vNombreISO" | awk '{print $1}')
+      # Modificar el JSON con nueva ruta y hash
+        sed -i "s|\"iso_url\": \".*\"|\"iso_url\": \"iso/$vNombreISO\"|g" "$vArchivoJSON"
+        sed -i "s|\"iso_checksum\": \".*\"|\"iso_checksum\": \"md5:$vMD5\"|g" "$vArchivoJSON"
+
     # Construir
       echo ""
       echo "    Construyendo la máquina virtual. No interactúes con ella hasta que termine. Deja que vagrant la controle..."
       echo ""
-      ./build.sh Windows1404
+      ./build.sh windows2008
 
   elif [ $cVerSO == "11" ]; then
 
