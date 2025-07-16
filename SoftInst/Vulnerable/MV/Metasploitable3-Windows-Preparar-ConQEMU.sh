@@ -85,11 +85,14 @@
       sed -i -e 's-providers=""-providers="qemu"-g' build.sh
       sed -i 's/providers="qemu \$providers"/providers="qemu"/' build.sh
 
+    # Modificar el script para indicar una nueva URL con la ISO de Windows Server
+    https://dn720502.ca.archive.org/0/items/Windows_Server_2008_R2_x64.iso_reupload/Windows_Server_2008_R2_x64.iso
+
     # Construir
       echo ""
       echo "    Construyendo la máquina virtual. No interactúes con ella hasta que termine. Deja que vagrant la controle..."
       echo ""
-      ./build.sh Windows1404
+      ./build.sh windows2008
 
   elif [ $cVerSO == "11" ]; then
 
