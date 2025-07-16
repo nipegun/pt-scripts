@@ -82,6 +82,14 @@
       sed -i -e 's-providers=""-providers="virtualbox"-g' build.sh
       sed -i 's/providers="qemu \$providers"/providers="virtualbox"/' "build.sh"
 
+    # Modificar el script para que instale docker.io antes de instalar docker-ce
+      sed -i '/^  config.vm.define "win2k8" do |win2k8|/i \
+        ub1404.vm.provision "shell", inline: <<-SHELL\n\
+        echo '\''deb http://old-releases.ubuntu.com/ubuntu trusty main universe'\'' > /etc/apt/sources.list\n\
+        apt-get update\n\
+        apt-get install -y docker.io\n\
+      SHELL\n' ~/metasploitable3/Vagrantfile
+
     # Construir
       echo ""
       echo "    Construyendo la máquina virtual. No interactúes con ella hasta que termine. Deja que vagrant la controle..."
