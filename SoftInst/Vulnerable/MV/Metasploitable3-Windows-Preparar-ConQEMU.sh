@@ -100,7 +100,6 @@
         sed -i "s|\"iso_url\": \".*\"|\"iso_url\": \"iso/$vNombreISO\"|g" "$vArchivoJSON"
         sed -i "s|\"iso_checksum\": \".*\"|\"iso_checksum\": \"md5:$vMD5\"|g" "$vArchivoJSON"
 
-
     # Construir
       echo ""
       echo "    Construyendo la máquina virtual. No interactúes con ella hasta que termine. Deja que vagrant la controle..."
