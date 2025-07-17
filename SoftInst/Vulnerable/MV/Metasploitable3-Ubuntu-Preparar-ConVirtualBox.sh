@@ -101,7 +101,7 @@
     # Cambiar el servidor web
       vIPLocal=$(hostname -I | sed 's- --g')
       echo $vIPLocal
-      sed -i 's|preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg|preseed/url=http://'"$vIPLocal"':9001/preseed.cfg|' ~/metasploitable3/packer/templates/ubuntu_1404.json
+      #sed -i 's|preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg|preseed/url=http://'"$vIPLocal"':9001/preseed.cfg|' ~/metasploitable3/packer/templates/ubuntu_1404.json
       sed -i 's|preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg|preseed/url=https://raw.githubusercontent.com/rapid7/metasploitable3/refs/heads/master/packer/http/preseed.cfg|' ~/metasploitable3/packer/templates/ubuntu_1404.json
 
     # Construir
