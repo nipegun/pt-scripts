@@ -6,7 +6,7 @@
 # No tienes que aceptar ningún tipo de términos de uso o licencia para utilizarlo o modificarlo porque va sin CopyLeft.
 
 # ----------
-# Script de NiPeGun para preparar la máquina de metasploitable3-Windows usando QEMU en Debian
+# Script de NiPeGun para preparar la máquina de Metasploitable3-Windows usando QEMU en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/Vulnerable/MV/Metasploitable3-Windows-Preparar-ConQEMU.sh | bash
@@ -78,6 +78,9 @@
     # Clonar el repositorio oficial
       rm -rf $HOME/metasploitable3
       cd $HOME
+      echo ""
+      echo "    Clonando el repositorio de metasploitable3..."
+      echo ""
       git clone https://github.com/rapid7/metasploitable3.git
 
     # Motificar el script oficial para forzar QEMU
@@ -149,7 +152,7 @@
   elif [ $cVerSO == "7" ]; then
 
     echo ""
-    echo -e "${cColorAzulClaro}  IIniciando el script de preparación de la máquina de metasploitable3-Windows usando QEMU en Debian 7 (Wheezy)...${cFinColor}"
+    echo -e "${cColorAzulClaro}  Iniciando el script de preparación de la máquina de metasploitable3-Windows usando QEMU en Debian 7 (Wheezy)...${cFinColor}"
     echo ""
 
     echo ""
