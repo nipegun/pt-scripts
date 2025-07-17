@@ -76,8 +76,8 @@
       curl -sL https://raw.githubusercontent.com/nipegun/d-scripts/refs/heads/master/InstDeSoftware/ParaGUI/VirtualBox-Instalar.sh | bash
 
     # Clonar el repositorio oficial
-      rm -rf $HOME/metasploitable3
       cd $HOME
+      rm -rf $HOME/metasploitable3
       echo ""
       echo "    Clonando el repositorio de metasploitable3..."
       echo ""
