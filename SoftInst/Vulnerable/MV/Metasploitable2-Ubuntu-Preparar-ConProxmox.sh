@@ -12,16 +12,16 @@
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/Vulnerable/MV/Metasploitable2-Ubuntu-Preparar-ConProxmox.sh | bash
 #
 # Ejecución remota con parámetros:
-#   curl sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/Vulnerable/MV/Metasploitable2-Ubuntu-Preparar-ConProxmox.sh | bash -s Almacenamiento
+#   curl sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/Vulnerable/MV/Metasploitable2-Ubuntu-Preparar-ConProxmox.sh | bash -s IdDeLaMV Almacenamiento Puente
 #
 # Bajar y editar directamente el archivo en nano
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/Vulnerable/MV/Metasploitable2-Ubuntu-Preparar-ConProxmox.sh | nano -
 # ----------
 
 vLinkDeDescarga="https://sourceforge.net/projects/metasploitable/files/latest/download"
-vAlmacenamiento="local-lvm"
-vIDdeLaMV="2000"
-vIDDelPuente="vmbr0"
+vAlmacenamiento="${1:-local-lvm}" # Si no se pasa por parámetro el almacenamiento, será local-lvm
+vIDdeLaMV="${2:-2000}" # Si no se pasa por parámetro el id de la máquina virtual, será 2000
+vIDDelPuente="${3:-vmbr0}" # Si no se pasa por parámetro el puente al que se va a conectar la tarjeta de red, será vmbr0
 vDirMac="00:00:00:00:00:01"
 
 # Crear la máquina virtual
