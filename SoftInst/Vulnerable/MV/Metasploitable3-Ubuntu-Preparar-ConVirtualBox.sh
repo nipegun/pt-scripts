@@ -90,14 +90,13 @@
 
     # Modificar el script para eliminar la instalación de docker
       sed -i '/"metasploitable::docker",/d' "$HOME/metasploitable3/packer/templates/ubuntu_1404.json"
-      # Borrar la receta de docker
-        rm ~/metasploitable3/chef/cookbooks/metasploitable/recipes/docker.rb
-        #echo '#'                            > ~/metasploitable3/chef/cookbooks/metasploitable/recipes/docker.rb
-        #echo '# Cookbook:: metasploitable' >> ~/metasploitable3/chef/cookbooks/metasploitable/recipes/docker.rb
-        #echo '# Recipe:: docker'           >> ~/metasploitable3/chef/cookbooks/metasploitable/recipes/docker.rb
-        #echo '#'                           >> ~/metasploitable3/chef/cookbooks/metasploitable/recipes/docker.rb
+      # Vaciar la receta del docker
+        echo '#'                            > ~/metasploitable3/chef/cookbooks/metasploitable/recipes/docker.rb
+        echo '# Cookbook:: metasploitable' >> ~/metasploitable3/chef/cookbooks/metasploitable/recipes/docker.rb
+        echo '# Recipe:: docker'           >> ~/metasploitable3/chef/cookbooks/metasploitable/recipes/docker.rb
+        echo '#'                           >> ~/metasploitable3/chef/cookbooks/metasploitable/recipes/docker.rb
       # Limpiar el coookbook completo de docker
-        rm -rf ~/metasploitable3/chef/cookbooks/docker/
+        #rm -rf ~/metasploitable3/chef/cookbooks/docker/
 
     # Cambiar el servidor web
       vIPLocal=$(hostname -I | sed 's- --g')
