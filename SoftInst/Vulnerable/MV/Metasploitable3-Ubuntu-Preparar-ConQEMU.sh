@@ -97,7 +97,7 @@
         #echo '# Recipe:: docker'           >> ~/metasploitable3/chef/cookbooks/metasploitable/recipes/docker.rb
         #echo '#'                           >> ~/metasploitable3/chef/cookbooks/metasploitable/recipes/docker.rb
       # Limpiar el coookbook completo de docker
-        rm -rf ~/metasploitable3/chef/cookbooks/docker
+        rm -rf ~/metasploitable3/chef/cookbooks/docker/
 
     # Construir
       echo ""
