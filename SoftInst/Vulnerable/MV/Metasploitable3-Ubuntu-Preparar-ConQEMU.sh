@@ -88,22 +88,14 @@
       sed -i -e 's-providers=""-providers="qemu"-g' build.sh
       sed -i 's/providers="qemu \$providers"/providers="qemu"/' build.sh
 
-    # Modificar el script para que instale docker.io antes de instalar docker-ce
-      sed -i '/^  config.vm.define "win2k8" do |win2k8|/i \
-        ub1404.vm.provision "shell", inline: <<-SHELL\n\
-        echo '\''deb http://old-releases.ubuntu.com/ubuntu trusty main universe'\'' > /etc/apt/sources.list\n\
-        apt-get update\n\
-        apt-get install -y docker.io dpkg-dev\n\
-        dpkg-divert --add --rename /usr/bin/docker\n\
-        ln -s /usr/bin/docker.io /usr/bin/docker\n\
-        echo -e "Package: docker-ce\\nStatus: install ok installed\\nPriority: optional\\nSection: utils\\nInstalled-Size: 0\\nMaintainer: NiPeGun\\nArchitecture: amd64\\nVersion: 18.06.1~ce~3-0~ubuntu\\nDescription: dummy docker-ce" > /var/lib/dpkg/status.d/docker-ce\n\
-        grep -q docker-ce /var/lib/dpkg/status || cat /var/lib/dpkg/status.d/docker-ce >> /var/lib/dpkg/status\n\
-      SHELL\n' ~/metasploitable3/Vagrantfile
+    # Modificar el script para eliminar la instalación de docker
+      sed -i '/"metasploitable::docker",/d' "$HOME/metasploitable3/packer/templates/ubuntu_1404.json"
 
     # Construir
       echo ""
       echo "    Construyendo la máquina virtual. No interactúes con ella hasta que termine. Deja que vagrant la controle..."
       echo ""
+      # vagrant destroy -f
       ./build.sh ubuntu1404
 
   elif [ $cVerSO == "11" ]; then
