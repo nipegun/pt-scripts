@@ -76,8 +76,8 @@
       sudo apt -y install libvirt0
 
     # Clonar el repositorio oficial
-      rm -rf ~/metasploitable3
-      cd ~/
+      rm -rf $HOME/metasploitable3
+      cd $HOME
       git clone https://github.com/rapid7/metasploitable3.git
 
     # Motificar el script oficial para forzar QEMU
