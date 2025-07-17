@@ -26,7 +26,7 @@ vDirMac="00:00:00:00:00:01"
 
 # Crear la máquina virtual
   echo ""
-  echo "  Creando la máquina virtual de Metasploitable2..."
+  echo "  Creando la máquina virtual de Metasploitable2-Ubuntu..."
   echo ""
   qm create $vIDdeLaMV \
     --name Metasploitable2-Ubuntu \
@@ -72,10 +72,26 @@ vDirMac="00:00:00:00:00:01"
 
 # Importar el archivo .vmdk a la máquina virtual
   echo ""
-  echo "    Importando el archivo de .vmdk a la máquina virtual..."
+  echo "    Importando el archivo .vmdk a la máquina virtual..."
   echo ""
   mv /tmp/Metasploitable2-Linux/Metasploitable.vmdk /tmp/Metasploitable2-Ubuntu.vmdk
   qm importdisk $vIDdeLaMV /tmp/Metasploitable2-Ubuntu.vmdk "$vAlmacenamiento" && rm -vf /tmp/Metasploitable2-Ubuntu.vmdk && rm -rf /tmp/Metasploitable2-Linux/
   vRutaAlDisco=$(qm config $vIDdeLaMV | grep unused | cut -d' ' -f2)
   qm set $vIDdeLaMV --sata1 $vRutaAlDisco
   qm set $vIDdeLaMV --boot order='sata0;sata1'
+
+# Notificar fin de ejecución del script
+  echo ""
+  echo "    Script de creación de la máquina virtual Metasploitable2-Ubuntu para Proxmox, finalizado."
+  echo ""
+  #echo "      En el caso de necesitar interactuar con la máquina virtual, estas son las credenciales:"
+  #echo ""
+  #echo "      Usuario:    msfadmin"
+  #echo "      Contraseña: msfadmin"
+  #echo ""
+  #echo "      Usuario:    user"
+  #echo "      Contraseña: user"
+  #echo ""
+  #echo "      Usuario: postgres"
+  #echo "      Contraseña: postgres"
+  #echo ""
