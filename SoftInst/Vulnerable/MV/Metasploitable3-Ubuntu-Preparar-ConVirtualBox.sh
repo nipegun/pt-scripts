@@ -90,9 +90,20 @@
 
     # Modificar el script para eliminar la instalación de docker
       sed -i '/"metasploitable::docker",/d' "$HOME/metasploitable3/packer/templates/ubuntu_1404.json"
+      # Borrar la receta de docker
+        rm ~/metasploitable3/chef/cookbooks/metasploitable/recipes/docker.rb
+        #echo '#'                            > ~/metasploitable3/chef/cookbooks/metasploitable/recipes/docker.rb
+        #echo '# Cookbook:: metasploitable' >> ~/metasploitable3/chef/cookbooks/metasploitable/recipes/docker.rb
+        #echo '# Recipe:: docker'           >> ~/metasploitable3/chef/cookbooks/metasploitable/recipes/docker.rb
+        #echo '#'                           >> ~/metasploitable3/chef/cookbooks/metasploitable/recipes/docker.rb
+      # Limpiar el coookbook completo de docker
+        rm -rf ~/metasploitable3/chef/cookbooks/docker
 
-    # Cambiar el puerto del servidor http
-      sed -i -e 's-9001-3333-g' $HOME/metasploitable3/packer/templates/ubuntu_1404.json
+    # Cambiar el servidor web
+      vIPLocal=$(hostname -I | sed 's- --g')
+      echo $vIPLocal
+      sed -i 's|preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg|preseed/url=http://'"$vIPLocal"':9001/preseed.cfg|' ~/metasploitable3/packer/templates/ubuntu_1404.json
+      sed -i 's|preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg|preseed/url=https://raw.githubusercontent.com/rapid7/metasploitable3/refs/heads/master/packer/http/preseed.cfg|' ~/metasploitable3/packer/templates/ubuntu_1404.json
 
     # Construir
       echo ""
