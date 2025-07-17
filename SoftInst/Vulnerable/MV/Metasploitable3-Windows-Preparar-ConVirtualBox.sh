@@ -76,10 +76,12 @@
       curl -sL https://raw.githubusercontent.com/nipegun/d-scripts/refs/heads/master/InstDeSoftware/ParaGUI/VirtualBox-Instalar.sh | bash
 
     # Clonar el repositorio oficial
+      rm -rf $HOME/metasploitable3
+      cd $HOME
       git clone https://github.com/rapid7/metasploitable3.git
-      cd metasploitable3
 
     # Motificar el script oficial para forzar virtualbox
+      cd metasploitable3
       sed -i -e 's-providers=""-providers="virtualbox"-g' build.sh
       sed -i 's/providers="VirtualBox \$providers"/providers="virtualbox"/' "build.sh"
 
