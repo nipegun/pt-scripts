@@ -26,10 +26,10 @@ vDirMac="00:00:00:00:00:01"
 
 # Crear la máquina virtual
   echo ""
-  echo "  Creando la máquina virtual de Metasploitable 2..."
+  echo "  Creando la máquina virtual de Metasploitable2..."
   echo ""
   qm create $vIDdeLaMV \
-    --name metasploitable2 \
+    --name Metasploitable2-Ubuntu \
     --machine q35 \
     --numa 0 \
     --sockets 1 \
@@ -74,7 +74,8 @@ vDirMac="00:00:00:00:00:01"
   echo ""
   echo "    Importando el archivo de .vmdk a la máquina virtual..."
   echo ""
-  qm importdisk $vIDdeLaMV /tmp/Metasploitable2-Linux/Metasploitable.vmdk "$vAlmacenamiento" && rm -f /tmp/Metasploitable2-Linux/Metasploitable.vmdk
+  mv /tmp/Metasploitable2-Linux/Metasploitable.vmdk /tmp/Metasploitable2-Ubuntu.vmdk
+  qm importdisk $vIDdeLaMV /tmp/Metasploitable2-Ubuntu.vmdk "$vAlmacenamiento" && rm -vf /tmp/Metasploitable2-Ubuntu.vmdk && rm -rf /tmp/Metasploitable2-Linux/
   vRutaAlDisco=$(qm config $vIDdeLaMV | grep unused | cut -d' ' -f2)
   qm set $vIDdeLaMV --sata1 $vRutaAlDisco
   qm set $vIDdeLaMV --boot order='sata0;sata1'
