@@ -76,8 +76,8 @@
       curl -sL https://raw.githubusercontent.com/nipegun/d-scripts/refs/heads/master/InstDeSoftware/ParaGUI/VirtualBox-Instalar.sh | bash
 
     # Clonar el repositorio oficial
-      rm -rf $HOME/metasploitable3
       cd $HOME
+      rm -rf $HOME/metasploitable3
       echo ""
       echo "    Clonando el repositorio de metasploitable3..."
       echo ""
@@ -90,6 +90,9 @@
 
     # Modificar el script para eliminar la instalación de docker
       sed -i '/"metasploitable::docker",/d' "$HOME/metasploitable3/packer/templates/ubuntu_1404.json"
+
+    # Cambiar el puerto del servidor http
+      sed -i -e 's-9001-3333-g' $HOME/metasploitable3/packer/templates/ubuntu_1404.json
 
     # Construir
       echo ""
