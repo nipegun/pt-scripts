@@ -76,8 +76,8 @@
       sudo apt -y install libvirt0
 
     # Clonar el repositorio oficial
-      rm -rf $HOME/metasploitable3
       cd $HOME
+      rm -rf $HOME/metasploitable3
       echo ""
       echo "    Clonando el repositorio de metasploitable3..."
       echo ""
