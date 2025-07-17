@@ -107,6 +107,7 @@
       echo ""
       echo "    Construyendo la máquina virtual. No interactúes con ella hasta que termine. Deja que vagrant la controle..."
       echo ""
+      # vagrant destroy -f
       ./build.sh windows2008
 
   elif [ $cVerSO == "11" ]; then
