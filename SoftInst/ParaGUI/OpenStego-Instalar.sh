@@ -9,16 +9,10 @@
 # Script de NiPeGun para instalar y configurar OpenStego en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL x | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/OpenStego-Instalar.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL x | sed 's-sudo--g' | bash
-#
-# Ejecución remota sin caché:
-#   curl -sL -H 'Cache-Control: no-cache, no-store' x | bash
-#
-# Ejecución remota con parámetros:
-#   curl -sL x | bash -s Parámetro1 Parámetro2
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/OpenStego-Instalar.sh | sed 's-sudo--g' | bash
 #
 # Bajar y editar directamente el archivo en nano
 #   curl -sL x | nano -
@@ -82,14 +76,16 @@ vRepo="openstego"
     # Instalar java
 
     # Obtener el número de la última versión disponible
-      vTag=$(curl -s https://api.github.com/repos/syvaidya/openstego/releases/latest | jq -r '.tag_name')
+      vTagUltVers=$(curl -s https://api.github.com/repos/$vUsuario/$vRepo/releases/latest | jq -r '.tag_name')
 
     # Buscar el enlace 
-      vEnlace=$(curl -sL https://github.com/syvaidya/openstego/releases/tag/$vUltVers | sed 's->->\n-g' | grep href | grep deb)
+      vEnlace=$(curl -s "https://api.github.com/repos/$vUsuario/$vRepo/releases/tags/$vTagUltVers" | grep "browser_download_url" | cut -d '"' -f 4 | grep deb)
+                
+    # Descargar el .deb
+      curl -L "$vEnlace" -o /tmp/openstego.deb
 
-# Descargar el .deb
-  curl -sL https://github.com/syvaidya/openstego/releases/download/$vUltVers/openstego_0.8.6-1_all.deb -o /tmp/openstego.deb
-openstego-0.8.6
+    # Instalar
+      apt -y install /tmp/openstego.deb
 
   elif [ $cVerSO == "12" ]; then
 
