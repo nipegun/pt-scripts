@@ -9,13 +9,13 @@
 # Script de NiPeGun para instalar y configurar jExifToolGUI en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/OpenStego-Instalar.sh | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/jExifToolGUI-Instalar.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/OpenStego-Instalar.sh | sed 's-sudo--g' | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/jExifToolGUI-Instalar.sh | sed 's-sudo--g' | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL x | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/SoftInst/ParaGUI/jExifToolGUI-Instalar.sh | nano -
 # ----------
 
 vUsuario="hvdwolf"
