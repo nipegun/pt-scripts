@@ -32,7 +32,7 @@
       else
         vNombreDelScript="$0"
       fi
-      echo "    $vNombreDelScript [IP] [SubURL] [NombreCampoUsuario] [NombreCampoPassword] [NombreDeUsuarioAIntentar] [UbicDelDiccionarioDePassword]"
+      echo "    $vNombreDelScript [IP] [LoginURL] [NombreCampoUsuario] [NombreCampoPassword] [NombreDeUsuarioAIntentar] [UbicDelDiccionarioDePassword]"
       echo ""
       echo "  Ejemplo:"
       echo ""
