@@ -55,9 +55,36 @@
     echo -e "${cColorAzulClaro}  Iniciando el script de instalación de Metasploit Framework para Debian 13 (x)...${cFinColor}"
     echo ""
 
-    echo ""
-    echo -e "${cColorRojo}    Comandos para Debian 13 todavía no preparados. Prueba ejecutarlo en otra versión de Debian.${cFinColor}"
-    echo ""
+    # Descargar el script de instalación
+      # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
+        if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
+          echo ""
+          echo -e "${cColorRojo}  El paquete curl no está instalado. Iniciando su instalación...${cFinColor}"
+          echo ""
+          sudo apt-get -y update
+          sudo apt-get -y install curl
+          echo ""
+        fi
+      curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb -o /tmp/msfinstall
+
+    # Hacer el script ejecutable
+      chmod +x /tmp/msfinstall
+
+    # Instalar
+      sudo apt-get -y update
+      sudo apt-get -y install wget
+      sudo apt-get -y install gnupg2
+      /tmp/msfinstall
+
+    # Crear la base de datos
+      msfdb init
+
+    # Notificar fin de ejecución del script
+      echo ""
+      echo "  Metaxploit Framework Instalado. Para ejecutar:"
+      echo ""
+      echo "    msfconsole"
+      echo ""
 
   elif [ $cVerSO == "12" ]; then
 
@@ -81,9 +108,9 @@
       chmod +x /tmp/msfinstall
 
     # Instalar
-      sudo apt -y update
-      sudo apt -y install wget
-      sudo apt -y install gnupg2
+      sudo apt-get -y update
+      sudo apt-get -y install wget
+      sudo apt-get -y install gnupg2
       /tmp/msfinstall
 
     # Crear la base de datos
