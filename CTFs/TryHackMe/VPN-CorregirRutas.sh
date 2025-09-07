@@ -80,7 +80,7 @@
 
 # Agregar ruta a la máquina virtual
   echo ""
-  echo "  Agregando ruta para acceder a la IP de la máquina virtual de TryHackMe..."
+  echo "  Agregando ruta "$vDirSubredMVdeTH" para acceder a la IP de la máquina virtual de TryHackMe..."
   echo ""
   sudo ip r a "$vDirSubredMVdeTH" via "$vGatewayPorDefectoDeTH" dev "$vDevTunVPNDeTH"
 
