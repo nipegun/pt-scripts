@@ -41,11 +41,45 @@
       else
         vNombreDelScript="$0"
       fi
-      echo "    $vNombreDelScript [IPServSamba] [UsuarioConocido] [PassDelUsuario]"
+      echo "    $vNombreDelScript [DirecciónDeSubredDeCasa] [IPDeLaMVDeTH]"
       echo ""
       echo "  Ejemplo:"
       echo ""
-      echo "    $vNombreDelScript '10.10.76.111' 'arlina' 'Default_2025!'"
+      echo "    $vNombreDelScript '10.100.0.0/16' '10.243.4.1'"
       echo ""
       exit
   fi
+
+# Variables
+
+  # Definir la subred de casa
+    vSubredDeCasa="$1"
+    echo "  La dirección de subred de la casa es $vSubredDeCasa"
+  # Definir IP de la máquina virtual de TH a la que se quiere acceder
+    vIPmvTH="$2"
+    echo "  La dirección IP de la máquina virtual de TryHackMe es $vIPmvTH"
+  # Calcular dirección de subred /24 de la IP de la máquina virtual
+    vDirSubredMVdeTH=$(ipcalc "$vIPmvTH"/24 | grep etwork | cut -d':' -f2 | sed 's-  - -g' | sed 's-  - -g' | cut -d' ' -f2)
+    echo "  La dirección de subred /24 IP de la IP máquina virtual de TryHackMe es $vDirSubredMVdeTH"
+
+  # Determinar el dispositivo de tunel de la VPN de TryHackMe
+    vDevTunVPNDeTH=$(ip a | grep mtu | grep tun | cut -d':' -f2 | cut -d' ' -f2)
+
+# Borrar ruta por defecto
+  vGatewayPorDefectoDeTH=$(ip r | grep "$vDevTunVPNDeTH" | grep default | cut -d' ' -f3)
+  echo ""
+  echo "  Borrando la ruta por defecto via $vGatewayPorDefectoDeTH..."
+  echo ""
+  sudo ip r d default via "$vGatewayPorDefectoDeTH" dev "$vDevTunVPNDeTH"
+
+# Borrar ruta que colisione con la subred de casa
+  echo ""
+  echo "  Borrando la ruta a $vSubredDeCasa..."
+  echo ""
+  sudo ip r d "$vSubredDeCasa" via "$vGatewayPorDefectoDeTH" dev "$vDevTunVPNDeTH"
+
+# Agregar ruta a la máquina virtual
+  echo ""
+  echo "  Agregando ruta para acceder a la IP de la máquina virtual de TryHackMe..."
+  echo ""
+  sudo ip r a "$vDirSubredMVdeTH" via "$vGatewayPorDefectoDeTH" dev "$vDevTunVPNDeTH"
