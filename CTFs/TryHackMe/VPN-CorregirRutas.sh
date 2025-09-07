@@ -54,13 +54,13 @@
 
   # Definir la subred de casa
     vSubredDeCasa="$1"
-    echo "  La dirección de subred de la casa es $vSubredDeCasa"
+    #echo "  La dirección de subred de la casa es $vSubredDeCasa"
   # Definir IP de la máquina virtual de TH a la que se quiere acceder
     vIPmvTH="$2"
-    echo "  La dirección IP de la máquina virtual de TryHackMe es $vIPmvTH"
+    #echo "  La dirección IP de la máquina virtual de TryHackMe es $vIPmvTH"
   # Calcular dirección de subred /24 de la IP de la máquina virtual
     vDirSubredMVdeTH=$(ipcalc "$vIPmvTH"/24 | grep etwork | cut -d':' -f2 | sed 's-  - -g' | sed 's-  - -g' | cut -d' ' -f2)
-    echo "  La dirección de subred /24 IP de la IP máquina virtual de TryHackMe es $vDirSubredMVdeTH"
+    #echo "  La dirección de subred /24 IP de la IP máquina virtual de TryHackMe es $vDirSubredMVdeTH"
 
   # Determinar el dispositivo de tunel de la VPN de TryHackMe
     vDevTunVPNDeTH=$(ip a | grep mtu | grep tun | cut -d':' -f2 | cut -d' ' -f2)
