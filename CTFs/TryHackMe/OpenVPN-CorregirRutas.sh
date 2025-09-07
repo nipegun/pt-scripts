@@ -37,7 +37,7 @@
       echo -e "${cColorRojo}  Mal uso del script. El uso correcto sería: ${cFinColor}"
       echo ""
       if [[ "$0" == "bash" ]]; then
-        vNombreDelScript="script.sh"
+        vNombreDelScript="OpenVPN-CorregirRutas.sh"
       else
         vNombreDelScript="$0"
       fi
@@ -59,6 +59,15 @@
     vIPmvTH="$2"
     #echo "  La dirección IP de la máquina virtual de TryHackMe es $vIPmvTH"
   # Calcular dirección de subred /24 de la IP de la máquina virtual
+    # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
+      if [[ $(dpkg-query -s ipcalc 2>/dev/null | grep installed) == "" ]]; then
+        echo ""
+        echo -e "${cColorRojo}  El paquete ipcalc no está instalado. Iniciando su instalación...${cFinColor}"
+        echo ""
+        sudo apt-get -y update
+        sudo apt-get -y install ipcalc
+        echo ""
+      fi
     vDirSubredMVdeTH=$(ipcalc "$vIPmvTH"/24 | grep etwork | cut -d':' -f2 | sed 's-  - -g' | sed 's-  - -g' | cut -d' ' -f2)
     #echo "  La dirección de subred /24 IP de la IP máquina virtual de TryHackMe es $vDirSubredMVdeTH"
 
