@@ -18,3 +18,34 @@
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/CTFs/TryHackMe/VPN-CorregirRutas.sh | nano -
 # ----------
 
+# Definir constantes de color
+  cColorAzul="\033[0;34m"
+  cColorAzulClaro="\033[1;34m"
+  cColorVerde='\033[1;32m'
+  cColorRojo='\033[1;31m'
+  # Para el color rojo también:
+    #echo "$(tput setaf 1)Mensaje en color rojo. $(tput sgr 0)"
+  cFinColor='\033[0m'
+
+# Definir la cantidad de argumentos esperados
+  cCantParamEsperados=2
+
+# Comprobar que se hayan pasado la cantidad de parámetros correctos. Abortar el script si no.
+  if [ $# -ne $cCantParamEsperados ]
+    then
+      echo ""
+      echo -e "${cColorRojo}  Mal uso del script. El uso correcto sería: ${cFinColor}"
+      echo ""
+      if [[ "$0" == "bash" ]]; then
+        vNombreDelScript="script.sh"
+      else
+        vNombreDelScript="$0"
+      fi
+      echo "    $vNombreDelScript [IPServSamba] [UsuarioConocido] [PassDelUsuario]"
+      echo ""
+      echo "  Ejemplo:"
+      echo ""
+      echo "    $vNombreDelScript '10.10.76.111' 'arlina' 'Default_2025!'"
+      echo ""
+      exit
+  fi
