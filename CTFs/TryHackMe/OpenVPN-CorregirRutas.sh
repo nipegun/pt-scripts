@@ -9,13 +9,13 @@
 # Script de NiPeGun para corregir las rutas que crea la VPN de TryHackMe en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/CTFs/TryHackMe/VPN-CorregirRutas.sh | bash -s [DirecciónDeSubredDeCasa] [IPDeLaMVDeTH]
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/CTFs/TryHackMe/OpenVPN-CorregirRutas.sh | bash -s [DirecciónDeSubredDeCasa] [IPDeLaMVDeTH]
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/CTFs/TryHackMe/VPN-CorregirRutas.sh | sed 's-sudo--g' | bash -s [DirecciónDeSubredDeCasa] [IPDeLaMVDeTH]
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/CTFs/TryHackMe/OpenVPN-CorregirRutas.sh | sed 's-sudo--g' | bash -s [DirecciónDeSubredDeCasa] [IPDeLaMVDeTH]
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/CTFs/TryHackMe/VPN-CorregirRutas.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/CTFs/TryHackMe/OpenVPN-CorregirRutas.sh | nano -
 # ----------
 
 # Definir constantes de color
