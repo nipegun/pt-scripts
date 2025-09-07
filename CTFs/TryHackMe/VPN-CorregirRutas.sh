@@ -9,10 +9,10 @@
 # Script de NiPeGun para corregir las rutas que crea la VPN de TryHackMe en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/CTFs/TryHackMe/VPN-CorregirRutas.sh | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/CTFs/TryHackMe/VPN-CorregirRutas.sh | bash -s [DirecciónDeSubredDeCasa] [IPDeLaMVDeTH]
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/CTFs/TryHackMe/VPN-CorregirRutas.sh | sed 's-sudo--g' | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/CTFs/TryHackMe/VPN-CorregirRutas.sh | sed 's-sudo--g' | bash -s [DirecciónDeSubredDeCasa] [IPDeLaMVDeTH]
 #
 # Bajar y editar directamente el archivo en nano
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/CTFs/TryHackMe/VPN-CorregirRutas.sh | nano -
@@ -83,3 +83,4 @@
   echo "  Agregando ruta para acceder a la IP de la máquina virtual de TryHackMe..."
   echo ""
   sudo ip r a "$vDirSubredMVdeTH" via "$vGatewayPorDefectoDeTH" dev "$vDevTunVPNDeTH"
+
