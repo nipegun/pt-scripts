@@ -16,6 +16,10 @@
 #
 # Bajar y editar directamente el archivo en nano
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/CTFs/TryHackMe/OpenVPN-Rutas-Corregir.sh | nano -
+#
+# Descarga directa y post-ejecución:
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/CTFs/TryHackMe/OpenVPN-Rutas-Corregir.sh -o /tmp/FixTHMvpn.sh && chmod +x /tmp/FixTHMvpn.sh
+#   /tmp/FixTHMvpn.sh '10.100.0.0/16' '10.243.4.1'
 # ----------
 
 # Definir constantes de color
