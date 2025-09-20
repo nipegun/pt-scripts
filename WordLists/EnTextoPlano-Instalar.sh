@@ -18,6 +18,11 @@
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/EnTextoPlano-Instalar.sh | nano -
 # ----------
 
+# Definir cual va a ser la carpeta temporal
+  vCarpetaTemporal="${1:-/tmp}"                        # No hay que poner barra final
+# Definbir la carpeta de WordLists
+  vCarpetaDeWordLists="${2:-~/HackingTools/WordLists}" # No hay que poner barra final
+
 # Definir constantes de color
   cColorAzul='\033[0;34m'
   cColorAzulClaro='\033[1;34m'
@@ -106,56 +111,56 @@
               sudo gzip -v -f -d -k propernames.gz
               sudo gzip -v -f -d -k web2a.gz
               # Borrar la carpeta vieja
-                rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/ 2> /dev/null
+                rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/ 2> /dev/null
               # Asegurarse de que la carpeta base exista
-                mkdir -p ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/ 2> /dev/null
+                mkdir -p "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/ 2> /dev/null
               # Copiar WordLists a la carpeta Debian
-                mkdir -p ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/scowl/
-                cp -fv /usr/share/dict/scowl/*                 ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/scowl/
-                cp -fv /usr/share/dict/american-english        ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/american-english-huge   ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/american-english-insane ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/american-english-large  ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/american-english-small  ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/bokmaal                 ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/brazilian               ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/british-english-huge    ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/british-english-insane  ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/british-english-large   ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/british-english-small   ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/bulgarian               ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/canadian-english        ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/canadian-english-huge   ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/canadian-english-insane ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/canadian-english-large  ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/canadian-english-small  ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/catalan                 ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/connectives             ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/cracklib-small          ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/danish                  ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/dutch                   ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/esperanto               ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/faroese                 ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/french                  ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/galician-minimos        ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/german-medical          ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/irish                   ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/italian                 ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/manx                    ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/ngerman                 ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /etc/dictionaries-common/norsk          ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/nynorsk                 ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/ogerman                 ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/polish                  ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/portuguese              ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/propernames             ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/spanish                 ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/swedish                 ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/swiss                   ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/ukrainian               ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/web2                    ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /usr/share/dict/web2a                   ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
-                cp -fv /etc/dictionaries-common/words          ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/
+                mkdir -p "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/scowl/
+                cp -fv /usr/share/dict/scowl/*                 "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/scowl/
+                cp -fv /usr/share/dict/american-english        "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/american-english-huge   "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/american-english-insane "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/american-english-large  "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/american-english-small  "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/bokmaal                 "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/brazilian               "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/british-english-huge    "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/british-english-insane  "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/british-english-large   "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/british-english-small   "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/bulgarian               "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/canadian-english        "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/canadian-english-huge   "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/canadian-english-insane "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/canadian-english-large  "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/canadian-english-small  "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/catalan                 "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/connectives             "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/cracklib-small          "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/danish                  "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/dutch                   "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/esperanto               "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/faroese                 "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/french                  "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/galician-minimos        "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/german-medical          "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/irish                   "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/italian                 "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/manx                    "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/ngerman                 "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /etc/dictionaries-common/norsk          "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/nynorsk                 "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/ogerman                 "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/polish                  "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/portuguese              "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/propernames             "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/spanish                 "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/swedish                 "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/swiss                   "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/ukrainian               "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/web2                    "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /usr/share/dict/web2a                   "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
+                cp -fv /etc/dictionaries-common/words          "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
 
               # Recorrer todos los archivos y cambiar la extensión a txt
                 find "$HOME""/HackingTools/WordLists/EnTextoPlano/Packs/Debian/" -type f | while read -r file; do
@@ -203,11 +208,11 @@
               echo "  Descargando WordLists de SecLists..."
               echo ""
               # Borrar la carpeta vieja
-                rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/ 2> /dev/null
+                rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/ 2> /dev/null
               # Asegurarse de que la carpeta base exista
-                mkdir -p ~/HackingTools/WordLists/EnTextoPlano/Packs/ 2> /dev/null
+                mkdir -p "$vCarpetaDeWordLists"/EnTextoPlano/Packs/ 2> /dev/null
               # Posicionarse en la carpeta
-                cd ~/HackingTools/WordLists/EnTextoPlano/Packs/
+                cd "$vCarpetaDeWordLists"/EnTextoPlano/Packs/
               # Clonar el repo de SecLists
                 export LC_ALL=C.UTF-8  # Forzar UTF-8 para evitar problemas de codificación
                 # Comprobar si el paquete git está instalado. Si no lo está, instalarlo.
@@ -223,64 +228,64 @@
 
               # Borrar carpetas sobrantes
                 # Archivos de la raiz
-                  rm -f ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/SecLists.png
-                  rm -f ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/LICENSE
-                  rm -f ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/CONTRIBUTORS.md
-                  rm -f ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/CONTRIBUTING.md
+                  rm -f "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/SecLists.png
+                  rm -f "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/LICENSE
+                  rm -f "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/CONTRIBUTORS.md
+                  rm -f "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/CONTRIBUTING.md
                 # Archivos README.md
-                  find ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/ -type f -name README.md -exec rm -f {} \;
-                  rm -f ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Infrastructure/IPGenerator.sh
+                  find "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/ -type f -name README.md -exec rm -f {} \;
+                  rm -f "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Discovery/Infrastructure/IPGenerator.sh
                 # Archivos de inteligencia artificial
-                  rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Ai 2> /dev/null
-                  rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Ai 2> /dev/null
+                  rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Ai 2> /dev/null
+                  rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Ai 2> /dev/null
 
               # Descomprimir archivos comprimidos
-                cd ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/
+                cd "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Passwords/
                 #bzip2 -d "500-worst-passwords.txt.bz2"
                 tar -xvzf "SCRABBLE-hackerhouse.tgz"
                 rm "SCRABBLE-hackerhouse.tgz"
-                rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/SCRABBLE/fetch.sh
-                rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/SCRABBLE/mangle.py
-                rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/Default-Credentials/scada-pass.csv
-                rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/Default-Credentials/default-passwords.csv
-                rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Pattern-Matching/grepstrings-auditing-php.md
-                rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Payloads/
-                rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Web-Shells/
-                rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Fuzzing/
+                rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Passwords/SCRABBLE/fetch.sh
+                rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Passwords/SCRABBLE/mangle.py
+                rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Passwords/Default-Credentials/scada-pass.csv
+                rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Passwords/Default-Credentials/default-passwords.csv
+                rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Pattern-Matching/grepstrings-auditing-php.md
+                rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Payloads/
+                rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Web-Shells/
+                rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Fuzzing/
                 # No convierten bien a UTF8
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/DNS/FUZZSUBS_CYFARE_2.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/raft-large-files-lowercase.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/trickest-robots-disallowed-WordLists/top-10000.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/raft-large-files.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/combined_words.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/CMS/trickest-cms-WordList/dolibarr.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/CMS/trickest-cms-WordList/dolibarr-all-levels.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/CMS/Django.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/raft-large-directories.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/raft-small-directories.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/raft-medium-directories.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/dutch_passWordList.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/Cracked-Hashes/milw0rm-dictionary.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/Leaked-Databases/fortinet-2021.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/Leaked-Databases/honeynet-withcount.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/Leaked-Databases/honeynet2.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/Leaked-Databases/honeynet.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/Leaked-Databases/myspace-withcount.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/Honeypot-Captures/python-heralding-sep2019.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/Common-Credentials/10-million-password-list-top-100.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/Common-Credentials/Language-Specific/Spanish_common-usernames-and-passwords.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Passwords/Common-Credentials/10-million-password-list-top-100000.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Usernames/Honeypot-Captures/multiplesources-users-fabian-fingerle.de.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Miscellaneous/control-chars.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Miscellaneous/Moby-Project/Moby-Language-II/german.txt
-                  #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/Miscellaneous/Moby-Project/Moby-Language-II/japanese.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Discovery/DNS/FUZZSUBS_CYFARE_2.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/raft-large-files-lowercase.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/trickest-robots-disallowed-WordLists/top-10000.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/raft-large-files.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/combined_words.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/CMS/trickest-cms-WordList/dolibarr.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/CMS/trickest-cms-WordList/dolibarr-all-levels.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/CMS/Django.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/raft-large-directories.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/raft-small-directories.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Discovery/Web-Content/raft-medium-directories.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Passwords/dutch_passWordList.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Passwords/Cracked-Hashes/milw0rm-dictionary.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Passwords/Leaked-Databases/fortinet-2021.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Passwords/Leaked-Databases/honeynet-withcount.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Passwords/Leaked-Databases/honeynet2.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Passwords/Leaked-Databases/honeynet.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Passwords/Leaked-Databases/myspace-withcount.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Passwords/Honeypot-Captures/python-heralding-sep2019.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Passwords/Common-Credentials/10-million-password-list-top-100.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Passwords/Common-Credentials/Language-Specific/Spanish_common-usernames-and-passwords.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Passwords/Common-Credentials/10-million-password-list-top-100000.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Usernames/Honeypot-Captures/multiplesources-users-fabian-fingerle.de.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Miscellaneous/control-chars.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Miscellaneous/Moby-Project/Moby-Language-II/german.txt
+                  #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/Miscellaneous/Moby-Project/Moby-Language-II/japanese.txt
 
               # Borrar resto de archivos del repositorio
-                rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/.bin/
-                rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/.git/
-                rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/.github/
-                rm -f ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/.gitattributes
-                rm -f ~/HackingTools/WordLists/EnTextoPlano/Packs/SecLists/.gitignore
+                rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/.bin/
+                rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/.git/
+                rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/.github/
+                rm -f  "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/.gitattributes
+                rm -f  "$vCarpetaDeWordLists"/EnTextoPlano/Packs/SecLists/.gitignore
 
             ;;
 
@@ -290,9 +295,9 @@
               echo "  Descargando WordLists de CSL-LABS..."
               echo ""
               # Borrar posible descarga anterior
-                rm -rf /tmp/CrackingWordLists/ 2> /dev/null
-              # Posicionarse en la carpeta /tmp
-                cd /tmp/
+                rm -rf "$vCarpetaTemporal"/CrackingWordLists/ 2> /dev/null
+              # Posicionarse en la carpeta temporal
+                cd "$vCarpetaTemporal"/
               # Clonar el repo de CSL-LABS
                 export LC_ALL=C.UTF-8  # Forzar UTF-8 para evitar problemas de codificación
                 # Comprobar si el paquete git está instalado. Si no lo está, instalarlo.
@@ -306,19 +311,19 @@
                   fi
                 git clone --depth 1 https://github.com/CSL-LABS/CrackingWordLists.git
               # Borrar la carpeta vieja
-                rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/CSL-LABS/ 2> /dev/null
+                rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/CSL-LABS/ 2> /dev/null
               # Asegurarse de que la carpeta base exista
-                mkdir -p ~/HackingTools/WordLists/EnTextoPlano/Packs/ 2> /dev/null
+                mkdir -p "$vCarpetaDeWordLists"/EnTextoPlano/Packs/ 2> /dev/null
               # Mover carpeta
-                mv /tmp/CrackingWordLists/dics/ ~/HackingTools/WordLists/EnTextoPlano/Packs/CSL-LABS/
+                mv "$vCarpetaTemporal"/CrackingWordLists/dics/ "$vCarpetaDeWordLists"/EnTextoPlano/Packs/CSL-LABS/
               #
-                cd ~/HackingTools/WordLists/EnTextoPlano/Packs/CSL-LABS/
+                cd "$vCarpetaDeWordLists"/EnTextoPlano/Packs/CSL-LABS/
                 tar -xvzf ROCKYOU-CSL.tar.gz
                 rm -f ROCKYOU-CSL.tar.gz
                 #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/CSL-LABS/ROCKYOU-CSL.txt
                 #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/CSL-LABS/misc/sports.txt
                 #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/CSL-LABS/misc/top_songs.txt
-                find ~/HackingTools/WordLists/EnTextoPlano/Packs/CSL-LABS/ -type f -name "*.dic" -exec bash -c 'mv "$0" "${0%.dic}.txt"' {} \;
+                find "$vCarpetaDeWordLists"/EnTextoPlano/Packs/CSL-LABS/ -type f -name "*.dic" -exec bash -c 'mv "$0" "${0%.dic}.txt"' {} \;
 
             ;;
 
@@ -327,11 +332,11 @@
               echo ""
               echo "  Descargando WordLists de CrackStation..."
               echo ""
-              curl -L https://crackstation.net/files/crackstation.txt.gz -o /tmp/crackstation.txt.gz
-              cd /tmp/
-              gunzip -v /tmp/crackstation.txt.gz
-              mkdir -p ~/HackingTools/WordLists/EnTextoPlano/Packs/CrackStation/ 2> /dev/null
-              mv /tmp/crackstation.txt ~/HackingTools/WordLists/EnTextoPlano/Packs/CrackStation/
+              curl -L https://crackstation.net/files/crackstation.txt.gz -o "$vCarpetaTemporal"/crackstation.txt.gz
+              cd "$vCarpetaTemporal"/
+              gunzip -v "$vCarpetaTemporal"/crackstation.txt.gz
+              mkdir -p "$vCarpetaDeWordLists"/EnTextoPlano/Packs/CrackStation/ 2> /dev/null
+              mv "$vCarpetaTemporal"/crackstation.txt "$vCarpetaDeWordLists"/EnTextoPlano/Packs/CrackStation/
 
             ;;
 
@@ -349,9 +354,9 @@
                   sudo apt-get -y install p7zip-full
                   echo ""
                 fi
-              curl -L https://weakpass.com/download/2015/weakpass_4a.txt.7z -o /tmp/weakpass_4a.txt.7z
-              mkdir -p ~/HackingTools/WordLists/EnTextoPlano/Packs/WeakPass/4a/ 2> /dev/null
-              7z x /tmp/weakpass_4a.txt.7z -o"$HOME""/HackingTools/WordLists/EnTextoPlano/Packs/WeakPass/4a/" -aoa # No hay que dejar espacio entre -o y la ruta del directorio
+              curl -L https://weakpass.com/download/2015/weakpass_4a.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.txt.7z
+              mkdir -p "$vCarpetaDeWordLists"/EnTextoPlano/Packs/WeakPass/4a/ 2> /dev/null
+              7z x "$vCarpetaTemporal"/weakpass_4a.txt.7z -o"$vCarpetaDeWordLists"/EnTextoPlano/Packs/WeakPass/4a/ -aoa # No hay que dejar espacio entre -o y la ruta del directorio
 
             ;;
 
@@ -371,7 +376,7 @@
               echo "  Eliminando caracteres de tabulación..."
               echo ""
 
-              vCarpetaInicio="$HOME/HackingTools/WordLists/EnTextoPlano/Packs/"
+              vCarpetaInicio="$vCarpetaDeWordLists/EnTextoPlano/Packs/"
               find "$vCarpetaInicio" -type f -name "*.txt" -print0 | while IFS= read -r -d '' vArchivo; do
                 sed -i 's/\t//g' "$vArchivo"
               done
@@ -388,8 +393,8 @@
               # Crear WordLists
                 export LC_ALL=C.UTF-8  # Forzar UTF-8 para evitar problemas de codificación
 
-                vCarpetaInicio="$HOME/HackingTools/WordLists/EnTextoPlano/Packs/"
-                vCarpetaDestino="$HOME/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/"
+                vCarpetaInicio="$vCarpetaDeWordLists/EnTextoPlano/Packs/"
+                vCarpetaDestino="$vCarpetaDeWordLists/EnTextoPlano/PorCantCaracteres/"
                 rm "$vCarpetaDestino"* 2> /dev/null
 
                 mkdir -p "$vCarpetaDestino"
@@ -414,7 +419,7 @@
                 done
 
               # Eliminar caracteres no imprimibles de todos los archivos y sanitizar algunas líneas
-                for vArchivo in ~/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/*.txt; do
+                for vArchivo in "$vCarpetaDeWordLists"/EnTextoPlano/PorCantCaracteres/*.txt; do
                   sed -e 's/^[[:space:]]*//' "$vArchivo" | grep -a -P '^[\x20-\x7E]+$' > "$vArchivo.tmp"
                   mv -f "$vArchivo.tmp" "$vArchivo"
                 done
@@ -426,22 +431,22 @@
                 echo ""
 
               # Asegurarse de que cada arhivo tenga la cantidad correcta de caracteres por linea
-                for vArchivo in ~/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/All*Characters.txt; do
+                for vArchivo in "$vCarpetaDeWordLists"/EnTextoPlano/PorCantCaracteres/All*Characters.txt; do
                   vCantidad=$(basename "$vArchivo" | sed -E 's/All([0-9]+)Characters\.txt/\1/')
                   grep -E "^.{$vCantidad}$" "$vArchivo" > "$vArchivo.tmp"
                   mv -f "$vArchivo.tmp" "$vArchivo"
                 done
 
               # Corregir nombres de los archivos con un sólo número
-                mv ~/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/All1Characters.txt ~/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/All01Characters.txt
-                mv ~/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/All2Characters.txt ~/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/All02Characters.txt
-                mv ~/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/All3Characters.txt ~/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/All03Characters.txt
-                mv ~/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/All4Characters.txt ~/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/All04Characters.txt
-                mv ~/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/All5Characters.txt ~/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/All05Characters.txt
-                mv ~/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/All6Characters.txt ~/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/All06Characters.txt
-                mv ~/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/All7Characters.txt ~/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/All07Characters.txt
-                mv ~/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/All8Characters.txt ~/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/All08Characters.txt
-                mv ~/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/All9Characters.txt ~/HackingTools/WordLists/EnTextoPlano/PorCantCaracteres/All09Characters.txt
+                mv "$vCarpetaDeWordLists"/EnTextoPlano/PorCantCaracteres/All1Characters.txt "$vCarpetaDeWordLists"/EnTextoPlano/PorCantCaracteres/All01Characters.txt
+                mv "$vCarpetaDeWordLists"/EnTextoPlano/PorCantCaracteres/All2Characters.txt "$vCarpetaDeWordLists"/EnTextoPlano/PorCantCaracteres/All02Characters.txt
+                mv "$vCarpetaDeWordLists"/EnTextoPlano/PorCantCaracteres/All3Characters.txt "$vCarpetaDeWordLists"/EnTextoPlano/PorCantCaracteres/All03Characters.txt
+                mv "$vCarpetaDeWordLists"/EnTextoPlano/PorCantCaracteres/All4Characters.txt "$vCarpetaDeWordLists"/EnTextoPlano/PorCantCaracteres/All04Characters.txt
+                mv "$vCarpetaDeWordLists"/EnTextoPlano/PorCantCaracteres/All5Characters.txt "$vCarpetaDeWordLists"/EnTextoPlano/PorCantCaracteres/All05Characters.txt
+                mv "$vCarpetaDeWordLists"/EnTextoPlano/PorCantCaracteres/All6Characters.txt "$vCarpetaDeWordLists"/EnTextoPlano/PorCantCaracteres/All06Characters.txt
+                mv "$vCarpetaDeWordLists"/EnTextoPlano/PorCantCaracteres/All7Characters.txt "$vCarpetaDeWordLists"/EnTextoPlano/PorCantCaracteres/All07Characters.txt
+                mv "$vCarpetaDeWordLists"/EnTextoPlano/PorCantCaracteres/All8Characters.txt "$vCarpetaDeWordLists"/EnTextoPlano/PorCantCaracteres/All08Characters.txt
+                mv "$vCarpetaDeWordLists"/EnTextoPlano/PorCantCaracteres/All9Characters.txt "$vCarpetaDeWordLists"/EnTextoPlano/PorCantCaracteres/All09Characters.txt
 
               # Notificar fin de la ejecución
                 echo ""
