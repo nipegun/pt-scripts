@@ -19,9 +19,9 @@
 # ----------
 
 # Definir cual va a ser la carpeta temporal
-  vCarpetaTemporal="${1:-/tmp}"                        # No hay que poner barra final
+  vCarpetaTemporal="${1:-/tmp}"                              # No hay que poner barra final
 # Definbir la carpeta de WordLists
-  vCarpetaDeWordLists="${1:-~/HackingTools/WordLists}" # No hay que poner barra final
+  vCarpetaDeWordLists="${2:-"$HOME"/HackingTools/WordLists}" # No hay que poner barra final
 
 # Definir constantes de color
   cColorAzul='\033[0;34m'
