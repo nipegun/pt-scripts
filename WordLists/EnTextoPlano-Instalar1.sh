@@ -32,6 +32,24 @@
     #echo "$(tput setaf 1)Mensaje en color rojo. $(tput sgr 0)"
   cFinColor='\033[0m'
 
+# Función para calcular el espacio libre disponible
+  fCalcularEspacioLibre() {
+    local vGBsNecesarios="$1"
+    # Verificar que la variable global vCarpetaTemporal esté definida
+      if [ -z "$vCarpetaTemporal" ] || [ -z "$vGBsNecesarios" ]; then
+        false
+        return
+      fi
+    # Convertir GB necesarios a KB (1 GiB = 1024 * 1024 KB)
+      local vEspacioNecesarioEnKB
+      vEspacioNecesarioEnKB=$(echo "$vGBsNecesarios * 1024 * 1024" | bc | cut -d'.' -f1)
+    # Obtener espacio libre en KB de la partición correspondiente a la ruta
+      local vEspacioLibreEnKB
+      vEspacioLibreEnKB=$(df -k "$vCarpetaTemporal" | tail -1 | tr -s ' ' | cut -d ' ' -f 4)
+    # Comparar y retornar true o false
+      [ "$vEspacioLibreEnKB" -ge "$vEspacioNecesarioEnKB" ] && true || false
+  }
+
 # Crear el menú
   # Comprobar si el paquete dialog está instalado. Si no lo está, instalarlo.
     if [[ $(dpkg-query -s dialog 2>/dev/null | grep installed) == "" ]]; then
@@ -320,9 +338,9 @@
                 cd "$vCarpetaDeWordLists"/EnTextoPlano/Packs/CSL-LABS/
                 tar -xvzf ROCKYOU-CSL.tar.gz
                 rm -f ROCKYOU-CSL.tar.gz
-                #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/CSL-LABS/ROCKYOU-CSL.txt
-                #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/CSL-LABS/misc/sports.txt
-                #rm -rf ~/HackingTools/WordLists/EnTextoPlano/Packs/CSL-LABS/misc/top_songs.txt
+                #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/CSL-LABS/ROCKYOU-CSL.txt
+                #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/CSL-LABS/misc/sports.txt
+                #rm -rf "$vCarpetaDeWordLists"/EnTextoPlano/Packs/CSL-LABS/misc/top_songs.txt
                 find "$vCarpetaDeWordLists"/EnTextoPlano/Packs/CSL-LABS/ -type f -name "*.dic" -exec bash -c 'mv "$0" "${0%.dic}.txt"' {} \;
 
             ;;
@@ -348,15 +366,26 @@
               # Comprobar si el paquete p7zip-full está instalado. Si no lo está, instalarlo.
                 if [[ $(dpkg-query -s p7zip-full 2>/dev/null | grep installed) == "" ]]; then
                   echo ""
-                  echo -e "${cColorRojo}  El paquete p7zip-full no está instalado. Iniciando su instalación...${cFinColor}"
+                  echo -e "${cColorRojo}    El paquete p7zip-full no está instalado. Iniciando su instalación...${cFinColor}"
                   echo ""
                   sudo apt-get -y update
                   sudo apt-get -y install p7zip-full
                   echo ""
                 fi
-              curl -L https://weakpass.com/download/2015/weakpass_4a.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.txt.7z
-              mkdir -p "$vCarpetaDeWordLists"/EnTextoPlano/Packs/WeakPass/4a/ 2> /dev/null
-              7z x "$vCarpetaTemporal"/weakpass_4a.txt.7z -o"$vCarpetaDeWordLists"/EnTextoPlano/Packs/WeakPass/4a/ -aoa # No hay que dejar espacio entre -o y la ruta del directorio
+              # Calcular espacio libre disponible antes de instalar la WordList
+                if fCalcularEspacioLibre 90; then
+                  # Descargar archivo comprimido
+                    curl -L https://weakpass.com/download/2015/weakpass_4a.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.txt.7z
+                  # Descomprimir archivo hacia la ubicación final
+                    # Asegurarse de que la carpeta final exista
+                      mkdir -p "$vCarpetaDeWordLists"/EnTextoPlano/Packs/WeakPass/4a/ 2> /dev/null
+                    # Descomprimir
+                      7z x "$vCarpetaTemporal"/weakpass_4a.txt.7z -o"$vCarpetaDeWordLists"/EnTextoPlano/Packs/WeakPass/4a/ -aoa # No hay que dejar espacio entre -o y la ruta del directorio
+                else
+                  echo ""
+                  echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a...${cFinColor}"
+                  echo ""
+                fi
 
             ;;
 
