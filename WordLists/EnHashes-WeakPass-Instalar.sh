@@ -9,13 +9,13 @@
 # Script de NiPeGun para instalar la máxima cantidad posible de WordLists en texto plano en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/PreCalculadas-WeakPass-Instalar.sh | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/EnHashes-WeakPass-Instalar.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/PreCalculadas-WeakPass-Instalar.sh | sed 's-sudo--g' | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/EnHashes-WeakPass-Instalar.sh | sed 's-sudo--g' | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/PreCalculadas-WeakPass-Instalar.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/EnHashes-WeakPass-Instalar.sh | nano -
 # ----------
 
 # Definir cual va a ser la carpeta temporal
@@ -57,7 +57,7 @@
   }
 
 # Crear el menú
-  menu=(dialog --checklist "Marca las WordLists PreCalculadas que quieras instalar:" 22 80 16)
+  menu=(dialog --checklist "Marca las WordLists EnHashes que quieras instalar:" 22 80 16)
     opciones=(
       1 "  WeakPass RockYou MD5         (0,6 GB descomprimido)" off
       2 "  WeakPass RockYou NTLM        (0,6 GB descomprimido)" off
@@ -123,9 +123,9 @@
                     curl -L https://weakpass.com/pre-computed/download/rockyou.txt.md5.txt.7z -o "$vCarpetaTemporal"/rockyou.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/RockYou/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-RockYou/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/rockyou.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/RockYou/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/rockyou.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-RockYou/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass RockYou MD5...${cFinColor}"
@@ -145,9 +145,9 @@
                     curl -L https://weakpass.com/pre-computed/download/rockyou.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/rockyou.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/RockYou/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-RockYou/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/rockyou.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/RockYou/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/rockyou.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-RockYou/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass RockYou NTLM...${cFinColor}"
@@ -167,9 +167,9 @@
                     curl -L https://weakpass.com/pre-computed/download/rockyou.txt.sha1.txt.7z -o "$vCarpetaTemporal"/rockyou.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/RockYou/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-RockYou/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/rockyou.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/RockYou/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/rockyou.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-RockYou/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass RockYou SHA1...${cFinColor}"
@@ -189,9 +189,9 @@
                     curl -L https://weakpass.com/pre-computed/download/rockyou.txt.sha256.ntlm.txt.7z -o "$vCarpetaTemporal"/rockyou.txt.sha256.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/RockYou/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-RockYou/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/rockyou.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/RockYou/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/rockyou.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-RockYou/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass RockYou SHA256 NTLM...${cFinColor}"
@@ -211,9 +211,9 @@
                     curl -L https://weakpass.com/pre-computed/download/rockyou.txt.sha256.txt.7z -o "$vCarpetaTemporal"/rockyou.txt.sha256.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/RockYou/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-RockYou/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/rockyou.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/RockYou/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/rockyou.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-RockYou/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass RockYou SHA256...${cFinColor}"
@@ -233,9 +233,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.md5.txt.7z -o "$vCarpetaTemporal"/weakpass_4.latin.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Latin/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Latin/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4.latin.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Latin/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4.latin.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Latin/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Latin MD5...${cFinColor}"
@@ -255,9 +255,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4.latin.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Latin/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Latin/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4.latin.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Latin/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4.latin.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Latin/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Latin NTLM...${cFinColor}"
@@ -277,9 +277,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.sha1.txt.7z -o "$vCarpetaTemporal"/weakpass_4.latin.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Latin/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Latin/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4.latin.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Latin/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4.latin.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Latin/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Latin SHA1...${cFinColor}"
@@ -299,9 +299,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.sha256.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Latin/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Latin/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Latin/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Latin/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Latin SHA256 NTLM...${cFinColor}"
@@ -321,9 +321,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.sha256.txt.7z -o "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Latin/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Latin/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Latin/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Latin/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Latin SHA256...${cFinColor}"
@@ -343,9 +343,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.md5.txt.7z -o "$vCarpetaTemporal"/weakpass_4.merged.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Merged/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Merged/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4.merged.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Merged/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4.merged.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Merged/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Merged MD5...${cFinColor}"
@@ -365,9 +365,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4.merged.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Merged/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Merged/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4.merged.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Merged/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4.merged.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Merged/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Merged NTLM...${cFinColor}"
@@ -387,9 +387,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.sha1.txt.7z -o "$vCarpetaTemporal"/weakpass_4.merged.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Merged/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Merged/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4.merged.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Merged/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4.merged.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Merged/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Merged SHA1...${cFinColor}"
@@ -409,9 +409,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.sha256.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Merged/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Merged/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Merged/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Merged/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Merged SHA256 NTLM...${cFinColor}"
@@ -431,9 +431,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.sha256.txt.7z -o "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Merged/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Merged/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Merged/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Merged/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Merged SHA256...${cFinColor}"
@@ -453,9 +453,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.md5.txt.7z -o "$vCarpetaTemporal"/weakpass_4.policy.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Policy/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Policy/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4.policy.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Policy/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4.policy.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Policy/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Policy MD5...${cFinColor}"
@@ -475,9 +475,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4.policy.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Policy/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Policy/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4.policy.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Policy/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4.policy.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Policy/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Policy NTLM...${cFinColor}"
@@ -497,9 +497,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.sha1.txt.7z -o "$vCarpetaTemporal"/weakpass_4.policy.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Policy/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Policy/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4.policy.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Policy/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4.policy.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Policy/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Policy SHA1...${cFinColor}"
@@ -519,9 +519,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.sha256.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Policy/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Policy/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Policy/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Policy/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Policy SHA256 NTLM...${cFinColor}"
@@ -541,9 +541,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.sha256.txt.7z -o "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Policy/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Policy/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4Policy/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Policy/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Policy SHA256...${cFinColor}"
@@ -563,9 +563,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.md5.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.latin.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4aLatin/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4aLatin/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4a.latin.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4aLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4a.latin.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4aLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Latin MD5...${cFinColor}"
@@ -585,9 +585,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.latin.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4aLatin/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4aLatin/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4a.latin.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4aLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4a.latin.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4aLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Latin NTLM...${cFinColor}"
@@ -607,9 +607,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.sha1.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4aLatin/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4aLatin/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4aLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4aLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Latin SHA1...${cFinColor}"
@@ -629,9 +629,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.sha256.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4aLatin/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4aLatin/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4aLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4aLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Latin SHA256 NTLM...${cFinColor}"
@@ -651,9 +651,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.sha256.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4aLatin/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4aLatin/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4aLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4aLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Latin SHA256...${cFinColor}"
@@ -673,9 +673,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.md5.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.policy.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4aPolicy/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4aPolicy/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4a.policy.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4aPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4a.policy.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4aPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Policy MD5...${cFinColor}"
@@ -695,9 +695,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.policy.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4aPolicy/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4aPolicy/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4a.policy.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4aPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4a.policy.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4aPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Policy NTLM...${cFinColor}"
@@ -717,9 +717,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.sha1.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4aPolicy/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4aPolicy/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4aPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4aPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Policy SHA1...${cFinColor}"
@@ -739,9 +739,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.sha256.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4aPolicy/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4aPolicy/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4aPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4aPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Policy SHA256 NTLM...${cFinColor}"
@@ -761,9 +761,9 @@
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.sha256.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4aPolicy/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4aPolicy/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/4aPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4aPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Policy SHA256...${cFinColor}"
@@ -783,9 +783,9 @@
                     curl -L https://weakpass.com/pre-computed/download/all_in_one.policy.txt.md5.txt.7z -o "$vCarpetaTemporal"/all_in_one.policy.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/AiOPolicy/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-AiOPolicy/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/all_in_one.policy.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/AiOPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/all_in_one.policy.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-AiOPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass All in One Policy MD5...${cFinColor}"
@@ -805,9 +805,9 @@
                     curl -L https://weakpass.com/pre-computed/download/all_in_one.policy.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/all_in_one.policy.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/AiOPolicy/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-AiOPolicy/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/all_in_one.policy.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/AiOPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/all_in_one.policy.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-AiOPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass All in One Policy NTLM...${cFinColor}"
@@ -827,9 +827,9 @@
                     curl -L https://weakpass.com/pre-computed/download/all_in_one.policy.txt.sha1.txt.7z -o "$vCarpetaTemporal"/all_in_one.policy.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/AiOPolicy/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-AiOPolicy/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/all_in_one.policy.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/AiOPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/all_in_one.policy.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-AiOPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass All in One Policy SHA1...${cFinColor}"
@@ -849,9 +849,9 @@
                     curl -L https://weakpass.com/pre-computed/download/all_in_one.latin.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/all_in_one.latin.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/AiOLatin/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-AiOLatin/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/all_in_one.latin.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/AiOLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/all_in_one.latin.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-AiOLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass All in One Latin NTLM...${cFinColor}"
@@ -871,9 +871,9 @@
                     curl -L https://weakpass.com/pre-computed/download/all_in_one.latin.txt.md5.txt.7z -o "$vCarpetaTemporal"/all_in_one.latin.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
-                      mkdir -p "$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/AiOLatin/ 2> /dev/null
+                      mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-AiOLatin/ 2> /dev/null
                     # Descomprimir
-                      7z x "$vCarpetaTemporal"/all_in_one.latin.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/PreCalculadas/Packs/WeakPass/AiOLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
+                      7z x "$vCarpetaTemporal"/all_in_one.latin.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-AiOLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass All in One Latin MD5...${cFinColor}"
