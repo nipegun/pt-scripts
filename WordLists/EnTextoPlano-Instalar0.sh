@@ -163,7 +163,7 @@
                 cp -fv /etc/dictionaries-common/words          "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/
 
               # Recorrer todos los archivos y cambiar la extensión a txt
-                find "$HOME""/HackingTools/WordLists/EnTextoPlano/Packs/Debian/" -type f | while read -r file; do
+                find "$vCarpetaDeWordLists"/EnTextoPlano/Packs/Debian/ -type f | while read -r file; do
                   # Omitir si ya es .txt
                   if [[ "$file" == *.txt ]]; then
                     continue
