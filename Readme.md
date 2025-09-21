@@ -1,6 +1,6 @@
 # pt-scripts
 
-Los "pt-scripts" son scripts en bash que he ido creado para paliar necesidades que han ido surgiendo en el dia a dia de administrar Debian como distribución de pentesting.
+Los "pt-scripts" son scripts en bash que he ido creado para paliar necesidades que han ido surgiendo en el dia a dia de usar Debian como distribución de pentesting.
 
 Si bien están pensados para ser ejecutados en Debian es probable que puedan ser ejecutados sin errores en derivados como Ubuntu, Mint u otros.
 
