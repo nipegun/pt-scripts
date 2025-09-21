@@ -9,16 +9,16 @@
 # Script de NiPeGun para instalar y configurar los scripts de Modbus de TryHackMe en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Modbus/ScriptsTryHackMe/Instalar.sh | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Modbus/ScriptsTryHackMe/Instalar.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Modbus/ScriptsTryHackMe/Instalar.sh | sed 's-sudo--g' | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Modbus/ScriptsTryHackMe/Instalar.sh | sed 's-sudo--g' | bash
 #
 # Ejecución remota sin caché:
-#   curl -sL -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Modbus/ScriptsTryHackMe/Instalar.sh | bash
+#   curl -sL -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Modbus/ScriptsTryHackMe/Instalar.sh | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Modbus/ScriptsTryHackMe/Instalar.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Modbus/ScriptsTryHackMe/Instalar.sh | nano -
 # ----------
 
 # Crear la carpeta HackingTools
