@@ -14,6 +14,9 @@
 # Ejecución remota como root (para sistemas sin sudo):
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/EnHashes-WeakPass-Instalar.sh | sed 's-sudo--g' | bash
 #
+# Ejecución remota como root indicando diferentes carpetas (para sistemas sin sudo):
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/EnHashes-WeakPass-Instalar.sh | sed 's-sudo--g' | bash -s "/WordLists/tmp" "/WordLists"
+#
 # Bajar y editar directamente el archivo en nano
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/EnHashes-WeakPass-Instalar.sh | nano -
 # ----------
