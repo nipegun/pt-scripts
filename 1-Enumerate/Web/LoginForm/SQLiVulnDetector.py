@@ -9,10 +9,10 @@
 # Script de NiPeGun para usar error-based SQLi para dumpear una base de datos de una URL específica
 #
 # Ejecución remota con parámetros:
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Web/LoginForm/SQLiVulnDetector.py | python3 - --utl [URLaComprobar] --userfield ["username"] --passfield ["password"]
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Web/LoginForm/SQLiVulnDetector.py | python3 - --utl [URLaComprobar] --userfield ["username"] --passfield ["password"]
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Web/LoginForm/SQLiVulnDetector.py | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Web/LoginForm/SQLiVulnDetector.py | nano -
 # ----------
 
 # Requisitos: # python3 -m pip install --user x --break-system-packages
