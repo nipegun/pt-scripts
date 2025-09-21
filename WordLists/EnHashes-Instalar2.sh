@@ -129,8 +129,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-RockYou/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/rockyou.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-RockYou/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/rockyou.txt.md5.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/rockyou.txt.md5.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass RockYou MD5...${cFinColor}"
@@ -156,8 +158,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-RockYou/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/rockyou.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-RockYou/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/rockyou.txt.ntlm.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/rockyou.txt.ntlm.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass RockYou NTLM...${cFinColor}"
@@ -183,8 +187,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-RockYou/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/rockyou.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-RockYou/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/rockyou.txt.sha1.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/rockyou.txt.sha1.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass RockYou SHA1...${cFinColor}"
@@ -210,8 +216,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-RockYou/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/rockyou.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-RockYou/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/rockyou.txt.sha256.ntlm.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/rockyou.txt.sha256.ntlm.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass RockYou SHA256 NTLM...${cFinColor}"
@@ -237,8 +245,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-RockYou/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/rockyou.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-RockYou/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/rockyou.txt.sha256.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/rockyou.txt.sha256.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass RockYou SHA256...${cFinColor}"
@@ -264,8 +274,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Latin/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.latin.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Latin/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4.latin.txt.md5.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4.latin.txt.md5.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Latin MD5...${cFinColor}"
@@ -291,8 +303,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Latin/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.latin.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Latin/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4.latin.txt.ntlm.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4.latin.txt.ntlm.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Latin NTLM...${cFinColor}"
@@ -318,8 +332,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Latin/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.latin.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Latin/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4.latin.txt.sha1.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4.latin.txt.sha1.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Latin SHA1...${cFinColor}"
@@ -345,8 +361,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Latin/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Latin/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.ntlm.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.ntlm.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Latin SHA256 NTLM...${cFinColor}"
@@ -372,8 +390,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Latin/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Latin/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Latin SHA256...${cFinColor}"
@@ -399,8 +419,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Merged/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.merged.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Merged/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4.merged.txt.md5.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4.merged.txt.md5.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Merged MD5...${cFinColor}"
@@ -426,8 +448,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Merged/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.merged.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Merged/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4.merged.txt.ntlm.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4.merged.txt.ntlm.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Merged NTLM...${cFinColor}"
@@ -453,8 +477,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Merged/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.merged.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Merged/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4.merged.txt.sha1.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4.merged.txt.sha1.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Merged SHA1...${cFinColor}"
@@ -480,8 +506,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Merged/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Merged/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.ntlm.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.ntlm.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Merged SHA256 NTLM...${cFinColor}"
@@ -507,8 +535,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Merged/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Merged/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Merged SHA256...${cFinColor}"
@@ -534,8 +564,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Policy/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.policy.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Policy/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4.policy.txt.md5.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4.policy.txt.md5.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Policy MD5...${cFinColor}"
@@ -561,8 +593,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Policy/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.policy.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Policy/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4.policy.txt.ntlm.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4.policy.txt.ntlm.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Policy NTLM...${cFinColor}"
@@ -588,8 +622,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Policy/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.policy.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Policy/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4.policy.txt.sha1.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4.policy.txt.sha1.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Policy SHA1...${cFinColor}"
@@ -615,8 +651,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Policy/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Policy/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.ntlm.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.ntlm.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Policy SHA256 NTLM...${cFinColor}"
@@ -642,8 +680,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Policy/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Policy/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4 Policy SHA256...${cFinColor}"
@@ -669,8 +709,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4aLatin/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4a.latin.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4aLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4a.latin.txt.md5.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4a.latin.txt.md5.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Latin MD5...${cFinColor}"
@@ -696,8 +738,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4aLatin/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4a.latin.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4aLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4a.latin.txt.ntlm.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4a.latin.txt.ntlm.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Latin NTLM...${cFinColor}"
@@ -723,8 +767,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4aLatin/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4aLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha1.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha1.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Latin SHA1...${cFinColor}"
@@ -750,8 +796,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4aLatin/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4aLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.ntlm.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.ntlm.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Latin SHA256 NTLM...${cFinColor}"
@@ -777,8 +825,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4aLatin/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4aLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Latin SHA256...${cFinColor}"
@@ -804,8 +854,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4aPolicy/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4a.policy.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4aPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4a.policy.txt.md5.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4a.policy.txt.md5.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Policy MD5...${cFinColor}"
@@ -831,8 +883,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4aPolicy/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4a.policy.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4aPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4a.policy.txt.ntlm.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4a.policy.txt.ntlm.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Policy NTLM...${cFinColor}"
@@ -858,8 +912,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4aPolicy/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4aPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha1.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha1.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Policy SHA1...${cFinColor}"
@@ -885,8 +941,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4aPolicy/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4aPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.ntlm.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.ntlm.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Policy SHA256 NTLM...${cFinColor}"
@@ -912,8 +970,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4aPolicy/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4aPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass 4a Policy SHA256...${cFinColor}"
@@ -939,8 +999,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-AiOPolicy/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/all_in_one.policy.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-AiOPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/all_in_one.policy.txt.md5.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/all_in_one.policy.txt.md5.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass All in One Policy MD5...${cFinColor}"
@@ -966,8 +1028,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-AiOPolicy/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/all_in_one.policy.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-AiOPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/all_in_one.policy.txt.ntlm.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/all_in_one.policy.txt.ntlm.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass All in One Policy NTLM...${cFinColor}"
@@ -993,8 +1057,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-AiOPolicy/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/all_in_one.policy.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-AiOPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/all_in_one.policy.txt.sha1.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/all_in_one.policy.txt.sha1.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass All in One Policy SHA1...${cFinColor}"
@@ -1020,8 +1086,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-AiOLatin/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/all_in_one.latin.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-AiOLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/all_in_one.latin.txt.ntlm.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/all_in_one.latin.txt.ntlm.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass All in One Latin NTLM...${cFinColor}"
@@ -1047,8 +1115,10 @@
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-AiOLatin/ 2> /dev/null
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/all_in_one.latin.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-AiOLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
-                   # Borrar el archivo comprimido recién descomprimido
-                     rm -vf "$vCarpetaTemporal"/all_in_one.latin.txt.md5.txt.7z
+                    # Renombar el archivo de wordlist a su nombre final
+                      
+                    # Borrar el archivo comprimido recién descomprimido
+                      rm -vf "$vCarpetaTemporal"/all_in_one.latin.txt.md5.txt.7z
                 else
                   echo ""
                   echo -e "${cColorRojo}    La carpeta $vCarpetaTemporal no tiene espacio disponible para descargar la WordList WeakPass All in One Latin MD5...${cFinColor}"
