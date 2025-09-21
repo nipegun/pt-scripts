@@ -9,16 +9,16 @@
 # Script de NiPeGun para instalar la máxima cantidad posible de WordLists en texto plano en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/EnHashes-WeakPass-Instalar.sh | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/EnHashes-Instalar.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/EnHashes-WeakPass-Instalar.sh | sed 's-sudo--g' | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/EnHashes-Instalar.sh | sed 's-sudo--g' | bash
 #
 # Ejecución remota como root indicando diferentes carpetas (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/EnHashes-WeakPass-Instalar.sh | sed 's-sudo--g' | bash -s "/WordLists/tmp" "/WordLists"
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/EnHashes-Instalar.sh | sed 's-sudo--g' | bash -s "/WordLists/tmp" "/WordLists"
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/EnHashes-WeakPass-Instalar.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/WordLists/EnHashes-Instalar.sh | nano -
 # ----------
 
 # Definir cual va a ser la carpeta temporal
