@@ -130,7 +130,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/rockyou.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-RockYou/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-RockYou/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/rockyou.txt.md5.txt.7z
                 else
@@ -159,7 +159,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/rockyou.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-RockYou/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-RockYou/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/rockyou.txt.ntlm.txt.7z
                 else
@@ -188,7 +188,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/rockyou.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-RockYou/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-RockYou/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/rockyou.txt.sha1.txt.7z
                 else
@@ -217,7 +217,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/rockyou.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-RockYou/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-RockYou/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/rockyou.txt.sha256.ntlm.txt.7z
                 else
@@ -246,7 +246,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/rockyou.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-RockYou/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-RockYou/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/rockyou.txt.sha256.txt.7z
                 else
@@ -275,7 +275,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.latin.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Latin/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Latin/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4.latin.txt.md5.txt.7z
                 else
@@ -304,7 +304,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.latin.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Latin/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Latin/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4.latin.txt.ntlm.txt.7z
                 else
@@ -333,7 +333,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.latin.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Latin/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Latin/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4.latin.txt.sha1.txt.7z
                 else
@@ -362,7 +362,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Latin/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Latin/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.ntlm.txt.7z
                 else
@@ -391,7 +391,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Latin/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Latin/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.txt.7z
                 else
@@ -420,7 +420,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.merged.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Merged/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Merged/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4.merged.txt.md5.txt.7z
                 else
@@ -449,7 +449,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.merged.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Merged/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Merged/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4.merged.txt.ntlm.txt.7z
                 else
@@ -478,7 +478,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.merged.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Merged/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Merged/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4.merged.txt.sha1.txt.7z
                 else
@@ -507,7 +507,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Merged/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Merged/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.ntlm.txt.7z
                 else
@@ -536,7 +536,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Merged/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Merged/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.txt.7z
                 else
@@ -565,7 +565,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.policy.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Policy/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Policy/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4.policy.txt.md5.txt.7z
                 else
@@ -594,7 +594,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.policy.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Policy/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Policy/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4.policy.txt.ntlm.txt.7z
                 else
@@ -623,7 +623,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.policy.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Policy/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Policy/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4.policy.txt.sha1.txt.7z
                 else
@@ -652,7 +652,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Policy/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Policy/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.ntlm.txt.7z
                 else
@@ -681,7 +681,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Policy/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Policy/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.txt.7z
                 else
@@ -710,7 +710,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4a.latin.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4aLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4aLatin/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4a.latin.txt.md5.txt.7z
                 else
@@ -739,7 +739,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4a.latin.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4aLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4aLatin/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4a.latin.txt.ntlm.txt.7z
                 else
@@ -768,7 +768,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4aLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4aLatin/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha1.txt.7z
                 else
@@ -797,7 +797,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4aLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4aLatin/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.ntlm.txt.7z
                 else
@@ -826,7 +826,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4aLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4aLatin/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.txt.7z
                 else
@@ -855,7 +855,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4a.policy.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4aPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4aPolicy/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4a.policy.txt.md5.txt.7z
                 else
@@ -884,7 +884,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4a.policy.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4aPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4aPolicy/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4a.policy.txt.ntlm.txt.7z
                 else
@@ -913,7 +913,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4aPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4aPolicy/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha1.txt.7z
                 else
@@ -942,7 +942,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4aPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4aPolicy/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.ntlm.txt.7z
                 else
@@ -971,7 +971,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4aPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4aPolicy/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.txt.7z
                 else
@@ -1000,7 +1000,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/all_in_one.policy.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-AiOPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-AiOPolicy/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/all_in_one.policy.txt.md5.txt.7z
                 else
@@ -1029,7 +1029,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/all_in_one.policy.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-AiOPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-AiOPolicy/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/all_in_one.policy.txt.ntlm.txt.7z
                 else
@@ -1058,7 +1058,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/all_in_one.policy.txt.sha1.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-AiOPolicy/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-AiOPolicy/
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/all_in_one.policy.txt.sha1.txt.7z
                 else
@@ -1087,7 +1087,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/all_in_one.latin.txt.ntlm.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-AiOLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-AiOLatin/x
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/all_in_one.latin.txt.ntlm.txt.7z
                 else
@@ -1116,7 +1116,7 @@
                     # Descomprimir
                       7z x "$vCarpetaTemporal"/all_in_one.latin.txt.md5.txt.7z -o"$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-AiOLatin/ # No hay que dejar espacio entre -o y la ruta del directorio
                     # Renombar el archivo de wordlist a su nombre final
-                      
+                      mv -vf "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-AiOLatin/x
                     # Borrar el archivo comprimido recién descomprimido
                       rm -vf "$vCarpetaTemporal"/all_in_one.latin.txt.md5.txt.7z
                 else
