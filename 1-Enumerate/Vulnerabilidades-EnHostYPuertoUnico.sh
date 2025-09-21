@@ -9,13 +9,13 @@
 # Script de NiPeGun para escanear vulnerabilidades con nmap en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Vulnerabilidades-EnHostYPuertoUnico.sh | bash -s "192.168.1.0/24" "80"
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Enumerate/Vulnerabilidades-EnHostYPuertoUnico.sh | bash -s "192.168.1.0/24" "80"
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Vulnerabilidades-EnHostYPuertoUnico.sh | sed 's-sudo--g' | bash -s "192.168.1.3"
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Enumerate/Vulnerabilidades-EnHostYPuertoUnico.sh | sed 's-sudo--g' | bash -s "192.168.1.3"
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Vulnerabilidades-EnHostYPuertoUnico.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Enumerate/Vulnerabilidades-EnHostYPuertoUnico.sh | nano -
 # ----------
 
 vIPoSubred="$1"
