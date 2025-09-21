@@ -126,6 +126,8 @@
                     sudo rm -f "$vCarpetaTemporal"/rockyou.txt.md5.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/rockyou.txt.md5.txt.7z -o "$vCarpetaTemporal"/rockyou.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-RockYou/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-RockYou/ 2> /dev/null
                     # Descomprimir
@@ -149,6 +151,8 @@
                     sudo rm -f "$vCarpetaTemporal"/rockyou.txt.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/rockyou.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/rockyou.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-RockYou/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-RockYou/ 2> /dev/null
                     # Descomprimir
@@ -172,6 +176,8 @@
                     sudo rm -f "$vCarpetaTemporal"/rockyou.txt.sha1.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/rockyou.txt.sha1.txt.7z -o "$vCarpetaTemporal"/rockyou.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-RockYou/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-RockYou/ 2> /dev/null
                     # Descomprimir
@@ -195,6 +201,8 @@
                     sudo rm -f "$vCarpetaTemporal"/rockyou.txt.sha256.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/rockyou.txt.sha256.ntlm.txt.7z -o "$vCarpetaTemporal"/rockyou.txt.sha256.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-RockYou/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-RockYou/ 2> /dev/null
                     # Descomprimir
@@ -218,6 +226,8 @@
                     sudo rm -f "$vCarpetaTemporal"/rockyou.txt.sha256.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/rockyou.txt.sha256.txt.7z -o "$vCarpetaTemporal"/rockyou.txt.sha256.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-RockYou/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-RockYou/ 2> /dev/null
                     # Descomprimir
@@ -241,6 +251,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4.latin.txt.md5.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.md5.txt.7z -o "$vCarpetaTemporal"/weakpass_4.latin.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Latin/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Latin/ 2> /dev/null
                     # Descomprimir
@@ -264,6 +276,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4.latin.txt.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4.latin.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Latin/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Latin/ 2> /dev/null
                     # Descomprimir
@@ -287,6 +301,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4.latin.txt.sha1.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.sha1.txt.7z -o "$vCarpetaTemporal"/weakpass_4.latin.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Latin/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Latin/ 2> /dev/null
                     # Descomprimir
@@ -310,6 +326,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.sha256.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Latin/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Latin/ 2> /dev/null
                     # Descomprimir
@@ -333,6 +351,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.sha256.txt.7z -o "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Latin/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Latin/ 2> /dev/null
                     # Descomprimir
@@ -356,6 +376,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4.merged.txt.md5.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.md5.txt.7z -o "$vCarpetaTemporal"/weakpass_4.merged.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Merged/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Merged/ 2> /dev/null
                     # Descomprimir
@@ -379,6 +401,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4.merged.txt.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4.merged.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Merged/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Merged/ 2> /dev/null
                     # Descomprimir
@@ -402,6 +426,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4.merged.txt.sha1.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.sha1.txt.7z -o "$vCarpetaTemporal"/weakpass_4.merged.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Merged/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Merged/ 2> /dev/null
                     # Descomprimir
@@ -425,6 +451,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.sha256.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Merged/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Merged/ 2> /dev/null
                     # Descomprimir
@@ -448,6 +476,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.sha256.txt.7z -o "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Merged/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Merged/ 2> /dev/null
                     # Descomprimir
@@ -471,6 +501,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4.policy.txt.md5.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.md5.txt.7z -o "$vCarpetaTemporal"/weakpass_4.policy.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Policy/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4Policy/ 2> /dev/null
                     # Descomprimir
@@ -494,6 +526,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4.policy.txt.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4.policy.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Policy/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4Policy/ 2> /dev/null
                     # Descomprimir
@@ -517,6 +551,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4.policy.txt.sha1.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.sha1.txt.7z -o "$vCarpetaTemporal"/weakpass_4.policy.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Policy/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4Policy/ 2> /dev/null
                     # Descomprimir
@@ -540,6 +576,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.sha256.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Policy/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4Policy/ 2> /dev/null
                     # Descomprimir
@@ -563,6 +601,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.sha256.txt.7z -o "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Policy/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4Policy/ 2> /dev/null
                     # Descomprimir
@@ -586,6 +626,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4a.latin.txt.md5.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.md5.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.latin.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4aLatin/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4aLatin/ 2> /dev/null
                     # Descomprimir
@@ -609,6 +651,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4a.latin.txt.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.latin.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4aLatin/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4aLatin/ 2> /dev/null
                     # Descomprimir
@@ -632,6 +676,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha1.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.sha1.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4aLatin/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4aLatin/ 2> /dev/null
                     # Descomprimir
@@ -655,6 +701,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.sha256.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4aLatin/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4aLatin/ 2> /dev/null
                     # Descomprimir
@@ -678,6 +726,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.sha256.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4aLatin/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4aLatin/ 2> /dev/null
                     # Descomprimir
@@ -701,6 +751,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4a.policy.txt.md5.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.md5.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.policy.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4aPolicy/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-4aPolicy/ 2> /dev/null
                     # Descomprimir
@@ -724,6 +776,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4a.policy.txt.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.policy.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4aPolicy/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-4aPolicy/ 2> /dev/null
                     # Descomprimir
@@ -747,6 +801,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha1.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.sha1.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4aPolicy/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-4aPolicy/ 2> /dev/null
                     # Descomprimir
@@ -770,6 +826,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.sha256.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4aPolicy/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256NTLM/WeakPass-4aPolicy/ 2> /dev/null
                     # Descomprimir
@@ -793,6 +851,8 @@
                     sudo rm -f "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.sha256.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4aPolicy/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA256/WeakPass-4aPolicy/ 2> /dev/null
                     # Descomprimir
@@ -816,6 +876,8 @@
                     sudo rm -f "$vCarpetaTemporal"/all_in_one.policy.txt.md5.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/all_in_one.policy.txt.md5.txt.7z -o "$vCarpetaTemporal"/all_in_one.policy.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-AiOPolicy/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-AiOPolicy/ 2> /dev/null
                     # Descomprimir
@@ -839,6 +901,8 @@
                     sudo rm -f "$vCarpetaTemporal"/all_in_one.policy.txt.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/all_in_one.policy.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/all_in_one.policy.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-AiOPolicy/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-AiOPolicy/ 2> /dev/null
                     # Descomprimir
@@ -862,6 +926,8 @@
                     sudo rm -f "$vCarpetaTemporal"/all_in_one.policy.txt.sha1.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/all_in_one.policy.txt.sha1.txt.7z -o "$vCarpetaTemporal"/all_in_one.policy.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-AiOPolicy/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/SHA1/WeakPass-AiOPolicy/ 2> /dev/null
                     # Descomprimir
@@ -885,6 +951,8 @@
                     sudo rm -f "$vCarpetaTemporal"/all_in_one.latin.txt.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/all_in_one.latin.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/all_in_one.latin.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-AiOLatin/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/NTLM/WeakPass-AiOLatin/ 2> /dev/null
                     # Descomprimir
@@ -908,6 +976,8 @@
                     sudo rm -f "$vCarpetaTemporal"/all_in_one.latin.txt.md5.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/all_in_one.latin.txt.md5.txt.7z -o "$vCarpetaTemporal"/all_in_one.latin.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
+                    # Borrar la carpeta existente
+                      rm -rf "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-AiOLatin/ 2> /dev/null
                     # Asegurarse de que la carpeta final exista
                       mkdir -p "$vCarpetaDeWordLists"/EnHashes/MD5/WeakPass-AiOLatin/ 2> /dev/null
                     # Descomprimir
