@@ -123,6 +123,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 0.3; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/rockyou.txt.md5.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/rockyou.txt.md5.txt.7z -o "$vCarpetaTemporal"/rockyou.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -145,6 +146,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 0.3; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/rockyou.txt.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/rockyou.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/rockyou.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -167,6 +169,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 0.4; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/rockyou.txt.sha1.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/rockyou.txt.sha1.txt.7z -o "$vCarpetaTemporal"/rockyou.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -189,6 +192,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 0.6; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/rockyou.txt.sha256.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/rockyou.txt.sha256.ntlm.txt.7z -o "$vCarpetaTemporal"/rockyou.txt.sha256.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -211,6 +215,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 0.6; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/rockyou.txt.sha256.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/rockyou.txt.sha256.txt.7z -o "$vCarpetaTemporal"/rockyou.txt.sha256.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -233,6 +238,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 89; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4.latin.txt.md5.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.md5.txt.7z -o "$vCarpetaTemporal"/weakpass_4.latin.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -255,6 +261,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 89; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4.latin.txt.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4.latin.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -277,6 +284,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 105; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4.latin.txt.sha1.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.sha1.txt.7z -o "$vCarpetaTemporal"/weakpass_4.latin.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -299,6 +307,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 153; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.sha256.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -321,6 +330,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 153; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.latin.txt.sha256.txt.7z -o "$vCarpetaTemporal"/weakpass_4.latin.txt.sha256.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -343,6 +353,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 148; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4.merged.txt.md5.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.md5.txt.7z -o "$vCarpetaTemporal"/weakpass_4.merged.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -365,6 +376,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 148; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4.merged.txt.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4.merged.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -387,6 +399,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 175; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4.merged.txt.sha1.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.sha1.txt.7z -o "$vCarpetaTemporal"/weakpass_4.merged.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -409,6 +422,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 255; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.sha256.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -431,6 +445,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 255; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.merged.txt.sha256.txt.7z -o "$vCarpetaTemporal"/weakpass_4.merged.txt.sha256.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -453,6 +468,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 14; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4.policy.txt.md5.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.md5.txt.7z -o "$vCarpetaTemporal"/weakpass_4.policy.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -475,6 +491,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 14; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4.policy.txt.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4.policy.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -497,6 +514,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 16; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4.policy.txt.sha1.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.sha1.txt.7z -o "$vCarpetaTemporal"/weakpass_4.policy.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -519,6 +537,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 23; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.sha256.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -541,6 +560,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 23; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4.policy.txt.sha256.txt.7z -o "$vCarpetaTemporal"/weakpass_4.policy.txt.sha256.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -563,6 +583,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 335; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4a.latin.txt.md5.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.md5.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.latin.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -585,6 +606,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 335; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4a.latin.txt.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.latin.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -607,6 +629,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 396; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha1.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.sha1.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -629,6 +652,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 590; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.sha256.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -651,6 +675,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 590; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.latin.txt.sha256.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.latin.txt.sha256.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -673,6 +698,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 73; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4a.policy.txt.md5.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.md5.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.policy.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -695,6 +721,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 73; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4a.policy.txt.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.policy.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -717,6 +744,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 86; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha1.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.sha1.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -739,6 +767,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 125; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.sha256.ntlm.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -761,6 +790,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 125; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/weakpass_4a.policy.txt.sha256.txt.7z -o "$vCarpetaTemporal"/weakpass_4a.policy.txt.sha256.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -783,6 +813,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 153; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/all_in_one.policy.txt.md5.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/all_in_one.policy.txt.md5.txt.7z -o "$vCarpetaTemporal"/all_in_one.policy.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -805,6 +836,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 153; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/all_in_one.policy.txt.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/all_in_one.policy.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/all_in_one.policy.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -827,6 +859,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 182; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/all_in_one.policy.txt.sha1.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/all_in_one.policy.txt.sha1.txt.7z -o "$vCarpetaTemporal"/all_in_one.policy.txt.sha1.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -849,6 +882,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 563; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/all_in_one.latin.txt.ntlm.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/all_in_one.latin.txt.ntlm.txt.7z -o "$vCarpetaTemporal"/all_in_one.latin.txt.ntlm.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
@@ -871,6 +905,7 @@
               # Calcular espacio libre disponible antes de instalar la WordList
                 if fCalcularEspacioLibre 563; then
                   # Descargar archivo comprimido
+                    sudo rm -f "$vCarpetaTemporal"/all_in_one.latin.txt.md5.txt.7z 2> /dev/null
                     curl -L https://weakpass.com/pre-computed/download/all_in_one.latin.txt.md5.txt.7z -o "$vCarpetaTemporal"/all_in_one.latin.txt.md5.txt.7z
                   # Descomprimir archivo hacia la ubicación final
                     # Asegurarse de que la carpeta final exista
