@@ -10,16 +10,16 @@
 # Script de NiPeGun para escanear un PLC usando python-snap7 v1
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/S7Comm/Snap7v1-ScanPLC.py | python3 - [IPDelPLC]
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Enumerate/S7Comm/Snap7v1-ScanPLC.py | python3 - [IPDelPLC]
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/S7Comm/Snap7v1-ScanPLC.py | sed 's-sudo--g' | python3 - [IPDelPLC]
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Enumerate/S7Comm/Snap7v1-ScanPLC.py | sed 's-sudo--g' | python3 - [IPDelPLC]
 #
 # Ejecución remota con parámetros:
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/S7Comm/Snap7v1-ScanPLC.py | python3 - [IPDelPLC]
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Enumerate/S7Comm/Snap7v1-ScanPLC.py | python3 - [IPDelPLC]
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/S7Comm/Snap7v1-ScanPLC.py | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Enumerate/S7Comm/Snap7v1-ScanPLC.py | nano -
 # ----------
 
 
