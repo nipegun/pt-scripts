@@ -62,12 +62,12 @@
 # Crear el menú
   menu=(dialog --checklist "Marca las WordLists EnHashes que quieras instalar:" 22 80 16)
     opciones=(
-      1 "WeakPass RockYou SHA256   (1,1 GB descomprimido)" off
-      2 "WeakPass 4 Latin SHA256   (155 GB descomprimido)" off
-      3 "WeakPass 4 Merged SHA256  (260 GB descomprimido)" off
-      4 "WeakPass 4 Policy SHA256  (23 GB descomprimido)" off
-      5 "WeakPass 4a Latin SHA256  (590 GB descomprimido)" off
-      6 "WeakPass 4a Policy SHA256 (125 GB descomprimido)" off
+      1 "WeakPass RockYou SHA256   (  1,1 GB descomprimido)" off
+      2 "WeakPass 4 Latin SHA256   (155,0 GB descomprimido)" off
+      3 "WeakPass 4 Merged SHA256  (260,0 GB descomprimido)" off
+      4 "WeakPass 4 Policy SHA256  ( 23,0 GB descomprimido)" off
+      5 "WeakPass 4a Latin SHA256  (590,0 GB descomprimido)" off
+      6 "WeakPass 4a Policy SHA256 (125,0 GB descomprimido)" off
     )
     choices=$("${menu[@]}" "${opciones[@]}" 2>&1 >/dev/tty)
 
