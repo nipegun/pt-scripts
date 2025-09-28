@@ -26,7 +26,8 @@ def fAsegurarseDirectorioLogs():
   try:
     os.makedirs(cLogDir, exist_ok=True)
   except Exception as e:
-    print(f"[!] No se pudo crear '{cLogDir}': {e}")
+    # si no se puede crear el directorio, salimos (esto es siempre útil)
+    print(f"[!] No se pudo crear '{cLogDir}': {e}", file=sys.stderr)
     sys.exit(1)
 
 def fRutaLog(vNombre):
@@ -47,7 +48,9 @@ def fGuardarSinLineasVacias(vRuta, vContenido):
 def fEjecutarComandoYGuardar(vComando, vVerbose=False):
   """
   Ejecuta un comando usando /bin/bash y guarda automáticamente el comando y su salida
-  en la carpeta definida en cLogDir. Las notificaciones de archivos guardados solo se muestran si vVerbose=True.
+  en la carpeta definida en cLogDir.
+  - Si vVerbose=True: muestra toda la info (rutas, códigos, etc).
+  - Si vVerbose=False: SOLO imprime el comando (como línea) y la salida real.
   """
   fAsegurarseDirectorioLogs()
   vArchivoEntrada = fGenerarNombreArchivo("in")
@@ -58,14 +61,20 @@ def fEjecutarComandoYGuardar(vComando, vVerbose=False):
   vOutput = ""
 
   try:
-    # Guardar el comando en el archivo de entrada
+    # Guardar el comando en el archivo de entrada (siempre)
     fGuardarSinLineasVacias(vRutaEntrada, vComando)
 
     if vVerbose:
       print(f"[INFO] Comando guardado en: {vRutaEntrada}")
-
-    print(f"[INFO] Ejecutando con bash: {vComando}\n")
-    print("-" * 50)
+      print(f"[INFO] Ejecutando con bash: {vComando}")
+      # salto de línea adicional tras indicar qué comando se ejecutará
+      print()
+      print("-" * 50)
+    else:
+      # en modo silencioso solo mostramos la línea con el comando (sin prefijos)
+      print(vComando)
+      # salto de línea adicional tras indicar qué comando se ejecutará
+      print()
 
     # Ejecutar el comando usando /bin/bash explícitamente
     vProceso = subprocess.Popen(
@@ -79,8 +88,12 @@ def fEjecutarComandoYGuardar(vComando, vVerbose=False):
 
     # Leer y mostrar la salida en tiempo real
     for vLinea in vProceso.stdout:
+      # mostramos tal cual la salida (sin filtrar en pantalla)
       print(vLinea, end='')
       vOutput += vLinea
+
+    # Añadir un salto de línea extra al final de la salida correspondiente a este comando
+    print()
 
     # Esperar a que termine el proceso
     vProceso.wait()
@@ -92,11 +105,10 @@ def fEjecutarComandoYGuardar(vComando, vVerbose=False):
       print("\n" + "-" * 50)
       print(f"[INFO] Salida guardada en: {vRutaSalida}")
       print(f"[INFO] Comando finalizado con código: {vProceso.returncode}")
-    else:
-      print(f"\n[ERROR] Comando finalizado con código: {vProceso.returncode}")
+    # en modo no-verbose no imprimimos código de salida ni mensajes extra
 
   except KeyboardInterrupt:
-    print("\n[!] Ejecución interrumpida por el usuario")
+    # en caso de Ctrl+C, guardamos parcial y avisamos por stderr (mínimo)
     try:
       if vProceso and vProceso.poll() is None:
         vProceso.terminate()
@@ -107,24 +119,25 @@ def fEjecutarComandoYGuardar(vComando, vVerbose=False):
           vProceso.wait()
     except Exception:
       pass
-    # Guardar lo que se haya ejecutado hasta ahora
     try:
       fGuardarSinLineasVacias(vRutaSalida, vOutput)
       if vVerbose:
         print(f"[+] Salida parcial guardada en: {vRutaSalida}")
+      else:
+        # en modo silencioso, solo indicar interrupción por stderr
+        print("\n[!] Ejecución interrumpida por el usuario", file=sys.stderr)
     except Exception as e:
-      if vVerbose:
-        print(f"[!] No se pudo guardar la salida parcial: {e}")
+      print(f"[!] No se pudo guardar la salida parcial: {e}", file=sys.stderr)
 
   except Exception as e:
-    print(f"[!] Error al ejecutar el comando: {e}")
-    # Intentar guardar lo que haya en vOutput
+    # guardamos lo que haya y mostramos el error mínimo por stderr
     try:
       fGuardarSinLineasVacias(vRutaSalida, vOutput)
       if vVerbose:
         print(f"[+] Salida parcial guardada en: {vRutaSalida}")
     except Exception:
       pass
+    print(f"[!] Error al ejecutar el comando: {e}", file=sys.stderr)
 
 def fMain():
   vParser = argparse.ArgumentParser(
