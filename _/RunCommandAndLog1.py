@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 
 # Ejecución remota
-#  curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/_/RunCommandAndLog.py | python3 - "nmap localhost -p-"
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/_/RunCommandAndLog.py | python3 - "ComandoAEjecutar"
+#
+#   Por ejemplo:
+#     curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/_/RunCommandAndLog.py | python3 - "nmap localhost -p-"
 #
 # Visualización posterior:
 #  find logs/ -type f -print | sort | while read vArchivo; do cat "$vArchivo" && echo -e "\n";  done
