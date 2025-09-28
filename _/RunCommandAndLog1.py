@@ -7,8 +7,8 @@
 #     curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/_/RunCommandAndLog.py | python3 - "nmap localhost -p-"
 #
 # Visualización posterior:
-#  find logs/ -type f -print | sort | while read vArchivo; do cat "$vArchivo" && echo -e "\n";  done
-# find logs/ -type f -print | sort | while read vArchivo; do cat "$vArchivo" && echo -e "\n";  done | sed 's-SF:--g' | sed 's-\\x20- -g' | sed 's/\\r/\r/g' | sed 's-\\n-\n-g'
+#   find logs/ -type f -print | sort | while read vArchivo; do cat "$vArchivo" && echo -e "\n";  done
+#   find logs/ -type f -print | sort | while read vArchivo; do cat "$vArchivo" && echo -e "\n";  done | sed 's-SF:--g' | sed 's-\\x20- -g' | sed 's/\\r/\r/g' | sed 's-\\n-\n-g'
 
 import subprocess
 import sys
