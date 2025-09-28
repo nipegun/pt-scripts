@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
 
+# Ejecución remota
+#  curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/_/RunCommandAndLog.py | python3 - "nmap localhost -p-"
+#
+# Visualización posterior:
+#  find logs/ -type f -print | sort | while read vArchivo; do cat "$vArchivo" && echo -e "\n";  done
+
 import subprocess
 import sys
 import argparse
@@ -56,9 +62,9 @@ def fEjecutarComandoYGuardar(vComando, vVerbose=False):
     fGuardarSinLineasVacias(vRutaEntrada, vComando)
 
     if vVerbose:
-      print(f"[+] Comando guardado en: {vRutaEntrada}")
+      print(f"[INFO] Comando guardado en: {vRutaEntrada}")
 
-    print(f"[+] Ejecutando (forzando /bin/bash): {vComando}\n")
+    print(f"[INFO] Ejecutando con bash: {vComando}\n")
     print("-" * 50)
 
     # Ejecutar el comando usando /bin/bash explícitamente
@@ -84,10 +90,10 @@ def fEjecutarComandoYGuardar(vComando, vVerbose=False):
 
     if vVerbose:
       print("\n" + "-" * 50)
-      print(f"[+] Salida guardada en: {vRutaSalida}")
-      print(f"[+] Comando finalizado con código: {vProceso.returncode}")
+      print(f"[INFO] Salida guardada en: {vRutaSalida}")
+      print(f"[INFO] Comando finalizado con código: {vProceso.returncode}")
     else:
-      print(f"\n[+] Comando finalizado con código: {vProceso.returncode}")
+      print(f"\n[ERROR] Comando finalizado con código: {vProceso.returncode}")
 
   except KeyboardInterrupt:
     print("\n[!] Ejecución interrumpida por el usuario")
