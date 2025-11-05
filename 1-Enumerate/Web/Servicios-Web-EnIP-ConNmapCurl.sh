@@ -4,7 +4,7 @@
 # Script de NiPeGun para buscar servicios web en una subred o host
 #
 # Ejecución remota con parámetros:
-#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Web/Servicios-Web-EnIP-ConNmapCurl.sh | bash -s "localhost"
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Web/Servicios-Web-EnIP-ConNmapCurl.sh | bash -s 'localhost'
 #
 # Bajar y editar directamente el archivo en nano
 #   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Web/Servicios-Web-EnIP-ConNmapCurl.sh | nano -
