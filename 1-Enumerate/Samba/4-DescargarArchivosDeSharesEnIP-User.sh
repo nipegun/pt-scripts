@@ -9,13 +9,13 @@
 # Script de NiPeGun para descargar los archivos de los shares encontrados con el script de listar shares
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Enumerate/Samba-4-DescargarArchivosDeSharesEnIP-User.sh | bash -s 'IPServSamba' 'Usuario' 'Password'
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Samba/4-DescargarArchivosDeSharesEnIP-User.sh | bash -s 'IPServSamba' 'Usuario' 'Password'
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Enumerate/Samba-4-DescargarArchivosDeSharesEnIP-User.sh | sed 's-sudo--g' | bash -s 'IPServSamba' 'Usuario' 'Password'
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Samba/4-DescargarArchivosDeSharesEnIP-User.sh | sed 's-sudo--g' | bash -s 'IPServSamba' 'Usuario' 'Password'
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Enumerate/Samba-4-DescargarArchivosDeSharesEnIP-User.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Samba/4-DescargarArchivosDeSharesEnIP-User.sh | nano -
 # ----------
 
 # Definir constantes de color
