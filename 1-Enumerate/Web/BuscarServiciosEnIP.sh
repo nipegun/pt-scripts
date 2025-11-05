@@ -9,10 +9,10 @@
 # Script de NiPeGun para buscar servicios web en una subred o host
 #
 # Ejecución remota con parámetros:
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Enumerate/Web-BuscarServiciosEnIP.sh | bash -s "localhost"
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Web/BuscarServiciosEnIP.sh | bash -s "localhost"
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Enumerate/Web-BuscarServiciosEnIP.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Web/BuscarServiciosEnIP.sh | nano -
 # ----------
 
 # Definir constantes de color
