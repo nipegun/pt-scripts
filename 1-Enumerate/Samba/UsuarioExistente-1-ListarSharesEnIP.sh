@@ -9,13 +9,13 @@
 # Script de NiPeGun para listar los shares de un servidor samba sabiendo su IP y conociendo un usuario existente
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Enumerate/Samba-UsuarioExistente-1-ListarSharesEnIP.sh | bash -s 'IPServSamba' 'UsuarioExistente' 'Contraseña'
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Samba/UsuarioExistente-1-ListarSharesEnIP.sh | bash -s 'IPServSamba' 'UsuarioExistente' 'Contraseña'
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Enumerate/Samba-UsuarioExistente-1-ListarSharesEnIP.sh | sed 's-sudo--g' | bash -s 'IPServSamba' 'UsuarioExistente' 'Contraseña'
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Samba/UsuarioExistente-1-ListarSharesEnIP.sh | sed 's-sudo--g' | bash -s 'IPServSamba' 'UsuarioExistente' 'Contraseña'
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Enumerate/Samba-UsuarioExistente-1-ListarSharesEnIP.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Samba/UsuarioExistente-1-ListarSharesEnIP.sh | nano -
 # ----------
 
 # Definir constantes de color
