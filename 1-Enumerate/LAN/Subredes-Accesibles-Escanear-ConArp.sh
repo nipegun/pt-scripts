@@ -48,7 +48,7 @@
     fi
   while read vRed; do
     echo "    Lanzando arp-scan a $vRed..."
-    sudo rm -f /tmp/DispositivosDetectados.txt
-    sudo arp-scan -q --retry=3 "$vRed" | grep ^[0-9] | grep -v 'packets dropped' | sort -V | uniq | sudo tee /tmp/DispositivosDetectados.txt
+    sudo rm -f /tmp/DispositivosDetectados.txt " /dev/null
+    sudo arp-scan -q --retry=3 "$vRed" | grep ^[0-9] | grep -v 'packets dropped' | sort -V | uniq | tee /tmp/DispositivosDetectados.txt
     echo
   done < /tmp/SubredesAccesibles.txt
