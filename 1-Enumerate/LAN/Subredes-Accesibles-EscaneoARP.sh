@@ -9,13 +9,13 @@
 # Script de NiPeGun para listar los dispositivos conectados a todas las subredes accesibles
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Dispositivos-EnSubredesAccesibles-Listar.sh | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Subredes-Accesibles-EscaneoARP.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Dispositivos-EnSubredesAccesibles-Listar.sh | sed 's-sudo--g' | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Subredes-Accesibles-EscaneoARP.sh | sed 's-sudo--g' | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Dispositivos-EnSubredesAccesibles-Listar.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Subredes-Accesibles-EscaneoARP.sh | nano -
 # ----------
 
 # Notificar inicio de ejecución del script
@@ -34,7 +34,7 @@
   fi
 
 # Guardar subredes acdcesibles en un archivo
-  curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Subredes-Accesibles-Listar.sh | sudo bash -s -- -depth 3 -quiet | sort -n | uniq | grep ^[0-9] > /tmp/subredesAccesibles.txt
+  curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Subredes-Accesibles-Listar.sh | sudo bash -s -- -depth 3 -quiet | sort -n | uniq | grep ^[0-9] > /tmp/SubredesAccesibles.txt
 
 # Escanear dispositivos en las subredes detectadas
   # Comprobar si el paquete arp-scan está instalado. Si no lo está, instalarlo.
@@ -51,4 +51,4 @@
     sudo rm -f /tmp/DispositivosDetectados.txt
     sudo arp-scan -q --retry=3 "$vRed" | grep ^[0-9] | grep -v 'packets dropped' | sort -V | uniq | sudo tee /tmp/DispositivosDetectados.txt
     echo
-  done < /tmp/subredesAccesibles.txt
+  done < /tmp/SubredesAccesibles.txt
