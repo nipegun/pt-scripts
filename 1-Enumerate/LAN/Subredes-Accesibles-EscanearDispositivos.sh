@@ -37,4 +37,4 @@
   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Subredes-Accesibles-Listar.sh | sudo bash -s -- -depth 3 -quiet | sort -n | uniq | grep ^[0-9] > /tmp/SubredesAccesibles.txt
 
 # Escanear subredes detectadas
-  cat /tmp/SubredesAccesibles.txt | awk '{print $1}' | xargs -n1 rustscan -g --ulimit 5000 -a
+  cat /tmp/SubredesAccesibles.txt | awk '{print $1}' | xargs -n1 rustscan --accessible -g --ulimit 5000 -a
