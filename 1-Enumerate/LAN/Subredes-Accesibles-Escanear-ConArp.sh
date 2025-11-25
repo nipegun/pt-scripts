@@ -9,13 +9,13 @@
 # Script de NiPeGun para listar los dispositivos conectados a todas las subredes accesibles
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Subredes-Accesibles-EscaneoARP.sh | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Subredes-Accesibles-Escanear-ConArp.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Subredes-Accesibles-EscaneoARP.sh | sed 's-sudo--g' | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Subredes-Accesibles-Escanear-ConArp.sh | sed 's-sudo--g' | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Subredes-Accesibles-EscaneoARP.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Subredes-Accesibles-Escanear-ConArp.sh | nano -
 # ----------
 
 # Notificar inicio de ejecución del script
