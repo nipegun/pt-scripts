@@ -32,7 +32,7 @@ fi
   fCalcularIPs() {
     local NETWORK=$(echo "$SUBNET" | cut -d'/' -f1)
     local PREFIX=$(echo "$SUBNET" | cut -d'/' -f2)
-    
+    https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Web/Servicios-Web-EnIP-ConNmapCurl.sh
     # Convertir IP a entero
     IFS=. read -r i1 i2 i3 i4 <<< "$NETWORK"
     local BASE_IP=$(( (i1 << 24) + (i2 << 16) + (i3 << 8) + i4 ))
@@ -55,5 +55,5 @@ fi
 
 # Mandar a escanear cada una de las IPs
   for IP in "${IPS_ARRAY[@]}"; do
-    curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Reconnaissance/Servicios-Web-EnIP-ConNmapCurl.sh | bash -s "$IP"
+    curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Web/Servicios-Web-EnIP-ConNmapCurl.sh | bash -s "$IP"
   done
