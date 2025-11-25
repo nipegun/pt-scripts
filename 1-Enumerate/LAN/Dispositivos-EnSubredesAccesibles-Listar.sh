@@ -18,6 +18,11 @@
 #   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Dispositivos-EnSubredesAccesibles-Listar.sh | nano -
 # ----------
 
+# Notificar inicio de ejecución del script
+  echo ""
+  echo "  Iniciando el script de detección de dispositivos conectados a las subredes accesibles..."
+  echo ""
+
 # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
   if [[ $(dpkg-query -s curl 2>/dev/null | grep installed) == "" ]]; then
     echo ""
@@ -42,7 +47,7 @@
       echo ""
     fi
   while read vRed; do
-    echo "Escaneando $vRed..."
+    echo "    Lanzando arp-scan a $vRed..."
     sudo rm -f /tmp/DispositivosDetectados.txt
     sudo arp-scan -q --retry=3 "$vRed" | grep ^[0-9] | grep -v 'packets dropped' | sort -V | uniq | sudo tee /tmp/DispositivosDetectados.txt
     echo
