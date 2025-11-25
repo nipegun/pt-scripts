@@ -21,7 +21,7 @@ if [ -z "$1" ]; then
   echo "Ejemplo: $0 192.168.1.0/24"
   exit 1
 fi
-
+ 
 # Guardar el parámetro pasado en una variable
   SUBNET="$1"
 
