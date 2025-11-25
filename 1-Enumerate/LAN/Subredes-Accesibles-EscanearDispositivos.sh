@@ -9,13 +9,13 @@
 # Script de NiPeGun para escanear las subredes accesibles en busca de dispositivos
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Dispositivos-EnSubredesAccesibles-Listar.sh | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Subredes-Accesibles-EscanearDispositivos.sh | bash
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Dispositivos-EnSubredesAccesibles-Listar.sh | sed 's-sudo--g' | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Subredes-Accesibles-EscanearDispositivos.sh | sed 's-sudo--g' | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Dispositivos-EnSubredesAccesibles-Listar.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Subredes-Accesibles-EscanearDispositivos.sh | nano -
 # ----------
 
 # Notificar inicio de ejecución del script
@@ -37,4 +37,4 @@
   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Subredes-Accesibles-Listar.sh | sudo bash -s -- -depth 3 -quiet | sort -n | uniq | grep ^[0-9] > /tmp/SubredesAccesibles.txt
 
 # Escanear subredes detectadas
-  cat /tmp/subredesAccesibles.txt | awk '{print $1}' | xargs -n1 rustscan -g --ulimit 5000 -a
+  cat /tmp/SubredesAccesibles.txt | awk '{print $1}' | xargs -n1 rustscan -g --ulimit 5000 -a
