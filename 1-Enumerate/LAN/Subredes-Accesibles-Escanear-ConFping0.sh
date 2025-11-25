@@ -47,4 +47,4 @@
       echo ""
     fi
   # Escanear
-    cat /tmp/SubredesAccesibles.txt | awk '{print $1}' | xargs -n1 sudo fping -a -g 
+    cat /tmp/SubredesAccesibles.txt | awk '{print $1}' | xargs -n1 fping -a -g 2>/dev/null
