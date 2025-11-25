@@ -8,11 +8,14 @@
 # ----------
 # Script de NiPeGun para listar los dispositivos conectados a todas las subredes accesibles
 #
-# Ejecución remota con parámetros:
-#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Subredes-Accesibles-Listar.sh | sudo bash -s -- -depth 1
+# Ejecución remota (puede requerir permisos sudo):
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Dispositivos-EnSubredesAccesibles-Listar.sh | bash
+#
+# Ejecución remota como root (para sistemas sin sudo):
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Dispositivos-EnSubredesAccesibles-Listar.sh | sed 's-sudo--g' | bash
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Enumerate/Docker-Servicios-ALaEscucha-Listar.sh | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Dispositivos-EnSubredesAccesibles-Listar.sh | nano -
 # ----------
 
 # Comprobar si el paquete curl está instalado. Si no lo está, instalarlo.
