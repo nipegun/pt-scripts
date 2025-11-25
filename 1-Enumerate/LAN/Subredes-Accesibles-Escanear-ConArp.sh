@@ -34,6 +34,7 @@
   fi
 
 # Guardar subredes acdcesibles en un archivo
+  sudo rm -f /tmp/SubredesAccesibles.txt 2> /dev/null
   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Subredes-Accesibles-Listar.sh | sudo bash -s -- -depth 3 -quiet | sort -n | uniq | grep ^[0-9] > /tmp/SubredesAccesibles.txt
 
 # Escanear dispositivos en las subredes detectadas
