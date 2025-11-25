@@ -14,7 +14,7 @@
 # Bajar y editar directamente el archivo en nano
 #   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Web/Servicios-Web-EnSubred.sh | nano -
 # ----------
-
+ 
 # Verificar si se pasó un argumento
 if [ -z "$1" ]; then
   echo "Uso: $0 <subred en formato CIDR>"
