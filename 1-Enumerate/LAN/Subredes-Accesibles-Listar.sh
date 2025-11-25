@@ -1,9 +1,20 @@
 #!/bin/bash
 
-#===============================================================================
-# Script: Descubrimiento Avanzado de Redes Privadas Accesibles
-# Estrategia: Técnicas pasivas + activas avanzadas
-#===============================================================================
+# Pongo a disposición pública este script bajo el término de "software de dominio público".
+# Puedes hacer lo que quieras con él porque es libre de verdad; no libre con condiciones como las licencias GNU y otras patrañas similares.
+# Si se te llena la boca hablando de libertad entonces hazlo realmente libre.
+# No tienes que aceptar ningún tipo de términos de uso o licencia para utilizarlo o modificarlo porque va sin CopyLeft.
+
+# ----------
+# Script de NiPeGun para listar las posibles subredes accesibles desde la subred en la que se ejecuta el script
+#
+# Ejecución remota con parámetros:
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Subredes-Accesibles-Listar.sh | sudo bash -s -- -depth 1
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/LAN/Subredes-Accesibles-Listar.sh | sudo bash -s -- -depth 3 -quiet
+#
+# Bajar y editar directamente el archivo en nano
+#   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Enumerate/Docker-Servicios-ALaEscucha-Listar.sh | nano -
+# ----------
 
 set -euo pipefail
 
@@ -876,7 +887,8 @@ function fConsolidarResultados() {
   [ "$vModoQuiet" -eq 0 ] && echo
   local vContador=1
   while IFS='|' read -r vRed vFuentes; do
-    echo "SubRed${vContador}: $vRed"
+    #echo "SubRed${vContador}: $vRed"
+    echo "$vRed"
     vContador=$((vContador + 1))
   done < "$vTmpDir/agrupado.txt"
 }
