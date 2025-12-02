@@ -6,6 +6,11 @@ Si bien están pensados para ser ejecutados en Debian es probable que puedan ser
 
 ## INSTALACIÓN
 
+```
+mkdir $HOME/HackingTools/ 2> /dev/null
+cd $HOME/HackingTools/
+git clone --depth 1 https://github.com/nipegun/pt-scripts.git
+```
 Para instalar los pt-scripts en la ubicación aconsejada sigue las instrucciones de este artículo: http://hacks4geeks.com/pt-scripts
 
 ## ACLARACIÓN!!
