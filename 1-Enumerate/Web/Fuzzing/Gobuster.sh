@@ -9,19 +9,13 @@
 # Script de NiPeGun para instalar y configurar xxxxxxxxx en Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL x | bash
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Web/Fuzzing/Gobuster-Fuzzear-Web.sh | bash -s [Protocolo] [IP] [Puerto] [WordList] [ExcludeLenght]
 #
 # Ejecución remota como root (para sistemas sin sudo):
-#   curl -sL x | sed 's-sudo--g' | bash
-#
-# Ejecución remota sin caché:
-#   curl -sL -H 'Cache-Control: no-cache, no-store' x | bash
-#
-# Ejecución remota con parámetros:
-#   curl -sL x | bash -s Parámetro1 Parámetro2
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Web/Fuzzing/Gobuster-Fuzzear-Web.sh | sed 's-sudo--g' | bash -s [Protocolo] [IP] [Puerto] [WordList] [ExcludeLenght]
 #
 # Bajar y editar directamente el archivo en nano
-#   curl -sL x | nano -
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Web/Fuzzing/Gobuster-Fuzzear-Web.sh | nano -
 # ----------
 
 vProtocolo="${1:-http}"
