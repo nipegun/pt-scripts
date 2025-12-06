@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+
+# Luego para visualizar
+# vlc rtsp://192.168.10.109:554/mpeg4
+
 import subprocess
 import sys
 
