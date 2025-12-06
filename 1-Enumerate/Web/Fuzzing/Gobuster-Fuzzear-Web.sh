@@ -11,7 +11,7 @@
 # Ejecución remota (puede requerir permisos sudo):
 #   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Web/Fuzzing/Gobuster-Fuzzear-Web.sh | bash -s [Protocolo] [IP] [Puerto] [WordList] [ExcludeLenght]
 #   Ejemplo:
-#     curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Web/Fuzzing/Gobuster-Fuzzear-Web.sh | bash -s https 127.0.0.1 10000 ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/american-english-huge.txt 4563
+#     curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Web/Fuzzing/Gobuster-Fuzzear-Web.sh | bash -s https 127.0.0.1 10000 ~/HackingTools/WordLists/EnTextoPlano/Packs/Debian/american-english-small.txt 4563
 #
 # Ejecución remota como root (para sistemas sin sudo):
 #   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Web/Fuzzing/Gobuster-Fuzzear-Web.sh | sed 's-sudo--g' | bash -s [Protocolo] [IP] [Puerto] [WordList] [ExcludeLenght]
