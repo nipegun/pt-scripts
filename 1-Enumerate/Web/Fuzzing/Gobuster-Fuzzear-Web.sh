@@ -6,7 +6,7 @@
 # No tienes que aceptar ningún tipo de términos de uso o licencia para utilizarlo o modificarlo porque va sin CopyLeft.
 
 # ----------
-# Script de NiPeGun para instalar y configurar xxxxxxxxx en Debian
+# Script de NiPeGun para escanear posibles directorios en una wbe usando Debian
 #
 # Ejecución remota (puede requerir permisos sudo):
 #   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/Web/Fuzzing/Gobuster-Fuzzear-Web.sh | bash -s [Protocolo] [IP] [Puerto] [WordList] [ExcludeLenght]
