@@ -463,10 +463,16 @@ function fDeteccionSnmp() {
 
   > "$vTmpDir/snmp_redes.txt"
 
-  if ! type snmpwalk &>/dev/null; then
-    fLogInfo "      → snmpwalk no disponible, omitiendo"
-    return
-  fi
+  # Comprobar si el comando snmpwalk está disponible. Si no lo está, instalar el paquete que lo tiene 
+    if ! type snmpwalk &>/dev/null; then
+      fLogInfo "      → snmpwalk no disponible, instalando paquete snmp..."
+      sudo apt-get -y update
+      sudo apt-get -y install snmp
+      if ! type snmpwalk &>/dev/null; then
+        fLogInfo "      → Error: snmpwalk sigue sin estar disponible, omitiendo"
+        return
+      fi
+    fi
 
   {
     cat "$vTmpDir"/*.txt 2>/dev/null | \
