@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Ejecución remota:
+#  curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/3-Elevate/CheckPriv.sh | bash
+
 fPermisosSuid() {
 
   echo -e "\nBuscando binarios con bit setuid..."
