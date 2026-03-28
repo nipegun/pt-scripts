@@ -9,13 +9,13 @@
 # Script de NiPeGun para x
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/SSH/TestUsernames.py | python3 - 'HostRemoto'
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/SSH/TestUsernames.py | python3 - HostRemoto
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/SSH/TestUsernames.py | python3 - 'HostRemoto' -p 2222 -u admin
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/SSH/TestUsernames.py | python3 - HostRemoto -p 2222 -u admin
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/SSH/TestUsernames.py | python3 - 'HostRemoto' -p 2222 -w UsernamesWordList.txt -t 8
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/SSH/TestUsernames.py | python3 - HostRemoto -p 2222 -w UsernamesWordList.txt -t 8
 #
 # Bajar y editar directamente el archivo en nano
 #   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/SSH/TestUsernames.py | nano -
