@@ -1,5 +1,21 @@
 #!/usr/bin/env -S PYTHONDONTWRITEBYTECODE=1 python3
 
+# Pongo a disposición pública este script bajo el término de "software de dominio público".
+# Puedes hacer lo que quieras con él porque es libre de verdad; no libre con condiciones como las licencias GNU y otras patrañas similares.
+# Si se te llena la boca hablando de libertad entonces hazlo realmente libre.
+# No tienes que aceptar ningún tipo de términos de uso o licencia para utilizarlo o modificarlo porque va sin CopyLeft.
+
+# ----------
+# Script de NiPeGun para x
+#
+# Ejecución remota (puede requerir permisos sudo):
+#   curl -sL https://raw.githubusercontent.com/nipegun/d-scripts/refs/heads/master/InstDeSoftware/_/Python-BloqueInicialParaInstalarDependencias.py | python3 - "Cadena"
+#
+# Bajar y editar directamente el archivo en nano
+#   curl -sL https://raw.githubusercontent.com/nipegun/d-scripts/refs/heads/master/InstDeSoftware/_/Python-BloqueInicialParaInstalarDependencias.py | nano -
+# ----------
+
+
 # ------ Inicio del bloque de instalación de dependencias de paquetes python ------
 
 # Definir los paquetes python que necesita este script siguiendo la convención de ciccionario: nombre_del_modulo -> nombre_paquete_pip (para casos donde difieren)
