@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # Pongo a disposición pública este script bajo el término de "software de dominio público".
 # Puedes hacer lo que quieras con él porque es libre de verdad; no libre con condiciones como las licencias GNU y otras patrañas similares.
@@ -18,8 +19,6 @@
 # Bajar y editar directamente el archivo en nano
 #   curl -sL https://raw.githubusercontent.com/nipegun/dh-scripts/refs/heads/main/1-Enumerate/Docker-Servicios-ALaEscucha-Listar.sh | nano -
 # ----------
-
-set -euo pipefail
 
 vSalidaPantalla=1
 vArchivoSalida=""
