@@ -1,7 +1,7 @@
 #!/usr/bin/env -S PYTHONDONTWRITEBYTECODE=1 python3
 
 # Ejecución remota:
-#   curl -sL 
+#   curl -sL https://raw.githubusercontent.com/nipegun/pt-scripts/refs/heads/main/3-Elevate/CopyFail.py | python3
 
 import os as g
 import zlib
